@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DSZ-Wd-tKJ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-Sukar Bold.ttf">
+            <string>Sukar-Bold</string>
+        </array>
+        <array key="Cairo.ttf">
+            <string>Cairo</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Splash Controller-->
+        <scene sceneID="wZb-ac-RNo">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcy-VC-MDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="sbBlue" id="Owi-TJ-4Lk" customClass="SplashController" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8KW-2T-Hdl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yd8-D8-psv">
+                                <rect key="frame" x="20" y="84" width="374" height="282"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 242" translatesAutoresizingMaskIntoConstraints="NO" id="e5I-Ax-JGn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="282"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="282" id="hir-Gy-zov"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="e5I-Ax-JGn" firstAttribute="leading" secondItem="yd8-D8-psv" secondAttribute="leading" id="06z-GV-9j5"/>
+                                    <constraint firstAttribute="trailing" secondItem="e5I-Ax-JGn" secondAttribute="trailing" id="fvc-6S-ril"/>
+                                    <constraint firstItem="e5I-Ax-JGn" firstAttribute="top" secondItem="yd8-D8-psv" secondAttribute="top" id="g0Y-Xb-1nV"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q6I-sw-8SZ">
+                                <rect key="frame" x="16" y="390" width="382" height="29.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان قصير من ٤ كلمات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVh-Hv-lRI">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29.670000000000002" id="Onc-kh-Kiq"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8Q-iC-fVu" customClass="RoundedButton" customModule="D2020" customModuleProvider="target">
+                                <rect key="frame" x="20" y="781" width="374" height="61"/>
+                                <color key="backgroundColor" name="OrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="Mo0-FX-mr3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="19"/>
+                                <state key="normal" title="تسجيل الدخول">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IT2-vP-Xki">
+                                <rect key="frame" x="338" y="44" width="56" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="skip &gt;&gt;">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaN-mT-aCr">
+                                <rect key="frame" x="20" y="427.5" width="374" height="59.5"/>
+                                <string key="text">وصف بسيط للعنوان او الميزة الي موجودة بالطبيق يرجى ان تكون جملتين او ثلاث كحد أقصى حتى لا يشعر القارئ بالملل
+</string>
+                                <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="17"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RpP-Ih-MaJ"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RpP-Ih-MaJ" firstAttribute="trailing" secondItem="q6I-sw-8SZ" secondAttribute="trailing" constant="16" id="2LA-vm-aL4"/>
+                            <constraint firstItem="kaN-mT-aCr" firstAttribute="leading" secondItem="RpP-Ih-MaJ" secondAttribute="leading" constant="20" id="3CG-Ts-WJP"/>
+                            <constraint firstItem="q6I-sw-8SZ" firstAttribute="leading" secondItem="RpP-Ih-MaJ" secondAttribute="leading" constant="16" id="3wA-0G-bVn"/>
+                            <constraint firstItem="yd8-D8-psv" firstAttribute="leading" secondItem="RpP-Ih-MaJ" secondAttribute="leading" constant="20" id="Ey3-AD-afv"/>
+                            <constraint firstItem="yd8-D8-psv" firstAttribute="top" secondItem="RpP-Ih-MaJ" secondAttribute="top" constant="40" id="GoH-9y-MS1"/>
+                            <constraint firstItem="n8Q-iC-fVu" firstAttribute="leading" secondItem="RpP-Ih-MaJ" secondAttribute="leading" constant="20" id="Gp4-Zn-VBm"/>
+                            <constraint firstItem="IT2-vP-Xki" firstAttribute="top" secondItem="RpP-Ih-MaJ" secondAttribute="top" id="Ig4-ex-cjr"/>
+                            <constraint firstItem="RpP-Ih-MaJ" firstAttribute="trailing" secondItem="n8Q-iC-fVu" secondAttribute="trailing" constant="20" id="KCq-lj-i8f"/>
+                            <constraint firstItem="RpP-Ih-MaJ" firstAttribute="trailing" secondItem="yd8-D8-psv" secondAttribute="trailing" constant="20" id="QNz-Em-t5Z"/>
+                            <constraint firstItem="RpP-Ih-MaJ" firstAttribute="trailing" secondItem="IT2-vP-Xki" secondAttribute="trailing" constant="20" id="QSZ-3g-eKn"/>
+                            <constraint firstItem="kaN-mT-aCr" firstAttribute="top" secondItem="q6I-sw-8SZ" secondAttribute="bottom" constant="8" id="dMe-eN-tWy"/>
+                            <constraint firstItem="q6I-sw-8SZ" firstAttribute="top" secondItem="yd8-D8-psv" secondAttribute="bottom" constant="24" id="jMe-0P-buE"/>
+                            <constraint firstItem="RpP-Ih-MaJ" firstAttribute="trailing" secondItem="kaN-mT-aCr" secondAttribute="trailing" constant="20" id="oSb-lI-ayu"/>
+                            <constraint firstItem="RpP-Ih-MaJ" firstAttribute="bottom" secondItem="n8Q-iC-fVu" secondAttribute="bottom" constant="20" id="vWc-Qv-LhU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sWg-zj-ukl"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="6339" y="91"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="rww-ME-o7h">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YVa-Ir-Qq7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="DSZ-Wd-tKJ" customClass="PageViewController" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Gcu-9N-B2l"/>
+                </pageViewController>
+            </objects>
+            <point key="canvasLocation" x="5599" y="90"/>
+        </scene>
+        <!--Second Splash Controller-->
+        <scene sceneID="Ijz-tB-thB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vkY-qu-bal" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="sbRed" id="SVL-kE-I1E" customClass="SecondSplashController" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LF9-3y-LBe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSi-hH-AXE" customClass="RoundedButton" customModule="D2020" customModuleProvider="target">
+                                <rect key="frame" x="20" y="815" width="374" height="61"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.62352941179999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="Z7Z-4K-leQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="19"/>
+                                <state key="normal" title="تسجيل الدخول">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeforunboardin" translatesAutoresizingMaskIntoConstraints="NO" id="zYv-Lu-p12">
+                                <rect key="frame" x="20" y="79" width="374" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="8in-x1-uEA"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UeO-m8-4gd">
+                                <rect key="frame" x="92" y="449.5" width="233" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="MWp-PB-xlb"/>
+                                </constraints>
+                                <string key="text">وصف بسيط للعنوان او الميزة الي موجودة بالطبيق يرجى ان تكون جملتين او ثلاث كحد أقصى حتى لا يشعر القارئ بالملل
+</string>
+                                <color key="textColor" name="textColor"/>
+                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان قصير من 4 كلمات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Den-sE-7Tm">
+                                <rect key="frame" x="17" y="415" width="382" height="26"/>
+                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TJ-LI-0th">
+                                <rect key="frame" x="338" y="44" width="56" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="skip &gt;&gt;">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="faf-bl-uy7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iSi-hH-AXE" firstAttribute="leading" secondItem="faf-bl-uy7" secondAttribute="leading" constant="20" id="0um-h5-Fbd"/>
+                            <constraint firstItem="Den-sE-7Tm" firstAttribute="top" secondItem="zYv-Lu-p12" secondAttribute="bottom" constant="36" id="4n1-AF-lIt"/>
+                            <constraint firstItem="faf-bl-uy7" firstAttribute="trailing" secondItem="9TJ-LI-0th" secondAttribute="trailing" constant="20" id="7MR-bL-aJw"/>
+                            <constraint firstItem="9TJ-LI-0th" firstAttribute="top" secondItem="faf-bl-uy7" secondAttribute="top" id="B0f-SF-1OL"/>
+                            <constraint firstItem="zYv-Lu-p12" firstAttribute="leading" secondItem="faf-bl-uy7" secondAttribute="leading" constant="20" id="Gxn-RP-bHI"/>
+                            <constraint firstItem="Den-sE-7Tm" firstAttribute="leading" secondItem="faf-bl-uy7" secondAttribute="leading" constant="17" id="PaF-e8-cXN"/>
+                            <constraint firstItem="faf-bl-uy7" firstAttribute="trailing" secondItem="iSi-hH-AXE" secondAttribute="trailing" constant="20" id="TCq-Gq-g3M"/>
+                            <constraint firstItem="faf-bl-uy7" firstAttribute="trailing" secondItem="zYv-Lu-p12" secondAttribute="trailing" constant="20" id="TgS-ft-UrZ"/>
+                            <constraint firstItem="faf-bl-uy7" firstAttribute="trailing" secondItem="Den-sE-7Tm" secondAttribute="trailing" constant="15" id="Y0b-WR-rDr"/>
+                            <constraint firstItem="faf-bl-uy7" firstAttribute="trailing" secondItem="UeO-m8-4gd" secondAttribute="trailing" constant="89" id="dsb-uu-2Y4"/>
+                            <constraint firstItem="UeO-m8-4gd" firstAttribute="leading" secondItem="faf-bl-uy7" secondAttribute="leading" constant="92" id="gVj-n6-WUi"/>
+                            <constraint firstItem="UeO-m8-4gd" firstAttribute="top" secondItem="Den-sE-7Tm" secondAttribute="bottom" constant="8.3300000000000001" id="lBA-K7-2qE"/>
+                            <constraint firstAttribute="bottom" secondItem="iSi-hH-AXE" secondAttribute="bottom" constant="20" id="nNR-me-xgS"/>
+                            <constraint firstItem="zYv-Lu-p12" firstAttribute="top" secondItem="faf-bl-uy7" secondAttribute="top" constant="35" id="ouL-8Z-RBB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1kD-ie-Efg"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="7038" y="90"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Group 242" width="320" height="282"/>
+        <image name="welcomeforunboardin" width="800" height="500"/>
+        <namedColor name="OrangeColor">
+            <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.4779999852180481" green="0.4779999852180481" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

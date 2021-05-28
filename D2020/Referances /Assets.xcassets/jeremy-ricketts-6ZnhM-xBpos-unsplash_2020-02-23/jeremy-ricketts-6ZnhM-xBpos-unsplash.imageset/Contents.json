@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "jeremy-ricketts-6ZnhM-xBpos-unsplash.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "jeremy-ricketts-6ZnhM-xBpos-unsplash@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GV3-F3-LU9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GV3-F3-LU9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-1.ttf">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
             <string>Cairo-SemiBold</string>
         </array>
         <array key="ArbFONTS-Sukar Bold.ttf">
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaN-mT-aCr">
-                                <rect key="frame" x="20" y="427.5" width="374" height="56.5"/>
+                                <rect key="frame" x="20" y="427.5" width="374" height="59.5"/>
                                 <string key="text">وصف بسيط للعنوان او الميزة الي موجودة بالطبيق يرجى ان تكون جملتين او ثلاث كحد أقصى حتى لا يشعر القارئ بالملل
 </string>
                                 <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="17"/>
@@ -478,13 +478,12 @@
                                                 <rect key="frame" x="0.0" y="170" width="414" height="672"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dGN-oo-6aI">
-                                                        <rect key="frame" x="23" y="358.5" width="367" height="68"/>
+                                                        <rect key="frame" x="23" y="366.5" width="367" height="68"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zts-Ge-USa" customClass="RoundedButton" customModule="D2020" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="182" height="68"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="181" height="68"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="182" id="S6g-XI-Fok"/>
                                                                     <constraint firstAttribute="height" constant="68" id="Skh-TC-JXf"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="14"/>
@@ -493,10 +492,9 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ad4-HI-XPh" customClass="RoundedButton" customModule="D2020" customModuleProvider="target">
-                                                                <rect key="frame" x="187" y="0.0" width="180" height="68"/>
+                                                                <rect key="frame" x="186" y="0.0" width="181" height="68"/>
                                                                 <color key="backgroundColor" red="0.23545509580000001" green="0.3239672482" blue="0.54904580120000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="180" id="7PJ-1b-fe7"/>
                                                                     <constraint firstAttribute="height" constant="68" id="sPw-8Q-dnD"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="14"/>
@@ -505,19 +503,22 @@
                                                                 </state>
                                                             </button>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="ad4-HI-XPh" firstAttribute="width" secondItem="zts-Ge-USa" secondAttribute="width" id="Ka7-wa-OB2"/>
+                                                        </constraints>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Union 3" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-Cq-OCs" customClass="RoundedImageView" customModule="D2020" customModuleProvider="target">
-                                                        <rect key="frame" x="346" y="376.5" width="34" height="32"/>
+                                                        <rect key="frame" x="346" y="388.5" width="24" height="24"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="32" id="5jd-0K-WAc"/>
-                                                            <constraint firstAttribute="width" constant="34" id="kAx-gR-hYg"/>
+                                                            <constraint firstAttribute="height" constant="24" id="5jd-0K-WAc"/>
+                                                            <constraint firstAttribute="width" constant="24" id="kAx-gR-hYg"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="xd1-Ps-0fy">
-                                                        <rect key="frame" x="142" y="371.5" width="40" height="43"/>
+                                                        <rect key="frame" x="157" y="388.5" width="24" height="24"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="40" id="Tvr-gi-xF7"/>
-                                                            <constraint firstAttribute="height" constant="43" id="Tw4-Ii-Ftz"/>
+                                                            <constraint firstAttribute="width" constant="24" id="Tvr-gi-xF7"/>
+                                                            <constraint firstAttribute="height" constant="24" id="Tw4-Ii-Ftz"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x41-bf-pML" customClass="RoundedButton" customModule="D2020" customModuleProvider="target">
@@ -527,7 +528,7 @@
                                                         <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="17"/>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4L4-17-An6">
-                                                        <rect key="frame" x="24" y="426.5" width="366" height="23"/>
+                                                        <rect key="frame" x="24" y="458.5" width="366" height="23"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sw-Dz-Mqg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="23"/>
@@ -573,7 +574,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="onSigninButtonTapped:" destination="cM7-P6-5CK" eventType="touchUpInside" id="McT-jv-43r"/>
+                                                            <action selector="onSigninButtonTapped:" destination="cM7-P6-5CK" eventType="touchUpInside" id="ZHM-zk-pHP"/>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnL-TU-Mme" customClass="RoundedShadowView" customModule="D2020" customModuleProvider="target">
@@ -608,7 +609,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ACZ-Y8-T5N">
-                                                        <rect key="frame" x="16" y="323.5" width="382" height="27"/>
+                                                        <rect key="frame" x="16" y="327.5" width="382" height="27"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="او عن طريق" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPA-zs-3aU">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="27"/>
@@ -731,28 +732,27 @@
                                                 <constraints>
                                                     <constraint firstItem="E4d-hs-dsh" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="16" id="2r7-mn-1ls"/>
                                                     <constraint firstItem="IEC-0y-GJS" firstAttribute="top" secondItem="7f7-OB-QE1" secondAttribute="bottom" id="9Fp-V7-K7Y"/>
+                                                    <constraint firstItem="vVe-Cq-OCs" firstAttribute="centerY" secondItem="ad4-HI-XPh" secondAttribute="centerY" id="9eQ-4j-cco"/>
                                                     <constraint firstAttribute="trailing" secondItem="ACZ-Y8-T5N" secondAttribute="trailing" constant="16" id="BpC-rX-C28"/>
                                                     <constraint firstItem="dGN-oo-6aI" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="23" id="E43-do-ird"/>
                                                     <constraint firstAttribute="trailing" secondItem="4L4-17-An6" secondAttribute="trailing" constant="24" id="EO9-S7-3ct"/>
                                                     <constraint firstAttribute="trailing" secondItem="E4d-hs-dsh" secondAttribute="trailing" constant="16" id="H5G-Oc-zKa"/>
                                                     <constraint firstItem="vVe-Cq-OCs" firstAttribute="leading" secondItem="ad4-HI-XPh" secondAttribute="trailing" constant="-44" id="Jo2-l2-0Wn"/>
-                                                    <constraint firstItem="ACZ-Y8-T5N" firstAttribute="top" secondItem="WnL-TU-Mme" secondAttribute="bottom" constant="8" id="MbY-Dc-LIz"/>
-                                                    <constraint firstItem="vVe-Cq-OCs" firstAttribute="top" secondItem="jPA-zs-3aU" secondAttribute="bottom" constant="26" id="Ora-SE-rl8"/>
+                                                    <constraint firstItem="ACZ-Y8-T5N" firstAttribute="top" secondItem="WnL-TU-Mme" secondAttribute="bottom" constant="12" id="MbY-Dc-LIz"/>
                                                     <constraint firstItem="7f7-OB-QE1" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="16" id="RYc-Kw-UIR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="vVe-Cq-OCs" secondAttribute="trailing" constant="34" id="YdC-us-Boa"/>
                                                     <constraint firstItem="4L4-17-An6" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="24" id="bV9-kb-eWQ"/>
                                                     <constraint firstItem="E4d-hs-dsh" firstAttribute="top" secondItem="IEC-0y-GJS" secondAttribute="bottom" constant="4" id="cPu-0l-U1v"/>
                                                     <constraint firstItem="7f7-OB-QE1" firstAttribute="top" secondItem="ldQ-iN-D9V" secondAttribute="top" constant="8" id="eWG-cB-Wu6"/>
                                                     <constraint firstAttribute="trailing" secondItem="dGN-oo-6aI" secondAttribute="trailing" constant="24" id="hUG-Dq-qKR"/>
-                                                    <constraint firstItem="4L4-17-An6" firstAttribute="firstBaseline" secondItem="dGN-oo-6aI" secondAttribute="baseline" constant="50" id="hhk-TZ-5cj"/>
-                                                    <constraint firstItem="xd1-Ps-0fy" firstAttribute="top" secondItem="zts-Ge-USa" secondAttribute="top" constant="13" id="iTI-nh-o9v"/>
+                                                    <constraint firstItem="xd1-Ps-0fy" firstAttribute="centerY" secondItem="zts-Ge-USa" secondAttribute="centerY" id="ijh-VQ-5yA"/>
                                                     <constraint firstItem="IEC-0y-GJS" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="16" id="jog-fe-o1x"/>
                                                     <constraint firstItem="xd1-Ps-0fy" firstAttribute="trailing" secondItem="zts-Ge-USa" secondAttribute="trailing" constant="-23" id="kPc-d1-OK7"/>
+                                                    <constraint firstItem="4L4-17-An6" firstAttribute="top" secondItem="dGN-oo-6aI" secondAttribute="bottom" constant="24" id="mFO-P6-avF"/>
                                                     <constraint firstItem="ACZ-Y8-T5N" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="16" id="p7i-Kn-hyl"/>
                                                     <constraint firstItem="WnL-TU-Mme" firstAttribute="leading" secondItem="ldQ-iN-D9V" secondAttribute="leading" constant="16" id="tKp-iv-2Ca"/>
                                                     <constraint firstAttribute="trailing" secondItem="WnL-TU-Mme" secondAttribute="trailing" constant="16" id="u39-Hs-b2h"/>
                                                     <constraint firstAttribute="trailing" secondItem="IEC-0y-GJS" secondAttribute="trailing" constant="16" id="v1N-jA-fZz"/>
-                                                    <constraint firstItem="dGN-oo-6aI" firstAttribute="top" secondItem="ACZ-Y8-T5N" secondAttribute="bottom" constant="8" id="x8g-oD-SfD"/>
+                                                    <constraint firstItem="dGN-oo-6aI" firstAttribute="top" secondItem="ACZ-Y8-T5N" secondAttribute="bottom" constant="12" id="x8g-oD-SfD"/>
                                                     <constraint firstAttribute="trailing" secondItem="7f7-OB-QE1" secondAttribute="trailing" constant="16" id="znf-VP-8fh"/>
                                                     <constraint firstItem="WnL-TU-Mme" firstAttribute="top" secondItem="E4d-hs-dsh" secondAttribute="bottom" constant="8" id="zta-W3-Auw"/>
                                                 </constraints>
@@ -1388,8 +1388,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="v4f-Xu-5TZ"/>
-        <segue reference="98V-Ma-QWl"/>
+        <segue reference="g65-ZB-xdJ"/>
+        <segue reference="vxB-Ym-3Rw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 421" width="64" height="64"/>

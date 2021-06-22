@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationCell" id="KGk-i7-Jjw" customClass="NotificationCell" customModule="D2020" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOn-SN-Pdc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvV-8U-r2g">
+                                <rect key="frame" x="16" y="8" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="Tu9-Je-dm1"/>
+                                    <constraint firstAttribute="height" constant="56" id="gGG-t6-WbQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7F7-yW-nzi">
+                                <rect key="frame" x="95" y="12" width="173" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtb-JP-cfO">
+                                        <rect key="frame" x="0.0" y="0.0" width="173" height="24"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyl-gh-BqP">
+                                        <rect key="frame" x="0.0" y="24" width="173" height="24"/>
+                                        <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="14"/>
+                                        <color key="textColor" red="0.47838729619999998" green="0.47845965620000003" blue="0.47837144139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fyl-gh-BqP" firstAttribute="height" secondItem="Qtb-JP-cfO" secondAttribute="height" id="dcy-o5-wch"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdH-Er-OQA">
+                                <rect key="frame" x="268" y="18" width="36" height="9.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="SUW-wh-WpI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="8"/>
+                                <color key="textColor" red="0.47838729619999998" green="0.47845965620000003" blue="0.47837144139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFq-yM-rqa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                <connections>
+                                    <action selector="onNotificationBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Swq-7p-7dG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="RoundedBigView Color"/>
+                        <constraints>
+                            <constraint firstItem="7F7-yW-nzi" firstAttribute="leading" secondItem="NvV-8U-r2g" secondAttribute="trailing" constant="23" id="0aa-rC-tea"/>
+                            <constraint firstItem="7F7-yW-nzi" firstAttribute="top" secondItem="bOn-SN-Pdc" secondAttribute="top" constant="12" id="4B4-UZ-kGi"/>
+                            <constraint firstAttribute="trailing" secondItem="QFq-yM-rqa" secondAttribute="trailing" id="4Ey-n5-X69"/>
+                            <constraint firstAttribute="height" constant="72" id="5Uz-vp-wh3"/>
+                            <constraint firstAttribute="bottom" secondItem="NvV-8U-r2g" secondAttribute="bottom" constant="8" id="68q-jh-f2G"/>
+                            <constraint firstAttribute="trailing" secondItem="QdH-Er-OQA" secondAttribute="trailing" constant="16" id="7Iy-W9-roK"/>
+                            <constraint firstAttribute="bottom" secondItem="QFq-yM-rqa" secondAttribute="bottom" id="CxO-Vy-fbG"/>
+                            <constraint firstItem="NvV-8U-r2g" firstAttribute="leading" secondItem="bOn-SN-Pdc" secondAttribute="leading" constant="16" id="IST-iA-kEi"/>
+                            <constraint firstItem="QFq-yM-rqa" firstAttribute="top" secondItem="bOn-SN-Pdc" secondAttribute="top" id="KQX-I1-x3E"/>
+                            <constraint firstAttribute="bottom" secondItem="7F7-yW-nzi" secondAttribute="bottom" constant="12" id="WMV-G7-9em"/>
+                            <constraint firstItem="QdH-Er-OQA" firstAttribute="top" secondItem="bOn-SN-Pdc" secondAttribute="top" constant="18" id="c58-dq-whK"/>
+                            <constraint firstItem="QdH-Er-OQA" firstAttribute="leading" secondItem="7F7-yW-nzi" secondAttribute="trailing" id="h2W-63-ghm"/>
+                            <constraint firstItem="QFq-yM-rqa" firstAttribute="leading" secondItem="bOn-SN-Pdc" secondAttribute="leading" id="inz-3I-c9F"/>
+                            <constraint firstItem="NvV-8U-r2g" firstAttribute="top" secondItem="bOn-SN-Pdc" secondAttribute="top" constant="8" id="yyM-mU-41J"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bOn-SN-Pdc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HiQ-Lz-Zji"/>
+                    <constraint firstAttribute="trailing" secondItem="bOn-SN-Pdc" secondAttribute="trailing" id="O3n-1F-M0b"/>
+                    <constraint firstItem="bOn-SN-Pdc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jH4-fV-18F"/>
+                    <constraint firstAttribute="bottom" secondItem="bOn-SN-Pdc" secondAttribute="bottom" id="v3y-jt-YYb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="backView" destination="bOn-SN-Pdc" id="krE-yw-nSJ"/>
+                <outlet property="notificationBtn" destination="QFq-yM-rqa" id="bC6-xk-GoO"/>
+                <outlet property="notificationImage" destination="NvV-8U-r2g" id="c8o-H2-y6X"/>
+                <outlet property="notificationTitle" destination="Qtb-JP-cfO" id="G8V-7F-582"/>
+                <outlet property="subscripeLabel" destination="fyl-gh-BqP" id="xdy-Rg-7Qc"/>
+                <outlet property="timeLabel" destination="QdH-Er-OQA" id="7Rz-V2-64t"/>
+            </connections>
+            <point key="canvasLocation" x="31.884057971014496" y="51.5625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="RoundedBigView Color">
+            <color red="0.93699997663497925" green="0.93699997663497925" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Nescafe_Dolce_Gusto_logo_logotype_emblem@-1.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Nescafe_Dolce_Gusto_logo_logotype_emblem@-1@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Nescafe_Dolce_Gusto_logo_logotype_emblem@-1@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

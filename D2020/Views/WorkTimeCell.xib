@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WorkTimeCell" id="gTV-IL-0wX" customClass="WorkTimeCell" customModule="D2020" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="76" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="76" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYP-WE-tfA">
+                        <rect key="frame" x="0.0" y="0.0" width="76" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIq-PJ-ELO">
+                                <rect key="frame" x="2" y="2" width="72" height="43"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="YSU-en-u8P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="OrangeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check (2)" translatesAutoresizingMaskIntoConstraints="NO" id="5B9-ab-GvK">
+                                <rect key="frame" x="0.0" y="45" width="76" height="25"/>
+                                <color key="backgroundColor" name="OrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="kGf-Db-TV5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="OrangeColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5B9-ab-GvK" secondAttribute="bottom" id="341-A9-ib0"/>
+                            <constraint firstAttribute="trailing" secondItem="SIq-PJ-ELO" secondAttribute="trailing" constant="2" id="9Mw-j3-0IS"/>
+                            <constraint firstAttribute="height" constant="70" id="DnR-EW-DR0"/>
+                            <constraint firstItem="5B9-ab-GvK" firstAttribute="leading" secondItem="aYP-WE-tfA" secondAttribute="leading" id="E0x-dd-TOm"/>
+                            <constraint firstAttribute="width" constant="76" id="IND-7B-hMM"/>
+                            <constraint firstItem="5B9-ab-GvK" firstAttribute="top" secondItem="SIq-PJ-ELO" secondAttribute="bottom" id="NRo-hE-ecQ"/>
+                            <constraint firstItem="SIq-PJ-ELO" firstAttribute="leading" secondItem="aYP-WE-tfA" secondAttribute="leading" constant="2" id="ZbP-FE-AYU"/>
+                            <constraint firstAttribute="trailing" secondItem="5B9-ab-GvK" secondAttribute="trailing" id="eFR-tX-uQd"/>
+                            <constraint firstItem="SIq-PJ-ELO" firstAttribute="top" secondItem="aYP-WE-tfA" secondAttribute="top" constant="2" id="rhp-KK-J8R"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="OrangeColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="aYP-WE-tfA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Lq-vS-mai"/>
+                <constraint firstItem="aYP-WE-tfA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="eBZ-DN-pTG"/>
+                <constraint firstAttribute="bottom" secondItem="aYP-WE-tfA" secondAttribute="bottom" id="tQh-ye-yeU"/>
+                <constraint firstAttribute="trailing" secondItem="aYP-WE-tfA" secondAttribute="trailing" id="zjd-Qy-Y52"/>
+            </constraints>
+            <connections>
+                <outlet property="backView" destination="aYP-WE-tfA" id="nI2-QL-GqG"/>
+                <outlet property="checkImage" destination="5B9-ab-GvK" id="RP1-s8-wwq"/>
+                <outlet property="dayLabel" destination="SIq-PJ-ELO" id="Axt-UI-EZ1"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="47.544642857142854"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="check (2)" width="24" height="18.5"/>
+        <namedColor name="OrangeColor">
+            <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

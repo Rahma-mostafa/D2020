@@ -1,0 +1,12 @@
+/* 
+  localize.strings
+  D2020
+
+  Created by Macbook on 04/06/2021.
+  
+*/
+"home" = "Home";
+"category" = "Category";
+"more" = "More";
+"facilities" = "Facilities";
+"menu" = "Menu";

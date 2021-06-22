@@ -1,0 +1,23 @@
+/* 
+  localize.strings
+  D2020
+
+  Created by Macbook on 04/06/2021.
+  
+*/
+"home" = "الرئيسية";
+"category" = "التصنيفات";
+"more" = "المزيد";
+"facilities" = "منشات متميزة";
+"menu" = "القائمة";
+"logout" = "تسجيل الخروج";
+"egypt" = "مصر";
+"arabic" = "اللغة العربية";
+"share" = "مشاركة التطبيق";
+"technical_support" = "التواصل مع الدعم الفني";
+"about" = "عن الشركة";
+"delegate" = "المناديب";
+"shops" = "المحلات";
+"profile" = "الملف الشخصي";
+"new-seller" = "تاجر";
+"new-delegate" = "مندوب جديد";

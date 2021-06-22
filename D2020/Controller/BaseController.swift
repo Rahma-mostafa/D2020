@@ -52,3 +52,65 @@ class BaseController: UIViewController {
        }
 
 }
+extension UIView {
+
+    /// The ratio (from 0.0 to 1.0, inclusive) of the view's corner radius
+    /// to its width. For example, a 50% radius would be specified with
+    /// `cornerRadiusRatio = 0.5`.
+    public var cornerRadiusRatio: CGFloat {
+        get {
+            return layer.cornerRadius / frame.width
+        }
+
+        set {
+            // Make sure that it's between 0.0 and 1.0. If not, restrict it
+            // to that range.
+            let normalizedRatio = max(0.0, min(1.0, newValue))
+            layer.cornerRadius = frame.width * normalizedRatio
+        }
+    }
+
+}
+extension UIView {
+
+    func addShadow(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+
+        let backgroundCGColor = backgroundColor?.cgColor
+        backgroundColor = nil
+        layer.backgroundColor =  backgroundCGColor
+    }
+}
+extension UIImageView {
+
+    func addShadowImage(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+
+        let backgroundCGColor = backgroundColor?.cgColor
+        backgroundColor = nil
+        layer.backgroundColor =  backgroundCGColor
+    }
+}
+extension UIButton {
+
+    func addShadowButton(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+        layer.masksToBounds = false
+        layer.shadowOffset = offset
+        layer.shadowColor = color.cgColor
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
+
+        let backgroundCGColor = backgroundColor?.cgColor
+        backgroundColor = nil
+        layer.backgroundColor =  backgroundCGColor
+    }
+}
+

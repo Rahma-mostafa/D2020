@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-Cairo-Regular-2.ttf">
+            <string>Cairo-Regular</string>
+        </array>
+        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionsCell" rowHeight="72" id="KGk-i7-Jjw" customClass="SectionsCell" customModule="D2020" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9s-sz-bTm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0uS-lB-FAG">
+                                <rect key="frame" x="20" y="16" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="elU-1W-NNj"/>
+                                    <constraint firstAttribute="width" constant="32" id="mcw-2h-0Ec"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FcJ-Ke-WTW">
+                                <rect key="frame" x="72" y="19" width="29.5" height="26"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5H-G3-LWT">
+                                        <rect key="frame" x="0.0" y="0.0" width="29.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k55-0V-XDG">
+                                        <rect key="frame" x="0.0" y="14" width="29.5" height="12"/>
+                                        <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="10"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 46" translatesAutoresizingMaskIntoConstraints="NO" id="ykk-9y-lOi">
+                                <rect key="frame" x="301" y="24.5" width="11" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="11" id="f5u-cP-laY"/>
+                                    <constraint firstAttribute="height" constant="15" id="x1O-jB-gfK"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0uS-lB-FAG" secondAttribute="bottom" constant="16" id="31g-4W-jsY"/>
+                            <constraint firstItem="FcJ-Ke-WTW" firstAttribute="centerY" secondItem="0uS-lB-FAG" secondAttribute="centerY" id="EYr-BB-J6N"/>
+                            <constraint firstItem="ykk-9y-lOi" firstAttribute="centerY" secondItem="K9s-sz-bTm" secondAttribute="centerY" id="Hsd-kQ-Sw2"/>
+                            <constraint firstItem="FcJ-Ke-WTW" firstAttribute="leading" secondItem="0uS-lB-FAG" secondAttribute="trailing" constant="20" id="d3N-7E-L0g"/>
+                            <constraint firstItem="0uS-lB-FAG" firstAttribute="top" secondItem="K9s-sz-bTm" secondAttribute="top" constant="16" id="fOO-Jz-Rz4"/>
+                            <constraint firstItem="0uS-lB-FAG" firstAttribute="leading" secondItem="K9s-sz-bTm" secondAttribute="leading" constant="20" symbolic="YES" id="vsU-eY-oLH"/>
+                            <constraint firstAttribute="trailing" secondItem="ykk-9y-lOi" secondAttribute="trailing" constant="8" id="wsT-Le-BB0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="K9s-sz-bTm" secondAttribute="trailing" id="UUb-lZ-D9f"/>
+                    <constraint firstItem="K9s-sz-bTm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Vah-Xl-46X"/>
+                    <constraint firstAttribute="bottom" secondItem="K9s-sz-bTm" secondAttribute="bottom" constant="8" id="Yph-3m-gbH"/>
+                    <constraint firstItem="K9s-sz-bTm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ya1-Rs-XLP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="backView" destination="K9s-sz-bTm" id="lcB-aY-Abb"/>
+                <outlet property="evaluationLabel" destination="k55-0V-XDG" id="UPO-t3-Jpe"/>
+                <outlet property="pathImageView" destination="ykk-9y-lOi" id="jZi-cb-kfi"/>
+                <outlet property="sectionImageView" destination="0uS-lB-FAG" id="BS0-fh-p9x"/>
+                <outlet property="typeLabel" destination="U5H-G3-LWT" id="zUI-bP-kIw"/>
+            </connections>
+            <point key="canvasLocation" x="31.884057971014496" y="56.919642857142854"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Group 46" width="14" height="18"/>
+        <namedColor name="textColor">
+            <color red="0.4779999852180481" green="0.4779999852180481" blue="0.4779999852180481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

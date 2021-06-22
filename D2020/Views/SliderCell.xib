@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-Sukar Bold.ttf">
+            <string>Sukar-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SliderCell" id="gTV-IL-0wX" customClass="SliderCell" customModule="D2020" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="316" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="316" height="160"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSp-76-lE4">
+                        <rect key="frame" x="0.0" y="0.0" width="316" height="160"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Doq-E1-Ezg">
+                                <rect key="frame" x="0.0" y="0.0" width="316" height="160"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="PRA-XE-IkU">
+                                <rect key="frame" x="107" y="45" width="102" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orx-Wj-onw">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOo-3T-Ejl">
+                                        <rect key="frame" x="52" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shd-Th-UH9">
+                                <rect key="frame" x="158" y="115.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="RoundedBigView Color"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Doq-E1-Ezg" secondAttribute="bottom" id="5bi-Fs-6EY"/>
+                            <constraint firstItem="PRA-XE-IkU" firstAttribute="top" secondItem="DSp-76-lE4" secondAttribute="top" constant="45" id="75x-m2-Kl5"/>
+                            <constraint firstItem="Doq-E1-Ezg" firstAttribute="top" secondItem="DSp-76-lE4" secondAttribute="top" id="Axm-HJ-Bo1"/>
+                            <constraint firstItem="PRA-XE-IkU" firstAttribute="centerX" secondItem="DSp-76-lE4" secondAttribute="centerX" id="EBS-LP-nGT"/>
+                            <constraint firstItem="shd-Th-UH9" firstAttribute="top" secondItem="PRA-XE-IkU" secondAttribute="bottom" constant="20.5" id="cfv-6f-WSG"/>
+                            <constraint firstItem="shd-Th-UH9" firstAttribute="centerX" secondItem="DSp-76-lE4" secondAttribute="centerX" id="fGc-5c-24Y"/>
+                            <constraint firstAttribute="trailing" secondItem="Doq-E1-Ezg" secondAttribute="trailing" id="g1h-oi-7AZ"/>
+                            <constraint firstAttribute="height" constant="160" id="pas-AV-V2q"/>
+                            <constraint firstItem="Doq-E1-Ezg" firstAttribute="leading" secondItem="DSp-76-lE4" secondAttribute="leading" id="vMn-dw-ltG"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DSp-76-lE4" secondAttribute="trailing" id="1nw-Kb-eC1"/>
+                <constraint firstAttribute="trailing" secondItem="DSp-76-lE4" secondAttribute="trailing" id="BFG-je-qS0"/>
+                <constraint firstItem="DSp-76-lE4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NY6-AT-Ha3"/>
+                <constraint firstItem="DSp-76-lE4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Qyz-Lc-HxZ"/>
+                <constraint firstItem="DSp-76-lE4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fAa-PT-J9c"/>
+                <constraint firstAttribute="bottom" secondItem="DSp-76-lE4" secondAttribute="bottom" id="mnd-cj-CiY"/>
+                <constraint firstAttribute="bottom" secondItem="DSp-76-lE4" secondAttribute="bottom" id="s3W-ny-F68"/>
+                <constraint firstItem="DSp-76-lE4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uyf-pF-lbp"/>
+            </constraints>
+            <size key="customSize" width="227" height="167"/>
+            <connections>
+                <outlet property="backgroundImage" destination="Doq-E1-Ezg" id="Xg4-xv-5JP"/>
+                <outlet property="helloLabel" destination="pOo-3T-Ejl" id="KRA-jH-X7E"/>
+                <outlet property="logoName" destination="shd-Th-UH9" id="8Sc-sx-gAP"/>
+                <outlet property="nameLabel" destination="orx-Wj-onw" id="xst-ca-BjA"/>
+            </connections>
+            <point key="canvasLocation" x="159.42028985507247" y="50.223214285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="RoundedBigView Color">
+            <color red="0.93699997663497925" green="0.93699997663497925" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

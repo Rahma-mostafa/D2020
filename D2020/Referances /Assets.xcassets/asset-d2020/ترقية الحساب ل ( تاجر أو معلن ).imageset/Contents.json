@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "ترقية الحساب ل ( تاجر أو معلن ).png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ترقية الحساب ل ( تاجر أو معلن )@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ترقية الحساب ل ( تاجر أو معلن )@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

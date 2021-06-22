@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "مطاعم  و كافيهات.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "مطاعم  و كافيهات@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "مطاعم  و كافيهات@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

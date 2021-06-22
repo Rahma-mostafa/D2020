@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArbFONTS-Cairo-Bold.ttf">
+            <string>Cairo-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlacesCell" id="gTV-IL-0wX" customClass="PlacesCell" customModule="D2020" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="97" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="97" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bco-ek-UkW">
+                        <rect key="frame" x="0.0" y="0.0" width="97" height="120"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SLJ-K2-SwX">
+                                <rect key="frame" x="0.0" y="0.0" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Ju7-kl-Ud2"/>
+                                    <constraint firstAttribute="height" constant="97" id="c60-ZJ-9md"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsC-ib-08B">
+                                <rect key="frame" x="0.0" y="97" width="97" height="14"/>
+                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="OrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="RsC-ib-08B" firstAttribute="trailing" secondItem="SLJ-K2-SwX" secondAttribute="trailing" id="6m6-Qd-jdK"/>
+                            <constraint firstItem="SLJ-K2-SwX" firstAttribute="leading" secondItem="Bco-ek-UkW" secondAttribute="leading" id="I4h-LF-1Ui"/>
+                            <constraint firstItem="SLJ-K2-SwX" firstAttribute="top" secondItem="Bco-ek-UkW" secondAttribute="top" id="KDe-6J-Jj7"/>
+                            <constraint firstItem="RsC-ib-08B" firstAttribute="leading" secondItem="SLJ-K2-SwX" secondAttribute="leading" id="gdg-ch-SX0"/>
+                            <constraint firstAttribute="width" secondItem="Bco-ek-UkW" secondAttribute="height" multiplier="97:120" id="grk-0W-CIT"/>
+                            <constraint firstItem="RsC-ib-08B" firstAttribute="top" secondItem="SLJ-K2-SwX" secondAttribute="bottom" id="k3M-zO-UgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="SLJ-K2-SwX" secondAttribute="trailing" id="sFG-g2-IwX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Bco-ek-UkW" secondAttribute="trailing" id="3CL-KV-KYE"/>
+                <constraint firstItem="Bco-ek-UkW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ArV-SS-3II"/>
+                <constraint firstItem="Bco-ek-UkW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Qz4-N2-uul"/>
+                <constraint firstAttribute="bottom" secondItem="Bco-ek-UkW" secondAttribute="bottom" id="dtD-VO-UMv"/>
+            </constraints>
+            <size key="customSize" width="106" height="86"/>
+            <connections>
+                <outlet property="backView" destination="Bco-ek-UkW" id="OB3-rz-1JA"/>
+                <outlet property="categoryImage" destination="SLJ-K2-SwX" id="41I-dx-Afa"/>
+                <outlet property="categoryLabel" destination="RsC-ib-08B" id="88J-Gs-Hd8"/>
+            </connections>
+            <point key="canvasLocation" x="68.840579710144937" y="103.79464285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="OrangeColor">
+            <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

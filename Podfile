@@ -17,9 +17,7 @@ target 'D2020' do
   end
 pod 'Localize-Swift'
 pod 'Cosmos', '~> 23.0'
-pod 'Alamofire', '~> 5.2'
-
-
-
+pod 'Alamofire'
+pod 'KRProgressHUD'
 
 end

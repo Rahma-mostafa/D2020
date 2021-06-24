@@ -259,15 +259,15 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npL-fK-lnv">
-                                                <rect key="frame" x="314" y="16" width="42" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللغة العربية" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npL-fK-lnv">
+                                                <rect key="frame" x="297" y="16" width="69" height="20"/>
                                                 <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vid-kZ-OCh">
-                                                <rect key="frame" x="314" y="67.5" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اللغة الانجليزية" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vid-kZ-OCh">
+                                                <rect key="frame" x="281" y="68" width="85" height="20"/>
+                                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -277,15 +277,15 @@
                                             <constraint firstAttribute="trailing" secondItem="sfa-hl-kHQ" secondAttribute="trailing" id="3y2-F9-Z6K"/>
                                             <constraint firstItem="sfa-hl-kHQ" firstAttribute="top" secondItem="HI1-re-xFb" secondAttribute="bottom" id="602-6S-G4S"/>
                                             <constraint firstItem="vid-kZ-OCh" firstAttribute="centerY" secondItem="sfa-hl-kHQ" secondAttribute="centerY" id="B50-Vy-GkV"/>
-                                            <constraint firstItem="npL-fK-lnv" firstAttribute="centerY" secondItem="HI1-re-xFb" secondAttribute="centerY" id="JAg-xC-Kfq"/>
+                                            <constraint firstAttribute="trailing" secondItem="npL-fK-lnv" secondAttribute="trailing" constant="8" id="FhO-o2-Bm9"/>
                                             <constraint firstAttribute="bottom" secondItem="sfa-hl-kHQ" secondAttribute="bottom" id="RQm-CR-d54"/>
-                                            <constraint firstItem="vid-kZ-OCh" firstAttribute="leading" secondItem="sfa-hl-kHQ" secondAttribute="trailing" constant="-60" id="geD-6c-Oy2"/>
+                                            <constraint firstItem="npL-fK-lnv" firstAttribute="centerY" secondItem="HI1-re-xFb" secondAttribute="centerY" id="TVH-Fo-mOJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="vid-kZ-OCh" secondAttribute="trailing" constant="8" id="kV9-c4-oJr"/>
                                             <constraint firstItem="HI1-re-xFb" firstAttribute="leading" secondItem="RU8-28-FNa" secondAttribute="leading" id="mU3-4i-A7U"/>
                                             <constraint firstAttribute="trailing" secondItem="HI1-re-xFb" secondAttribute="trailing" id="qqr-wN-zl4"/>
                                             <constraint firstItem="sfa-hl-kHQ" firstAttribute="leading" secondItem="RU8-28-FNa" secondAttribute="leading" id="v9O-Pw-k1D"/>
                                             <constraint firstAttribute="height" constant="104" id="vg4-fX-AXT"/>
                                             <constraint firstItem="HI1-re-xFb" firstAttribute="top" secondItem="RU8-28-FNa" secondAttribute="top" id="xT2-ZW-M1S"/>
-                                            <constraint firstItem="npL-fK-lnv" firstAttribute="leading" secondItem="HI1-re-xFb" secondAttribute="trailing" constant="-60" id="zN4-az-3T7"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="البلد" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-a1-rF8">
@@ -302,7 +302,7 @@
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j2E-4R-seY">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="210"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="6"/>

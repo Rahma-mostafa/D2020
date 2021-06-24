@@ -7,13 +7,12 @@
 
 import UIKit
 
-class SplashController: UIViewController {
+class SplashController: BaseController {
 
     @IBOutlet weak var pageView: UIPageControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.hiddenNav = true
     }
     
 

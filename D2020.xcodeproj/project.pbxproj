@@ -23,6 +23,10 @@
 		FA0AAF4826655F02005E9E35 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AAF4726655F02005E9E35 /* HomeVC.swift */; };
 		FA0AAF5426657BF0005E9E35 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AAF5226657BF0005E9E35 /* SliderCell.swift */; };
 		FA0AAF5526657BF0005E9E35 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0AAF5326657BF0005E9E35 /* SliderCell.xib */; };
+		FA122C44268AC000008BCA3C /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA122C43268AC000008BCA3C /* Categories.swift */; };
+		FA122C64268ADD5A008BCA3C /* SubCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA122C63268ADD5A008BCA3C /* SubCategories.swift */; };
+		FA122C75268AEAC3008BCA3C /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA122C74268AEAC3008BCA3C /* Stores.swift */; };
+		FA122C80268AFFA0008BCA3C /* SubCategoryStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA122C7F268AFFA0008BCA3C /* SubCategoryStores.swift */; };
 		FA17AB67267DB4B700F02F03 /* WorkTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */; };
 		FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */; };
 		FA17AB6E267DC3CD00F02F03 /* WorkTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */; };
@@ -75,7 +79,7 @@
 		FACA9E7F2671D8C10014B9DA /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */; };
 		FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E832671E3890014B9DA /* SectionsCell.swift */; };
 		FACA9E862671E3890014B9DA /* SectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACA9E842671E3890014B9DA /* SectionsCell.xib */; };
-		FAD2889C26769A1A009A4C30 /* AllSubCategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2889B26769A1A009A4C30 /* AllSubCategoriesVC.swift */; };
+		FAD2889C26769A1A009A4C30 /* SubcategoryStoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */; };
 		FAD288AE26772126009A4C30 /* Delegate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD288AD26772126009A4C30 /* Delegate.storyboard */; };
 		FAF56A54266FFDAD009C6A3C /* UpgradeAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */; };
 		FAF5CDB026669A7E0002E1CB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5CDAE26669A7E0002E1CB /* CategoryCell.swift */; };
@@ -131,6 +135,10 @@
 		FA0AAF4726655F02005E9E35 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		FA0AAF5226657BF0005E9E35 /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		FA0AAF5326657BF0005E9E35 /* SliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		FA122C43268AC000008BCA3C /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		FA122C63268ADD5A008BCA3C /* SubCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategories.swift; sourceTree = "<group>"; };
+		FA122C74268AEAC3008BCA3C /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
+		FA122C7F268AFFA0008BCA3C /* SubCategoryStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryStores.swift; sourceTree = "<group>"; };
 		FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeVC.swift; sourceTree = "<group>"; };
 		FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeCell.swift; sourceTree = "<group>"; };
 		FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkTimeCell.xib; sourceTree = "<group>"; };
@@ -191,7 +199,7 @@
 		FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		FACA9E832671E3890014B9DA /* SectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsCell.swift; sourceTree = "<group>"; };
 		FACA9E842671E3890014B9DA /* SectionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionsCell.xib; sourceTree = "<group>"; };
-		FAD2889B26769A1A009A4C30 /* AllSubCategoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSubCategoriesVC.swift; sourceTree = "<group>"; };
+		FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryStoresVC.swift; sourceTree = "<group>"; };
 		FAD288AD26772126009A4C30 /* Delegate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Delegate.storyboard; sourceTree = "<group>"; };
 		FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAccountVC.swift; sourceTree = "<group>"; };
 		FAF5CDAE26669A7E0002E1CB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -255,6 +263,10 @@
 			children = (
 				D957646B26824F1A00CD748F /* LoginResponse.swift */,
 				FA502B572683ED64005A61DD /* Cities.swift */,
+				FA122C43268AC000008BCA3C /* Categories.swift */,
+				FA122C63268ADD5A008BCA3C /* SubCategories.swift */,
+				FA122C74268AEAC3008BCA3C /* Stores.swift */,
+				FA122C7F268AFFA0008BCA3C /* SubCategoryStores.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -363,7 +375,7 @@
 				FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */,
 				FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */,
 				FAC780902672F8A3008E73D8 /* CategoriesVC.swift */,
-				FAD2889B26769A1A009A4C30 /* AllSubCategoriesVC.swift */,
+				FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */,
 				FA7CA2672677FA7900A8238C /* CheckOrderVC.swift */,
 				FA7CA26C2677FD9E00A8238C /* DelegateRateVC.swift */,
 				FA7CA2792677FF0000A8238C /* SendReportVC.swift */,
@@ -728,8 +740,12 @@
 				FA0AAF3E26655BEA005E9E35 /* UploadForMandoopVC.swift in Sources */,
 				FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */,
 				FA7CA26D2677FD9E00A8238C /* DelegateRateVC.swift in Sources */,
+				FA122C75268AEAC3008BCA3C /* Stores.swift in Sources */,
 				FAFDB05E266ABAC100CD08A1 /* MorePlacesVC.swift in Sources */,
+				FA122C80268AFFA0008BCA3C /* SubCategoryStores.swift in Sources */,
+				FA122C64268ADD5A008BCA3C /* SubCategories.swift in Sources */,
 				FA21A57226628D150085CA25 /* LanguageController.swift in Sources */,
+				FA122C44268AC000008BCA3C /* Categories.swift in Sources */,
 				FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */,
 				FA502B582683ED64005A61DD /* Cities.swift in Sources */,
 				FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */,
@@ -746,7 +762,7 @@
 				FA611DFB267A802700A3AD3B /* PremiumVC.swift in Sources */,
 				FA2DC2C2267F6E14004FBF9E /* ContactCell.swift in Sources */,
 				FA7CA27A2677FF0000A8238C /* SendReportVC.swift in Sources */,
-				FAD2889C26769A1A009A4C30 /* AllSubCategoriesVC.swift in Sources */,
+				FAD2889C26769A1A009A4C30 /* SubcategoryStoresVC.swift in Sources */,
 				FA59635C26612D0A00A8C119 /* BaseController.swift in Sources */,
 				FA5963B52661930000A8C119 /* SecondSplashController.swift in Sources */,
 				FAF56A54266FFDAD009C6A3C /* UpgradeAccountVC.swift in Sources */,

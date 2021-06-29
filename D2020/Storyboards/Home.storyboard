@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold.ttf">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-Regular-2.ttf">
+        <array key="ArbFONTS-Cairo-Regular-3.ttf">
             <string>Cairo-Regular</string>
         </array>
     </customFonts>
@@ -213,7 +213,7 @@
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="more"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="more &gt;&gt;"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <segue destination="Cvz-iV-3qP" kind="show" id="HEx-Uc-Wfc"/>
@@ -263,7 +263,7 @@
                                                             <color key="titleColor" systemColor="labelColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="more"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="more &gt;&gt;"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <segue destination="Y5g-ym-vgv" kind="show" id="LIs-Mi-5jm"/>
@@ -357,9 +357,9 @@
                     <connections>
                         <outlet property="categoryCollectionView" destination="i7O-fJ-I45" id="7UR-I1-gXH"/>
                         <outlet property="pageView" destination="1TZ-Qo-o3K" id="Oep-mM-BZa"/>
-                        <outlet property="placesCollectionView" destination="zdm-1S-PAj" id="9uw-v4-hGK"/>
                         <outlet property="scrollView" destination="bFD-oz-0sp" id="qV9-iW-LAZ"/>
                         <outlet property="sliderCollectionView" destination="FAV-hM-311" id="tc9-zR-mfM"/>
+                        <outlet property="storesCollectionView" destination="zdm-1S-PAj" id="9uw-v4-hGK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soq-g9-7cd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

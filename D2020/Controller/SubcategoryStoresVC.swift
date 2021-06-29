@@ -6,16 +6,26 @@
 //
 
 import UIKit
+import Alamofire
+import KRProgressHUD
 
-class AllSubCategoriesVC: UIViewController {
+
+class SubcategoryStoresVC: UIViewController {
     @IBOutlet weak var textBox: UITextField!
     @IBOutlet weak var dropDown: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     //variables
     var list = ["جدة", "الرياض", "مكة","جدة", "الرياض", "مكة","جدة", "الرياض", "مكة"]
     var subcategoryArray = [Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M"),Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M"),Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M"),Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M")]
+    var subcategoryId = 0
+    var SubCategoryStoresArray = [SubCategoryStores]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+        subcategoriesStoresRequest()
+       
+    }
+    func setup(){
         self.dropDown.delegate = self
         self.dropDown.dataSource = self
         self.dropDown.isHidden = true
@@ -23,11 +33,29 @@ class AllSubCategoriesVC: UIViewController {
         tableView.dataSource = self
 
     }
+    // MARK:- API Request
+    func subcategoriesStoresRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/sub_categories"
+        let header = HTTPHeaders(minimumCapacity: subcategoryId)
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: header)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
+//                self?.SubCategoryStoresArray = apiResponseModel.data
+                self?.tableView.reloadData()
+                print("\(self!.SubCategoryStoresArray)")
+                KRProgressHUD.dismiss()
+
+            }
+    }
     
 
 
 }
-extension AllSubCategoriesVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate ,UITableViewDelegate,UITableViewDataSource{
+extension SubcategoryStoresVC: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate ,UITableViewDelegate,UITableViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

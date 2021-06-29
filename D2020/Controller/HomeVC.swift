@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import SDWebImage
+import KRProgressHUD
 struct Slider {
     let image: String
 }
@@ -16,14 +19,16 @@ class HomeVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    @IBOutlet weak var placesCollectionView: UICollectionView!
+    @IBOutlet weak var storesCollectionView: UICollectionView!
     // variables
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
+    var categoryArray = [categoriesDataClass]()
+    var storesArray = [StoesDataClass]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        pageView.numberOfPages = slider.count
-        pageView.currentPage = -1
+        storesRequest()
+        categoriesRequest()
 
 
     }
@@ -34,9 +39,11 @@ class HomeVC: UIViewController {
         self.categoryCollectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCell")
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
-        self.placesCollectionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: "PlacesCell")
-        placesCollectionView.delegate = self
-        placesCollectionView.dataSource = self
+        self.storesCollectionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: "PlacesCell")
+        storesCollectionView.delegate = self
+        storesCollectionView.dataSource = self
+        pageView.numberOfPages = slider.count
+        pageView.currentPage = -1
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +59,39 @@ class HomeVC: UIViewController {
 //    override func viewDidDisappear(_ animated: Bool) {
 //        scrollView.isScrollEnabled = false
 //    }
+    // MARK:- API Request
+    func categoriesRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/categories"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
+                self?.categoryArray = apiResponseModel.data
+                self?.categoryCollectionView.reloadData()
+                print("\(self!.categoryArray)")
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    func storesRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/stores"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
+                self?.storesArray = apiResponseModel.data
+                self?.storesCollectionView.reloadData()
+                print("\(self!.storesArray)")
+                KRProgressHUD.dismiss()
+
+            }
+    }
     
 
 
@@ -60,8 +100,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == sliderCollectionView {
             return slider.count
-        }else {
-            return 6
+        }else if collectionView == categoryCollectionView{
+            return categoryArray.count
+        }else{
+            return storesArray.count
         }
     }
     
@@ -75,17 +117,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         }else if collectionView == categoryCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-            cell.categoryImage.image = UIImage(named:"sofa")
-            cell.categoryLabel.text = "اثاث"
+            cell.categoryImage.sd_setImage(with: URL(string: categoryArray[indexPath.row].image))
+            cell.categoryLabel.text = categoryArray[indexPath.row].name
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCell", for: indexPath) as! PlacesCell
-            cell.categoryImage.image = UIImage(named:"161210018117400060236016b25505e31")
-            cell.categoryLabel.text = "دجاج كنتاكي "
+            cell.categoryImage.sd_setImage(with: URL(string: storesArray[indexPath.row].image))
+            cell.categoryLabel.text = storesArray[indexPath.row].name
             return cell
         }
 
         
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == categoryCollectionView{
+            let storyboard = UIStoryboard(name: "Category", bundle: nil)
+            let scene = storyboard.instantiateViewController(withIdentifier: "CategoriesVC")
+            navigationController?.pushViewController(scene, animated: true)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.pageView.currentPage = indexPath.row

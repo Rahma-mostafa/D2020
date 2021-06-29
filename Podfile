@@ -19,5 +19,7 @@ pod 'Localize-Swift'
 pod 'Cosmos', '~> 23.0'
 pod 'Alamofire'
 pod 'KRProgressHUD'
+pod 'SDWebImage'
+
 
 end

@@ -40,6 +40,7 @@
 		FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC39A268054E2004FBF9E /* MapVC.swift */; };
 		FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30256726799C09000E0DC8 /* ProductCell.swift */; };
 		FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30256826799C09000E0DC8 /* ProductCell.xib */; };
+		FA36E8CC268919FC00637EAB /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA36E8CB268919FC00637EAB /* City.storyboard */; };
 		FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49EFFC266B49E300215EFE /* Category.storyboard */; };
 		FA502B502683AF2A005A61DD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA502B4F2683AF2A005A61DD /* ProfileVC.swift */; };
 		FA502B582683ED64005A61DD /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA502B572683ED64005A61DD /* Cities.swift */; };
@@ -147,6 +148,7 @@
 		FA2DC39A268054E2004FBF9E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FA30256726799C09000E0DC8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA30256826799C09000E0DC8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		FA36E8CB268919FC00637EAB /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
 		FA49EFFC266B49E300215EFE /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		FA502B4F2683AF2A005A61DD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		FA502B572683ED64005A61DD /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				FA49EFFC266B49E300215EFE /* Category.storyboard */,
 				FAD288AD26772126009A4C30 /* Delegate.storyboard */,
 				FA27C83E267A7DF400EFC09B /* Premium.storyboard */,
+				FA36E8CB268919FC00637EAB /* City.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */,
 				FA0AAF2326646963005E9E35 /* Store.storyboard in Resources */,
 				FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */,
+				FA36E8CC268919FC00637EAB /* City.storyboard in Resources */,
 				FA21A56326628A710085CA25 /* cairo-a93e41191f in Resources */,
 				FA27C83F267A7DF400EFC09B /* Premium.storyboard in Resources */,
 			);

@@ -9,14 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-Regular-3.ttf">
+        <array key="ArbFONTS-Cairo-Regular-2.ttf">
             <string>Cairo-Regular</string>
-        </array>
-        <array key="ArbFONTS-Sukar Bold.ttf">
-            <string>Sukar-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -66,7 +63,7 @@
                             <constraint firstItem="s3E-7p-Asd" firstAttribute="leading" secondItem="BRH-8J-J5Z" secondAttribute="leading" id="zxS-0u-cGn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="الخريطة" image="map" id="B9v-5H-IYa"/>
+                    <tabBarItem key="tabBarItem" title="الخريطة" image="map@-111" id="B9v-5H-IYa"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="mapView" destination="eRp-kz-DhH" id="4CL-LJ-pE2"/>
@@ -169,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="-1899" y="832"/>
         </scene>
-        <!--HomeVC-->
+        <!--الرئيسية-->
         <scene sceneID="Bn3-7R-FJp">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="I5y-Sc-QOb" customClass="HomeVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,43 +180,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boN-an-gxy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1jN-ax-cZ4">
-                                                <rect key="frame" x="20" y="20" width="374" height="30"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEe-q3-OAY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="IJy-U5-7wT"/>
-                                                        </constraints>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" image="magnifyingglass" catalog="system"/>
-                                                    </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الرئيسية" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-Wa-Z8Y">
-                                                        <rect key="frame" x="40" y="0.0" width="290" height="30"/>
-                                                        <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="home"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHi-PO-bYm">
-                                                        <rect key="frame" x="350" y="0.0" width="24" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="24" id="urz-d9-DCF"/>
-                                                        </constraints>
-                                                        <state key="normal" image="Group 3"/>
-                                                        <connections>
-                                                            <action selector="menuBtnTapped:" destination="I5y-Sc-QOb" eventType="touchUpInside" id="5ng-Vb-2R4"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Q5E-Yj-Lnt"/>
-                                                </constraints>
-                                            </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAV-hM-311">
-                                                <rect key="frame" x="20" y="70" width="374" height="160"/>
+                                                <rect key="frame" x="20" y="20" width="374" height="160"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="QvC-fJ-RNg"/>
@@ -233,13 +195,13 @@
                                                 <cells/>
                                             </collectionView>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1TZ-Qo-o3K">
-                                                <rect key="frame" x="20" y="197" width="374" height="28"/>
+                                                <rect key="frame" x="20" y="147" width="374" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="iLe-X1-s5e"/>
                                                 </constraints>
                                             </pageControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jcC-NB-i5M">
-                                                <rect key="frame" x="20" y="250" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="200" width="374" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gg-uP-wLr">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="30"/>
@@ -275,7 +237,7 @@
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-fJ-I45">
-                                                <rect key="frame" x="20" y="280" width="374" height="240"/>
+                                                <rect key="frame" x="20" y="230" width="374" height="240"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="240" id="DLX-gU-qFI"/>
@@ -289,7 +251,7 @@
                                                 <cells/>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xcX-vz-Q2a">
-                                                <rect key="frame" x="20" y="520" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="470" width="374" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVF-0V-8lz">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="30"/>
@@ -325,7 +287,7 @@
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zdm-1S-PAj">
-                                                <rect key="frame" x="20" y="550" width="374" height="257"/>
+                                                <rect key="frame" x="20" y="500" width="374" height="257"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="257" id="XCa-CZ-2BY"/>
@@ -348,8 +310,6 @@
                                             <constraint firstItem="xcX-vz-Q2a" firstAttribute="top" secondItem="i7O-fJ-I45" secondAttribute="bottom" id="FrP-2I-jqe"/>
                                             <constraint firstAttribute="trailing" secondItem="i7O-fJ-I45" secondAttribute="trailing" constant="20" id="I2s-S3-uBy"/>
                                             <constraint firstAttribute="trailing" secondItem="jcC-NB-i5M" secondAttribute="trailing" constant="20" id="L1z-Ri-uag"/>
-                                            <constraint firstAttribute="trailing" secondItem="1jN-ax-cZ4" secondAttribute="trailing" constant="20" id="LPW-1q-s1j"/>
-                                            <constraint firstItem="1jN-ax-cZ4" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="MU9-K2-SOo"/>
                                             <constraint firstItem="jcC-NB-i5M" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="P9k-b4-kVt"/>
                                             <constraint firstItem="xcX-vz-Q2a" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="SuW-9V-lDr"/>
                                             <constraint firstItem="i7O-fJ-I45" firstAttribute="top" secondItem="jcC-NB-i5M" secondAttribute="bottom" id="Tm3-Fb-Bui"/>
@@ -358,9 +318,8 @@
                                             <constraint firstItem="FAV-hM-311" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="b0z-57-dUB"/>
                                             <constraint firstAttribute="trailing" secondItem="1TZ-Qo-o3K" secondAttribute="trailing" constant="20" id="c4P-N4-IAC"/>
                                             <constraint firstItem="zdm-1S-PAj" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="eMz-X9-NHG"/>
+                                            <constraint firstItem="FAV-hM-311" firstAttribute="top" secondItem="boN-an-gxy" secondAttribute="top" constant="20" id="fsJ-X6-MTA"/>
                                             <constraint firstAttribute="trailing" secondItem="FAV-hM-311" secondAttribute="trailing" constant="20" id="h95-17-ZTK"/>
-                                            <constraint firstItem="1jN-ax-cZ4" firstAttribute="top" secondItem="boN-an-gxy" secondAttribute="top" constant="20" id="vc4-bK-uzR"/>
-                                            <constraint firstItem="FAV-hM-311" firstAttribute="top" secondItem="1jN-ax-cZ4" secondAttribute="bottom" constant="20" id="wHv-0L-FIF"/>
                                             <constraint firstItem="1TZ-Qo-o3K" firstAttribute="bottom" secondItem="FAV-hM-311" secondAttribute="bottom" constant="-5" id="wxm-Rs-BBD"/>
                                         </constraints>
                                     </view>
@@ -384,7 +343,16 @@
                             <constraint firstItem="bFD-oz-0sp" firstAttribute="bottom" secondItem="mv4-Ks-hTh" secondAttribute="bottom" id="zpA-p8-wj0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jzw-Xh-MEd"/>
+                    <navigationItem key="navigationItem" title="الرئيسية" id="jzw-Xh-MEd">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="eR9-H0-h1b">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Group 3" id="4Oc-cD-otU">
+                            <connections>
+                                <action selector="menuBtnTapped:" destination="I5y-Sc-QOb" id="mg5-GY-BBu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="categoryCollectionView" destination="i7O-fJ-I45" id="7UR-I1-gXH"/>
@@ -611,7 +579,7 @@
         <scene sceneID="tLD-Gs-Nx7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2a-Ru-VKX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الرئيسية" image="home" id="X8p-f0-A9o">
+                    <tabBarItem key="tabBarItem" title="الرئيسية" image="homekit" catalog="system" id="X8p-f0-A9o">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="home"/>
                         </userDefinedRuntimeAttributes>
@@ -620,10 +588,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QKT-9K-yoa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="OrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -661,10 +629,10 @@
     <resources>
         <image name="Group 3" width="24" height="24"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
-        <image name="home" width="24" height="24"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="magnifying-glass@-18" width="20" height="20"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="map" width="19.5" height="24"/>
+        <image name="map@-111" width="20" height="24"/>
         <image name="notefi_act" width="18" height="24"/>
         <image name="speech-bubble22" width="24" height="24"/>
         <namedColor name="OrangeColor">

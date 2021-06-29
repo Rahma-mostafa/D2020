@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Alamofire
+import KRProgressHUD
+
 struct Category{
     var image: String
     var name: String

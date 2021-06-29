@@ -993,6 +993,9 @@
                                                 <state key="normal" title="تسجيل الدخول">
                                                     <color key="titleColor" name="OrangeColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="cM7-P6-5CK" kind="show" id="LnH-x5-4Zu"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لدي حساب  بالفعل " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZZ-HT-chA">
                                                 <rect key="frame" x="99" y="0.0" width="133" height="30"/>
@@ -1388,7 +1391,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g65-ZB-xdJ"/>
+        <segue reference="LnH-x5-4Zu"/>
         <segue reference="vxB-Ym-3Rw"/>
     </inferredMetricsTieBreakers>
     <resources>

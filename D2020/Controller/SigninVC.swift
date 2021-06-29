@@ -83,6 +83,7 @@ class SigninVC: UIViewController {
                             UserDefaults.standard.setValue(apiResponseModel.data.token ?? "", forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
                             //Saving user profile in user defaults database to retrieve it in application without doing api call.
                             UserDefaults.standard.setValue(result.data, forKey: UserDefaultKey.USER_PROFILE.rawValue)
+                            print("\(apiResponseModel.data.token)")
                             //Hide loading indicator
                             KRProgressHUD.dismiss()
                             //Navigating to home

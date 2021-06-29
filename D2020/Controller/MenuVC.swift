@@ -8,12 +8,28 @@
 import UIKit
 
 class MenuVC: UIViewController {
+    @IBOutlet weak var profileLogoImage: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageGesture()
 
-        // Do any additional setup after loading the view.
     }
+    func imageGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.imageTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        profileLogoImage.isUserInteractionEnabled = true
+        profileLogoImage.addGestureRecognizer(tapGesture)
+        
+    }
+    @objc func imageTapped(recognizer: UITapGestureRecognizer){
+        print("hello")
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC
+        navigationController?.pushViewController(scene!, animated: true)
+    }
+
     
 
     /*

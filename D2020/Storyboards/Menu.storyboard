@@ -12,7 +12,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
         <array key="Cairo.ttf">
@@ -363,6 +363,9 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="menu"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profileLogoImage" destination="HAi-EC-ASf" id="dvP-zC-aYs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBC-km-sTx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -749,12 +752,6 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYj-ih-jnD">
-                                                                <rect key="frame" x="64" y="19.5" width="34.5" height="16.5"/>
-                                                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdW-b4-P7x">
                                                                 <rect key="frame" x="342" y="24" width="24" height="8"/>
                                                                 <constraints>
@@ -762,16 +759,26 @@
                                                                     <constraint firstAttribute="width" constant="24" id="x1G-IT-dXS"/>
                                                                 </constraints>
                                                                 <state key="normal" image="Group 330"/>
+                                                                <connections>
+                                                                    <action selector="onChooseBtnTapped:" destination="JBG-GL-U87" eventType="touchUpInside" id="4fx-Hf-Nam"/>
+                                                                </connections>
                                                             </button>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htY-Li-m0W">
+                                                                <rect key="frame" x="66" y="11" width="256" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="EdW-b4-P7x" firstAttribute="centerY" secondItem="CYj-ih-jnD" secondAttribute="centerY" id="Avq-Jj-Bu1"/>
-                                                            <constraint firstItem="CYj-ih-jnD" firstAttribute="leading" secondItem="irQ-hl-7uM" secondAttribute="trailing" constant="24" id="LMX-7Z-2kr"/>
-                                                            <constraint firstItem="CYj-ih-jnD" firstAttribute="centerY" secondItem="irQ-hl-7uM" secondAttribute="centerY" id="TcZ-be-XGm"/>
+                                                            <constraint firstItem="htY-Li-m0W" firstAttribute="top" secondItem="UUp-eg-ygG" secondAttribute="top" constant="11" id="4eZ-6r-uOr"/>
+                                                            <constraint firstAttribute="bottom" secondItem="htY-Li-m0W" secondAttribute="bottom" constant="11" id="HgQ-Oi-7Pj"/>
+                                                            <constraint firstItem="htY-Li-m0W" firstAttribute="centerY" secondItem="EdW-b4-P7x" secondAttribute="centerY" id="T1W-gg-mdf"/>
                                                             <constraint firstItem="irQ-hl-7uM" firstAttribute="top" secondItem="UUp-eg-ygG" secondAttribute="top" constant="16" id="Xxj-gm-xj0"/>
+                                                            <constraint firstItem="htY-Li-m0W" firstAttribute="leading" secondItem="irQ-hl-7uM" secondAttribute="trailing" constant="26" id="cky-qs-nQ5"/>
                                                             <constraint firstAttribute="height" constant="56" id="eFF-R3-VWF"/>
                                                             <constraint firstAttribute="trailing" secondItem="EdW-b4-P7x" secondAttribute="trailing" constant="16" id="eXK-PR-XBm"/>
+                                                            <constraint firstItem="EdW-b4-P7x" firstAttribute="leading" secondItem="htY-Li-m0W" secondAttribute="trailing" constant="20" id="gLd-FO-rOF"/>
                                                             <constraint firstItem="irQ-hl-7uM" firstAttribute="leading" secondItem="UUp-eg-ygG" secondAttribute="leading" constant="16" id="xmX-aA-rNJ"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -981,7 +988,17 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
+                        <outlet property="cityTextBox" destination="htY-Li-m0W" id="9op-WA-3Wj"/>
+                        <outlet property="passwordConfimationTextField" destination="96a-Yi-ZHx" id="TwW-dF-3cB"/>
+                        <outlet property="passwordTextField" destination="b7f-tD-9f3" id="9sJ-f0-DM0"/>
                         <outlet property="scrollView" destination="tbe-4s-ssu" id="wTa-oj-aKP"/>
+                        <outlet property="userBirthDayTextField" destination="xr0-7G-Gcb" id="G1m-1C-Ivc"/>
+                        <outlet property="userImage" destination="6Du-1T-CC9" id="zxo-jd-se1"/>
+                        <outlet property="userMailTextField" destination="doz-aY-748" id="c3e-9J-QlS"/>
+                        <outlet property="userNameLabel" destination="mps-Z8-zEl" id="YkR-gG-ciq"/>
+                        <outlet property="userNameTextField" destination="9Ye-B7-sJN" id="JmO-QV-DWa"/>
+                        <outlet property="userNickNameLabel" destination="gPo-T8-J0m" id="IfC-ou-XVL"/>
+                        <outlet property="userPhoneTextField" destination="58G-uZ-Y4K" id="6XP-2I-aSX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUO-sZ-VoA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

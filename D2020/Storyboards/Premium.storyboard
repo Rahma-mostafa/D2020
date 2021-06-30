@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
             <string>Cairo-SemiBold</string>
         </array>
     </customFonts>
@@ -909,11 +909,6 @@
             <point key="canvasLocation" x="9712" y="-76"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="YRl-1p-2o7">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Group 115" width="18" height="17.5"/>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>

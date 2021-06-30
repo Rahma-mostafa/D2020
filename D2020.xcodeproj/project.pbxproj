@@ -347,8 +347,8 @@
 				FA0AAF3326655435005E9E35 /* Home.storyboard */,
 				FAFDB034266AAB9A00CD08A1 /* Menu.storyboard */,
 				FA49EFFC266B49E300215EFE /* Category.storyboard */,
-				FAD288AD26772126009A4C30 /* Delegate.storyboard */,
 				FA27C83E267A7DF400EFC09B /* Premium.storyboard */,
+				FAD288AD26772126009A4C30 /* Delegate.storyboard */,
 				FA36E8CB268919FC00637EAB /* City.storyboard */,
 			);
 			path = Storyboards;
@@ -959,8 +959,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66H4HNDL85;
 				INFOPLIST_FILE = D2020/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -979,8 +980,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66H4HNDL85;
 				INFOPLIST_FILE = D2020/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

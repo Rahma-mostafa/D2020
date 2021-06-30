@@ -9,4 +9,5 @@ import Foundation
 
 enum APIConstant: String{
     case BASE_URL = "https://egycoforpestcontrol.com/d2020/api/"
+    case BASE_IMAGE_URL = ""
 }

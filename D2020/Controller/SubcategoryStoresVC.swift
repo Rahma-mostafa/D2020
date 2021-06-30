@@ -46,7 +46,6 @@ class SubcategoryStoresVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
 //                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.tableView.reloadData()
-                print("\(self!.SubCategoryStoresArray)")
                 KRProgressHUD.dismiss()
 
             }

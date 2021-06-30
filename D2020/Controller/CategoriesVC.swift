@@ -38,7 +38,7 @@ class CategoriesVC: UIViewController {
         super.viewDidLoad()
         setup()
         categoriesRequest()
-        subCategoriesRequest()
+//        subCategoriesRequest()
 
     }
     func setup(){
@@ -53,7 +53,10 @@ class CategoriesVC: UIViewController {
 
         
     }
-   // MARK:- Categories Request
+  
+    
+                             // MARK:- Categories Request
+    
     
     func categoriesRequest(){
         KRProgressHUD.show()
@@ -66,23 +69,22 @@ class CategoriesVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
                 self?.categoryArray = apiResponseModel.data
                 self?.categoryCollectionView.reloadData()
-                print("\(self!.categoryArray)")
                 KRProgressHUD.dismiss()
 
             }
     }
     func subCategoriesRequest(){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/sub_categories/12"
-        let header = HTTPHeaders(minimumCapacity: categoryId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/sub_categories/\(categoryId)"
+        print(categoryId)
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: header)
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategories.self, from: result.data!) else{return}
                 self?.subcategoryArray = apiResponseModel.data
-                self?.categoryCollectionView.reloadData()
+                self?.SubCategoryTableView.reloadData()
                 print("\(self!.subcategoryArray)")
                 KRProgressHUD.dismiss()
 
@@ -141,31 +143,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subcategoryArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
-        cell.categoryImageView.sd_setImage(with: URL(string: subcategoryArray[indexPath.row].image))
-        cell.nameLabel.text = subcategoryArray[indexPath.row].name
-//        cell.rateLabel.text = subcategoryArray[indexPath.row].rate
-        return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.subcategoryId = subcategoryArray[indexPath.row].id
-        performSegue(withIdentifier: "SubcategoryStores", sender: self)
 
-        let storyboard = UIStoryboard(name: "Category", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "SubcategoryStoresVC")
-        navigationController?.pushViewController(scene, animated: true)
-        
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          let vc = segue.destination as! SubcategoryStoresVC
-           vc.subcategoryId = self.subcategoryId
-     }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArray.count
     }
@@ -178,12 +156,39 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.categoryId = categoryArray[indexPath.row].id
+        print("categoryId = " +  " \(categoryId)")
         subCategoriesRequest()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 84, height: 84)
     
     }
+    // SubcategoryTableView
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subcategoryArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
+        let imageUrl = " \(APIConstant.BASE_IMAGE_URL.rawValue)\(subcategoryArray[indexPath.row].image)"
+        cell.categoryImageView.sd_setImage(with: URL(string: imageUrl ))
+        cell.nameLabel.text = subcategoryArray[indexPath.row].name
+//        cell.rateLabel.text = subcategoryArray[indexPath.row].rate
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.subcategoryId = subcategoryArray[indexPath.row].id
+        performSegue(withIdentifier: "SubcategoryStores", sender: self)
+        let storyboard = UIStoryboard(name: "Category", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "SubcategoryStoresVC")
+        navigationController?.pushViewController(scene, animated: true)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          let vc = segue.destination as! SubcategoryStoresVC
+           vc.subcategoryId = self.subcategoryId
+     }
+    
     
     
 }

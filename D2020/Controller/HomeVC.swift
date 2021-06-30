@@ -71,7 +71,6 @@ class HomeVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
                 self?.categoryArray = apiResponseModel.data
                 self?.categoryCollectionView.reloadData()
-                print("\(self!.categoryArray)")
                 KRProgressHUD.dismiss()
 
             }
@@ -87,7 +86,6 @@ class HomeVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
                 self?.storesArray = apiResponseModel.data
                 self?.storesCollectionView.reloadData()
-                print("\(self!.storesArray)")
                 KRProgressHUD.dismiss()
 
             }

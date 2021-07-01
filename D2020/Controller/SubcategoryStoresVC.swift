@@ -21,6 +21,7 @@ class SubcategoryStoresVC: UIViewController {
     var SubCategoryStoresArray = [SubCategoryStoresData]()
     var index = 3
     var filteredStore = "\(APIConstant.BASE_STORE_URL.rawValue)"
+    var storeId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,6 +127,14 @@ extension SubcategoryStoresVC: UIPickerViewDelegate, UIPickerViewDataSource, UIT
         cell.nameLabel.text = SubCategoryStoresArray[indexPath.row].name
 //        cell.rateLabel.text = SubCategoryStoresArray[indexPath.row].rate
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.storeId = SubCategoryStoresArray[indexPath.row].id
+        let storyboard = UIStoryboard(name: "Category", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "SingleStoreDetailsVC") as!  SingleStoreDetailsVC
+        scene.storeId = self.storeId
+        navigationController?.pushViewController(scene, animated: true)
+        
     }
 
 }

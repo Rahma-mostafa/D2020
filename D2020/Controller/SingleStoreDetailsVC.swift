@@ -6,16 +6,29 @@
 //
 
 import UIKit
+import Cosmos
+import Alamofire
+import KRProgressHUD
+import SDWebImage
 
-class CategoryDetailsVC: UIViewController {
-
+class SingleStoreDetailsVC: UIViewController {
+    
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageView: UIPageControl!
+    
+    @IBOutlet weak var storeImageView: UIImageView!
+    
+    @IBOutlet weak var storeNameLbl: UILabel!
+    
+    @IBOutlet weak var tagBtn: UIButton!
+    @IBOutlet weak var commentTableView: UITableView!
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
+    var storeId = 7
+    var storeDetailsArray = [Review]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -24,6 +37,7 @@ class CategoryDetailsVC: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
+        singleStoreDetailsRequest()
 
       
     }
@@ -34,11 +48,14 @@ class CategoryDetailsVC: UIViewController {
         productCollectionView.dataSource = self
         productCollectionView.delegate = self
         self.productCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+        commentTableView.dataSource = self
+        commentTableView.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 300)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1000)
 
      }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,11 +77,32 @@ class CategoryDetailsVC: UIViewController {
      }
          
      }
+    // MARK:- API Request
+    func singleStoreDetailsRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                    KRProgressHUD.dismiss()
+                    return}
+                self?.storeDetailsArray = apiResponseModel.data.reviews
+                print(self?.storeDetailsArray)
+                self?.commentTableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    
     
 
     
 }
-extension CategoryDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource{
+extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == sliderCollectionView {
             return slider.count
@@ -90,7 +128,7 @@ extension CategoryDetailsVC: UICollectionViewDelegate, UICollectionViewDataSourc
     
     
 }
-extension CategoryDetailsVC: UICollectionViewDelegateFlowLayout {
+extension SingleStoreDetailsVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -123,6 +161,27 @@ extension CategoryDetailsVC: UICollectionViewDelegateFlowLayout {
         }else{
             return 16
         }
+    }
+}
+extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return storeDetailsArray.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
+        cell.userImage.image = UIImage(named: "avatar@3x")
+        cell.nameLabel.text = storeDetailsArray[indexPath.row].username
+        cell.commentLAbel.text = "جميل جدا"
+        cell.rateView.rating = 4
+        if indexPath.row == 0{
+            cell.titleLabel.text = "تقيمك"
+        }else if indexPath.row == 1{
+            cell.titleLabel.text = "كل التقيمات"
+        }else{
+            cell.titleLabel.text = ""
+        }
+        return cell
     }
 }
 

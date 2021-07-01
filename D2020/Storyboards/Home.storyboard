@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlJ-om-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689.85507246376812" y="252.45535714285714"/>
+            <point key="canvasLocation" x="1598.5507246376812" y="252.45535714285714"/>
         </scene>
         <!--الاشعارات-->
         <scene sceneID="UO4-J5-8vX">
@@ -86,7 +86,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاحدث" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fR-Y5-O6K">
-                                        <rect key="frame" x="20" y="20" width="41.5" height="26.5"/>
+                                        <rect key="frame" x="20" y="20" width="35" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fd2-tg-dyA">
-                                        <rect key="frame" x="0.0" y="66.5" width="414" height="658.5"/>
+                                        <rect key="frame" x="0.0" y="56.5" width="414" height="668.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxI-8e-CAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597.1014492753625" y="919.41964285714278"/>
+            <point key="canvasLocation" x="2507.2463768115945" y="919.41964285714278"/>
         </scene>
         <!--الحافظة-->
         <scene sceneID="jXA-RU-Osl">
@@ -167,23 +167,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0D-s9-kGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260.86956521739131" y="831.69642857142856"/>
+            <point key="canvasLocation" x="649.27536231884062" y="831.69642857142856"/>
         </scene>
-        <!--الرسائل-->
+        <!--View Controller-->
         <scene sceneID="dGV-vl-0yO">
             <objects>
                 <viewController id="xkh-7p-jaN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ld-rF-u8d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jES-tG-oVC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="geW-I8-aaA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jES-tG-oVC" firstAttribute="top" secondItem="geW-I8-aaA" secondAttribute="top" id="5GY-1L-iW8"/>
+                            <constraint firstItem="jES-tG-oVC" firstAttribute="trailing" secondItem="geW-I8-aaA" secondAttribute="trailing" id="KNV-Ic-wWF"/>
+                            <constraint firstItem="jES-tG-oVC" firstAttribute="leading" secondItem="geW-I8-aaA" secondAttribute="leading" id="Xap-z2-KgR"/>
+                            <constraint firstItem="jES-tG-oVC" firstAttribute="bottom" secondItem="geW-I8-aaA" secondAttribute="bottom" id="y9I-YV-PM6"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="الرسائل" image="speech-bubble22" id="Hi3-B6-5I3"/>
+                    <navigationItem key="navigationItem" id="bWF-6h-wz4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOD-qx-iUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1899" y="832"/>
+            <point key="canvasLocation" x="-989.85507246376824" y="831.69642857142856"/>
         </scene>
         <!--الرئيسية-->
         <scene sceneID="Bn3-7R-FJp">
@@ -587,7 +599,7 @@
                         <segue destination="rgV-1V-kFS" kind="relationship" relationship="viewControllers" id="Xac-jb-jTN"/>
                         <segue destination="fCh-ab-ElB" kind="relationship" relationship="viewControllers" id="Z3S-dN-uJG"/>
                         <segue destination="qlE-4W-9o8" kind="relationship" relationship="viewControllers" id="2CO-jV-8Pz"/>
-                        <segue destination="xkh-7p-jaN" kind="relationship" relationship="viewControllers" id="h9B-G7-vnJ"/>
+                        <segue destination="Imr-VC-ZwI" kind="relationship" relationship="viewControllers" id="h9B-G7-vnJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CO6-Jz-Ttp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -642,7 +654,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTd-Mj-XOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686.95652173913049" y="919.41964285714278"/>
+            <point key="canvasLocation" x="1597.1014492753625" y="919.41964285714278"/>
         </scene>
         <!--الحافظة-->
         <scene sceneID="LgP-aE-JGJ">
@@ -661,7 +673,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2O-PZ-Te4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1171.0144927536232" y="831.69642857142856"/>
+            <point key="canvasLocation" x="-260.86956521739131" y="831.69642857142856"/>
+        </scene>
+        <!--الرسائل-->
+        <scene sceneID="2gr-0a-Ak0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Imr-VC-ZwI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="الرسائل" image="speech-bubble22" id="Hi3-B6-5I3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B3c-lw-0cb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xkh-7p-jaN" kind="relationship" relationship="rootViewController" id="NZ2-VC-hYD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXi-Nh-TVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1900.0000000000002" y="831.69642857142856"/>
         </scene>
     </scenes>
     <resources>

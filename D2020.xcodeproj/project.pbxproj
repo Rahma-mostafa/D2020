@@ -69,7 +69,7 @@
 		FA7CA280267928DA00A8238C /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA27E267928DA00A8238C /* NotificationCell.swift */; };
 		FA7CA281267928DA00A8238C /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7CA27F267928DA00A8238C /* NotificationCell.xib */; };
 		FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA2852679734800A8238C /* NotificationVC.swift */; };
-		FA7CA29E2679820200A8238C /* CategoryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA29D2679820200A8238C /* CategoryDetailsVC.swift */; };
+		FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */; };
 		FA849B70268D453F0071CA3A /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849B6E268D453F0071CA3A /* FilterCell.swift */; };
 		FA849B71268D453F0071CA3A /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA849B6F268D453F0071CA3A /* FilterCell.xib */; };
 		FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */; };
@@ -83,6 +83,9 @@
 		FACA9E7F2671D8C10014B9DA /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */; };
 		FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E832671E3890014B9DA /* SectionsCell.swift */; };
 		FACA9E862671E3890014B9DA /* SectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACA9E842671E3890014B9DA /* SectionsCell.xib */; };
+		FACB1EA5268D9F2600299506 /* ConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EA4268D9F2600299506 /* ConversationVC.swift */; };
+		FACB1EAA268D9F5D00299506 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EA9268D9F5D00299506 /* ChatViewController.swift */; };
+		FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EF3268DB04D00299506 /* StoreDetails.swift */; };
 		FAD2889C26769A1A009A4C30 /* SubcategoryStoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */; };
 		FAD288AE26772126009A4C30 /* Delegate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD288AD26772126009A4C30 /* Delegate.storyboard */; };
 		FAF56A54266FFDAD009C6A3C /* UpgradeAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */; };
@@ -193,7 +196,7 @@
 		FA7CA27E267928DA00A8238C /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		FA7CA27F267928DA00A8238C /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		FA7CA2852679734800A8238C /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
-		FA7CA29D2679820200A8238C /* CategoryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsVC.swift; sourceTree = "<group>"; };
+		FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStoreDetailsVC.swift; sourceTree = "<group>"; };
 		FA849B6E268D453F0071CA3A /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		FA849B6F268D453F0071CA3A /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFilterVC.swift; sourceTree = "<group>"; };
@@ -207,6 +210,9 @@
 		FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		FACA9E832671E3890014B9DA /* SectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsCell.swift; sourceTree = "<group>"; };
 		FACA9E842671E3890014B9DA /* SectionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionsCell.xib; sourceTree = "<group>"; };
+		FACB1EA4268D9F2600299506 /* ConversationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationVC.swift; sourceTree = "<group>"; };
+		FACB1EA9268D9F5D00299506 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		FACB1EF3268DB04D00299506 /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryStoresVC.swift; sourceTree = "<group>"; };
 		FAD288AD26772126009A4C30 /* Delegate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Delegate.storyboard; sourceTree = "<group>"; };
 		FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAccountVC.swift; sourceTree = "<group>"; };
@@ -275,6 +281,7 @@
 				FA122C63268ADD5A008BCA3C /* SubCategories.swift */,
 				FA122C74268AEAC3008BCA3C /* Stores.swift */,
 				FA122C7F268AFFA0008BCA3C /* SubCategoryStores.swift */,
+				FACB1EF3268DB04D00299506 /* StoreDetails.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -384,18 +391,20 @@
 				FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */,
 				FAC780902672F8A3008E73D8 /* CategoriesVC.swift */,
 				FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */,
+				FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */,
+				FA611DFA267A802700A3AD3B /* PremiumVC.swift */,
 				FA7CA2672677FA7900A8238C /* CheckOrderVC.swift */,
 				FA7CA26C2677FD9E00A8238C /* DelegateRateVC.swift */,
 				FA7CA2792677FF0000A8238C /* SendReportVC.swift */,
 				FA7CA2852679734800A8238C /* NotificationVC.swift */,
-				FA7CA29D2679820200A8238C /* CategoryDetailsVC.swift */,
-				FA611DFA267A802700A3AD3B /* PremiumVC.swift */,
 				FA611E02267AE79C00A3AD3B /* ProductVC.swift */,
 				FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */,
 				FA2DC2BB267F674E004FBF9E /* ContactVC.swift */,
 				FA2DC39A268054E2004FBF9E /* MapVC.swift */,
 				FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */,
 				FA7C0D72268D9AB8008D7A9A /* FavouriteVC.swift */,
+				FACB1EA4268D9F2600299506 /* ConversationVC.swift */,
+				FACB1EA9268D9F5D00299506 /* ChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -740,7 +749,7 @@
 			files = (
 				D957646E268256B800CD748F /* UserDefaultKeys.swift in Sources */,
 				FAA776A826619A2600D65636 /* MainViewController.swift in Sources */,
-				FA7CA29E2679820200A8238C /* CategoryDetailsVC.swift in Sources */,
+				FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */,
 				D957646C26824F1A00CD748F /* LoginResponse.swift in Sources */,
 				FA0AAF2F26646BDE005E9E35 /* Localization.swift in Sources */,
 				FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */,
@@ -767,6 +776,7 @@
 				FA849B70268D453F0071CA3A /* FilterCell.swift in Sources */,
 				FAC780912672F8A3008E73D8 /* CategoriesVC.swift in Sources */,
 				FA0AAF4826655F02005E9E35 /* HomeVC.swift in Sources */,
+				FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */,
 				FACA9E7F2671D8C10014B9DA /* SectionsVC.swift in Sources */,
 				FAA7771026619FF600D65636 /* PageViewController.swift in Sources */,
 				FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */,
@@ -786,6 +796,7 @@
 				FA2DC2BC267F674E004FBF9E /* ContactVC.swift in Sources */,
 				FA0AAF4326655D31005E9E35 /* SigninVC.swift in Sources */,
 				FA7A6410267B2E0000DAE9FF /* RateCell.swift in Sources */,
+				FACB1EA5268D9F2600299506 /* ConversationVC.swift in Sources */,
 				FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */,
 				D957646926824DBE00CD748F /* APIConstant.swift in Sources */,
 				FAF5CDC42666E2A80002E1CB /* PlacesCell.swift in Sources */,
@@ -793,6 +804,7 @@
 				FAFDB03A266AAEAA00CD08A1 /* MoreCategoriesVC.swift in Sources */,
 				FA0AAF5426657BF0005E9E35 /* SliderCell.swift in Sources */,
 				FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */,
+				FACB1EAA268D9F5D00299506 /* ChatViewController.swift in Sources */,
 				FA59631F26611FCF00A8C119 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

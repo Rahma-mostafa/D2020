@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold.ttf">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
     </customFonts>
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bS-vG-CDt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1426.0869565217392" y="-44.196428571428569"/>
+            <point key="canvasLocation" x="3168" y="-44"/>
         </scene>
         <!--CategoriesVC-->
         <scene sceneID="JVM-Es-r5T">
@@ -468,6 +468,9 @@
                                                 <real key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="5jY-DK-8z3" kind="show" id="b5M-TD-gqu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -507,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4k-9o-zcx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6453.6231884057979" y="-43.526785714285715"/>
+            <point key="canvasLocation" x="6413.04347826087" y="-46.205357142857139"/>
         </scene>
         <!--Category DetailsVC-->
         <scene sceneID="OlL-7M-gJt">
@@ -1020,7 +1023,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgP-9b-Q8I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8047.826086956522" y="-46.205357142857139"/>
+            <point key="canvasLocation" x="8287" y="-44"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zOz-eC-HHM">
@@ -1042,7 +1045,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0c-GE-NMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515.94202898550725" y="-44.196428571428569"/>
+            <point key="canvasLocation" x="2281" y="-46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DyZ-Fl-9lG">
@@ -1111,6 +1114,148 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wCW-5C-iaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7242" y="-46"/>
+        </scene>
+        <!--Order FilterVC-->
+        <scene sceneID="W3G-KV-eDW">
+            <objects>
+                <viewController storyboardIdentifier="OrderFilterVC" id="BC3-u4-jaZ" customClass="OrderFilterVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cJa-H3-1fi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-Jc-Hs5">
+                                <rect key="frame" x="20" y="584" width="374" height="230"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الترتيب حسب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGz-wN-mED">
+                                        <rect key="frame" x="150" y="16" width="74.5" height="19"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="order"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-hQ-Mfg">
+                                        <rect key="frame" x="0.0" y="51" width="374" height="179"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHg-4P-3ZX">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
+                                                <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="الاقدم ">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onOlderBtnTapped:" destination="BC3-u4-jaZ" eventType="touchUpInside" id="B8G-eA-dR0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-sq-k9B">
+                                                <rect key="frame" x="0.0" y="59.5" width="374" height="60"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="الاحدث">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onNewBtnTapped:" destination="BC3-u4-jaZ" eventType="touchUpInside" id="juS-kr-3i4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-pO-NFx">
+                                                <rect key="frame" x="0.0" y="119.5" width="374" height="59.5"/>
+                                                <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="الاكثر زيارة">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onMostVisitBtn:" destination="BC3-u4-jaZ" eventType="touchUpInside" id="Nf0-nT-Yx0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RVc-pO-NFx" firstAttribute="width" secondItem="vHg-4P-3ZX" secondAttribute="width" id="59y-zC-MIB"/>
+                                            <constraint firstItem="hdk-sq-k9B" firstAttribute="width" secondItem="vHg-4P-3ZX" secondAttribute="width" id="A2z-dc-c85"/>
+                                            <constraint firstItem="RVc-pO-NFx" firstAttribute="height" secondItem="vHg-4P-3ZX" secondAttribute="height" id="gVB-Hs-TjS"/>
+                                            <constraint firstItem="vHg-4P-3ZX" firstAttribute="leading" secondItem="2Qz-hQ-Mfg" secondAttribute="leading" id="lZ1-Td-nCH"/>
+                                            <constraint firstAttribute="trailing" secondItem="vHg-4P-3ZX" secondAttribute="trailing" id="sb3-JZ-uMy"/>
+                                            <constraint firstItem="hdk-sq-k9B" firstAttribute="height" secondItem="vHg-4P-3ZX" secondAttribute="height" id="vpl-TW-1xb"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="2Qz-hQ-Mfg" firstAttribute="top" secondItem="yGz-wN-mED" secondAttribute="bottom" constant="16" id="CVs-PG-UxJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Qz-hQ-Mfg" secondAttribute="trailing" id="Cp8-fL-FrA"/>
+                                    <constraint firstItem="yGz-wN-mED" firstAttribute="top" secondItem="Smd-Jc-Hs5" secondAttribute="top" constant="16" id="Ips-xw-sh1"/>
+                                    <constraint firstItem="yGz-wN-mED" firstAttribute="centerX" secondItem="Smd-Jc-Hs5" secondAttribute="centerX" id="RMW-Ey-krm"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Qz-hQ-Mfg" secondAttribute="bottom" id="Yw9-SU-kuW"/>
+                                    <constraint firstItem="2Qz-hQ-Mfg" firstAttribute="leading" secondItem="Smd-Jc-Hs5" secondAttribute="leading" id="fab-oL-YAl"/>
+                                    <constraint firstAttribute="height" constant="230" id="vay-Qv-VZf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6b-Kk-t0b">
+                                <rect key="frame" x="20" y="827" width="374" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="GiP-bA-aC1"/>
+                                </constraints>
+                                <state key="normal" title="الغاء">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onCancelBtnTapped:" destination="BC3-u4-jaZ" eventType="touchUpInside" id="6zZ-N8-CBn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="niS-aH-9dE"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="niS-aH-9dE" firstAttribute="trailing" secondItem="Smd-Jc-Hs5" secondAttribute="trailing" constant="20" id="AN5-F3-9wh"/>
+                            <constraint firstAttribute="trailing" secondItem="N6b-Kk-t0b" secondAttribute="trailing" constant="20" id="AXk-8p-N4e"/>
+                            <constraint firstItem="Smd-Jc-Hs5" firstAttribute="leading" secondItem="niS-aH-9dE" secondAttribute="leading" constant="20" id="bYW-BS-LK7"/>
+                            <constraint firstItem="N6b-Kk-t0b" firstAttribute="leading" secondItem="cJa-H3-1fi" secondAttribute="leading" constant="20" id="gXL-ip-JiA"/>
+                            <constraint firstItem="N6b-Kk-t0b" firstAttribute="top" secondItem="Smd-Jc-Hs5" secondAttribute="bottom" constant="13" id="ney-Y9-omU"/>
+                            <constraint firstAttribute="bottom" secondItem="N6b-Kk-t0b" secondAttribute="bottom" constant="16" id="pqn-hE-Pgk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YRr-lt-nBE"/>
+                    <connections>
+                        <outlet property="mostVisitBtn" destination="RVc-pO-NFx" id="TAA-KR-MNi"/>
+                        <outlet property="newBtn" destination="hdk-sq-k9B" id="J7K-fS-hho"/>
+                        <outlet property="orderBtn" destination="vHg-4P-3ZX" id="f7J-kX-K3F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCr-q7-qFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7342.0289855072469" y="646.875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Eoj-mI-EyX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5jY-DK-8z3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ifU-de-EIs"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h4Y-co-DLT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BC3-u4-jaZ" kind="relationship" relationship="rootViewController" id="ewb-4x-2hL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QMN-yk-SLh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6431.884057971015" y="646.875"/>
         </scene>
     </scenes>
     <resources>

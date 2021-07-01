@@ -31,14 +31,14 @@ class CategoriesVC: UIViewController {
     var list = ["جدة", "الرياض", "مكة","جدة", "الرياض", "مكة","جدة", "الرياض", "مكة"]
     var categoryArray = [categoriesDataClass]()
     var subcategoryArray = [SubCategoriesData]()
-    var categoryId = 0
+    var categoryId = 12
     var subcategoryId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         categoriesRequest()
-//        subCategoriesRequest()
+        subCategoriesRequest()
 
     }
     func setup(){
@@ -178,16 +178,13 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.subcategoryId = subcategoryArray[indexPath.row].id
-        performSegue(withIdentifier: "SubcategoryStores", sender: self)
         let storyboard = UIStoryboard(name: "Category", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "SubcategoryStoresVC")
+        let scene = storyboard.instantiateViewController(withIdentifier: "SubcategoryStoresVC") as!  SubcategoryStoresVC
+        scene.subcategoryId = self.subcategoryId
         navigationController?.pushViewController(scene, animated: true)
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          let vc = segue.destination as! SubcategoryStoresVC
-           vc.subcategoryId = self.subcategoryId
-     }
+
     
     
     

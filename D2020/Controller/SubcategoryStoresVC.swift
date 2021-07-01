@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import KRProgressHUD
+import SDWebImage
 
 
 class SubcategoryStoresVC: UIViewController {
@@ -16,13 +17,16 @@ class SubcategoryStoresVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     //variables
     var list = ["جدة", "الرياض", "مكة","جدة", "الرياض", "مكة","جدة", "الرياض", "مكة"]
-    var subcategoryArray = [Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M"),Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M"),Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M"),Subcategory(image: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x", name: "كافيه", rate: "12K.M")]
     var subcategoryId = 0
-    var SubCategoryStoresArray = [SubCategoryStores]()
+    var SubCategoryStoresArray = [SubCategoryStoresData]()
+    var index = 3
+    var filteredStore = "\(APIConstant.BASE_STORE_URL.rawValue)"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         subcategoriesStoresRequest()
+//        exchangeStoreURL()
        
     }
     func setup(){
@@ -33,23 +37,35 @@ class SubcategoryStoresVC: UIViewController {
         tableView.dataSource = self
 
     }
+    func exchangeStoreURL(){
+        if index == 0{
+            self.filteredStore = "\(APIConstant.BASE_DESCSTORE_URL.rawValue)"
+        }else if index == 1{
+            self.filteredStore = "user/asc_stores/"
+        }else if index == 2{
+            self.filteredStore = "user/most_views_stores/"
+        }else{
+            self.filteredStore = "\(APIConstant.BASE_STORE_URL.rawValue)"
+        }
+    }
     // MARK:- API Request
     func subcategoriesStoresRequest(){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/sub_categories"
-        let header = HTTPHeaders(minimumCapacity: subcategoryId)
+        print(subcategoryId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)\(filteredStore)\(subcategoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: header)
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-//                self?.SubCategoryStoresArray = apiResponseModel.data
+                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.tableView.reloadData()
                 KRProgressHUD.dismiss()
 
             }
     }
+    
     
 
 
@@ -101,14 +117,14 @@ extension SubcategoryStoresVC: UIPickerViewDelegate, UIPickerViewDataSource, UIT
      }
  }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subcategoryArray.count
+        return SubCategoryStoresArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
-        cell.categoryImageView.image = UIImage(named: subcategoryArray[indexPath.row].image)
-        cell.nameLabel.text = subcategoryArray[indexPath.row].name
-        cell.rateLabel.text = subcategoryArray[indexPath.row].rate
+        cell.categoryImageView.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(SubCategoryStoresArray[indexPath.row].image)"))
+        cell.nameLabel.text = SubCategoryStoresArray[indexPath.row].name
+//        cell.rateLabel.text = SubCategoryStoresArray[indexPath.row].rate
         return cell
     }
 

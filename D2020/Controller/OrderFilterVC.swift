@@ -30,7 +30,7 @@ class OrderFilterVC: BaseController {
         self.index = 0
         orderBtn.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
         newBtn.backgroundColor = .white
-        mostVisitBtn.backgroundColor = .gray
+        mostVisitBtn.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         setNav()
         
 
@@ -39,16 +39,16 @@ class OrderFilterVC: BaseController {
     
     @IBAction func onNewBtnTapped(_ sender: Any) {
         self.index = 1
-        orderBtn.backgroundColor = .gray
+        orderBtn.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         newBtn.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
-        mostVisitBtn.backgroundColor = .gray
+        mostVisitBtn.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         setNav()
     }
     
 
     @IBAction func onMostVisitBtn(_ sender: Any) {
         self.index = 2
-        orderBtn.backgroundColor = .gray
+        orderBtn.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         newBtn.backgroundColor = .white
         mostVisitBtn.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
         setNav()

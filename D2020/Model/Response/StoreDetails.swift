@@ -3,85 +3,111 @@
 //
 //   let storeDetails = try? newJSONDecoder().decode(StoreDetails.self, from: jsonData)
 
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let storeDetails = try? newJSONDecoder().decode(StoreDetails.self, from: jsonData)
+
 import Foundation
 
 // MARK: - StoreDetails
 struct StoreDetails: Codable {
-    let status: Bool
-    let message: String
-    let data: DataClass
+    let status: Bool?
+    let message: String?
+    let data: StoreDetailsData?
 }
 
-// MARK: - DataClass
-struct DataClass: Codable {
-    let data: [StoreDetailsData]
-    let images: [StoreImage]
-    let reviews: [Review]
-    let offers: [JSONAny]
-}
-
-// MARK: - Datum
+// MARK: - StoreDetailsData
 struct StoreDetailsData: Codable {
-    let id: Int
-    let name, code, arabicName, datumDescription: String
-    let arabicDescription: String
-    let tags: JSONNull?
-    let address: String
-    let subscriberID, cityID, categoryID, subCategoryID: Int
-    let phone, email, image, begin: String
-    let end: String
-    let longi, lati: JSONNull?
-    let status: Int
-    let createdAt, updatedAt: String
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, code
-        case arabicName = "arabic_name"
-        case datumDescription = "description"
-        case arabicDescription = "arabic_description"
-        case tags, address
-        case subscriberID = "subscriber_id"
-        case cityID = "city_id"
-        case categoryID = "category_id"
-        case subCategoryID = "sub_category_id"
-        case phone, email, image, begin, end, longi, lati, status
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+    let data: DataData?
+    let images: [Image]?
+    let reviews: [Review]?
+    let delegates: [Delegate]?
+    let storeReviewsAverage: Int?
+    let offers: [Offer]?
 }
+
+// MARK: - DataData
+struct DataData: Codable {
+    let id: Int?
+    let name, code, arabicName, dataDescription: String?
+    let arabicDescription: String?
+    let address: String?
+    let subscriberID, cityID, categoryID, subCategoryID: Int?
+    let phone, email, image, video: String?
+    let begin, end: String?
+    let status: Int?
+    let longi, lati: String?
+    let best, rating, views: Int?
+    let createdAt, updatedAt: String?
+}
+
+// MARK: - Delegate
+struct Delegate: Codable {
+    let id: Int?
+    let name, email, mobile: String?
+    let  phone: String?
+    let idNumber: String?
+    let cityID: Int?
+    let address: String?
+    let nationality: String?
+    let photo: String?
+    let birthDate: String?
+    let lastLogin: String?
+    let status: String?
+    let type: String?
+    let longi, lati: String?
+    let emailVerifiedAt, randomPassword: String?
+    let createdAt, updatedAt: String?
+}
+
+
 
 // MARK: - Image
 struct StoreImage: Codable {
-    let id, stageID: Int
-    let image, createdAt, updatedAt: String
+    let id, stageID: Int?
+    let image, createdAt, updatedAt: String?
+    let productID: Int?
+}
 
-    enum CodingKeys: String, CodingKey {
-        case id
-        case stageID = "stage_id"
-        case image
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+// MARK: - Offer
+struct Offer: Codable {
+    let id: Int?
+    let name, arabicName, price, offerDescription: String?
+    let arabicDescription: String?
+    let stageID: Int?
+    let image, offer, createdAt, updatedAt: String?
+    let images: [StoreImage]?
 }
 
 // MARK: - Review
 struct Review: Codable {
-    let id, stageID, userID: Int
-    let review: String
-    let rating: Int
-    let username: String
-    let image: JSONNull?
-    let createdAt, updatedAt: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case stageID = "stage_id"
-        case userID = "user_id"
-        case review, rating, username, image
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+    let id, stageID, userID: Int?
+    let review: String?
+    let rating: Int?
+    let username, image, createdAt, updatedAt: String?
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // MARK: - Encode/decode helpers
 

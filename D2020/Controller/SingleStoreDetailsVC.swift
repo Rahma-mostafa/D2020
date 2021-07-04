@@ -90,7 +90,7 @@ class SingleStoreDetailsVC: UIViewController {
                 guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
                     KRProgressHUD.dismiss()
                     return}
-                self?.storeDetailsArray = apiResponseModel.data.reviews
+                self?.storeDetailsArray = apiResponseModel.data?.reviews ?? [Review]()
                 print(self?.storeDetailsArray)
                 self?.commentTableView.reloadData()
                 KRProgressHUD.dismiss()

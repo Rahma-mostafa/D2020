@@ -13,22 +13,25 @@ import SDWebImage
 
 class SingleStoreDetailsVC: UIViewController {
     
+    @IBOutlet weak var storeimageView: UIImageView!
+    @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageView: UIPageControl!
-    
     @IBOutlet weak var storeImageView: UIImageView!
-    
     @IBOutlet weak var storeNameLbl: UILabel!
-    
     @IBOutlet weak var tagBtn: UIButton!
     @IBOutlet weak var commentTableView: UITableView!
+    
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
     var storeId = 7
-    var storeDetailsArray = [Review]()
+    var reviewArray = [Review]()
+    var imageArray = [Image]()
+    var dataDetials = [DataData]()
+    var productArray = [Offer]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -38,6 +41,8 @@ class SingleStoreDetailsVC: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         singleStoreDetailsRequest()
+        singleStoreimagesRequest()
+        productRequest()
 
       
     }
@@ -88,27 +93,62 @@ class SingleStoreDetailsVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                    KRProgressHUD.dismiss()
                     return}
-                self?.storeDetailsArray = apiResponseModel.data?.reviews ?? [Review]()
-                print(self?.storeDetailsArray)
+                self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
                 self?.commentTableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    func productRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                    return}
+                self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
+                self?.productCollectionView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    func singleStoreimagesRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                    return}
+                self?.imageArray = apiResponseModel.data?.images ?? [Image]()
+                let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(String(describing: self?.imageArray[0]))"
+                self?.storeImageView.sd_setImage(with: URL(string: imageUrl ))
                 KRProgressHUD.dismiss()
 
             }
     }
     
     
+    
 
     
 }
+// slider and product collection view
 extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == sliderCollectionView {
             return slider.count
 
         }else{
-            return 6
+            return productArray.count
         }
     }
     
@@ -119,9 +159,10 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-            cell.productImage.image = UIImage(named: "jeremy-ricketts-6ZnhM-xBpos-unsplash@3x")
-            cell.nameLabel.text = "قهوة فرنساوي"
-            cell.priceLabel.text = "30 ريا ل"
+            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(String(describing: productArray[indexPath.row].image))")
+            cell.productImage.sd_setImage(with: imageUrl, completed: nil)
+            cell.nameLabel.text = productArray[indexPath.row].name
+            cell.priceLabel.text = productArray[indexPath.row].price
             return cell
         }
     }
@@ -163,17 +204,18 @@ extension SingleStoreDetailsVC: UICollectionViewDelegateFlowLayout {
         }
     }
 }
+// reviews
 extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeDetailsArray.count
+        return reviewArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
         cell.userImage.image = UIImage(named: "avatar@3x")
-        cell.nameLabel.text = storeDetailsArray[indexPath.row].username
-        cell.commentLAbel.text = "جميل جدا"
-        cell.rateView.rating = 4
+        cell.nameLabel.text = reviewArray[indexPath.row].username
+        cell.commentLAbel.text = reviewArray[indexPath.row].review
+        cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)
         if indexPath.row == 0{
             cell.titleLabel.text = "تقيمك"
         }else if indexPath.row == 1{

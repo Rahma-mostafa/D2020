@@ -24,6 +24,7 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var tagBtn: UIButton!
     @IBOutlet weak var commentTableView: UITableView!
     
+    @IBOutlet weak var reviewsAvarageView: CosmosView!
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
@@ -32,6 +33,8 @@ class SingleStoreDetailsVC: UIViewController {
     var imageArray = [Image]()
     var dataDetials = [DataData]()
     var productArray = [Offer]()
+    var reviewsAvarage  = 0.0
+    var avarage: Double? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -40,9 +43,10 @@ class SingleStoreDetailsVC: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
-        singleStoreDetailsRequest()
-        singleStoreimagesRequest()
-        productRequest()
+        reviewRequest()
+        reviewsAvarageRequest()
+//        singleStoreimagesRequest()
+//        productRequest()
 
       
     }
@@ -83,7 +87,7 @@ class SingleStoreDetailsVC: UIViewController {
          
      }
     // MARK:- API Request
-    func singleStoreDetailsRequest(){
+    func reviewRequest(){
         KRProgressHUD.show()
         print(storeId)
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
@@ -96,48 +100,57 @@ class SingleStoreDetailsVC: UIViewController {
                     return}
                 self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
                 self?.commentTableView.reloadData()
-                KRProgressHUD.dismiss()
-
-            }
-    }
-    func productRequest(){
-        KRProgressHUD.show()
-        print(storeId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
-        guard let apiURL = URL(string: apiURLInString) else{   return }
-        Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .response {[weak self] result in
-            let jsonConverter = JSONDecoder()
-                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                    return}
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
-                KRProgressHUD.dismiss()
-
-            }
-    }
-    func singleStoreimagesRequest(){
-        KRProgressHUD.show()
-        print(storeId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
-        guard let apiURL = URL(string: apiURLInString) else{   return }
-        Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .response {[weak self] result in
-            let jsonConverter = JSONDecoder()
-                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                    return}
                 self?.imageArray = apiResponseModel.data?.images ?? [Image]()
-                let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(String(describing: self?.imageArray[0]))"
-                self?.storeImageView.sd_setImage(with: URL(string: imageUrl ))
+                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(self?.imageArray[0].image ?? "")")
+                self?.storeImageView.sd_setImage(with: imageUrl ,completed: nil)
                 KRProgressHUD.dismiss()
 
             }
     }
-    
-    
-    
+//        func reviewsAvarageRequest(){
+//            KRProgressHUD.show()
+//            print(storeId)
+//            let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+//            guard let apiURL = URL(string: apiURLInString) else{   return }
+//            Alamofire
+//                .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+//                .response {[weak self] result in
+//                let jsonConverter = JSONDecoder()
+//                    guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+//                        return}
+//                    self?.reviewsAvarage = Double(apiResponseModel.data?.storeReviewsAverage ?? 0)
+//                    self?.reviewsAvarageView.rating = self?.reviewsAvarage ?? 0.0
+//                    print(self?.reviewsAvarage)
+//                    KRProgressHUD.dismiss()
+//
+//                }
+//        }
+            func reviewsAvarageRequest(){
+                KRProgressHUD.show()
+                print(storeId)
+                let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+                guard let apiURL = URL(string: apiURLInString) else{   return }
+                Alamofire
+                    .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+                    .response {[weak self] result in
+                    let jsonConverter = JSONDecoder()
+                        guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                            return}
+                        if let avarage = self?.avarage {
+                            self?.avarage = Double(apiResponseModel.data?.storeReviewsAverage ?? 0)
+                            self?.reviewsAvarageView.rating = self?.avarage ?? 0.0
+                            print(self?.avarage)
+                            KRProgressHUD.dismiss()
+
+
+                        }else{
+                            return
+                        }
+                    }
+            }
+
 
     
 }
@@ -159,7 +172,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(String(describing: productArray[indexPath.row].image))")
+            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(productArray[indexPath.row].image ?? "")")
             cell.productImage.sd_setImage(with: imageUrl, completed: nil)
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
@@ -212,7 +225,7 @@ extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
-        cell.userImage.image = UIImage(named: "avatar@3x")
+        cell.userImage.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(reviewArray[indexPath.row].image ?? "")"), completed: nil)
         cell.nameLabel.text = reviewArray[indexPath.row].username
         cell.commentLAbel.text = reviewArray[indexPath.row].review
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)

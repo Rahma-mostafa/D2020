@@ -1268,6 +1268,7 @@
                         <outlet property="commentTableView" destination="YpD-TC-aeX" id="Ybe-hb-St5"/>
                         <outlet property="pageView" destination="M4s-Vm-WSA" id="OKe-Vj-OBM"/>
                         <outlet property="productCollectionView" destination="Mwp-jJ-Mvf" id="CmF-Wx-vKr"/>
+                        <outlet property="reviewsAvarageView" destination="vqy-nc-5s5" id="xvi-we-xdT"/>
                         <outlet property="scrollView" destination="zxO-Yl-hYa" id="P2h-0L-hCM"/>
                         <outlet property="sliderCollectionView" destination="loz-Oq-GFf" id="U0p-fs-XkL"/>
                         <outlet property="storeImageView" destination="4vC-c6-6gz" id="QnY-KW-IZJ"/>

@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
             <string>Cairo-SemiBold</string>
         </array>
     </customFonts>
@@ -592,7 +592,7 @@
                                 <rect key="frame" x="20" y="584" width="374" height="230"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الترتيب حسب" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGz-wN-mED">
-                                        <rect key="frame" x="140.5" y="16" width="93.5" height="30"/>
+                                        <rect key="frame" x="150" y="16" width="74.5" height="19"/>
                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -601,10 +601,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-hQ-Mfg">
-                                        <rect key="frame" x="0.0" y="62" width="374" height="168"/>
+                                        <rect key="frame" x="0.0" y="51" width="374" height="179"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHg-4P-3ZX">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="59.5"/>
                                                 <color key="backgroundColor" red="0.93717283009999997" green="0.93730741740000001" blue="0.93714338539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="الاقدم ">
@@ -615,7 +615,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdk-sq-k9B">
-                                                <rect key="frame" x="0.0" y="56" width="374" height="56"/>
+                                                <rect key="frame" x="0.0" y="59.5" width="374" height="60"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="الاحدث">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -625,7 +625,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-pO-NFx">
-                                                <rect key="frame" x="0.0" y="112" width="374" height="56"/>
+                                                <rect key="frame" x="0.0" y="119.5" width="374" height="59.5"/>
                                                 <color key="backgroundColor" red="0.93717283009999997" green="0.93730741740000001" blue="0.93714338539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="الاكثر زيارة">
@@ -789,6 +789,9 @@
                                                                     <constraint firstAttribute="width" constant="40" id="T0d-UU-boM"/>
                                                                 </constraints>
                                                                 <state key="normal" image="save@2x"/>
+                                                                <connections>
+                                                                    <action selector="onSaveBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="WA6-zr-Pbx"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM3-AS-JPE">
                                                                 <rect key="frame" x="48" y="0.0" width="40" height="40"/>
@@ -797,6 +800,9 @@
                                                                     <constraint firstAttribute="width" constant="40" id="qvR-bk-Rca"/>
                                                                 </constraints>
                                                                 <state key="normal" image="qr_code"/>
+                                                                <connections>
+                                                                    <action selector="onQRCodeBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="djj-ec-6i7"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-RJ-JrP">
                                                                 <rect key="frame" x="96" y="0.0" width="40" height="40"/>
@@ -805,6 +811,9 @@
                                                                     <constraint firstAttribute="height" constant="40" id="aC5-hA-D62"/>
                                                                 </constraints>
                                                                 <state key="normal" image="share"/>
+                                                                <connections>
+                                                                    <action selector="onShareBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="Wzf-AT-OJt"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -842,6 +851,9 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="onTagBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="sqP-7M-Add"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-ge-4pc">
                                                         <rect key="frame" x="16" y="131" width="382" height="36"/>
@@ -863,6 +875,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9h-YG-hj5">
                                                                         <rect key="frame" x="0.0" y="0.0" width="117.5" height="36"/>
+                                                                        <connections>
+                                                                            <action selector="onCallBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="of7-fo-7Nx"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="OrangeColor"/>
@@ -901,6 +916,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxj-Qx-3Ap">
                                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="36"/>
+                                                                        <connections>
+                                                                            <action selector="onMsgBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="cQP-nS-dVs"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="OrangeColor"/>
@@ -939,6 +957,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6d-QL-dhS">
                                                                         <rect key="frame" x="0.0" y="0.0" width="117.5" height="36"/>
+                                                                        <connections>
+                                                                            <action selector="onMapBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="FVo-Wf-ec1"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="OrangeColor"/>
@@ -1153,6 +1174,9 @@
                                                                         <real key="value" value="18"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="onPostBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="AkB-se-lWR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1265,10 +1289,18 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="1600"/>
                     <connections>
+                        <outlet property="DescribeLabel" destination="V45-u1-jPS" id="m7Z-KK-4IM"/>
+                        <outlet property="commentLabel" destination="Mta-81-Wji" id="pPX-Om-0RY"/>
                         <outlet property="commentTableView" destination="YpD-TC-aeX" id="Ybe-hb-St5"/>
                         <outlet property="pageView" destination="M4s-Vm-WSA" id="OKe-Vj-OBM"/>
+                        <outlet property="postBtn" destination="O04-qH-04D" id="pSM-cW-W3b"/>
                         <outlet property="productCollectionView" destination="Mwp-jJ-Mvf" id="CmF-Wx-vKr"/>
+                        <outlet property="productLabel" destination="alh-BR-IXv" id="KY3-ED-Km2"/>
+                        <outlet property="rateLabel" destination="Ygz-CF-NTr" id="YYo-hF-gEq"/>
+                        <outlet property="reviewLabel" destination="3fe-4V-RYc" id="fBh-N0-S72"/>
+                        <outlet property="reviewTextField" destination="LCM-ck-KxJ" id="tqL-2j-912"/>
                         <outlet property="reviewsAvarageView" destination="vqy-nc-5s5" id="xvi-we-xdT"/>
+                        <outlet property="reviewsNumLabel" destination="KVd-4K-mQv" id="tDE-se-oko"/>
                         <outlet property="scrollView" destination="zxO-Yl-hYa" id="P2h-0L-hCM"/>
                         <outlet property="sliderCollectionView" destination="loz-Oq-GFf" id="U0p-fs-XkL"/>
                         <outlet property="storeImageView" destination="4vC-c6-6gz" id="QnY-KW-IZJ"/>
@@ -1276,6 +1308,9 @@
                         <outlet property="storeNameLbl" destination="KiM-FB-XZe" id="7Eg-PF-nL5"/>
                         <outlet property="storeimageView" destination="4vC-c6-6gz" id="Rrc-ll-5eJ"/>
                         <outlet property="tagBtn" destination="WfR-H6-n2k" id="Q5J-lY-aEL"/>
+                        <outlet property="userImageView" destination="gpj-uP-P1m" id="dfe-ar-xY2"/>
+                        <outlet property="userNameLabel" destination="Jjx-IO-INV" id="hpk-aM-j8l"/>
+                        <outlet property="userRatingView" destination="myE-X7-4jo" id="Jlp-wG-t9L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQ9-sW-jbo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

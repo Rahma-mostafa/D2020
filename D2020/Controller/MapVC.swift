@@ -23,11 +23,12 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
         super.viewDidLoad()
 
         setup()
+        let initialLocation = CLLocation(latitude: Double(latitude) ?? 0.0 , longitude: Double(longitude) ?? 0.0)
+        mapView.centerToLocation(initialLocation)
+
         getStoreLocation()
         print(latitude,longitude)
-        let initialLocation = CLLocation(latitude: Double(latitude) ?? 0.0 , longitude: Double(longitude) ?? 0.0)
         print(self.latitude,self.longitude)
-        mapView.centerToLocation(initialLocation)
         print(self.latitude,self.longitude)
 
     }
@@ -54,6 +55,8 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
                   
                     self?.latitude = apiResponseModel.data?.data?.lati ?? ""
                     self?.longitude = apiResponseModel.data?.data?.longi ?? ""
+                    let initialLocation = CLLocation(latitude: Double(self?.latitude ?? "0.0") ?? 0.0 , longitude: Double(self?.longitude ?? "0.0") ?? 0.0)
+                    self?.mapView.centerToLocation(initialLocation)
                     print(self?.latitude,self?.longitude)
 
 

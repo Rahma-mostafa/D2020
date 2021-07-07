@@ -16,16 +16,19 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var storeId = 0
-    var latitude: Double? = 29.97648
-    var longitude: Double? = 31.131302
+    var latitude = "29.97648"
+    var longitude = "31.131302"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
-        let initialLocation = CLLocation(latitude: latitude ?? 0.0 , longitude: longitude ?? 0.0)
-        mapView.centerToLocation(initialLocation)
         getStoreLocation()
+        print(latitude,longitude)
+        let initialLocation = CLLocation(latitude: Double(latitude) ?? 0.0 , longitude: Double(longitude) ?? 0.0)
+        print(self.latitude,self.longitude)
+        mapView.centerToLocation(initialLocation)
+        print(self.latitude,self.longitude)
 
     }
 
@@ -49,9 +52,11 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
                     guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
                         return}
                   
-//                    self?.latitude = apiResponseModel.data?.data?.lati
-//                    self?.longitude = apiResponseModel.data?.data?.longi
-//
+                    self?.latitude = apiResponseModel.data?.data?.lati ?? ""
+                    self?.longitude = apiResponseModel.data?.data?.longi ?? ""
+                    print(self?.latitude,self?.longitude)
+
+
                     KRProgressHUD.dismiss()
 
                 }

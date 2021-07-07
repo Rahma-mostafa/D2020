@@ -51,7 +51,7 @@ class SingleStoreDetailsVC: UIViewController {
     var dataDetials = [DataData]()
     var productArray = [Offer]()
     var reviewsAvarage  = 0.0
-    var phoneNumber = 0
+    var phoneNumber = ""
     var avarage: Double? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,7 +117,7 @@ class SingleStoreDetailsVC: UIViewController {
     }
     
     @IBAction func onCallBtnTapped(_ sender: Any) {
-        let appURL = URL(string: "https://wa.me/\(phoneNumber )")!
+        let appURL = URL(string: "tel://\( phoneNumber )")!
         if UIApplication.shared.canOpenURL(appURL) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
@@ -159,7 +159,7 @@ class SingleStoreDetailsVC: UIViewController {
                 let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(self?.imagesArray[0].image ?? "")")
                 self?.storeImageView.sd_setImage(with: imageUrl ,completed: nil)
                 self?.storeId = apiResponseModel.data?.data?.id ?? 0
-//                self?.phoneNumber = \(apiResponseModel.data?.data?.phone ?? 0)
+                self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
                 KRProgressHUD.dismiss()
 
             }

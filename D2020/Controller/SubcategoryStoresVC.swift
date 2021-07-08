@@ -53,7 +53,7 @@ class SubcategoryStoresVC: UIViewController {
     func subcategoriesStoresRequest(){
         KRProgressHUD.show()
         print(subcategoryId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)\(filteredStore)\(subcategoryId)"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/category_stores/\(subcategoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)

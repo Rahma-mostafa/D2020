@@ -31,14 +31,14 @@ class CategoriesVC: UIViewController {
     var list = ["جدة", "الرياض", "مكة","جدة", "الرياض", "مكة","جدة", "الرياض", "مكة"]
     var categoryArray = [categoriesDataClass]()
     var subcategoryArray = [SubCategoriesData]()
-    var categoryId = 12
+    var categoryId = 0
     var subcategoryId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         categoriesRequest()
-        subCategoriesRequest()
+//        subCategoriesRequest()
 
     }
     func setup(){
@@ -77,12 +77,16 @@ class CategoriesVC: UIViewController {
         KRProgressHUD.show()
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/sub_categories/\(categoryId)"
         print(categoryId)
-        guard let apiURL = URL(string: apiURLInString) else{ return }
+        guard let apiURL = URL(string: apiURLInString) else{
+            return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-            guard let apiResponseModel = try? jsonConverter.decode(SubCategories.self, from: result.data!) else{return}
+            guard let apiResponseModel = try? jsonConverter.decode(SubCategories.self, from: result.data!) else{
+                print("nil")
+
+                return}
                 self?.subcategoryArray = apiResponseModel.data
                 self?.SubCategoryTableView.reloadData()
                 print("\(self!.subcategoryArray)")
@@ -143,6 +147,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
         }
     }
     
+    // categories
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArray.count

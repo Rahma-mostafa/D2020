@@ -80,7 +80,6 @@
 		FAC780982672F8E7008E73D8 /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC780962672F8E7008E73D8 /* CategoriesCell.xib */; };
 		FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC780A326747968008E73D8 /* SubCategoryCell.swift */; };
 		FAC780A626747968008E73D8 /* SubCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC780A426747968008E73D8 /* SubCategoryCell.xib */; };
-		FACA9E7F2671D8C10014B9DA /* SectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */; };
 		FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E832671E3890014B9DA /* SectionsCell.swift */; };
 		FACA9E862671E3890014B9DA /* SectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACA9E842671E3890014B9DA /* SectionsCell.xib */; };
 		FACB1EA5268D9F2600299506 /* ConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EA4268D9F2600299506 /* ConversationVC.swift */; };
@@ -207,7 +206,6 @@
 		FAC780962672F8E7008E73D8 /* CategoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCell.xib; sourceTree = "<group>"; };
 		FAC780A326747968008E73D8 /* SubCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCell.swift; sourceTree = "<group>"; };
 		FAC780A426747968008E73D8 /* SubCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubCategoryCell.xib; sourceTree = "<group>"; };
-		FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsVC.swift; sourceTree = "<group>"; };
 		FACA9E832671E3890014B9DA /* SectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsCell.swift; sourceTree = "<group>"; };
 		FACA9E842671E3890014B9DA /* SectionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionsCell.xib; sourceTree = "<group>"; };
 		FACB1EA4268D9F2600299506 /* ConversationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationVC.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 				FAFDB05D266ABAC100CD08A1 /* MorePlacesVC.swift */,
 				FAFDB062266AEA1E00CD08A1 /* MenuVC.swift */,
 				FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */,
-				FACA9E7E2671D8C10014B9DA /* SectionsVC.swift */,
 				FAC780902672F8A3008E73D8 /* CategoriesVC.swift */,
 				FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */,
 				FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */,
@@ -777,7 +774,6 @@
 				FAC780912672F8A3008E73D8 /* CategoriesVC.swift in Sources */,
 				FA0AAF4826655F02005E9E35 /* HomeVC.swift in Sources */,
 				FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */,
-				FACA9E7F2671D8C10014B9DA /* SectionsVC.swift in Sources */,
 				FAA7771026619FF600D65636 /* PageViewController.swift in Sources */,
 				FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */,
 				FAC780972672F8E7008E73D8 /* CategoriesCell.swift in Sources */,

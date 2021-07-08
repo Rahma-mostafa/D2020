@@ -42,10 +42,10 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var reviewTextField: UITextField!
     
     @IBOutlet weak var postBtn: UIButton!
-    //    var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
+        var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
-    var storeId = 7
+    var storeId = 0
     var reviewArray = [Review]()
     var imagesArray = [Image]()
     var dataDetials = [DataData]()
@@ -104,6 +104,11 @@ class SingleStoreDetailsVC: UIViewController {
      }
     // Buttons action
     @IBAction func onSaveBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "FavouriteVC") as!  FavouriteVC
+        scene.storeId = self.storeId
+        navigationController?.pushViewController(scene, animated: true)
+        
     }
     
     @IBAction func onQRCodeBtnTapped(_ sender: Any) {
@@ -143,7 +148,7 @@ class SingleStoreDetailsVC: UIViewController {
     func storeDetailsRequest(){
         KRProgressHUD.show()
         print(storeId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
         guard let apiURL = URL(string: apiURLInString) else{   return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
@@ -156,8 +161,8 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
                 self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
-                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(self?.imagesArray[0].image ?? "")")
-                self?.storeImageView.sd_setImage(with: imageUrl ,completed: nil)
+//                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(self?.imagesArray[0].image ?? "")")
+//                self?.storeImageView.sd_setImage(with: imageUrl ,completed: nil)
                 self?.storeId = apiResponseModel.data?.data?.id ?? 0
                 self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
                 KRProgressHUD.dismiss()
@@ -168,7 +173,7 @@ class SingleStoreDetailsVC: UIViewController {
             func getRestStoreDetialsRequest(){
                 KRProgressHUD.show()
                 print(storeId)
-                let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+                let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
                 guard let apiURL = URL(string: apiURLInString) else{   return }
                 Alamofire
                     .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
@@ -204,7 +209,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == sliderCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
-            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "" )")
+            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image )")
             cell.backgroundImage.sd_setImage(with: imageUrl, completed: nil)
             return cell
         }else{

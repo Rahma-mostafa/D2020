@@ -56,9 +56,7 @@ class HomeVC: UIViewController {
         navigationController?.pushViewController(scene, animated: true)
     }
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//        scrollView.isScrollEnabled = false
-//    }
+
     // MARK:- API Request
     func categoriesRequest(){
         KRProgressHUD.show()

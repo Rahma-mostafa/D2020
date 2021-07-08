@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import KRProgressHUD
+import Alamofire
+import SDWebImage
 
 class MenuVC: UIViewController {
     @IBOutlet weak var profileLogoImage: UIImageView!
-    
-
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var nickNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        userProfileRequest()
         imageGesture()
 
     }
@@ -24,22 +28,25 @@ class MenuVC: UIViewController {
         
     }
     @objc func imageTapped(recognizer: UITapGestureRecognizer){
-        print("hello")
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC
         navigationController?.pushViewController(scene!, animated: true)
     }
+        func userProfileRequest(){
+            KRProgressHUD.show()
+            let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
+            print(apiResponseModel.data)
+            self.userNameLabel.text = apiResponseModel.data.name ?? ""
+
+
+//            let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
+//            self.profileLogoImage.sd_setImage(with: imageUrl, completed: nil)
+            KRProgressHUD.dismiss()
+
+        }
 
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

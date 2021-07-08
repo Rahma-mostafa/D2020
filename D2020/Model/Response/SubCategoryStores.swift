@@ -15,16 +15,19 @@ struct SubCategoryStores: Codable {
 // MARK: - Datum
 struct SubCategoryStoresData: Codable {
     let id: Int
-    let name: String
-    let code: String?
-    let arabicName, datumDescription, arabicDescription: String
+    let name, code, arabicName: String
+    let datumDescription, arabicDescription: String?
     let tags: JSONNull?
     let address: String
     let subscriberID, cityID, categoryID, subCategoryID: Int
-    let phone, email: String?
+    let phone: String
+    let email: String?
     let image: String
-    let begin, end, longi, lati: String?
+    let video: String?
+    let begin, end: String
     let status: Int
+    let longi, lati: String
+    let best, rating, views: Int
     let createdAt, updatedAt: String
 
     enum CodingKeys: String, CodingKey {
@@ -37,7 +40,7 @@ struct SubCategoryStoresData: Codable {
         case cityID = "city_id"
         case categoryID = "category_id"
         case subCategoryID = "sub_category_id"
-        case phone, email, image, begin, end, longi, lati, status
+        case phone, email, image, video, begin, end, status, longi, lati, best, rating, views
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

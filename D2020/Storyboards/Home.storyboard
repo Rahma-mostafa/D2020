@@ -610,7 +610,7 @@
         <scene sceneID="tLD-Gs-Nx7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2a-Ru-VKX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الرئيسية" image="homekit" catalog="system" id="X8p-f0-A9o">
+                    <tabBarItem key="tabBarItem" title="الرئيسية" image="home-icon" id="X8p-f0-A9o">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="home"/>
                         </userDefinedRuntimeAttributes>
@@ -698,7 +698,7 @@
     <resources>
         <image name="Group 3" width="24" height="24"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="home-icon" width="25" height="25"/>
         <image name="magnifying-glass@-18" width="20" height="20"/>
         <image name="magnifying-glass@-2" width="20" height="20"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>

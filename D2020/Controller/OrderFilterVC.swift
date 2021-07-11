@@ -12,6 +12,7 @@ class OrderFilterVC: BaseController {
     @IBOutlet weak var newBtn: UIButton!
     @IBOutlet weak var mostVisitBtn: UIButton!
     var index = 0
+    var subcategoryId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class OrderFilterVC: BaseController {
         let storyboard = UIStoryboard(name: "Category", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "SubcategoryStoresVC") as! SubcategoryStoresVC
         scene.index = self.index
+        scene.subcategoryId = self.subcategoryId
         navigationController?.pushViewController(scene, animated: true)
 
         

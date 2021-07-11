@@ -402,6 +402,7 @@
 				FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */,
 				FAC780902672F8A3008E73D8 /* CategoriesVC.swift */,
 				FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */,
+				FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */,
 				FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */,
 				FA7C0D72268D9AB8008D7A9A /* FavouriteVC.swift */,
 				FA611DFA267A802700A3AD3B /* PremiumVC.swift */,
@@ -414,7 +415,6 @@
 				FA2DC2BB267F674E004FBF9E /* ContactVC.swift */,
 				FA0840A6269B81E200B6363C /* SelectMapVC.swift */,
 				FA2DC39A268054E2004FBF9E /* MapVC.swift */,
-				FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */,
 				FACB1EA4268D9F2600299506 /* ConversationVC.swift */,
 				FACB1EA9268D9F5D00299506 /* ChatViewController.swift */,
 			);

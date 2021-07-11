@@ -27,7 +27,8 @@ class SubcategoryStoresVC: UIViewController {
         super.viewDidLoad()
         setup()
         subcategoriesStoresRequest()
-        exchangeStoreURL()
+        filterStores()
+        print("orderIndex = \(index)")
        
     }
     func setup(){
@@ -38,22 +39,21 @@ class SubcategoryStoresVC: UIViewController {
         tableView.dataSource = self
 
     }
-    func exchangeStoreURL(){
+    func filterStores(){
         if index == 0{
             descStoresRequest()
-            
         }else if index == 1{
-//            self.filteredStore = "user/asc_stores/"
+            ascStoresRequest()
         }else if index == 2{
-//            self.filteredStore = "user/most_views_stores/"
+            mostViewsStoresRequest()
         }else{
-            self.filteredStore = "\(APIConstant.BASE_STORE_URL.rawValue)"
+            subcategoriesStoresRequest()
         }
     }
     // MARK:- API Request
     func subcategoriesStoresRequest(){
         KRProgressHUD.show()
-        print(subcategoryId)
+        print("subcategoryId = \(subcategoryId)")
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/category_stores/\(subcategoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
@@ -82,6 +82,46 @@ class SubcategoryStoresVC: UIViewController {
                 KRProgressHUD.dismiss()
 
             }
+    }
+    func ascStoresRequest(){
+        KRProgressHUD.show()
+        print(subcategoryId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/asc_stores/\(subcategoryId)"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
+                self?.SubCategoryStoresArray = apiResponseModel.data
+                self?.tableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    func mostViewsStoresRequest(){
+        KRProgressHUD.show()
+        print(subcategoryId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/most_views_stores/\(subcategoryId)"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
+                self?.SubCategoryStoresArray = apiResponseModel.data
+                self?.tableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    
+    @IBAction func onFilterBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Category", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "OrderFilterVC") as!  OrderFilterVC
+        scene.subcategoryId = self.subcategoryId
+        navigationController?.pushViewController(scene, animated: true)
+        
     }
     
     

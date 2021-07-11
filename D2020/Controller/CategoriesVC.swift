@@ -42,9 +42,6 @@ class CategoriesVC: UIViewController {
 
     }
     func setup(){
-        self.dropDown.delegate = self
-        self.dropDown.dataSource = self
-        self.dropDown.isHidden = true
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         self.categoryCollectionView.register(UINib(nibName: "CategoriesCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCell")

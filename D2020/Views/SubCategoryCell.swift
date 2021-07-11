@@ -16,7 +16,6 @@ class SubCategoryCell: UITableViewCell {
     
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var subcatagoryBtn: UIButton!
-    @IBOutlet weak var rateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

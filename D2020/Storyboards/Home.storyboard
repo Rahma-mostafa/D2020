@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--الخريطة-->
+        <!--MapVC-->
         <scene sceneID="gZP-Io-EEV">
             <objects>
                 <viewController storyboardIdentifier="MapVC" id="rgV-1V-kFS" customClass="MapVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <constraint firstItem="s3E-7p-Asd" firstAttribute="leading" secondItem="BRH-8J-J5Z" secondAttribute="leading" id="zxS-0u-cGn"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="الخريطة" image="map@-111" id="B9v-5H-IYa"/>
+                    <navigationItem key="navigationItem" id="e0p-EW-HjJ"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="mapView" destination="eRp-kz-DhH" id="4CL-LJ-pE2"/>
@@ -72,68 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlJ-om-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598.5507246376812" y="252.45535714285714"/>
-        </scene>
-        <!--الاشعارات-->
-        <scene sceneID="UO4-J5-8vX">
-            <objects>
-                <viewController storyboardIdentifier="NotificationVC" id="Z5h-5T-eul" customClass="NotificationVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ft7-jq-QR3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-og-W3b">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاحدث" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fR-Y5-O6K">
-                                        <rect key="frame" x="20" y="20" width="35" height="16.5"/>
-                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="recent"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="recent"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fd2-tg-dyA">
-                                        <rect key="frame" x="0.0" y="56.5" width="414" height="668.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" name="RoundedBigView Color"/>
-                                <constraints>
-                                    <constraint firstItem="fd2-tg-dyA" firstAttribute="leading" secondItem="KtY-og-W3b" secondAttribute="leading" id="1UE-oQ-Ugg"/>
-                                    <constraint firstItem="fd2-tg-dyA" firstAttribute="top" secondItem="1fR-Y5-O6K" secondAttribute="bottom" constant="20" id="BpV-hc-FaL"/>
-                                    <constraint firstItem="1fR-Y5-O6K" firstAttribute="top" secondItem="KtY-og-W3b" secondAttribute="top" constant="20" id="MHN-Qh-WkD"/>
-                                    <constraint firstItem="1fR-Y5-O6K" firstAttribute="leading" secondItem="KtY-og-W3b" secondAttribute="leading" constant="20" id="Qjv-6U-D4U"/>
-                                    <constraint firstAttribute="trailing" secondItem="fd2-tg-dyA" secondAttribute="trailing" id="YeX-BU-uCz"/>
-                                    <constraint firstAttribute="bottom" secondItem="fd2-tg-dyA" secondAttribute="bottom" id="zE5-js-UPm"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PKN-yZ-g4g"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="KtY-og-W3b" firstAttribute="trailing" secondItem="PKN-yZ-g4g" secondAttribute="trailing" id="Jim-hn-XP1"/>
-                            <constraint firstItem="KtY-og-W3b" firstAttribute="top" secondItem="PKN-yZ-g4g" secondAttribute="top" id="Lox-AY-Mt9"/>
-                            <constraint firstItem="PKN-yZ-g4g" firstAttribute="bottom" secondItem="KtY-og-W3b" secondAttribute="bottom" id="P9B-4A-mTG"/>
-                            <constraint firstItem="KtY-og-W3b" firstAttribute="leading" secondItem="PKN-yZ-g4g" secondAttribute="leading" id="Pmr-rm-8rQ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="الاشعارات" id="unV-8e-USz">
-                        <barButtonItem key="leftBarButtonItem" image="magnifying-glass@-18" id="Rer-jx-NCE"/>
-                        <barButtonItem key="rightBarButtonItem" image="Group 3" id="mhE-rd-Ggg"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="notification "/>
-                        </userDefinedRuntimeAttributes>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="notificationTableView" destination="fd2-tg-dyA" id="WNn-9h-knQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JxI-8e-CAF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2507.2463768115945" y="919.41964285714278"/>
+            <point key="canvasLocation" x="689.85507246376812" y="276.5625"/>
         </scene>
         <!--الحافظة-->
         <scene sceneID="jXA-RU-Osl">
@@ -143,9 +82,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5d4-Yh-WBZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5d4-Yh-WBZ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="RoundedBigView Color"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4PU-cl-pW4"/>
@@ -158,7 +97,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="الحافظة" id="wWV-ir-85Z">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="magnifying-glass@-2" id="mUP-v9-7bh"/>
                         <barButtonItem key="rightBarButtonItem" image="Group 3" id="atd-3z-GlC"/>
                     </navigationItem>
                     <connections>
@@ -167,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0D-s9-kGa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649.27536231884062" y="831.69642857142856"/>
+            <point key="canvasLocation" x="496" y="1035"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dGV-vl-0yO">
@@ -195,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOD-qx-iUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-989.85507246376824" y="831.69642857142856"/>
+            <point key="canvasLocation" x="-1109" y="1035"/>
         </scene>
         <!--الرئيسية-->
         <scene sceneID="Bn3-7R-FJp">
@@ -596,8 +534,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="C2a-Ru-VKX" kind="relationship" relationship="viewControllers" id="Q6n-hH-2uC"/>
-                        <segue destination="rgV-1V-kFS" kind="relationship" relationship="viewControllers" id="Xac-jb-jTN"/>
-                        <segue destination="fCh-ab-ElB" kind="relationship" relationship="viewControllers" id="Z3S-dN-uJG"/>
+                        <segue destination="5WK-lg-dmT" kind="relationship" relationship="viewControllers" id="Xac-jb-jTN"/>
                         <segue destination="qlE-4W-9o8" kind="relationship" relationship="viewControllers" id="2CO-jV-8Pz"/>
                         <segue destination="Imr-VC-ZwI" kind="relationship" relationship="viewControllers" id="h9B-G7-vnJ"/>
                     </connections>
@@ -637,25 +574,6 @@
             </objects>
             <point key="canvasLocation" x="-218.84057971014494" y="-389.0625"/>
         </scene>
-        <!--الاشعارات-->
-        <scene sceneID="BY7-aA-QDD">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fCh-ab-ElB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الاشعارات" image="notefi_act" id="NcU-cf-gZJ"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xFC-4c-Qug">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Z5h-5T-eul" kind="relationship" relationship="rootViewController" id="RRj-Au-h7d"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pTd-Mj-XOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1597.1014492753625" y="919.41964285714278"/>
-        </scene>
         <!--الحافظة-->
         <scene sceneID="LgP-aE-JGJ">
             <objects>
@@ -673,7 +591,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2O-PZ-Te4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260.86956521739131" y="831.69642857142856"/>
+            <point key="canvasLocation" x="-399" y="1035"/>
         </scene>
         <!--الرسائل-->
         <scene sceneID="2gr-0a-Ak0">
@@ -694,16 +612,32 @@
             </objects>
             <point key="canvasLocation" x="-1900.0000000000002" y="831.69642857142856"/>
         </scene>
+        <!--الخريطة-->
+        <scene sceneID="L2O-L3-rZQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5WK-lg-dmT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="الخريطة" image="map@-111" id="B9v-5H-IYa"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXF-0X-baz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rgV-1V-kFS" kind="relationship" relationship="rootViewController" id="lat-nM-Odp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="boC-0f-hW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220.28985507246378" y="276.5625"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Group 3" width="24" height="24"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="home-icon" width="25" height="25"/>
-        <image name="magnifying-glass@-18" width="20" height="20"/>
-        <image name="magnifying-glass@-2" width="20" height="20"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="map@-111" width="20" height="24"/>
-        <image name="notefi_act" width="18" height="24"/>
         <image name="speech-bubble22" width="24" height="24"/>
         <namedColor name="OrangeColor">
             <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

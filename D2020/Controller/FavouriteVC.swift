@@ -9,24 +9,17 @@ import UIKit
 import Alamofire
 import KRProgressHUD
 import SDWebImage
-struct SavedStoreDetails{
-    var name: String
-    var image: String
-}
+
 class FavouriteVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var subcategoryId = 14
-    var SubCategoryStoresArray = [SubCategoryStoresData]()
-    var savedStoresArray = [SavedStoreDetails]()
-    var storeId = 7
-    let jsonDecoder = JSONDecoder()
+    var savedStoresArray = [SavedStoresData]()
+    var storeId = 0
 
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-//        subcategoriesStoresRequest()
         getSavedStores()
     }
     func setup(){
@@ -35,35 +28,45 @@ class FavouriteVC: UIViewController {
 
     }
     // MARK:- API Request
+    func getSavedStores(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/saved_stores"
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(SavedStores.self, from: result.data!) else{
+                return}
+                self?.savedStoresArray = apiResponseModel.data
+                self?.tableView.reloadData()
+                KRProgressHUD.dismiss()
 
-     func getSavedStores(){
-             KRProgressHUD.show()
-             print(storeId)
-             let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
-             guard let apiURL = URL(string: apiURLInString) else{   return }
-             Alamofire
-                 .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-                 .response {[weak self] result in
-                 let jsonConverter = JSONDecoder()
-                     guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                         return}
-                    let name = apiResponseModel.data?.data?.name
-                    let image = apiResponseModel.data?.data?.image
-                    let storeObj = SavedStoreDetails(name: name ?? "", image: image ?? "")
-                    self?.savedStoresArray.append(storeObj)
-                    self?.tableView.reloadData()
-                    KRProgressHUD.dismiss()
-
-                }
+            }
     }
-//    private func decodeFavStoresSaved(){
-//        let favStores = UserDefaults.standard.data(forKey: "favStores")
-//        if favStores != nil{
-//            favStores = try! jsonDecoder.decode([StoreDetails].self, from: favStores!)
-//        }
-//    }
-//
+    @objc func deleteStore(sender:UIButton){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/delete_saved_stores/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        Alamofire
+            .request(apiURL, method: .delete , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
+                }else{
+                    return
+                }
+            }
 
+    }
+ 
+
+// saved stores
 }
 extension FavouriteVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,12 +76,16 @@ extension FavouriteVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
         cell.categoryImageView.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(savedStoresArray[indexPath.row].image)"))
-//          cell.rateLabel.text = "12KM"
-          cell.nameLabel.text = savedStoresArray[indexPath.row].name
+        cell.nameLabel.text = savedStoresArray[indexPath.row].name
+        cell.saveBtn.setTitle("حذف", for: .normal)
+        cell.saveBtn.tag = indexPath.row
+        cell.saveBtn.addTarget(self, action: #selector(deleteStore), for: .touchUpInside)
 
         
         return cell
     }
+
+
     
 }
     

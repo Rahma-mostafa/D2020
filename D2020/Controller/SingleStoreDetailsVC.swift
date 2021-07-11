@@ -102,8 +102,10 @@ class SingleStoreDetailsVC: UIViewController {
      }
          
      }
-    // Buttons action
+ //MARK:- Buttons Action
+
     @IBAction func onSaveBtnTapped(_ sender: Any) {
+        saveStore()
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "FavouriteVC") as!  FavouriteVC
         scene.storeId = self.storeId
@@ -190,6 +192,24 @@ class SingleStoreDetailsVC: UIViewController {
     
                     }
             }
+    func saveStore(){
+        KRProgressHUD.show()
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/save_store/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage:"تم حفظ المحل ")
+                }else{
+                    return
+                }
+                
+            }
+    }
     
 
 

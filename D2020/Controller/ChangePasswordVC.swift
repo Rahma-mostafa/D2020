@@ -20,6 +20,7 @@ class ChangePasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        blurView()
 
     }
     func blurView(){
@@ -39,7 +40,7 @@ class ChangePasswordVC: UIViewController {
         let headers = ["Authorization":"Bearer \(token)"]
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile/update_password"
         print("URL : \(apiURLInString)")
-        
+         
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request("https://4rents.net/dashboard/api/user/profile/update_password", method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)

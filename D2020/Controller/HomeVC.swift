@@ -136,10 +136,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         self.pageView.currentPage = indexPath.row
     }
 
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//            return CGSize(width: ( self.view.frame.size.width) / 3 , height: 97)
-//
-//    }
+
 
     
     

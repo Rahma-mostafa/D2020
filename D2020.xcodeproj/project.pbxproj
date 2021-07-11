@@ -13,6 +13,7 @@
 		D957646926824DBE00CD748F /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646826824DBE00CD748F /* APIConstant.swift */; };
 		D957646C26824F1A00CD748F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646B26824F1A00CD748F /* LoginResponse.swift */; };
 		D957646E268256B800CD748F /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646D268256B800CD748F /* UserDefaultKeys.swift */; };
+		FA084068269B6C3800B6363C /* SavedStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA084067269B6C3800B6363C /* SavedStores.swift */; };
 		FA09B15F266332A20078DCC0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09B15E266332A20078DCC0 /* loginViewController.swift */; };
 		FA0AAF2326646963005E9E35 /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AAF2226646963005E9E35 /* Store.storyboard */; };
 		FA0AAF2F26646BDE005E9E35 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AAF2E26646BDE005E9E35 /* Localization.swift */; };
@@ -62,6 +63,7 @@
 		FA5963B52661930000A8C119 /* SecondSplashController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5963B42661930000A8C119 /* SecondSplashController.swift */; };
 		FA611DFB267A802700A3AD3B /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA611DFA267A802700A3AD3B /* PremiumVC.swift */; };
 		FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA611E02267AE79C00A3AD3B /* ProductVC.swift */; };
+		FA771348269B2BFB00D8B09E /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA771347269B2BFB00D8B09E /* RegisterVC.swift */; };
 		FA7A6410267B2E0000DAE9FF /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A640E267B2E0000DAE9FF /* RateCell.swift */; };
 		FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7A640F267B2E0000DAE9FF /* RateCell.xib */; };
 		FA7C0D73268D9AB8008D7A9A /* FavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C0D72268D9AB8008D7A9A /* FavouriteVC.swift */; };
@@ -132,6 +134,7 @@
 		D957646B26824F1A00CD748F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		D957646D268256B800CD748F /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		EA0C41DCE1722708DF0B920F /* Pods_D2020_D2020UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_D2020_D2020UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA084067269B6C3800B6363C /* SavedStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStores.swift; sourceTree = "<group>"; };
 		FA09B15A26632A800078DCC0 /* ArbFONTS-Sukar Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArbFONTS-Sukar Bold.ttf"; sourceTree = "<group>"; };
 		FA09B15E266332A20078DCC0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		FA0AAF2226646963005E9E35 /* Store.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 		FA5963B42661930000A8C119 /* SecondSplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSplashController.swift; sourceTree = "<group>"; };
 		FA611DFA267A802700A3AD3B /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
 		FA611E02267AE79C00A3AD3B /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
+		FA771347269B2BFB00D8B09E /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FA7A640E267B2E0000DAE9FF /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		FA7A640F267B2E0000DAE9FF /* RateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
 		FA7C0D72268D9AB8008D7A9A /* FavouriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVC.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 				FA122C7F268AFFA0008BCA3C /* SubCategoryStores.swift */,
 				FACB1EF3268DB04D00299506 /* StoreDetails.swift */,
 				FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */,
+				FA084067269B6C3800B6363C /* SavedStores.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				FAA776A726619A2600D65636 /* MainViewController.swift */,
 				FA21A57126628D150085CA25 /* LanguageController.swift */,
 				FA09B15E266332A20078DCC0 /* loginViewController.swift */,
+				FA771347269B2BFB00D8B09E /* RegisterVC.swift */,
 				FA0AAF3826655BA3005E9E35 /* UploadForStoreVC.swift */,
 				FA0AAF3D26655BEA005E9E35 /* UploadForMandoopVC.swift */,
 				FA0AAF4226655D31005E9E35 /* SigninVC.swift */,
@@ -395,6 +401,7 @@
 				FAC780902672F8A3008E73D8 /* CategoriesVC.swift */,
 				FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */,
 				FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */,
+				FA7C0D72268D9AB8008D7A9A /* FavouriteVC.swift */,
 				FA611DFA267A802700A3AD3B /* PremiumVC.swift */,
 				FA7CA2672677FA7900A8238C /* CheckOrderVC.swift */,
 				FA7CA26C2677FD9E00A8238C /* DelegateRateVC.swift */,
@@ -405,7 +412,6 @@
 				FA2DC2BB267F674E004FBF9E /* ContactVC.swift */,
 				FA2DC39A268054E2004FBF9E /* MapVC.swift */,
 				FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */,
-				FA7C0D72268D9AB8008D7A9A /* FavouriteVC.swift */,
 				FACB1EA4268D9F2600299506 /* ConversationVC.swift */,
 				FACB1EA9268D9F5D00299506 /* ChatViewController.swift */,
 			);
@@ -771,6 +777,7 @@
 				FAFDB05E266ABAC100CD08A1 /* MorePlacesVC.swift in Sources */,
 				FA122C80268AFFA0008BCA3C /* SubCategoryStores.swift in Sources */,
 				FA122C64268ADD5A008BCA3C /* SubCategories.swift in Sources */,
+				FA771348269B2BFB00D8B09E /* RegisterVC.swift in Sources */,
 				FA21A57226628D150085CA25 /* LanguageController.swift in Sources */,
 				FA122C44268AC000008BCA3C /* Categories.swift in Sources */,
 				FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */,
@@ -782,6 +789,7 @@
 				FAC780912672F8A3008E73D8 /* CategoriesVC.swift in Sources */,
 				FA0AAF4826655F02005E9E35 /* HomeVC.swift in Sources */,
 				FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */,
+				FA084068269B6C3800B6363C /* SavedStores.swift in Sources */,
 				FAA7771026619FF600D65636 /* PageViewController.swift in Sources */,
 				FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */,
 				FAC780972672F8E7008E73D8 /* CategoriesCell.swift in Sources */,

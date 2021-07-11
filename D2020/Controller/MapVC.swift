@@ -19,17 +19,19 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
     var latitude = "29.97648"
     var longitude = "31.131302"
     var storesArray = [StoesDataClass]()
+    let annontation = MKPointAnnotation()
+
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
-//        let initialLocation = CLLocation(latitude: Double(latitude) ?? 0.0 , longitude: Double(longitude) ?? 0.0)
-//        mapView.centerToLocation(initialLocation)
-
         getStoreLocation()
         storesRequest()
+        
+//        customMapAnnontation()
 
     }
 
@@ -41,6 +43,15 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
           locationManager.delegate = self
 
     }
+
+//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//        let reuseId = "pin"
+//
+//        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+//        anView?.image = UIImage(named: "map@-12")
+//        return anView
+//    }
+
 // all stores location
     func storesRequest(){
         KRProgressHUD.show()
@@ -52,7 +63,7 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
                 self?.storesArray = apiResponseModel.data
-                
+                print(apiResponseModel.data)
                 KRProgressHUD.dismiss()
 
             }
@@ -73,11 +84,12 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
                   
                     self?.latitude = apiResponseModel.data?.data?.lati ?? ""
                     self?.longitude = apiResponseModel.data?.data?.longi ?? ""
+                    let title = apiResponseModel.data?.data?.name ?? ""
                     let initialLocation = CLLocation(latitude: Double(self?.latitude ?? "0.0") ?? 0.0 , longitude: Double(self?.longitude ?? "0.0") ?? 0.0)
                     self?.mapView.centerToLocation(initialLocation)
-                    print(self?.latitude,self?.longitude)
-
-
+                    self?.annontation.coordinate = CLLocationCoordinate2D(latitude: Double(self?.latitude ?? "0.0") ?? 0.0 ,  longitude: Double(self?.longitude ?? "0.0") ?? 0.0)
+                    self?.annontation.title = title
+                    self?.mapView.addAnnotation(self?.annontation as! MKAnnotation)
                     KRProgressHUD.dismiss()
 
                 }
@@ -95,3 +107,4 @@ private extension MKMapView {
       setRegion(coordinateRegion, animated: true)
     }
   }
+

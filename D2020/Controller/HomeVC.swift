@@ -96,6 +96,7 @@ class HomeVC: UIViewController {
 
             }
     }
+    
     func storesRequest(){
         KRProgressHUD.show()
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/stores"
@@ -105,7 +106,7 @@ class HomeVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
-                self?.storesArray = apiResponseModel.data
+                self?.storesArray = apiResponseModel.data ?? [StoesDataClass]()
                 self?.storesCollectionView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -141,7 +142,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCell", for: indexPath) as! PlacesCell
-            cell.categoryImage.sd_setImage(with: URL(string: storesArray[indexPath.row].image))
+            cell.categoryImage.sd_setImage(with: URL(string: storesArray[indexPath.row].image ?? ""))
             cell.categoryLabel.text = storesArray[indexPath.row].name
             return cell
         }

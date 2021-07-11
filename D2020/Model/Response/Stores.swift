@@ -6,106 +6,54 @@
 import Foundation
 
 // MARK: - Stores
-struct Stores: Codable {
-    let status: Bool
-    let message: String
-    let data: [StoesDataClass]
+struct Stores:Codable {
+    let status: Bool?
+    let message: String?
+    let data: [StoesDataClass]?
 }
 
 // MARK: - Datum
-struct StoesDataClass: Codable {
-    let id: Int
-    let name, code, arabicName, datumDescription: String
-    let arabicDescription: String
-    let tags: JSONNull?
-    let address: String
-    let subscriberID, cityID, categoryID, subCategoryID: Int
-    let phone, email: String?
-    let image: String
-    let begin, end, longi, lati: String?
-    let status: Int
-    let createdAt, updatedAt: String
-    let images: [Image]
-    let products: [Product]
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, code
-        case arabicName = "arabic_name"
-        case datumDescription = "description"
-        case arabicDescription = "arabic_description"
-        case tags, address
-        case subscriberID = "subscriber_id"
-        case cityID = "city_id"
-        case categoryID = "category_id"
-        case subCategoryID = "sub_category_id"
-        case phone, email, image, begin, end, longi, lati, status
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case images, products
-    }
+struct StoesDataClass:Codable{
+    let id: Int?
+    let name, code, arabicName: String?
+    let datumDescription, arabicDescription: String?
+    let address: String?
+    let subscriberID, cityID, categoryID, subCategoryID: Int?
+    let phone: String?
+    let email: String?
+    let image: String?
+    let video: String?
+    let begin, end: String?
+    let status: Int?
+    let longi, lati: String?
+    let best, rating, views: Int?
+    let createdAt, updatedAt: String?
+    let images: [Image]?
+    let products: [Product]?
+    let reviews: [StoreReview]?
 }
 
 // MARK: - Image
-struct Image: Codable {
-    let id, stageID: Int
-    let image, createdAt, updatedAt: String
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case stageID = "stage_id"
-        case image
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+struct Image:Codable {
+    let id, stageID: Int?
+    let image, createdAt, updatedAt: String?
 }
 
 // MARK: - Product
-struct Product: Codable {
-    let id: Int
-    let name, arabicName, price: String
-    let address: JSONNull?
-    let productDescription, arabicDescription: String
-    let tags: JSONNull?
-    let stageID: Int
-    let image, offer, createdAt, updatedAt: String
-
-    enum CodingKeys: String, CodingKey {
-        case id, name
-        case arabicName = "arabic_name"
-        case price, address
-        case productDescription = "description"
-        case arabicDescription = "arabic_description"
-        case tags
-        case stageID = "stage_id"
-        case image, offer
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-    }
+struct Product:Codable {
+    let id: Int?
+    let name, arabicName, price, productDescription: String?
+    let arabicDescription: String?
+    let stageID: Int?
+    let image, offer, createdAt, updatedAt: String?
 }
 
-// MARK: - Encode/decode helpers
-
-//class JSONNull: Codable, Hashable {
-//
-//    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-//        return true
-//    }
-//
-//    public var hashValue: Int {
-//        return 0
-//    }
-//
-//    public init() {}
-//
-//    public required init(from decoder: Decoder) throws {
-//        let container = try decoder.singleValueContainer()
-//        if !container.decodeNil() {
-//            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-//        }
-//    }
-//
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.singleValueContainer()
-//        try container.encodeNil()
-//    }
-//}
+// MARK: - Review
+struct StoreReview:Codable {
+    let id, stageID, userID: Int?
+    let review: String?
+    let rating: Int?
+    let username: String?
+    let image: String?
+    let createdAt, updatedAt: String?
+}

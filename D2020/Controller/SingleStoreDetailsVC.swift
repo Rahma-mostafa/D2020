@@ -59,7 +59,7 @@ class SingleStoreDetailsVC: UIViewController {
         pageView.numberOfPages = imagesArray.count
         pageView.currentPage = 0
         DispatchQueue.main.async {
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         storeDetailsRequest()
         getRestStoreDetialsRequest()
@@ -165,6 +165,7 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
                 self?.storeId = apiResponseModel.data?.data?.id ?? 0
                 self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
+                self?.sliderCollectionView.reloadData()
                 KRProgressHUD.dismiss()
 
             }
@@ -227,7 +228,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == sliderCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
-            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image )")
+            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "" )")
             cell.backgroundImage.sd_setImage(with: imageUrl, completed: nil)
             return cell
         }else{

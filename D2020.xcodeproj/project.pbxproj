@@ -46,6 +46,8 @@
 		FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30256826799C09000E0DC8 /* ProductCell.xib */; };
 		FA36E8CC268919FC00637EAB /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA36E8CB268919FC00637EAB /* City.storyboard */; };
 		FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49EFFC266B49E300215EFE /* Category.storyboard */; };
+		FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */; };
+		FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */; };
 		FA502B502683AF2A005A61DD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA502B4F2683AF2A005A61DD /* ProfileVC.swift */; };
 		FA502B582683ED64005A61DD /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA502B572683ED64005A61DD /* Cities.swift */; };
 		FA59631F26611FCF00A8C119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59631E26611FCF00A8C119 /* SceneDelegate.swift */; };
@@ -164,6 +166,8 @@
 		FA30256826799C09000E0DC8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		FA36E8CB268919FC00637EAB /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
 		FA49EFFC266B49E300215EFE /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
+		FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
 		FA502B4F2683AF2A005A61DD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		FA502B572683ED64005A61DD /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		FA59631926611FCF00A8C119 /* D2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = D2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +284,7 @@
 				FA122C74268AEAC3008BCA3C /* Stores.swift */,
 				FA122C7F268AFFA0008BCA3C /* SubCategoryStores.swift */,
 				FACB1EF3268DB04D00299506 /* StoreDetails.swift */,
+				FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				FA0AAF4726655F02005E9E35 /* HomeVC.swift */,
 				FAFDB062266AEA1E00CD08A1 /* MenuVC.swift */,
 				FA502B4F2683AF2A005A61DD /* ProfileVC.swift */,
+				FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */,
 				FAFDB039266AAEAA00CD08A1 /* MoreCategoriesVC.swift */,
 				FAFDB05D266ABAC100CD08A1 /* MorePlacesVC.swift */,
 				FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */,
@@ -749,6 +755,7 @@
 				FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */,
 				D957646C26824F1A00CD748F /* LoginResponse.swift in Sources */,
 				FA0AAF2F26646BDE005E9E35 /* Localization.swift in Sources */,
+				FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */,
 				FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */,
 				FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */,
 				FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */,
@@ -766,6 +773,7 @@
 				FA122C64268ADD5A008BCA3C /* SubCategories.swift in Sources */,
 				FA21A57226628D150085CA25 /* LanguageController.swift in Sources */,
 				FA122C44268AC000008BCA3C /* Categories.swift in Sources */,
+				FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */,
 				FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */,
 				FA502B582683ED64005A61DD /* Cities.swift in Sources */,
 				FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */,

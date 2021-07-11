@@ -34,7 +34,7 @@ class MorePlacesVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
-                self?.storesArray = apiResponseModel.data
+                self?.storesArray = apiResponseModel.data ?? [StoesDataClass]()
                 self?.placesCollectionView.reloadData()
                 print("\(self!.storesArray)")
                 KRProgressHUD.dismiss()
@@ -55,7 +55,7 @@ extension MorePlacesVC: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCell", for: indexPath) as! PlacesCell
-        cell.categoryImage.sd_setImage(with: URL(string: storesArray[indexPath.row].image))
+        cell.categoryImage.sd_setImage(with: URL(string: storesArray[indexPath.row].image ?? ""))
         cell.categoryLabel.text = storesArray[indexPath.row].name
         return cell
     }

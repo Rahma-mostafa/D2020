@@ -48,7 +48,7 @@ class ChangePasswordVC: UIViewController {
                 if result.response?.statusCode == 200{
                     KRProgressHUD.showSuccess(withMessage: "تم تعديل كلمة المرور بنجاح")
                 }else{
-                    KRProgressHUD.showSuccess(withMessage: "كلمة المرور القديمة غير صحيحة")
+                    KRProgressHUD.showError(withMessage: "كلمة المرور القديمة غير صحيحة")
                 }
                 
             }

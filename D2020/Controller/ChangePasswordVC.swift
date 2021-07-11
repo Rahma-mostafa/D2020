@@ -42,14 +42,14 @@ class ChangePasswordVC: UIViewController {
         
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
-            .request("https://4rents.net/dashboard/api/user/profile/update_password", method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .request("https://4rents.net/dashboard/api/user/profile/update_password", method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
             .response {[weak self] result in
                 print("Response Code : \(result.response?.statusCode)")
-//                let jsonConverter = JSONDecoder()
-//                guard let apiResponseModel = try? jsonConverter.decode(UpdatePassword.self, from: result.data!) else{return}
-                
-                
-                KRProgressHUD.dismiss()
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم تعديل كلمة المرور بنجاح")
+                }else{
+                    KRProgressHUD.showSuccess(withMessage: "كلمة المرور القديمة غير صحيحة")
+                }
                 
             }
     }

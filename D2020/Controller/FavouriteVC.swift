@@ -58,7 +58,7 @@ class FavouriteVC: UIViewController {
                 print("Response Code : \(result.response?.statusCode)")
                 if result.response?.statusCode == 200{
                     KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
-                    savedStoresArray.remove(at: sender.tag)
+                    self?.savedStoresArray.remove(at: sender.tag)
                     self?.tableView.reloadData()
                 }else{
                     

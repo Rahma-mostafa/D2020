@@ -48,7 +48,7 @@ class FavouriteVC: UIViewController {
     }
     @objc func deleteStore(sender:UIButton){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/delete_saved_stores/\(storeId)"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/delete_saved_stores/\(savedStoresArray[sender.tag].id)"
         guard let apiURL = URL(string: apiURLInString) else{   return }
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)"]
@@ -58,8 +58,11 @@ class FavouriteVC: UIViewController {
                 print("Response Code : \(result.response?.statusCode)")
                 if result.response?.statusCode == 200{
                     KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
+                    self?.savedStoresArray.remove(at: sender.tag)
+                    self?.tableView.reloadData()
                 }else{
-                    return
+                    
+                    KRProgressHUD.showError(withMessage: "عطل بالسيرفر")
                 }
             }
 

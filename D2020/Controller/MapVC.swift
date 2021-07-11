@@ -28,7 +28,7 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
         super.viewDidLoad()
         
         setup()
-                getStoreLocation()
+        getStoreLocation()
         storesRequest()
         
         //        customMapAnnontation()

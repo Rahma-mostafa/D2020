@@ -163,8 +163,6 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
                 self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
-//                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(self?.imagesArray[0].image ?? "")")
-//                self?.storeImageView.sd_setImage(with: imageUrl ,completed: nil)
                 self?.storeId = apiResponseModel.data?.data?.id ?? 0
                 self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
                 KRProgressHUD.dismiss()

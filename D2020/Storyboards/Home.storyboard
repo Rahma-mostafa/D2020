@@ -16,6 +16,9 @@
         <array key="ArbFONTS-Cairo-Regular-3.ttf">
             <string>Cairo-Regular</string>
         </array>
+        <array key="Cairo.ttf">
+            <string>Cairo</string>
+        </array>
     </customFonts>
     <scenes>
         <!--MapVC-->
@@ -27,13 +30,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s3E-7p-Asd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="RnS-fr-iXU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eRp-kz-DhH">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                             </mapView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,7 +75,88 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlJ-om-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689.85507246376812" y="276.5625"/>
+            <point key="canvasLocation" x="1333" y="296"/>
+        </scene>
+        <!--Select MapVC-->
+        <scene sceneID="Ple-yp-o2A">
+            <objects>
+                <viewController storyboardIdentifier="SelectMapVC" id="iM4-cq-O3g" customClass="SelectMapVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N57-Vo-bez">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLR-Tg-9QX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر الخريطة" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2K-X9-Vgo">
+                                        <rect key="frame" x="20" y="20" width="374" height="20"/>
+                                        <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-38-BNX">
+                                        <rect key="frame" x="50" y="90" width="314" height="84"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-it-8jf">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="32"/>
+                                                <color key="backgroundColor" name="OrangeColor"/>
+                                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                                <state key="normal" title="المتاجر">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onStoresBtnTapped:" destination="iM4-cq-O3g" eventType="touchUpInside" id="nPY-c8-p3F"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbs-H0-Hrk">
+                                                <rect key="frame" x="0.0" y="52" width="314" height="32"/>
+                                                <color key="backgroundColor" name="OrangeColor"/>
+                                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                                <state key="normal" title="المناديب">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onDelegateBtnTapped:" destination="iM4-cq-O3g" eventType="touchUpInside" id="grr-FG-6qM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6k7-38-BNX" secondAttribute="trailing" constant="50" id="KMw-0u-pbD"/>
+                                    <constraint firstItem="6k7-38-BNX" firstAttribute="leading" secondItem="PLR-Tg-9QX" secondAttribute="leading" constant="50" id="ThJ-VT-Ufr"/>
+                                    <constraint firstItem="K2K-X9-Vgo" firstAttribute="leading" secondItem="PLR-Tg-9QX" secondAttribute="leading" constant="20" id="aum-AK-aL5"/>
+                                    <constraint firstAttribute="trailing" secondItem="K2K-X9-Vgo" secondAttribute="trailing" constant="20" id="edT-LK-hmU"/>
+                                    <constraint firstItem="6k7-38-BNX" firstAttribute="top" secondItem="K2K-X9-Vgo" secondAttribute="bottom" constant="50" id="vVn-i5-I4H"/>
+                                    <constraint firstItem="K2K-X9-Vgo" firstAttribute="top" secondItem="PLR-Tg-9QX" secondAttribute="top" constant="20" id="zgr-u9-T2N"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8On-hp-LSa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PLR-Tg-9QX" firstAttribute="leading" secondItem="8On-hp-LSa" secondAttribute="leading" id="1kT-Cf-EsO"/>
+                            <constraint firstItem="PLR-Tg-9QX" firstAttribute="top" secondItem="8On-hp-LSa" secondAttribute="top" id="3HN-ZV-7ef"/>
+                            <constraint firstItem="8On-hp-LSa" firstAttribute="trailing" secondItem="PLR-Tg-9QX" secondAttribute="trailing" id="4Oc-S0-Ooh"/>
+                            <constraint firstItem="8On-hp-LSa" firstAttribute="bottom" secondItem="PLR-Tg-9QX" secondAttribute="bottom" id="R9V-WZ-Sty"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7Rm-Jz-mF1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opV-CS-1yZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693" y="297"/>
         </scene>
         <!--الحافظة-->
         <scene sceneID="jXA-RU-Osl">
@@ -624,7 +708,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="rgV-1V-kFS" kind="relationship" relationship="rootViewController" id="lat-nM-Odp"/>
+                        <segue destination="iM4-cq-O3g" kind="show" id="CFv-ME-BtF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boC-0f-hW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

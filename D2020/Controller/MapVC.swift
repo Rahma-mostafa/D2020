@@ -18,18 +18,18 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
     var storeId = 0
     var latitude = "29.97648"
     var longitude = "31.131302"
+    var storesArray = [StoesDataClass]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setup()
-        let initialLocation = CLLocation(latitude: Double(latitude) ?? 0.0 , longitude: Double(longitude) ?? 0.0)
-        mapView.centerToLocation(initialLocation)
+//        let initialLocation = CLLocation(latitude: Double(latitude) ?? 0.0 , longitude: Double(longitude) ?? 0.0)
+//        mapView.centerToLocation(initialLocation)
 
         getStoreLocation()
-        print(latitude,longitude)
-        print(self.latitude,self.longitude)
-        print(self.latitude,self.longitude)
+        storesRequest()
 
     }
 
@@ -41,10 +41,28 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
           locationManager.delegate = self
 
     }
+// all stores location
+    func storesRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/stores"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
+                self?.storesArray = apiResponseModel.data
+                
+                KRProgressHUD.dismiss()
+
+            }
+        
+    }
+// single store location
     func getStoreLocation(){
             KRProgressHUD.show()
             print(storeId)
-            let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/7"
+            let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
             guard let apiURL = URL(string: apiURLInString) else{   return }
             Alamofire
                 .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)

@@ -24,14 +24,37 @@ class HomeVC: UIViewController {
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var categoryArray = [categoriesDataClass]()
     var storesArray = [StoesDataClass]()
+    var timer = Timer()
+    var counter = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         storesRequest()
         categoriesRequest()
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+        }
 
 
     }
+    
+    @objc func changeImage() {
+     
+     if counter < slider.count {
+         let index = IndexPath.init(item: counter, section: 0)
+         self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+         pageView.currentPage = counter
+         counter += 1
+     } else {
+         counter = 0
+         let index = IndexPath.init(item: counter, section: 0)
+         self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+         pageView.currentPage = counter
+         counter = 1
+     }
+         
+     }
+
     func setup(){
         sliderCollectionView.dataSource = self
         sliderCollectionView.delegate = self

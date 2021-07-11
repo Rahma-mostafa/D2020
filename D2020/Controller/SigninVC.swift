@@ -13,6 +13,9 @@ class SigninVC: BaseController {
     
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
+    var iconClick = true
+
+    @IBOutlet weak var showBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hiddenNav = true
@@ -105,6 +108,16 @@ class SigninVC: BaseController {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController")
         navigationController?.pushViewController(scene, animated: true)
+    }
+    @IBAction func onShowBtnTapped(_ sender: Any) {
+        if(iconClick == true) {
+            passTextField.isSecureTextEntry = false
+            showBtn.tintColor = .black
+              } else {
+            passTextField.isSecureTextEntry = true
+              }
+
+              iconClick = !iconClick
     }
     
     

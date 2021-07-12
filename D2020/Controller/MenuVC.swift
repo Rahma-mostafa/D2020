@@ -74,12 +74,12 @@ class MenuVC: UIViewController {
     @objc func languageTapped(recognizer: UITapGestureRecognizer){
         let alert = UIAlertController(title: "اللغة", message: "اختيار اللغة", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "العربية", style: UIAlertAction.Style.default, handler: {[weak self] _ in
-            let userDefaults = UserDefaults.standard.setValue("ar", forKey: "app_lang")
+            UserDefaults.standard.setValue("ar", forKey: "app_lang")
             self?.restartApp()
         }))
 
         alert.addAction(UIAlertAction(title: "الانجليزية", style: UIAlertAction.Style.default, handler:{[weak self] _ in
-            let userDefaults = UserDefaults.standard.setValue("en", forKey: "app_lang")
+            UserDefaults.standard.setValue("en", forKey: "app_lang")
             self?.restartApp()
         }))
         alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))

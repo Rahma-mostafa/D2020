@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             self.window = window
-            boot()
+//            boot()
         }
         guard let _ = (scene as? UIWindowScene) else { return }
     }

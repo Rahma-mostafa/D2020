@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var storesCollectionView: UICollectionView!
     // variables
-    var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
+    var slider = [Slider(image: "header_login"),Slider(image: "b1"),Slider(image: "b2")]
     var categoryArray = [categoriesDataClass]()
     var storesArray = [StoesDataClass]()
     var timer = Timer()

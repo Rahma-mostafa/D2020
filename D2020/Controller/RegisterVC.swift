@@ -22,7 +22,8 @@ class RegisterVC: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var passwordConfirmationTextField: UITextField!
+    var iconClick = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,25 +39,37 @@ class RegisterVC: UIViewController {
         let mail = mailTextField.text
         let address = addressTextField.text
         let password = passwordTextField.text
-        let passwordConfirmation = passwordConfirmationTextField.text
         
         let requestParameters = ["name": name ?? "","mobile": phone ?? "","address": address ?? "","email": mail ?? "","password": password ?? ""]
-        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-        let headers = ["Authorization":"Bearer \(token)"]
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/register"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
-            .request("https://4rents.net/dashboard/api/user/register", method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: nil)
+            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
                 print("Response Code : \(result.response?.statusCode)")
                 if result.response?.statusCode == 200{
                     KRProgressHUD.showSuccess(withMessage:"تم التسجيل")
                 }else{
-//                    KRProgressHUD.showError(withMessage: "كلمة المرور القديمة غير صحيحة")
+                    KRProgressHUD.showError(withMessage: "لم يتم تسجيل الدخول")
                 }
                 
             }
     }
+    @IBAction func onShowPassBtn(_ sender: Any) {
+        if(iconClick == true) {
+            passwordTextField.isSecureTextEntry = false
+              } else {
+                passwordTextField.isSecureTextEntry = true
+              }
+
+              iconClick = !iconClick
+    }
+    func navToHome(){
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "HomeVC") as? HomeVC
+        navigationController?.pushViewController(scene!, animated: true)
+    }
+    
                 
     
     @IBAction func onNextTextField(_ sender: Any) {
@@ -72,6 +85,8 @@ class RegisterVC: UIViewController {
             
         }else{
             registerNewUser()
+            navToHome()
+            
         }
     }
     

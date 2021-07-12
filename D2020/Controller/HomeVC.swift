@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var storesCollectionView: UICollectionView!
     // variables
-    var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
+    var slider = [Slider(image: "header_login"),Slider(image: "b1"),Slider(image: "b2")]
     var categoryArray = [categoriesDataClass]()
     var storesArray = [StoesDataClass]()
     var timer = Timer()
@@ -97,7 +97,7 @@ class HomeVC: UIViewController {
     
     func storesRequest(){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/stores"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/best_stores"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)

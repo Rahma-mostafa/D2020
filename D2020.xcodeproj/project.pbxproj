@@ -47,7 +47,6 @@
 		FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC39A268054E2004FBF9E /* MapVC.swift */; };
 		FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30256726799C09000E0DC8 /* ProductCell.swift */; };
 		FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30256826799C09000E0DC8 /* ProductCell.xib */; };
-		FA36E8CC268919FC00637EAB /* City.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA36E8CB268919FC00637EAB /* City.storyboard */; };
 		FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49EFFC266B49E300215EFE /* Category.storyboard */; };
 		FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */; };
 		FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */; };
@@ -77,6 +76,8 @@
 		FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA2852679734800A8238C /* NotificationVC.swift */; };
 		FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */; };
 		FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */; };
+		FA9F102D269C6D6C000C42B3 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F102C269C6D6C000C42B3 /* Splash.swift */; };
+		FA9F1038269C7BEA000C42B3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F1037269C7BEA000C42B3 /* SearchVC.swift */; };
 		FAA776A826619A2600D65636 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA776A726619A2600D65636 /* MainViewController.swift */; };
 		FAA7771026619FF600D65636 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7770F26619FF600D65636 /* PageViewController.swift */; };
 		FAB699FA269BCEAA0030E1F6 /* CitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB699F9269BCEAA0030E1F6 /* CitiesCell.swift */; };
@@ -173,7 +174,6 @@
 		FA2DC39A268054E2004FBF9E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FA30256726799C09000E0DC8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA30256826799C09000E0DC8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
-		FA36E8CB268919FC00637EAB /* City.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = City.storyboard; sourceTree = "<group>"; };
 		FA49EFFC266B49E300215EFE /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
@@ -211,6 +211,8 @@
 		FA7CA2852679734800A8238C /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStoreDetailsVC.swift; sourceTree = "<group>"; };
 		FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFilterVC.swift; sourceTree = "<group>"; };
+		FA9F102C269C6D6C000C42B3 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		FA9F1037269C7BEA000C42B3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		FAA776A726619A2600D65636 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FAA7770F26619FF600D65636 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		FAB699F9269BCEAA0030E1F6 /* CitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCell.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */,
 				FA084067269B6C3800B6363C /* SavedStores.swift */,
 				FAB69A12269BECB70030E1F6 /* About.swift */,
+				FA9F102C269C6D6C000C42B3 /* Splash.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -381,7 +384,6 @@
 				FA49EFFC266B49E300215EFE /* Category.storyboard */,
 				FA27C83E267A7DF400EFC09B /* Premium.storyboard */,
 				FAD288AD26772126009A4C30 /* Delegate.storyboard */,
-				FA36E8CB268919FC00637EAB /* City.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -389,8 +391,8 @@
 		FA59635226612A7600A8C119 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FAA7770F26619FF600D65636 /* PageViewController.swift */,
 				FA59635B26612D0A00A8C119 /* BaseController.swift */,
+				FAA7770F26619FF600D65636 /* PageViewController.swift */,
 				FA5963A126616F1700A8C119 /* SplashController.swift */,
 				FA5963B42661930000A8C119 /* SecondSplashController.swift */,
 				FAA776A726619A2600D65636 /* MainViewController.swift */,
@@ -426,6 +428,7 @@
 				FACB1EA9268D9F5D00299506 /* ChatViewController.swift */,
 				FAB69A0D269BE9100030E1F6 /* AboutVC.swift */,
 				FAB69A35269BF3290030E1F6 /* ContactUsVC.swift */,
+				FA9F1037269C7BEA000C42B3 /* SearchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -637,7 +640,6 @@
 				FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */,
 				FA0AAF2326646963005E9E35 /* Store.storyboard in Resources */,
 				FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */,
-				FA36E8CC268919FC00637EAB /* City.storyboard in Resources */,
 				FA21A56326628A710085CA25 /* cairo-a93e41191f in Resources */,
 				FA27C83F267A7DF400EFC09B /* Premium.storyboard in Resources */,
 			);
@@ -769,6 +771,7 @@
 			files = (
 				D957646E268256B800CD748F /* UserDefaultKeys.swift in Sources */,
 				FAA776A826619A2600D65636 /* MainViewController.swift in Sources */,
+				FA9F102D269C6D6C000C42B3 /* Splash.swift in Sources */,
 				FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */,
 				D957646C26824F1A00CD748F /* LoginResponse.swift in Sources */,
 				FA0AAF2F26646BDE005E9E35 /* Localization.swift in Sources */,
@@ -798,6 +801,7 @@
 				FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */,
 				FAF5CDB026669A7E0002E1CB /* CategoryCell.swift in Sources */,
 				FAB69A13269BECB70030E1F6 /* About.swift in Sources */,
+				FA9F1038269C7BEA000C42B3 /* SearchVC.swift in Sources */,
 				FAC780912672F8A3008E73D8 /* CategoriesVC.swift in Sources */,
 				FA0AAF4826655F02005E9E35 /* HomeVC.swift in Sources */,
 				FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */,

@@ -233,7 +233,7 @@ class SingleStoreDetailsVC: UIViewController {
         let requestParameters = ["rating": userRating ,"review": userReview ?? ""] as [String : Any]
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)"]
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/add_store_review/3"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/add_store_review/\(storeId)"
         print("URL : \(apiURLInString)")
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire

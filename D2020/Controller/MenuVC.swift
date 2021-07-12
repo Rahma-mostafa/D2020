@@ -22,6 +22,7 @@ class MenuVC: UIViewController {
 //        userProfileRequest()
         imageGesture()
         aboutGesture()
+        contactGesture()
 
     }
     func imageGesture(){
@@ -37,17 +38,28 @@ class MenuVC: UIViewController {
         aboutImageView.isUserInteractionEnabled = true
         aboutImageView.addGestureRecognizer(tapGesture)
     }
+    func contactGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.contactImageTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        techinicalSportImageView.isUserInteractionEnabled = true
+        techinicalSportImageView.addGestureRecognizer(tapGesture)
+    }
 
     @objc func imageTapped(recognizer: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC
         navigationController?.pushViewController(scene!, animated: true)
     }
-        @objc func aboutImageTapped(recognizer: UITapGestureRecognizer){
-            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-            let scene = storyboard.instantiateViewController(identifier: "AboutVC") as? AboutVC
-            navigationController?.pushViewController(scene!, animated: true)
-        }
+    @objc func aboutImageTapped(recognizer: UITapGestureRecognizer){
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "AboutVC") as? AboutVC
+        navigationController?.pushViewController(scene!, animated: true)
+    }
+    @objc func contactImageTapped(recognizer: UITapGestureRecognizer){
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "ContactUsVC") as? ContactUsVC
+        navigationController?.pushViewController(scene!, animated: true)
+    }
         
         func userProfileRequest(){
             KRProgressHUD.show()

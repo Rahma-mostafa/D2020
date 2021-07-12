@@ -15,6 +15,7 @@ class MenuVC: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var aboutImageView: UIImageView!
+    @IBOutlet weak var languageStackView: UIStackView!
     
     @IBOutlet weak var techinicalSportImageView: UIImageView!
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class MenuVC: UIViewController {
         imageGesture()
         aboutGesture()
         contactGesture()
+        languageGesture()
 
     }
     func imageGesture(){
@@ -44,6 +46,14 @@ class MenuVC: UIViewController {
         techinicalSportImageView.isUserInteractionEnabled = true
         techinicalSportImageView.addGestureRecognizer(tapGesture)
     }
+    
+    func languageGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.languageTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        languageStackView.isUserInteractionEnabled = true
+        languageStackView.addGestureRecognizer(tapGesture)
+    }
+    
 
     @objc func imageTapped(recognizer: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
@@ -61,6 +71,32 @@ class MenuVC: UIViewController {
         navigationController?.pushViewController(scene!, animated: true)
     }
         
+    @objc func languageTapped(recognizer: UITapGestureRecognizer){
+        let alert = UIAlertController(title: "اللغة", message: "اختيار اللغة", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "العربية", style: UIAlertAction.Style.default, handler: {[weak self] _ in
+            UserDefaults.standard.setValue("ar", forKey: "app_lang")
+            self?.restartApp()
+        }))
+
+        alert.addAction(UIAlertAction(title: "الانجليزية", style: UIAlertAction.Style.default, handler:{[weak self] _ in
+            UserDefaults.standard.setValue("en", forKey: "app_lang")
+            self?.restartApp()
+        }))
+        alert.addAction(UIAlertAction(title: "cancel".localized(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+
+    }
+    
+    private func restartApp(){
+        let window = UIWindow.key
+        let storyboard = UIStoryboard.init(name: "Auth", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
+        let appLanguage = UserDefaults.standard.string(forKey: "app_lang") ?? "ar"
+        let appLanguageHandler = AppLanguageHandler()
+        appLanguageHandler.setAppLang(with: appLanguage)
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
+    }
         func userProfileRequest(){
             KRProgressHUD.show()
             let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)

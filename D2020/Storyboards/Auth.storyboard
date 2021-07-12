@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-1.ttf">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
         <array key="ArbFONTS-Sukar Bold.ttf">
@@ -605,7 +605,6 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Email or phone number"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Email or phone number"/>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Email or phone number"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
@@ -660,8 +659,6 @@
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Password"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Password"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Password"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -1064,8 +1061,6 @@
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Full name"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Full name"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Full name"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Subtraction -1" translatesAutoresizingMaskIntoConstraints="NO" id="jz4-1M-Tsz">
@@ -1098,8 +1093,6 @@
                                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Phone number"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Phone number"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Phone number"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone@-1" translatesAutoresizingMaskIntoConstraints="NO" id="sWC-IJ-NFs">
@@ -1134,8 +1127,6 @@
                                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Email"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Email"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Email"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Subtraction 1" translatesAutoresizingMaskIntoConstraints="NO" id="dzK-Dq-vjf">
@@ -1169,8 +1160,6 @@
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="address"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="address"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="address"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Subtraction 2" translatesAutoresizingMaskIntoConstraints="NO" id="ZtR-1U-taV">
@@ -1204,8 +1193,6 @@
                                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Password"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Password"/>
-                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Password"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </textField>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="wXk-dU-X8t">

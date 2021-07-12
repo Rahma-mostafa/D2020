@@ -63,7 +63,7 @@ class ChangePasswordVC: UIViewController {
             oldPasswordTextField.attributedPlaceholder = NSAttributedString(string: "enter Old Password".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
             newPasswordTextField.attributedPlaceholder = NSAttributedString(string: "enter new Password".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
             confirmPasswordTextField.attributedPlaceholder = NSAttributedString(string: "confirm your password".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
-        }else if ewPasswordTextField.text != confirmPasswordTextField.text{
+        }else if newPasswordTextField.text != confirmPasswordTextField.text{
             confirmPasswordTextField.attributedPlaceholder = NSAttributedString(string: "Password is not vaild".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
         }else{
             postNewPassword()

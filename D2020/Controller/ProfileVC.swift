@@ -49,8 +49,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         self.userNickNameLabel.text = apiResponseModel.data.typ ?? ""
         self.userPhoneTextField.text = apiResponseModel.data.mobile ?? ""
         self.userMailTextField.text = apiResponseModel.data.email ?? ""
-        let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
-        self.userImage.sd_setImage(with: imageUrl, completed: nil)
+        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data.photo ?? "")"
+        self.userImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
         self.addressTextBox.text = apiResponseModel.data.address ?? ""
 //        self.passwordTextField.text = apiResponseModel.data
         

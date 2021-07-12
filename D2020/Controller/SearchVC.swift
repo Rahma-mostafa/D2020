@@ -71,21 +71,11 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
 }
 extension SearchVC : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        guard !searchText.isEmpty else{
-//            currentStoresArray = storesArray
-//            storeTableView.reloadData()
-//            return}
-//        currentStoresArray = storesArray.filter({ store -> Bool in
-//            guard let text = searchBar.text else{ return false }
-//            return ((store.name?.contains(searchText)) != nil)
-//        })
-//        self.storeTableView.reloadData()
-
 
         
         currentStoresArray = searchText.isEmpty ? storesArray : storesArray.filter({StoesDataClass -> Bool in
-            return ((StoesDataClass.name?.contains(searchText)) != nil)
-            
+            return currentStoresArray.contains { _ in searchText == StoesDataClass.name }
+
         })
         self.storeTableView.reloadData()
     }

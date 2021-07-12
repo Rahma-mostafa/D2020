@@ -591,7 +591,7 @@
                                                                             <constraint firstAttribute="width" constant="30" id="kp7-gX-1ON"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="             رقم الهاتف او الايميل     " textAlignment="justified" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2s0-Hc-gcM">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="             رقم الهاتف او الايميل     " textAlignment="right" minimumFontSize="25" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2s0-Hc-gcM">
                                                                         <rect key="frame" x="0.0" y="0.0" width="328" height="48"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="48" id="xN8-FU-3JH"/>
@@ -647,7 +647,7 @@
                                                                             <action selector="onShowBtnTapped:" destination="cM7-P6-5CK" eventType="touchUpInside" id="O00-mf-EzV"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsv-fk-9gs">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsv-fk-9gs">
                                                                         <rect key="frame" x="54" y="15.5" width="274" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>

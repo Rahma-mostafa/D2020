@@ -14,10 +14,14 @@ class MenuVC: UIViewController {
     @IBOutlet weak var profileLogoImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var aboutImageView: UIImageView!
+    
+    @IBOutlet weak var techinicalSportImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        userProfileRequest()
         imageGesture()
+        aboutGesture()
 
     }
     func imageGesture(){
@@ -27,11 +31,24 @@ class MenuVC: UIViewController {
         profileLogoImage.addGestureRecognizer(tapGesture)
         
     }
+    func aboutGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.aboutImageTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        aboutImageView.isUserInteractionEnabled = true
+        aboutImageView.addGestureRecognizer(tapGesture)
+    }
+
     @objc func imageTapped(recognizer: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC
         navigationController?.pushViewController(scene!, animated: true)
     }
+        @objc func aboutImageTapped(recognizer: UITapGestureRecognizer){
+            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "AboutVC") as? AboutVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }
+        
         func userProfileRequest(){
             KRProgressHUD.show()
             let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)

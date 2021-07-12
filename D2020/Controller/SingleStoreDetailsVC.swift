@@ -56,6 +56,7 @@ class SingleStoreDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        userProfileRequest()
         pageView.numberOfPages = imagesArray.count
         pageView.currentPage = 0
         DispatchQueue.main.async {
@@ -75,6 +76,8 @@ class SingleStoreDetailsVC: UIViewController {
         self.productCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         commentTableView.dataSource = self
         commentTableView.delegate = self
+        userRatingView.settings.updateOnTouch = true
+
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1000)
@@ -143,6 +146,8 @@ class SingleStoreDetailsVC: UIViewController {
         navigationController?.pushViewController(scene, animated: true)
     }
     @IBAction func onPostBtnTapped(_ sender: Any) {
+        addStoreReview()
+        self.commentTableView.reloadData()
     }
     
     
@@ -209,6 +214,40 @@ class SingleStoreDetailsVC: UIViewController {
                 
             }
     }
+    func userProfileRequest(){
+        KRProgressHUD.show()
+        let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
+        let jsonConverter = JSONDecoder()
+        guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{return}
+        print(apiResponseModel.data)
+        self.userNameLabel.text = apiResponseModel.data.name ?? ""
+        let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
+        self.userImageView.sd_setImage(with: imageUrl, completed: nil)
+        KRProgressHUD.dismiss()
+        
+    }
+    func addStoreReview(){
+        KRProgressHUD.show()
+        let userReview = reviewTextField.text
+        let userRating = self.userRatingView.rating
+        let requestParameters = ["rating": userRating ,"review": userReview ?? ""] as [String : Any]
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/add_store_review/3"
+        print("URL : \(apiURLInString)")
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم")
+                }else{
+                    KRProgressHUD.showError(withMessage: "لم يتم نشر التعليق")
+                }
+                
+            }
+    }
     
 
 
@@ -228,8 +267,8 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == sliderCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
-            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "" )")
-            cell.backgroundImage.sd_setImage(with: imageUrl, completed: nil)
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image)"
+            cell.backgroundImage.sd_setImage(with: URL(string: imageUrl))
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell

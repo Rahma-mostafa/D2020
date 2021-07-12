@@ -1,16 +1,15 @@
 //
-//  FilterCell.swift
+//  CitiesCell.swift
 //  D2020
 //
-//  Created by Macbook on 01/07/2021.
+//  Created by Macbook on 12/07/2021.
 //
 
 import UIKit
 
-class FilterCell: UITableViewCell {
-
-    @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var filterLabel: UILabel!
+class CitiesCell: UITableViewCell {
+    @IBOutlet weak var cityLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +20,5 @@ class FilterCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

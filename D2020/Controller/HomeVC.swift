@@ -135,12 +135,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         }else if collectionView == categoryCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-            cell.categoryImage.sd_setImage(with: URL(string: categoryArray[indexPath.row].image))
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(categoryArray[indexPath.row].image )"
+            cell.categoryImage.sd_setImage(with: URL(string: imageUrl))
             cell.categoryLabel.text = categoryArray[indexPath.row].name
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCell", for: indexPath) as! PlacesCell
-            cell.categoryImage.sd_setImage(with: URL(string: storesArray[indexPath.row].image ?? ""))
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(storesArray[indexPath.row].image ?? "")"
+            cell.categoryImage.sd_setImage(with: URL(string: imageUrl))
             cell.categoryLabel.text = storesArray[indexPath.row].name
             return cell
         }

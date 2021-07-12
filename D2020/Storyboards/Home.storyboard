@@ -340,7 +340,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="facilities"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Stores"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>

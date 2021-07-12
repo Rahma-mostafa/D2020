@@ -13,6 +13,7 @@
 		D957646926824DBE00CD748F /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646826824DBE00CD748F /* APIConstant.swift */; };
 		D957646C26824F1A00CD748F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646B26824F1A00CD748F /* LoginResponse.swift */; };
 		D957646E268256B800CD748F /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646D268256B800CD748F /* UserDefaultKeys.swift */; };
+		D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9901E0A269C94B000F631CA /* LanguageHandler.swift */; };
 		FA084068269B6C3800B6363C /* SavedStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA084067269B6C3800B6363C /* SavedStores.swift */; };
 		FA0840A7269B81E200B6363C /* SelectMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0840A6269B81E200B6363C /* SelectMapVC.swift */; };
 		FA09B15F266332A20078DCC0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09B15E266332A20078DCC0 /* loginViewController.swift */; };
@@ -136,6 +137,7 @@
 		D957646826824DBE00CD748F /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		D957646B26824F1A00CD748F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		D957646D268256B800CD748F /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		D9901E0A269C94B000F631CA /* LanguageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHandler.swift; sourceTree = "<group>"; };
 		EA0C41DCE1722708DF0B920F /* Pods_D2020_D2020UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_D2020_D2020UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA084067269B6C3800B6363C /* SavedStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStores.swift; sourceTree = "<group>"; };
 		FA0840A6269B81E200B6363C /* SelectMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMapVC.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				D957646A26824F0B00CD748F /* Response */,
 				D957646826824DBE00CD748F /* APIConstant.swift */,
 				D957646D268256B800CD748F /* UserDefaultKeys.swift */,
+				D9901E0A269C94B000F631CA /* LanguageHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				FA0AAF5426657BF0005E9E35 /* SliderCell.swift in Sources */,
 				FAB69A0E269BE9100030E1F6 /* AboutVC.swift in Sources */,
 				FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */,
+				D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */,
 				FACB1EAA268D9F5D00299506 /* ChatViewController.swift in Sources */,
 				FA59631F26611FCF00A8C119 /* SceneDelegate.swift in Sources */,
 			);

@@ -49,3 +49,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
 
 }
+
+extension UIWindow {
+    static var key: UIWindow? {
+        if #available(iOS 13, *) {
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
+            return sceneDelegate.window!
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
+}

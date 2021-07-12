@@ -19,13 +19,19 @@ class HomeVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var storesCollectionView: UICollectionView!
+    
+    @IBOutlet weak var menuContainerView: UIView!
+    
     // variables
     var slider = [Slider(image: "header_login"),Slider(image: "b1"),Slider(image: "b2")]
     var categoryArray = [categoriesDataClass]()
     var storesArray = [StoesDataClass]()
     var timer = Timer()
     var counter = 0
+    var iconClick = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -34,6 +40,9 @@ class HomeVC: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
+        self.blurView.isHidden = true
+        self.menuContainerView.isHidden = true
+
         
         
     }
@@ -67,14 +76,28 @@ class HomeVC: UIViewController {
         pageView.currentPage = 0
         
     }
+    func setBlur(){
+        self.blurView.isHidden = false
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.alpha = 0.5
+        view.addSubview(blurView)
+
+    }
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         
     }
     @IBAction func menuBtnTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "MenuVC")
-        navigationController?.pushViewController(scene, animated: true)
+        if(iconClick == true){
+//            setBlur()
+            self.menuContainerView.isHidden = false
+            }else{
+                self.menuContainerView.isHidden = true
+                 }
+              iconClick = !iconClick
     }
     
     

@@ -11,12 +11,12 @@ import Alamofire
 import SDWebImage
 
 class MenuVC: UIViewController {
+    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var profileLogoImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var aboutImageView: UIImageView!
     @IBOutlet weak var languageStackView: UIStackView!
-    
     @IBOutlet weak var techinicalSportImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,10 @@ class MenuVC: UIViewController {
         aboutGesture()
         contactGesture()
 //        languageGesture()
+        
 
     }
+ 
     func imageGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.imageTapped(recognizer:)))
         tapGesture.numberOfTapsRequired = 1

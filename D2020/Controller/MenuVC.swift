@@ -68,10 +68,8 @@ class MenuVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
             print(apiResponseModel.data)
             self.userNameLabel.text = apiResponseModel.data.name ?? ""
-
-
-//            let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
-//            self.profileLogoImage.sd_setImage(with: imageUrl, completed: nil)
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data.photo ?? "")"
+            self.profileLogoImage.sd_setImage(with: URL(string: imageUrl))
             KRProgressHUD.dismiss()
 
         }

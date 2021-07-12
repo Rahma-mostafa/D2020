@@ -10,7 +10,7 @@ import Alamofire
 import KRProgressHUD
 import SDWebImage
 
-class ProfileVC: UIViewController {
+class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -24,6 +24,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var addressTextBox: UITextField!
     var userToken: String = ""
     var citiesArray = [CitiesDataClass]()
+    var picker = UIImagePickerController()
 
     
     
@@ -69,6 +70,57 @@ class ProfileVC: UIViewController {
         changePasswordView.isHidden = false
 
     }
+    
+    @IBAction func onChangeImageBtn(_ sender: Any) {
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default)
+                {
+                    UIAlertAction in
+                    self.openCamera()
+            }
+        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertAction.Style.default)
+                {
+                    UIAlertAction in
+                    self.openGallary()
+            }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
+                {
+                    UIAlertAction in
+            }
+
+            // Add the actions
+            picker.delegate = self
+            alert.addAction(cameraAction)
+            alert.addAction(gallaryAction)
+            alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+        func openCamera(){
+            if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
+                picker.sourceType = UIImagePickerController.SourceType.camera
+                self .present(picker, animated: true, completion: nil)
+            }else{
+                let alert = UIAlertView()
+                alert.title = "Warning"
+                alert.message = "You don't have camera"
+                alert.addButton(withTitle: "OK")
+                alert.show()
+            }
+        }
+        func openGallary(){
+            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            self.present(picker, animated: true, completion: nil)
+        }
+        //MARK:UIImagePickerControllerDelegate
+        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+            picker .dismiss(animated: true, completion: nil)
+            userImage.image=info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
+        }
+        func imagePickerControllerDidCancel(picker: UIImagePickerController){
+            print("picker cancel.")
+        }
+    
+
     
 
     

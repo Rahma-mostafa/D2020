@@ -147,6 +147,10 @@
                                         <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Choose Map"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Choose Map"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6k7-38-BNX">
                                         <rect key="frame" x="50" y="90" width="314" height="124"/>
@@ -165,6 +169,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="11"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Stores"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Stores"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onStoresBtnTapped:" destination="iM4-cq-O3g" eventType="touchUpInside" id="nPY-c8-p3F"/>
@@ -184,6 +190,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="11"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Delegates"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Delegates"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onDelegateBtnTapped:" destination="iM4-cq-O3g" eventType="touchUpInside" id="grr-FG-6qM"/>
@@ -245,6 +253,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="الحافظة" id="wWV-ir-85Z">
                         <barButtonItem key="rightBarButtonItem" image="Group 3" id="atd-3z-GlC"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Saved"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="5d4-Yh-WBZ" id="oE9-ru-dQ0"/>
@@ -330,12 +341,13 @@
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="more &gt;&gt;"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="More &gt;&gt;"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <segue destination="Cvz-iV-3qP" kind="show" id="HEx-Uc-Wfc"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التصنيفات" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-8P-Mlf">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhP-8P-Mlf">
                                                         <rect key="frame" x="93" y="0.0" width="281" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="73" id="VYc-qL-CSc"/>
@@ -345,6 +357,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="category"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Catagory"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
@@ -380,6 +393,7 @@
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="more &gt;&gt;"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="More &gt;&gt;"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <segue destination="Y5g-ym-vgv" kind="show" id="LIs-Mi-5jm"/>
@@ -394,7 +408,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Stores"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Best Stores"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Best Stores"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
@@ -491,6 +506,9 @@
                                 <action selector="menuBtnTapped:" destination="I5y-Sc-QOb" id="mg5-GY-BBu"/>
                             </connections>
                         </barButtonItem>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Home"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
                     <connections>
@@ -608,46 +626,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rKB-Hr-0PN">
-                                <rect key="frame" x="20" y="108" width="374" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGn-2y-Jay">
-                                        <rect key="frame" x="0.0" y="0.0" width="20" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="ekB-Ey-VVO"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="magnifyingglass" catalog="system"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="منشآت متميزة" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-3l-wch">
-                                        <rect key="frame" x="40" y="0.0" width="290" height="30"/>
-                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="facilities"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3Z-r3-ZWE">
-                                        <rect key="frame" x="350" y="0.0" width="24" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="tQJ-eG-779"/>
-                                        </constraints>
-                                        <state key="normal" title="&gt;"/>
-                                        <connections>
-                                            <action selector="backBtnTapped:" destination="Y5g-ym-vgv" eventType="touchUpInside" id="qlM-15-N10"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="PF7-IV-xRG"/>
-                                </constraints>
-                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9b-7s-Eza">
-                                <rect key="frame" x="0.0" y="158" width="414" height="738"/>
+                                <rect key="frame" x="0.0" y="89" width="414" height="807"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gHc-G5-YWS">
-                                        <rect key="frame" x="20" y="20" width="374" height="698"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="767"/>
                                         <color key="backgroundColor" name="RoundedBigView Color"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kjv-re-iLd">
                                             <size key="itemSize" width="97" height="120"/>
@@ -675,13 +658,10 @@
                         <viewLayoutGuide key="safeArea" id="PN2-LR-5oU"/>
                         <color key="backgroundColor" name="OrangeColor"/>
                         <constraints>
-                            <constraint firstItem="PN2-LR-5oU" firstAttribute="trailing" secondItem="rKB-Hr-0PN" secondAttribute="trailing" constant="20" id="7fX-PR-UZO"/>
-                            <constraint firstItem="a9b-7s-Eza" firstAttribute="top" secondItem="rKB-Hr-0PN" secondAttribute="bottom" constant="20" id="F87-HZ-D4f"/>
-                            <constraint firstItem="rKB-Hr-0PN" firstAttribute="top" secondItem="PN2-LR-5oU" secondAttribute="top" constant="20" id="XyF-Zi-Kif"/>
                             <constraint firstItem="a9b-7s-Eza" firstAttribute="leading" secondItem="PN2-LR-5oU" secondAttribute="leading" id="Y8A-Wr-gID"/>
                             <constraint firstItem="a9b-7s-Eza" firstAttribute="trailing" secondItem="PN2-LR-5oU" secondAttribute="trailing" id="Yps-zW-IxJ"/>
-                            <constraint firstItem="rKB-Hr-0PN" firstAttribute="leading" secondItem="PN2-LR-5oU" secondAttribute="leading" constant="20" id="jJ8-gu-PQy"/>
                             <constraint firstAttribute="bottom" secondItem="a9b-7s-Eza" secondAttribute="bottom" id="srR-gU-iSW"/>
+                            <constraint firstItem="a9b-7s-Eza" firstAttribute="top" secondItem="PN2-LR-5oU" secondAttribute="top" constant="1" id="tTF-9n-97E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hfY-WD-atF"/>
@@ -721,7 +701,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2a-Ru-VKX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="الرئيسية" image="home-icon" id="X8p-f0-A9o">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="home"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Home"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
@@ -750,7 +730,11 @@
         <scene sceneID="LgP-aE-JGJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qlE-4W-9o8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الحافظة" image="bookmark" catalog="system" id="G2g-jD-USZ"/>
+                    <tabBarItem key="tabBarItem" title="الحافظة" image="bookmark" catalog="system" id="G2g-jD-USZ">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Saved"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="amp-nA-Yc1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -769,7 +753,11 @@
         <scene sceneID="2gr-0a-Ak0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Imr-VC-ZwI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الرسائل" image="speech-bubble22" id="Hi3-B6-5I3"/>
+                    <tabBarItem key="tabBarItem" title="الرسائل" image="speech-bubble22" id="Hi3-B6-5I3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Messages"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B3c-lw-0cb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -788,7 +776,11 @@
         <scene sceneID="L2O-L3-rZQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5WK-lg-dmT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="الخريطة" image="map@-111" id="B9v-5H-IYa"/>
+                    <tabBarItem key="tabBarItem" title="الخريطة" image="map" id="B9v-5H-IYa">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Map"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXF-0X-baz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1172,7 +1164,7 @@
         <image name="information" width="20" height="20"/>
         <image name="logout (1)" width="20" height="20"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="map@-111" width="20" height="24"/>
+        <image name="map" width="19.5" height="24"/>
         <image name="share (3)" width="20" height="20"/>
         <image name="speech-bubble22" width="24" height="24"/>
         <image name="translate (1)" width="20" height="20"/>

@@ -93,6 +93,7 @@ class MenuVC: UIViewController {
         let vc = storyboard.instantiateInitialViewController()
         let appLanguage = UserDefaults.standard.string(forKey: "app_lang") ?? "ar"
         let appLanguageHandler = AppLanguageHandler()
+        appLanguageHandler.setAppLang(with: appLanguage)
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }

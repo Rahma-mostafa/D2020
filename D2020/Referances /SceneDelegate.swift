@@ -31,6 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = vc
         let appLanguage = UserDefaults.standard.string(forKey: "app_lang") ?? "ar"
         let appLanguageHandler = AppLanguageHandler()
+        appLanguageHandler.setAppLang(with: appLanguage)
         self.window?.makeKeyAndVisible()
     }
 

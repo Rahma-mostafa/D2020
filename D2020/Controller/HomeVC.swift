@@ -68,7 +68,7 @@ class HomeVC: UIViewController {
         
     }
     override func viewDidAppear(_ animated: Bool) {
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 300)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         
     }
     @IBAction func menuBtnTapped(_ sender: Any) {
@@ -129,9 +129,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         if collectionView == sliderCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
             cell.backgroundImage.image = UIImage(named: slider[indexPath.row].image)
-            //        cell.helloLabel.text = "Hello"
-            //        cell.nameLabel.text = "Maher"
-            //        cell.logoName.text = "welcome in D202"
             return cell
         }else if collectionView == categoryCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
@@ -170,7 +167,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension UICollectionView {
     func scrollToNextItem() {
-        let contentOffset = CGFloat(floor(self.contentOffset.x + (self.bounds.size.width * 0.94)))
+        let contentOffset = CGFloat(floor(self.contentOffset.x + (self.bounds.size.width * 0.90)))
         self.moveToFrame(contentOffset: contentOffset)
     }
 

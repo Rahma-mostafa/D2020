@@ -13,7 +13,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-Regular-3.ttf">
+        <array key="ArbFONTS-Cairo-Regular.ttf">
             <string>Cairo-Regular</string>
         </array>
         <array key="Cairo.ttf">
@@ -296,7 +296,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boN-an-gxy">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAV-hM-311">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAV-hM-311">
                                                 <rect key="frame" x="20" y="20" width="374" height="160"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>

@@ -8,10 +8,12 @@
 
 import UIKit
 
+
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     
     var pageControl = UIPageControl()
+
     
     // MARK: UIPageViewControllerDataSource
     

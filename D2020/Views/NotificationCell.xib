@@ -12,7 +12,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
     </customFonts>
@@ -29,7 +29,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOn-SN-Pdc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvV-8U-r2g">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvV-8U-r2g">
                                 <rect key="frame" x="16" y="8" width="56" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="Tu9-Je-dm1"/>

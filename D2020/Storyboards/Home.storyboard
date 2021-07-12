@@ -13,7 +13,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-Regular-3.ttf">
+        <array key="ArbFONTS-Cairo-Regular.ttf">
             <string>Cairo-Regular</string>
         </array>
         <array key="Cairo.ttf">
@@ -76,6 +76,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlJ-om-eWG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1333" y="296"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="Xwo-cG-T2Q">
+            <objects>
+                <viewController storyboardIdentifier="SearchVC" id="KUe-PE-wHH" customClass="SearchVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="biw-Og-1j8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yjt-1y-37U">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bAx-Yw-k0I">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3Fx-5g-CsB"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vip-OR-7ZN">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="681"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Vip-OR-7ZN" firstAttribute="leading" secondItem="Yjt-1y-37U" secondAttribute="leading" id="Cf9-F6-VrD"/>
+                                    <constraint firstAttribute="trailing" secondItem="bAx-Yw-k0I" secondAttribute="trailing" id="EKW-8t-aQd"/>
+                                    <constraint firstItem="bAx-Yw-k0I" firstAttribute="leading" secondItem="Yjt-1y-37U" secondAttribute="leading" id="NKl-fg-zVZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vip-OR-7ZN" secondAttribute="bottom" id="Pgv-Sy-VhI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vip-OR-7ZN" secondAttribute="trailing" id="Ube-m6-9Ei"/>
+                                    <constraint firstItem="bAx-Yw-k0I" firstAttribute="top" secondItem="Yjt-1y-37U" secondAttribute="top" id="bvF-Iy-39H"/>
+                                    <constraint firstItem="Vip-OR-7ZN" firstAttribute="top" secondItem="bAx-Yw-k0I" secondAttribute="bottom" id="yv5-Nu-mcJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ctt-KG-DJS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yjt-1y-37U" firstAttribute="leading" secondItem="ctt-KG-DJS" secondAttribute="leading" id="42y-WS-5gu"/>
+                            <constraint firstItem="Yjt-1y-37U" firstAttribute="top" secondItem="ctt-KG-DJS" secondAttribute="top" id="G0X-uW-f6b"/>
+                            <constraint firstItem="Yjt-1y-37U" firstAttribute="trailing" secondItem="ctt-KG-DJS" secondAttribute="trailing" id="OGF-Sx-tkV"/>
+                            <constraint firstItem="Yjt-1y-37U" firstAttribute="bottom" secondItem="ctt-KG-DJS" secondAttribute="bottom" id="c94-Dn-BNj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dK3-1m-xrW"/>
+                    <connections>
+                        <outlet property="searchBar" destination="bAx-Yw-k0I" id="o5Q-qI-wGW"/>
+                        <outlet property="storeTableView" destination="Vip-OR-7ZN" id="Ngk-Je-qSN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grX-m3-Vcy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334.7826086956522" y="-1061.3839285714284"/>
         </scene>
         <!--Select MapVC-->
         <scene sceneID="Ple-yp-o2A">
@@ -408,6 +462,9 @@
                     <navigationItem key="navigationItem" title="الرئيسية" id="jzw-Xh-MEd">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="eR9-H0-h1b">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="cuX-qt-qem" kind="show" id="3QX-gW-YW4"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Group 3" id="4Oc-cD-otU">
                             <connections>
@@ -723,6 +780,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boC-0f-hW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-220.28985507246378" y="276.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="te4-YQ-IbD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cuX-qt-qem" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="iae-SW-Qlc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RhG-hb-e0W">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KUe-PE-wHH" kind="relationship" relationship="rootViewController" id="LzS-kV-Zib"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CVf-TE-hiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="690" y="-1061"/>
         </scene>
     </scenes>
     <resources>

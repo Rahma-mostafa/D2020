@@ -18,7 +18,6 @@ class LanguageController: BaseController {
    
     @IBOutlet weak var countryTblView: UITableView!
     // variables
-    var country = [Country(image: "2000px-Flag_of_Egypt.svg", name: "مصر"),Country(image: "2000px-Flag_of_Egypt.svg", name: "مصر"),Country(image: "2000px-Flag_of_Egypt.svg", name: "مصر"),Country(image: "2000px-Flag_of_Egypt.svg", name: "مصر")]
     var citiesArray = [CitiesDataClass]()
     var selectedIndex = 0
 
@@ -48,6 +47,12 @@ class LanguageController: BaseController {
                 KRProgressHUD.dismiss()
 
             }
+    }
+    
+    @IBAction func onApplayBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+        navigationController?.pushViewController(scene!, animated: true)
     }
     
 

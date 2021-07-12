@@ -97,7 +97,7 @@ class HomeVC: UIViewController {
     
     func storesRequest(){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/stores"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/best_stores"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)

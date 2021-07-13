@@ -29,7 +29,6 @@ class MenuVC: UIViewController {
     @IBOutlet weak var aboutStackView: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userProfileRequest()
         profileGesture()
         aboutGesture()
         contactGesture()
@@ -38,6 +37,12 @@ class MenuVC: UIViewController {
         
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        userProfileRequest()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         
@@ -173,8 +178,8 @@ class MenuVC: UIViewController {
             print(apiResponseModel.data)
             self.userNameLabel.text = apiResponseModel.data.name ?? ""
             self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
-            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data.photo ?? "")"
-            self.profileLogoImage.sd_setImage(with: URL(string: imageUrl))
+            let imageUrl = "\(apiResponseModel.data.photo ?? "")"
+            self.userImageView.sd_setImage(with: URL(string: imageUrl))
             KRProgressHUD.dismiss()
 
         }

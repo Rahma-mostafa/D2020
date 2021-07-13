@@ -11,6 +11,7 @@ import Alamofire
 import SDWebImage
 
 class MenuVC: UIViewController {
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var profileLogoImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -19,18 +20,13 @@ class MenuVC: UIViewController {
     @IBOutlet weak var languageStackView: UIStackView!
     @IBOutlet weak var techinicalSportImageView: UIImageView!
     @IBOutlet weak var shareStackView: UIStackView!
-    
     @IBOutlet weak var logoutStackView: UIStackView!
-    
     @IBOutlet weak var cityStackView: UIStackView!
-    
     @IBOutlet weak var storesStackView: UIStackView!
     @IBOutlet weak var delegateStckView: UIStackView!
     @IBOutlet weak var profileStackView: UIStackView!
-    
     @IBOutlet weak var contactStackView: UIStackView!
     @IBOutlet weak var aboutStackView: UIStackView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         userProfileRequest()
@@ -41,6 +37,10 @@ class MenuVC: UIViewController {
 //        languageGesture()
         
 
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        
     }
  
     func profileGesture(){
@@ -71,6 +71,12 @@ class MenuVC: UIViewController {
         contactStackView.isUserInteractionEnabled = true
         contactStackView.addGestureRecognizer(tapGesture)
     }
+    func logoutGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.logoutTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        logoutStackView.isUserInteractionEnabled = true
+        logoutStackView.addGestureRecognizer(tapGesture)
+    }
     
 //    func languageGesture(){
 //        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.languageTapped(recognizer:)))
@@ -100,6 +106,9 @@ class MenuVC: UIViewController {
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    @objc func logoutTapped(recognizer: UITapGestureRecognizer){
+        callingLogoutAPI()
+    }
 
         
 //    @objc func languageTapped(recognizer: UITapGestureRecognizer){
@@ -128,7 +137,32 @@ class MenuVC: UIViewController {
 //        window?.rootViewController = vc
 //        window?.makeKeyAndVisible()
 //    }
-    
+    func callingLogoutAPI(){
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+        self.navigationController?.popToViewController(scene!, animated: true)
+//        KRProgressHUD.show()
+//        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+//        let headers = ["Authorization":"Bearer \(token)"]
+//        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile"
+//        guard let apiURL = URL(string: apiURLInString) else{ return }
+//        Alamofire
+//            .request(apiURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+//            .response {[weak self] result in
+//                if result.error != nil{
+//                    KRProgressHUD.showError(withMessage: "عطل بالانترنت")
+//                }else{
+//                    if result.response?.statusCode == 200{
+//                        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+//                        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//                        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+//                        self?.navigationController?.popToViewController(scene!, animated: true)
+//                    }
+//                    KRProgressHUD.dismiss()
+//                }
+//            }
+    }
     
     // user data
         func userProfileRequest(){

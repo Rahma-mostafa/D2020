@@ -41,9 +41,9 @@ class SecondSplashController: UIViewController {
             }
     }
     @IBAction func onSkip(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "LanguageController") as? LanguageController
-        navigationController?.pushViewController(scene!, animated: true)
+//        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//        let scene = storyboard.instantiateViewController(identifier: "LanguageController") as? LanguageController
+//        navigationController?.pushViewController(scene!, animated: true)
     }
     
     

@@ -31,6 +31,7 @@ class HomeVC: UIViewController {
     var timer = Timer()
     var counter = 0
     var iconClick = true
+    var storeId = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,7 @@ class HomeVC: UIViewController {
         sliderCollectionView.dataSource = self
         sliderCollectionView.delegate = self
         self.sliderCollectionView.register(UINib(nibName: "SliderCell", bundle: nil), forCellWithReuseIdentifier: "SliderCell")
-        self.categoryCollectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCell")
+        self.categoryCollectionView.register(UINib(nibName: "CategoriesCell", bundle: nil), forCellWithReuseIdentifier: "CategoriesCell")
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
         self.storesCollectionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: "PlacesCell")
@@ -154,10 +155,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.backgroundImage.image = UIImage(named: slider[indexPath.row].image)
             return cell
         }else if collectionView == categoryCollectionView{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCell", for: indexPath) as! CategoriesCell
             let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(categoryArray[indexPath.row].image )"
-            cell.categoryImage.sd_setImage(with: URL(string: imageUrl))
-            cell.categoryLabel.text = categoryArray[indexPath.row].name
+            cell.categoryImageView.sd_setImage(with: URL(string: imageUrl))
+            cell.nameLabel.text = categoryArray[indexPath.row].name
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlacesCell", for: indexPath) as! PlacesCell
@@ -174,6 +175,13 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let storyboard = UIStoryboard(name: "Category", bundle: nil)
             let scene = storyboard.instantiateViewController(withIdentifier: "CategoriesVC")
             navigationController?.pushViewController(scene, animated: true)
+        }else if collectionView == storesCollectionView{
+            self.storeId = storesArray[indexPath.row].id ?? 0
+            let storyboard = UIStoryboard(name: "Category", bundle: nil)
+            let scene = storyboard.instantiateViewController(withIdentifier: "SingleStoreDetailsVC") as!  SingleStoreDetailsVC
+            scene.storeId = self.storeId
+            navigationController?.pushViewController(scene, animated: true)
+
         }
     }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold-1.ttf">
             <string>Cairo-Bold</string>
         </array>
         <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
@@ -75,6 +75,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Sign in"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Sign in"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onLogin:" destination="Owi-TJ-4Lk" eventType="touchUpInside" id="ci7-aa-mPx"/>
@@ -162,6 +165,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Sign in"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Sign in"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onLogin:" destination="SVL-kE-I1E" eventType="touchUpInside" id="nqt-xM-S5D"/>
@@ -336,6 +342,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Apply"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Apply"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>

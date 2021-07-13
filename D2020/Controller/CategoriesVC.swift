@@ -176,8 +176,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
         let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(subcategoryArray[indexPath.row].image )"
         cell.categoryImageView.sd_setImage(with: URL(string: imageUrl ))
         cell.nameLabel.text = subcategoryArray[indexPath.row].name
-//        cell.rateView.rating = subcategoryArray[indexPath.row].
-        cell.rateView.isUserInteractionEnabled = false
+        cell.rateView.isHidden = true
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

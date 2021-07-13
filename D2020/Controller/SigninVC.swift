@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import KRProgressHUD
 
-class SigninVC: UIViewController {
+class SigninVC: BaseController {
     
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -18,7 +18,7 @@ class SigninVC: UIViewController {
     @IBOutlet weak var showBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.hiddenNav = true
+        self.hiddenNav = true
         
     }
     

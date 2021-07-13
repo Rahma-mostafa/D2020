@@ -10,7 +10,7 @@ import Alamofire
 import KRProgressHUD
 import SDWebImage
 
-class SplashController: BaseController {
+class SplashController: UIViewController {
 
     @IBOutlet weak var pageView: UIPageControl!
     @IBOutlet weak var splashImageView: UIImageView!
@@ -18,7 +18,7 @@ class SplashController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hiddenNav = true
+//        self.hiddenNav = true
 //        getSplashImage()
     }
     func getSplashImage(){
@@ -38,9 +38,9 @@ class SplashController: BaseController {
             }
     }
     @IBAction func onSkip(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "LanguageController") as? LanguageController
-        navigationController?.pushViewController(scene!, animated: true)
+//        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//        let scene = storyboard.instantiateViewController(identifier: "LanguageController") as? LanguageController
+//        navigationController?.pushViewController(scene!, animated: true)
     }
     
     

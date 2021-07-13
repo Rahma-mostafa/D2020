@@ -49,7 +49,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         self.userNickNameLabel.text = apiResponseModel.data.typ ?? ""
         self.userPhoneTextField.text = apiResponseModel.data.mobile ?? ""
         self.userMailTextField.text = apiResponseModel.data.email ?? ""
-        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data.photo ?? "")"
+        let imageUrl = "\(apiResponseModel.data.photo ?? "")"
         self.userImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
         self.addressTextBox.text = apiResponseModel.data.address ?? ""
 //        self.passwordTextField.text = apiResponseModel.data
@@ -76,8 +76,34 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
             .response {[weak self] result in
                 print("Response Code : \(result.response?.statusCode)")
+                print("Response : \(result.data?.prettyPrintedJSONString)")
+              
+                
                 if result.response?.statusCode == 200{
+                    let jsonDecoder = JSONDecoder()
+                    guard let reponseModel = try? jsonDecoder.decode(UpdateProfileResponse.self, from: result.data ?? Data())else{
+                        KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                        return
+                    }
+                    let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
+                    let jsonConverter = JSONDecoder()
+                    guard let profileLocalModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{
+                        KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                        return
+                    }
+                    var profileLocal = profileLocalModel
+                    profileLocal.data.mobile = reponseModel.data?.mobile ?? ""
+                    profileLocal.data.mobile = reponseModel.data?.mobile ?? ""
+                    profileLocal.data.name = reponseModel.data?.name ?? ""
+                    profileLocal.data.email = reponseModel.data?.email ?? ""
+                    let jsonEncoder = JSONEncoder()
+                    guard let apiResponseModel = try? jsonEncoder.encode(profileLocal) else{
+                        KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                        return
+                    }
+                    UserDefaults.standard.setValue(result.data, forKey: UserDefaultKey.USER_PROFILE.rawValue)
                     KRProgressHUD.showSuccess(withMessage: "تم حفظ التغيرات")
+                    
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
                 }
@@ -157,13 +183,23 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         changePasswordView.isHidden = false
 
     }
-    @IBAction func onSaveButtonTapped(_ sender: Any) {
-        print("save")
+    
+    @IBAction func onSaveButtonTap(_ sender: UIButton) {
+        print("Saving")
         editUserProfile()
-
     }
     
     @IBAction func onChangeImageBtn(_ sender: Any) {
        
+    }
+}
+
+extension Data {
+    var prettyPrintedJSONString: NSString? { /// NSString gives us a nice sanitized debugDescription
+        guard let object = try? JSONSerialization.jsonObject(with: self, options: []),
+              let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
+              let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
+
+        return prettyPrintedString
     }
 }

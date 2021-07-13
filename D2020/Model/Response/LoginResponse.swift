@@ -11,17 +11,17 @@ import Foundation
 struct LoginResponse: Codable {
     let status: Bool
     let message: String
-    let data: LoginDataClass
+    var data: LoginDataClass
 }
 
 // MARK: - DataClass
 struct LoginDataClass: Codable {
     let id: Int?
-    let name, email, mobile, status: String?
-    let address: String?
-    let birthDate, photo: String?
-    let token, typ: String?
-    let profileLink: String?
+    var name, email, mobile, status: String?
+    var address: String?
+    var birthDate, photo: String?
+    var token, typ: String?
+    var profileLink: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, email, mobile, status, address

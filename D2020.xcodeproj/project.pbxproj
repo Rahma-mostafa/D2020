@@ -14,6 +14,7 @@
 		D957646C26824F1A00CD748F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646B26824F1A00CD748F /* LoginResponse.swift */; };
 		D957646E268256B800CD748F /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D957646D268256B800CD748F /* UserDefaultKeys.swift */; };
 		D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9901E0A269C94B000F631CA /* LanguageHandler.swift */; };
+		D9CF8555269E346E0016992B /* UpdateProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF8554269E346E0016992B /* UpdateProfileResponse.swift */; };
 		FA084068269B6C3800B6363C /* SavedStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA084067269B6C3800B6363C /* SavedStores.swift */; };
 		FA0840A7269B81E200B6363C /* SelectMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0840A6269B81E200B6363C /* SelectMapVC.swift */; };
 		FA09B15F266332A20078DCC0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09B15E266332A20078DCC0 /* loginViewController.swift */; };
@@ -139,6 +140,7 @@
 		D957646B26824F1A00CD748F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		D957646D268256B800CD748F /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		D9901E0A269C94B000F631CA /* LanguageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHandler.swift; sourceTree = "<group>"; };
+		D9CF8554269E346E0016992B /* UpdateProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileResponse.swift; sourceTree = "<group>"; };
 		EA0C41DCE1722708DF0B920F /* Pods_D2020_D2020UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_D2020_D2020UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA084067269B6C3800B6363C /* SavedStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStores.swift; sourceTree = "<group>"; };
 		FA0840A6269B81E200B6363C /* SelectMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMapVC.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				FA084067269B6C3800B6363C /* SavedStores.swift */,
 				FAB69A12269BECB70030E1F6 /* About.swift */,
 				FA9F102C269C6D6C000C42B3 /* Splash.swift */,
+				D9CF8554269E346E0016992B /* UpdateProfileResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -778,6 +781,7 @@
 				FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */,
 				FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */,
 				FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */,
+				D9CF8555269E346E0016992B /* UpdateProfileResponse.swift in Sources */,
 				FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */,
 				FA0AAF3926655BA3005E9E35 /* UploadForStoreVC.swift in Sources */,
 				FA273C7B267B20AA0060A32D /* ServiceCell.swift in Sources */,

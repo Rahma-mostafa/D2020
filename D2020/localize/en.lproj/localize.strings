@@ -7,8 +7,10 @@
 */
 "home" = "Home";
 "Category" = "Category";
+"Sub Categories" = "Sub categories";
 "more" = "More";
 "Best Stores" = "Best Stores";
+"Stores" = "Stores";
 "menu" = "Menu";
 "arabic" = "Arabic";
 "English" = "English";
@@ -48,6 +50,24 @@
 "Name" = "Full Name";
 "Change" = "Change";
 "save" = "Save";
+"message" = "Your message";
+"Send" = "Send";
+"Change password" = "Change password";
+"current Password" = "current Password";
+"New password" = "New password";
+"Password Confirmation" = "Password Confirmation";
+"city" = "City";
+"call" = "Call";
+"msg" = "Chat";
+"location" = "Location";
+"Products" = "Products";
+"reviews" = "Reviews";
+"your review" = "your review";
+"order" = "Order by";
+"old" = "Old";
+"new" = "New";
+"most visit" = "Most Visit";
+"Cancel" = "Cancel";
 
 
 

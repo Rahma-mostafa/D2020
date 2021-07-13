@@ -16,6 +16,7 @@ class SubcategoryStoresVC: UIViewController {
     @IBOutlet weak var StoresTableView: UITableView!
     @IBOutlet weak var cityView: UIView!
     
+    @IBOutlet weak var filterContainerView: UIView!
     @IBOutlet weak var citiesTableView: UITableView!
     //variables
     var citiesArray = [CitiesDataClass]()
@@ -25,6 +26,8 @@ class SubcategoryStoresVC: UIViewController {
     var filteredStore = "\(APIConstant.BASE_STORE_URL.rawValue)"
     var storeId = 0
     var cityId = 0
+    var iconClick = true
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,8 @@ class SubcategoryStoresVC: UIViewController {
         filterStores()
         print("orderIndex = \(index)")
         citiesRequest()
+        self.filterContainerView.isHidden = true
+
        
     }
     func setup(){
@@ -157,12 +162,22 @@ class SubcategoryStoresVC: UIViewController {
 
     
     @IBAction func onFilterBtnTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Category", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "OrderFilterVC") as!  OrderFilterVC
-        scene.subcategoryId = self.subcategoryId
-        navigationController?.pushViewController(scene, animated: true)
-        
+        if(iconClick == true){
+            self.filterContainerView.isHidden = false
+        }else{
+            self.filterContainerView.isHidden = true
+             }
+          iconClick = !iconClick
+
+        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? OrderFilterVC,
+            segue.identifier == "filter" {
+            vc.subcategoryId = self.subcategoryId
+            }
     }
+     
+    
     
     
 
@@ -208,7 +223,8 @@ extension SubcategoryStoresVC:  UITextFieldDelegate ,UITableViewDelegate,UITable
             let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
             cell.categoryImageView.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(SubCategoryStoresArray[indexPath.row].image)"))
             cell.nameLabel.text = SubCategoryStoresArray[indexPath.row].name
-    //        cell.rateLabel.text = SubCategoryStoresArray[indexPath.row].rate
+            cell.rateView.rating = Double(SubCategoryStoresArray[indexPath.row].rating ?? 0)
+            cell.rateView.isUserInteractionEnabled = false
             return cell
         }else{
             let cell = citiesTableView.dequeueReusableCell(withIdentifier: "CitiesCell", for: indexPath) as! CitiesCell

@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 import KRProgressHUD
 
-class SigninVC: BaseController {
+class SigninVC: UIViewController {
     
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -18,7 +18,7 @@ class SigninVC: BaseController {
     @IBOutlet weak var showBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hiddenNav = true
+//        self.hiddenNav = true
         
     }
     
@@ -120,5 +120,10 @@ class SigninVC: BaseController {
               iconClick = !iconClick
     }
     
+    @IBAction func onNewAccountBtn(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        navigationController?.pushViewController(scene, animated: true)
+    }
     
 }

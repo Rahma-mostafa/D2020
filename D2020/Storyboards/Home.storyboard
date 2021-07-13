@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold-1.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-Regular-3.ttf">
+        <array key="ArbFONTS-Cairo-Regular-1.ttf">
             <string>Cairo-Regular</string>
         </array>
         <array key="Cairo.ttf">
@@ -1139,9 +1139,17 @@
                     </scrollView>
                     <connections>
                         <outlet property="aboutImageView" destination="SBV-ad-w04" id="eg9-i9-VRV"/>
+                        <outlet property="aboutStackView" destination="Hac-Sw-v8I" id="bKt-wo-P61"/>
+                        <outlet property="cityStackView" destination="aH8-Ny-eiE" id="7AU-Lr-gdo"/>
+                        <outlet property="contactStackView" destination="oFQ-4q-edO" id="F0b-ZK-4Lz"/>
+                        <outlet property="delegateStckView" destination="ChF-mc-W1E" id="wME-Hz-Fzt"/>
                         <outlet property="languageStackView" destination="tSx-OY-Xat" id="hjq-2C-Ogg"/>
+                        <outlet property="logoutStackView" destination="xpi-tn-4Yh" id="XLL-8E-ohc"/>
                         <outlet property="nickNameLabel" destination="K2f-QI-2jP" id="Kyq-of-fcd"/>
                         <outlet property="profileLogoImage" destination="81E-Am-igd" id="OY5-pX-cVC"/>
+                        <outlet property="profileStackView" destination="YoK-lH-bcn" id="Xcd-XT-WMy"/>
+                        <outlet property="shareStackView" destination="bUf-HF-bRc" id="irH-Lr-vSY"/>
+                        <outlet property="storesStackView" destination="NyK-Hq-0Tj" id="DXV-9d-eTG"/>
                         <outlet property="techinicalSportImageView" destination="6GG-HY-R5U" id="Aye-KM-pa6"/>
                         <outlet property="userImageView" destination="U2t-r2-wIy" id="CSu-89-UJG"/>
                         <outlet property="userNameLabel" destination="7CV-Jq-bVg" id="u9W-kD-6XW"/>

@@ -26,6 +26,7 @@ class MoreCategoriesVC: UIViewController {
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
     }
+//
     func categoriesRequest(){
         KRProgressHUD.show()
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/categories"
@@ -33,13 +34,12 @@ class MoreCategoriesVC: UIViewController {
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
-            let jsonConverter = JSONDecoder()
-            guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
                 self?.categoryArray = apiResponseModel.data
                 self?.categoryCollectionView.reloadData()
-                print("\(self!.categoryArray)")
                 KRProgressHUD.dismiss()
-
+                
             }
     }
     @IBAction func backBtnTapped(_ sender: Any) {
@@ -60,6 +60,11 @@ extension MoreCategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource
         cell.categoryImage.sd_setImage(with: URL(string: categoryArray[indexPath.row].image))
         cell.categoryLabel.text = categoryArray[indexPath.row].name
             return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Category", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "CategoriesVC")
+        navigationController?.pushViewController(scene, animated: true)
     }
     
     

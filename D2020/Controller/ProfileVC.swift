@@ -22,23 +22,26 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNickNameLabel: UILabel!
     @IBOutlet weak var addressTextBox: UITextField!
+    @IBOutlet weak var saveBtn: UIButton!
     var userToken: String = ""
     var citiesArray = [CitiesDataClass]()
     var picker = UIImagePickerController()
+    var iconClick = true
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userProfileRequest()
+        userProfileData()
         changePasswordView.isHidden = true
 
 
 
     }
+    
 
 
-    func userProfileRequest(){
+    func userProfileData(){
 //        KRProgressHUD.show()
         let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
         let jsonConverter = JSONDecoder()
@@ -59,6 +62,32 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
 //        KRProgressHUD.dismiss()
         
     }
+    func editUserProfile(){
+        KRProgressHUD.show()
+        let name = userNameTextField.text
+        let mobile = userPhoneTextField.text
+        let email = userMailTextField.text
+        let address = addressTextBox.text
+        let imgString = userImage.image?.pngData()?.base64EncodedString()
+
+        let requestParameters = ["name": name ?? "","mobile": mobile ?? "", "address": address ?? "", "email": email ?? "","image": imgString ?? ""]
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile/update"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم حفظ التغيرات")
+                }else{
+                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                }
+                
+            }
+    }
+    
 
     
 
@@ -68,6 +97,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
      }
     @IBAction func onChangeBtnTapped(_ sender: Any) {
         changePasswordView.isHidden = false
+
+    }
+    @IBAction func onSaveButtonTapped(_ sender: Any) {
+        print("save")
+        editUserProfile()
 
     }
     
@@ -112,11 +146,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             self.present(picker, animated: true, completion: nil)
         }
         //MARK:UIImagePickerControllerDelegate
-        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
             picker .dismiss(animated: true, completion: nil)
-            userImage.image=info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
+            userImage.image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage
         }
-        func imagePickerControllerDidCancel(picker: UIImagePickerController){
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
             print("picker cancel.")
         }
     

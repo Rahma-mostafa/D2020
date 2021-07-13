@@ -31,7 +31,6 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var pageView: UIPageControl!
     @IBOutlet weak var storeImageView: UIImageView!
     @IBOutlet weak var storeNameLbl: UILabel!
-    @IBOutlet weak var tagBtn: UIButton!
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var reviewsAvarageView: CosmosView!
     @IBOutlet weak var userImageView: UIImageView!
@@ -64,6 +63,8 @@ class SingleStoreDetailsVC: UIViewController {
         }
         storeDetailsRequest()
         getRestStoreDetialsRequest()
+        self.reviewsAvarageView.isUserInteractionEnabled = false
+
 
       
     }
@@ -192,6 +193,7 @@ class SingleStoreDetailsVC: UIViewController {
                         self?.DescribeLabel.text = apiResponseModel.data?.data?.dataDescription
                         self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                         self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
+                        self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
                         KRProgressHUD.dismiss()
     
                     }
@@ -329,6 +331,7 @@ extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         cell.nameLabel.text = reviewArray[indexPath.row].username
         cell.commentLAbel.text = reviewArray[indexPath.row].review
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)
+        cell.rateView.isUserInteractionEnabled = false
         if indexPath.row == 0{
             cell.titleLabel.text = "تقيمك"
         }else if indexPath.row == 1{

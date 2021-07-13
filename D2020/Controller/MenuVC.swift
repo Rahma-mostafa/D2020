@@ -18,35 +18,58 @@ class MenuVC: UIViewController {
     @IBOutlet weak var aboutImageView: UIImageView!
     @IBOutlet weak var languageStackView: UIStackView!
     @IBOutlet weak var techinicalSportImageView: UIImageView!
+    @IBOutlet weak var shareStackView: UIStackView!
+    
+    @IBOutlet weak var logoutStackView: UIStackView!
+    
+    @IBOutlet weak var cityStackView: UIStackView!
+    
+    @IBOutlet weak var storesStackView: UIStackView!
+    @IBOutlet weak var delegateStckView: UIStackView!
+    @IBOutlet weak var profileStackView: UIStackView!
+    
+    @IBOutlet weak var contactStackView: UIStackView!
+    @IBOutlet weak var aboutStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        userProfileRequest()
-        imageGesture()
+        userProfileRequest()
+        profileGesture()
         aboutGesture()
         contactGesture()
+        shareGesture()
 //        languageGesture()
         
 
     }
  
-    func imageGesture(){
+    func profileGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.imageTapped(recognizer:)))
         tapGesture.numberOfTapsRequired = 1
-        profileLogoImage.isUserInteractionEnabled = true
-        profileLogoImage.addGestureRecognizer(tapGesture)
+        profileStackView.isUserInteractionEnabled = true
+        profileStackView.addGestureRecognizer(tapGesture)
         
     }
     func aboutGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.aboutImageTapped(recognizer:)))
         tapGesture.numberOfTapsRequired = 1
-        aboutImageView.isUserInteractionEnabled = true
-        aboutImageView.addGestureRecognizer(tapGesture)
+        aboutStackView.isUserInteractionEnabled = true
+        aboutStackView.addGestureRecognizer(tapGesture)
     }
+
+    func shareGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.shareTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        shareStackView.isUserInteractionEnabled = true
+        shareStackView.addGestureRecognizer(tapGesture)
+    }
+        
+    
     func contactGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.contactImageTapped(recognizer:)))
         tapGesture.numberOfTapsRequired = 1
-        techinicalSportImageView.isUserInteractionEnabled = true
-        techinicalSportImageView.addGestureRecognizer(tapGesture)
+        contactStackView.isUserInteractionEnabled = true
+        contactStackView.addGestureRecognizer(tapGesture)
     }
     
 //    func languageGesture(){
@@ -72,6 +95,12 @@ class MenuVC: UIViewController {
         let scene = storyboard.instantiateViewController(identifier: "ContactUsVC") as? ContactUsVC
         navigationController?.pushViewController(scene!, animated: true)
     }
+    @objc func shareTapped(recognizer: UITapGestureRecognizer){
+        let activityVC = UIActivityViewController(activityItems:["www.google.com"], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+
         
 //    @objc func languageTapped(recognizer: UITapGestureRecognizer){
 //        let alert = UIAlertController(title: "اللغة", message: "اختيار اللغة", preferredStyle: UIAlertController.Style.alert)
@@ -99,6 +128,9 @@ class MenuVC: UIViewController {
 //        window?.rootViewController = vc
 //        window?.makeKeyAndVisible()
 //    }
+    
+    
+    // user data
         func userProfileRequest(){
             KRProgressHUD.show()
             let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
@@ -106,6 +138,7 @@ class MenuVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
             print(apiResponseModel.data)
             self.userNameLabel.text = apiResponseModel.data.name ?? ""
+            self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
             let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data.photo ?? "")"
             self.profileLogoImage.sd_setImage(with: URL(string: imageUrl))
             KRProgressHUD.dismiss()

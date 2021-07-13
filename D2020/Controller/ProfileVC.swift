@@ -23,9 +23,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     @IBOutlet weak var userNickNameLabel: UILabel!
     @IBOutlet weak var addressTextBox: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
-    var userToken: String = ""
     var citiesArray = [CitiesDataClass]()
     var picker = UIImagePickerController()
+    var userToken: String = ""
     var iconClick = true
 
     
@@ -34,9 +34,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         super.viewDidLoad()
         userProfileData()
         changePasswordView.isHidden = true
-
-
-
     }
     
 
@@ -87,25 +84,17 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
                 
             }
     }
-    
-
-    
-
-    override func viewDidAppear(_ animated: Bool) {
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
-
-     }
-    @IBAction func onChangeBtnTapped(_ sender: Any) {
-        changePasswordView.isHidden = false
-
+    func profileGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(ProfileVC.userImageTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        userImage.isUserInteractionEnabled = true
+        userImage.addGestureRecognizer(tapGesture)
+        
     }
-    @IBAction func onSaveButtonTapped(_ sender: Any) {
-        print("save")
-        editUserProfile()
-
+    @objc func userImageTapped(recognizer: UITapGestureRecognizer){
+        uploadUserImage()
     }
-    
-    @IBAction func onChangeImageBtn(_ sender: Any) {
+    func uploadUserImage(){
         let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: UIAlertAction.Style.default)
                 {
@@ -154,9 +143,27 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             print("picker cancel.")
         }
     
+        
+    
+  
 
     
 
-    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
 
+     }
+    @IBAction func onChangeBtnTapped(_ sender: Any) {
+        changePasswordView.isHidden = false
+
+    }
+    @IBAction func onSaveButtonTapped(_ sender: Any) {
+        print("save")
+        editUserProfile()
+
+    }
+    
+    @IBAction func onChangeImageBtn(_ sender: Any) {
+       
+    }
 }

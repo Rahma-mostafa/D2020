@@ -61,7 +61,6 @@ class MapVC: UIViewController , CLLocationManagerDelegate{
                 guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{
                     return}
                 self?.storesArray = apiResponseModel.data ?? [StoesDataClass]()
-                print(apiResponseModel.data)
                 self?.showStoresLocations()
                 KRProgressHUD.dismiss()
                 

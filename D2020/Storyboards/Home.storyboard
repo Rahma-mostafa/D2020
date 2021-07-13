@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-1.ttf">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-Regular.ttf">
+        <array key="ArbFONTS-Cairo-Regular-3.ttf">
             <string>Cairo-Regular</string>
         </array>
         <array key="Cairo.ttf">
@@ -507,7 +507,7 @@
                             </connections>
                         </barButtonItem>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Home"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="home"/>
                         </userDefinedRuntimeAttributes>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="900"/>
@@ -663,7 +663,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2a-Ru-VKX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="الرئيسية" image="home-icon" id="X8p-f0-A9o">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Home"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="home"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
@@ -883,7 +883,7 @@
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Delegates"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="delegates"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Delegates"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
@@ -942,11 +942,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent">
-                                                                <string key="value">Technical support
-</string>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="technical_support"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="contact"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Contact"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
@@ -987,7 +984,7 @@
                                                             <constraint firstAttribute="width" constant="16" id="a1k-x4-EvC"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maher " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-y5-5V4">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="maher " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-y5-5V4" userLabel="maher">
                                                         <rect key="frame" x="38" y="0.0" width="216" height="26"/>
                                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
                                                         <nil key="textColor"/>

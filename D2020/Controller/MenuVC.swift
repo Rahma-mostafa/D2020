@@ -143,35 +143,31 @@ class MenuVC: UIViewController {
 //        window?.makeKeyAndVisible()
 //    }
     func callingLogoutAPI(){
-        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
-        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
-        self.navigationController?.popToViewController(scene!, animated: true)
-//        KRProgressHUD.show()
-//        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-//        let headers = ["Authorization":"Bearer \(token)"]
-//        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile"
-//        guard let apiURL = URL(string: apiURLInString) else{ return }
-//        Alamofire
-//            .request(apiURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
-//            .response {[weak self] result in
-//                if result.error != nil{
-//                    KRProgressHUD.showError(withMessage: "عطل بالانترنت")
-//                }else{
-//                    if result.response?.statusCode == 200{
-//                        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
-//                        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-//                        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
-//                        self?.navigationController?.popToViewController(scene!, animated: true)
-//                    }
-//                    KRProgressHUD.dismiss()
-//                }
-//            }
+        KRProgressHUD.show()
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                if result.error != nil{
+                    KRProgressHUD.showError(withMessage: "عطل بالانترنت")
+                }else{
+                    if result.response?.statusCode == 200{
+                        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+                        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+                        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+                        self?.navigationController?.popToViewController(scene!, animated: true)
+                    }
+                    KRProgressHUD.dismiss()
+                }
+            }
     }
     
     // user data
         func userProfileRequest(){
-            KRProgressHUD.show()
+//            KRProgressHUD.show()
             let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
@@ -180,7 +176,7 @@ class MenuVC: UIViewController {
             self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
             let imageUrl = "\(apiResponseModel.data.photo ?? "")"
             self.userImageView.sd_setImage(with: URL(string: imageUrl))
-            KRProgressHUD.dismiss()
+//            KRProgressHUD.dismiss()
 
         }
 

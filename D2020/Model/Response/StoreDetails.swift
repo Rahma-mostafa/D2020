@@ -30,17 +30,38 @@ struct StoreDetailsData: Codable {
 // MARK: - DataData
 struct DataData: Codable {
     let id: Int?
-    let name, code, arabicName, dataDescription: String?
-    let arabicDescription: String?
-    let address: String?
-    let subscriberID, cityID, categoryID, subCategoryID: Int?
-    let phone, email, image, video: String?
-    let begin, end: String?
-    let status: Int?
-    let longi, lati: String?
-    let best, rating, views: Int?
+    let image: String?
+    let rating: Int?
+    let address, lati, longi: String?
+    let cityID, categoryID, subscriberID: Int?
+    let end, name, arabicName, code: String?
+    let phone: String?
+    let email, dataDataDescription, arabicDescription: String?
+    let subCategoryID: Int?
+//    let video: JSONNull?
+    let begin: String?
+    let best: Int?
+    let status: String?
+    let views: Int?
     let createdAt, updatedAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, image, rating, address, lati, longi
+        case cityID = "city_id"
+        case categoryID = "category_id"
+        case subscriberID = "subscriber_id"
+        case end, name
+        case arabicName = "arabic_name"
+        case code, phone, email
+        case dataDataDescription = "description"
+        case arabicDescription = "arabic_description"
+        case subCategoryID = "sub_category_id"
+        case begin, best, status, views
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
 }
+
 
 // MARK: - Delegate
 struct Delegate: Codable {

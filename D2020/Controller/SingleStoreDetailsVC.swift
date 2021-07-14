@@ -41,7 +41,7 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var reviewTextField: UITextField!
     
     @IBOutlet weak var postBtn: UIButton!
-        var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
+    var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
     var storeId = 0
@@ -64,9 +64,9 @@ class SingleStoreDetailsVC: UIViewController {
         storeDetailsRequest()
         getRestStoreDetialsRequest()
         self.reviewsAvarageView.isUserInteractionEnabled = false
-
-
-      
+        
+        
+        
     }
     func setup(){
         sliderCollectionView.dataSource = self
@@ -78,36 +78,38 @@ class SingleStoreDetailsVC: UIViewController {
         commentTableView.dataSource = self
         commentTableView.delegate = self
         userRatingView.settings.updateOnTouch = true
-
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1000)
-
-     }
-
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @objc func changeImage() {
-     
-     if counter < imagesArray.count {
-         let index = IndexPath.init(item: counter, section: 0)
-         self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
-         pageView.currentPage = counter
-         counter += 1
-     } else {
-         counter = 0
-         let index = IndexPath.init(item: counter, section: 0)
-         self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
-         pageView.currentPage = counter
-         counter = 1
-     }
-         
-     }
- //MARK:- Buttons Action
-
+        if imagesArray.count == 0{
+            return
+        }
+        if counter < imagesArray.count {
+            let index = IndexPath.init(item: counter, section: 0)
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            pageView.currentPage = counter
+            counter += 1
+        } else {
+            counter = 0
+            let index = IndexPath.init(item: counter, section: 0)
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
+            pageView.currentPage = counter
+            counter = 1
+        }
+        
+    }
+    //MARK:- Buttons Action
+    
     @IBAction func onSaveBtnTapped(_ sender: Any) {
         saveStore()
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
@@ -161,7 +163,7 @@ class SingleStoreDetailsVC: UIViewController {
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
-            let jsonConverter = JSONDecoder()
+                let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
                     return}
                 self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
@@ -173,31 +175,31 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
                 self?.sliderCollectionView.reloadData()
                 KRProgressHUD.dismiss()
-
+                
             }
     }
-
-            func getRestStoreDetialsRequest(){
-                KRProgressHUD.show()
-                print(storeId)
-                let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
-                guard let apiURL = URL(string: apiURLInString) else{   return }
-                Alamofire
-                    .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-                    .response {[weak self] result in
-                    let jsonConverter = JSONDecoder()
-                        guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                            return}
-                        let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data?.data?.image ?? "")")
-                        self?.storeNameLbl.text = apiResponseModel.data?.data?.name
-                        self?.DescribeLabel.text = apiResponseModel.data?.data?.dataDescription
-                        self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
-                        self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
-                        self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
-                        KRProgressHUD.dismiss()
     
-                    }
+    func getRestStoreDetialsRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                    return}
+                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data?.data?.image ?? "")")
+                self?.storeNameLbl.text = apiResponseModel.data?.data?.name
+                self?.DescribeLabel.text = apiResponseModel.data?.data?.arabicDescription
+                self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
+                self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
+                self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                KRProgressHUD.dismiss()
+                
             }
+    }
     func saveStore(){
         KRProgressHUD.show()
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
@@ -251,8 +253,8 @@ class SingleStoreDetailsVC: UIViewController {
             }
     }
     
-
-
+    
+    
     
 }
 // slider and product collection view
@@ -260,7 +262,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == sliderCollectionView {
             return imagesArray.count
-
+            
         }else{
             return productArray.count
         }
@@ -298,13 +300,13 @@ extension SingleStoreDetailsVC: UICollectionViewDelegateFlowLayout {
             let width = (view.frame.width ) / 3
             return CGSize(width: width , height: 152)
         }
-    
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == sliderCollectionView{
             return 0.0
-
+            
         }else{
             return 16
         }
@@ -313,7 +315,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == sliderCollectionView{
             return 0.0
-
+            
         }else{
             return 16
         }
@@ -324,7 +326,7 @@ extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviewArray.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
         cell.userImage.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(reviewArray[indexPath.row].image ?? "")"), completed: nil)

@@ -40,7 +40,7 @@ class SearchVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
-                self?.storesArray = apiResponseModel.data ?? [StoesDataClass]()
+                self?.storesArray = apiResponseModel.data?.data ?? [StoesDataClass]()
                 self?.storeTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -60,7 +60,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
         let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(currentStoresArray[indexPath.row].image ?? "")"
         cell.notificationImage.sd_setImage(with: URL(string: imageUrl ))
         cell.notificationTitle.text = currentStoresArray[indexPath.row].name
-        cell.subscripeLabel.text = currentStoresArray[indexPath.row].datumDescription
+        cell.subscripeLabel.text = currentStoresArray[indexPath.row].stoesDataClassDescription
         cell.timeLabel.text = ""
         return cell
 

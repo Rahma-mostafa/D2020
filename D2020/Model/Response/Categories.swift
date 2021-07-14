@@ -16,8 +16,8 @@ struct Categories: Codable {
 struct categoriesDataClass: Codable {
     let id: Int
     let parent: JSONNull?
-    let name, arabicName, datumDescription, arabicDescription: String
-    let image, createdAt, updatedAt: String
+    let name, arabicName, datumDescription, arabicDescription: String?
+    let image, createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id, parent, name

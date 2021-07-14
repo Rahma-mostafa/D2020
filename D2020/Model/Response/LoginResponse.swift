@@ -17,14 +17,14 @@ struct LoginResponse: Codable {
 // MARK: - DataClass
 struct LoginDataClass: Codable {
     let id: Int?
-    var name, email, mobile, status: String?
+    var name, email, mobile: String?
     var address: String?
     var birthDate, photo: String?
     var token, typ: String?
     var profileLink: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, email, mobile, status, address
+        case id, name, email, mobile, address
         case birthDate = "birth_date"
         case photo, token, typ
         case profileLink = "profile_link"

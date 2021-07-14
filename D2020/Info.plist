@@ -2,20 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationUsageDescription</key>
-	<string>Please open store and delegate Locations</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please open gallary to choose user Photo</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please open Camera </string>
-	<key>NSSupportsSuddenTermination</key>
-	<false/>
-	<key>CFBundleDisplayName</key>
-	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>NSLocationWhenInUseUsageDescription - 2</key>
-	<string>نحتاج الاذن لعرض موقعك علي الخريطة</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -29,13 +19,23 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Please open Camera </string>
+	<key>NSLocationUsageDescription</key>
+	<string>Please open store and delegate Locations</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>please open app adminstration location</string>
+	<key>NSLocationWhenInUseUsageDescription - 2</key>
+	<string>نحتاج الاذن لعرض موقعك علي الخريطة</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please open gallary to choose user Photo</string>
+	<key>NSSupportsSuddenTermination</key>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>calibri-bold.ttf</string>

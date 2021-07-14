@@ -112,6 +112,7 @@ class HomeVC: UIViewController {
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
+                print("Categories Response Model : \(apiResponseModel)")
                 self?.categoryArray = apiResponseModel.data
                 self?.categoryCollectionView.reloadData()
                 KRProgressHUD.dismiss()
@@ -128,7 +129,8 @@ class HomeVC: UIViewController {
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
-                self?.storesArray = apiResponseModel.data ?? [StoesDataClass]()
+                print("Stores Response Model : \(apiResponseModel)")
+                self?.storesArray = apiResponseModel.data?.data ?? [StoesDataClass]()
                 self?.storesCollectionView.reloadData()
                 KRProgressHUD.dismiss()
                 
@@ -156,7 +158,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         }else if collectionView == categoryCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCell", for: indexPath) as! CategoriesCell
-            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(categoryArray[indexPath.row].image )"
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(categoryArray[indexPath.row].image ?? "" )"
             cell.categoryImageView.sd_setImage(with: URL(string: imageUrl))
             cell.nameLabel.text = categoryArray[indexPath.row].name
             return cell

@@ -36,7 +36,7 @@ class MorePlacesVC: UIViewController {
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
-                self?.storesArray = apiResponseModel.data ?? [StoesDataClass]()
+                self?.storesArray = apiResponseModel.data?.data ?? [StoesDataClass]()
                 self?.placesCollectionView.reloadData()
                 KRProgressHUD.dismiss()
                 

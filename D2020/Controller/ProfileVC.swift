@@ -28,7 +28,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     var userToken: String = ""
     var iconClick = true
     var newUserImage: UIImage?
-    
+    var fileURL: URL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,13 +77,17 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             formData.append(mobile.data(using: .utf8) ?? Data(), withName: "mobile")
             formData.append(address.data(using: .utf8) ?? Data(), withName: "address")
             formData.append(email.data(using: .utf8) ?? Data(), withName: "email")
-            if self?.newUserImage != nil{
-                formData.append(self!.newUserImage!.jpegData(compressionQuality: 0.4)!, withName: "image")
+            
+            if self?.fileURL != nil{
+                
+                formData.append((self?.fileURL!)!, withName: "image")
             }
 
         }, to: apiURL,method: .post,headers: headers) { result in
             switch result{
             case .success(let request, _, _):
+                print(request.debugDescription)
+                print(request.request?.debugDescription)
                 if true{
                     request.responseData { data in
                         guard let responseData = data.data else{
@@ -244,29 +248,17 @@ extension ProfileVC{
         }
         self.newUserImage = image
         self.userImage.image = image
-//        var fileName = "image"
-//        if let url = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-//            fileName = url.lastPathComponent
-//        }else{
-//            fileName = "\(UUID().uuidString).png"
-//        }
-//
-//
-//        let fileManager = FileManager.default
-//        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-//        let imagePath = documentsPath?.appendingPathComponent("\(fileName)")
-//
-//        // extract image from the picker and save it
-//        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//
-//            let imageData = pickedImage.jpegData(compressionQuality: 0.2)
-//            try! imageData?.write(to: imagePath!)
-//            pickedImage.accessibilityIdentifier = "\(imagePath!)"
-//            selectedImageSubject.onNext(pickedImage)
-//        }else{
-//            selectedImageSubject.onNext(image)
-//        }
-        
+        let fileManager = FileManager.default
+            let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+            let imagePath = documentsPath?.appendingPathComponent("image.jpg")
+            
+            // extract image from the picker and save it
+            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                
+                let imageData = pickedImage.jpegData(compressionQuality: 0.4)
+                try! imageData?.write(to: imagePath!)
+                self.fileURL = imagePath
+            }
         
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

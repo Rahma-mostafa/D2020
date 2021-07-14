@@ -152,7 +152,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCell", for: indexPath) as! CategoriesCell
-        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(categoryArray[indexPath.row].image)"
+        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(categoryArray[indexPath.row].image ?? "")"
         cell.categoryImageView.sd_setImage(with: URL(string: imageUrl))
         cell.nameLabel.text = categoryArray[indexPath.row].name
         return cell
@@ -173,7 +173,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
-        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(subcategoryArray[indexPath.row].image )"
+        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(subcategoryArray[indexPath.row].image ?? "")"
         cell.categoryImageView.sd_setImage(with: URL(string: imageUrl ))
         cell.nameLabel.text = subcategoryArray[indexPath.row].name
         cell.rateView.isHidden = true

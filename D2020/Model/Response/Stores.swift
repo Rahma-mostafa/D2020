@@ -9,29 +9,32 @@ import Foundation
 struct Stores:Codable {
     let status: Bool?
     let message: String?
-    let data: [StoesDataClass]?
+    let data: StoresDataContainerClass?
 }
 
-// MARK: - Datum
-struct StoesDataClass:Codable{
-    let id: Int?
-    let name, code, arabicName: String?
-    let datumDescription, arabicDescription: String?
-    let address: String?
-    let subscriberID, cityID, categoryID, subCategoryID: Int?
-    let phone: String?
-    let email: String?
-    let image: String?
-    let video: String?
-    let begin, end: String?
-    let status: Int?
-    let longi, lati: String?
-    let best, rating, views: Int?
-    let createdAt, updatedAt: String?
-    let images: [Image]?
-    let products: [Product]?
-    let reviews: [StoreReview]?
+struct StoresDataContainerClass: Codable{
+    var data: [StoesDataClass]?
 }
+
+// MARK: - StoesDataClass
+struct StoesDataClass: Codable {
+    let id: Int?
+    let image: String?
+    let rating: Int?
+    let address, lati, longi: String?
+    let cityID, categoryID, subscriberID: Int?
+    let end, name, arabicName, code: String?
+    let phone: String?
+    let email, stoesDataClassDescription, arabicDescription: String?
+    let subCategoryID: Int?
+//    let video: NSNull?
+    let begin: String?
+    let best: Int?
+    let status: String?
+//    let views: NSNull?
+    let createdAt, updatedAt: String?
+}
+
 
 // MARK: - Image
 struct Image:Codable {

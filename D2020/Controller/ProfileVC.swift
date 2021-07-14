@@ -78,13 +78,12 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
             formData.append(address.data(using: .utf8) ?? Data(), withName: "address")
             formData.append(email.data(using: .utf8) ?? Data(), withName: "email")
             if self?.newUserImage != nil{
-                formData.append(self?.newUserImage?.jpegData(compressionQuality: 0.1) ?? Data(), withName: "image")
+                formData.append(self!.newUserImage!.jpegData(compressionQuality: 0.4)!, withName: "image")
             }
 
         }, to: apiURL,method: .post,headers: headers) { result in
             switch result{
             case .success(let request, _, _):
-                print(request.debugDescription)
                 if true{
                     request.responseData { data in
                         guard let responseData = data.data else{
@@ -101,6 +100,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
                             KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
                             return
                         }
+                        print(responseData.prettyPrintedJSONString)
                         var profileLocal = profileLocalModel
                         profileLocal.data.photo = reponseModel.data?.photo ?? ""
                         profileLocal.data.mobile = reponseModel.data?.mobile ?? ""

@@ -196,7 +196,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     }
     
     @IBAction func onSaveButtonTap(_ sender: UIButton) {
-        print("Saving")
         editUserProfile()
     }
     

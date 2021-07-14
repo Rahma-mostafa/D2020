@@ -6,9 +6,77 @@
   
 */
 "home" = "Home";
-"category" = "Category";
+"Category" = "Category";
+"Sub Categories" = "Sub categories";
 "more" = "More";
-"facilities" = "Facilities";
+"Best Stores" = "Best Stores";
+"Stores" = "Stores";
 "menu" = "Menu";
-"arabic" = "Language";
+"arabic" = "Arabic";
+"English" = "English";
 "cancel" = "cancel";
+"Sign in" = "Sign in";
+"Skip" = "Skip";
+"Apply" = "Apply";
+"Language" = "Language";
+"Email or phone number" = "Email or phone number";
+"Password" = "Password";
+"New account" = "New account";
+"without Sign in" = "without Sign in";
+"Sign as" = "Sign as";
+"New user" = "New user";
+"New delegate" = "New delegate";
+"New Owner" = "New Owner";
+"I have account" = "I have account";
+"Full name" = "Full name";
+"Phone number" = "Phone number";
+"Email" = "Email";
+"address" = "Address";
+"next" = "next";
+"Choose Map" = "Choose Map";
+"Stores" = "Stores";
+"Delegates" = "Delegates";
+"Saved" = "Saved";
+"More >>" = "More >>";
+"profile" = "Profile";
+"shops" = "Shops";
+"about" = "information";
+"contact" = "Contact us";
+"share" = "Share";
+"logout" = "Logout";
+"Messages" = "Chat";
+"Map" = "Map";
+"Upgrade your account" = "Upgrade your account";
+"Name" = "Full Name";
+"Change" = "Change";
+"save" = "Save";
+"message" = "Your message";
+"Send" = "Send";
+"Change password" = "Change password";
+"current Password" = "current Password";
+"New password" = "New password";
+"Password Confirmation" = "Password Confirmation";
+"city" = "City";
+"call" = "Call";
+"msg" = "Chat";
+"location" = "Location";
+"Products" = "Products";
+"reviews" = "Reviews";
+"your review" = "your review";
+"order" = "Order by";
+"old" = "Old";
+"new" = "New";
+"most visit" = "Most Visit";
+"Cancel" = "Cancel";
+
+
+
+
+
+
+
+
+
+
+
+

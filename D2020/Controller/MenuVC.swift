@@ -33,6 +33,7 @@ class MenuVC: UIViewController {
         aboutGesture()
         contactGesture()
         shareGesture()
+        logoutGesture()
 //        languageGesture()
         
 
@@ -143,26 +144,12 @@ class MenuVC: UIViewController {
 //        window?.makeKeyAndVisible()
 //    }
     func callingLogoutAPI(){
-        KRProgressHUD.show()
-        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-        let headers = ["Authorization":"Bearer \(token)"]
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile"
-        guard let apiURL = URL(string: apiURLInString) else{ return }
-        Alamofire
-            .request(apiURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers)
-            .response {[weak self] result in
-                if result.error != nil{
-                    KRProgressHUD.showError(withMessage: "عطل بالانترنت")
-                }else{
-                    if result.response?.statusCode == 200{
-                        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
-                        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-                        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
-                        self?.navigationController?.popToViewController(scene!, animated: true)
-                    }
-                    KRProgressHUD.dismiss()
-                }
-            }
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+        let navigationController = UINavigationController(rootViewController: scene!)
+        navigationController.modalPresentationStyle = .overFullScreen
+        self.navigationController?.present(navigationController, animated: true)
     }
     
     // user data

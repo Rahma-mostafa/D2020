@@ -21,6 +21,7 @@ struct Subcategory{
 }
 
 class CategoriesVC: UIViewController {
+    
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var SubCategoryTableView: UITableView!

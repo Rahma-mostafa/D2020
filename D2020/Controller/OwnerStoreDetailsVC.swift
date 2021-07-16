@@ -1,8 +1,8 @@
 //
-//  CategoryDetailsVC.swift
+//  OwnerStoreDetailsVC.swift
 //  D2020
 //
-//  Created by Macbook on 16/06/2021.
+//  Created by Macbook on 16/07/2021.
 //
 
 import UIKit
@@ -11,8 +11,7 @@ import Alamofire
 import KRProgressHUD
 import SDWebImage
 
-class SingleStoreDetailsVC: UIViewController {
-    
+class OwnerStoreDetailsVC: UIViewController {
     @IBOutlet weak var storeimageView: UIImageView!
     @IBOutlet weak var storeNameLabel: UILabel!
     
@@ -35,11 +34,9 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var reviewsAvarageView: CosmosView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var userRatingView: CosmosView!
-    
     @IBOutlet weak var reviewTextField: UITextField!
-    
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var postBtn: UIButton!
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
@@ -52,21 +49,20 @@ class SingleStoreDetailsVC: UIViewController {
     var reviewsAvarage  = 0.0
     var phoneNumber = ""
     var avarage: Double? = nil
+    var imagePicker = UIImagePickerController()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        userProfileRequest()
         pageView.numberOfPages = imagesArray.count
         pageView.currentPage = 0
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
-        storeDetailsRequest()
-        getRestStoreDetialsRequest()
         self.reviewsAvarageView.isUserInteractionEnabled = false
-        
-        
-        
+
+       
     }
     func setup(){
         sliderCollectionView.dataSource = self
@@ -78,6 +74,10 @@ class SingleStoreDetailsVC: UIViewController {
         commentTableView.dataSource = self
         commentTableView.delegate = self
         userRatingView.settings.updateOnTouch = true
+        photoCollectionView.dataSource = self
+        photoCollectionView.delegate = self
+        self.photoCollectionView.register(UINib(nibName: "AddPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AddPhotoCell")
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -89,7 +89,6 @@ class SingleStoreDetailsVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     @objc func changeImage() {
         if imagesArray.count == 0{
             return
@@ -108,10 +107,39 @@ class SingleStoreDetailsVC: UIViewController {
         }
         
     }
+    @objc func chooseImage(){
+        let imageSelectionAlert = UIAlertController(title: "اختار مصدر الصورة".localized(), message: nil, preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "الكاميرا".localized(), style: .default){
+            UIAlertAction in
+            self.openCamera()
+        }
+        let galleryAction = UIAlertAction(title: "معرض الصور".localized(), style: .default){
+            UIAlertAction in
+            self.openGallery()
+        }
+        let cancelAction = UIAlertAction(title: "الغاء".localized(), style: .cancel)
+        imageSelectionAlert.addAction(cameraAction)
+        imageSelectionAlert.addAction(galleryAction)
+        imageSelectionAlert.addAction(cancelAction)
+        imageSelectionAlert.popoverPresentationController?.sourceView = self.view
+        
+        self.present(imageSelectionAlert, animated: true, completion: nil)
+    }
+    func openCamera(){
+        imagePicker.sourceType = .camera
+        imagePicker.modalPresentationStyle = .overFullScreen
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func openGallery(){
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.modalPresentationStyle = .overFullScreen
+        self.present(imagePicker, animated: true, completion: nil)
+    }
     //MARK:- Buttons Action
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
-        saveStore()
+//        saveStore()
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "FavouriteVC") as!  FavouriteVC
         scene.storeId = self.storeId
@@ -149,82 +177,8 @@ class SingleStoreDetailsVC: UIViewController {
         addStoreReview()
         self.commentTableView.reloadData()
     }
-    
-    
-    // MARK:- API Request
-    func storeDetailsRequest(){
-        KRProgressHUD.show()
-        print(storeId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
-        guard let apiURL = URL(string: apiURLInString) else{   return }
-        Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .response {[weak self] result in
-                let jsonConverter = JSONDecoder()
-                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                    return}
-                self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
-                self?.commentTableView.reloadData()
-                self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
-                self?.productCollectionView.reloadData()
-                self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
-                self?.storeId = apiResponseModel.data?.data?.id ?? 0
-                self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
-                self?.sliderCollectionView.reloadData()
-                KRProgressHUD.dismiss()
-                
-            }
-    }
-    
-    func getRestStoreDetialsRequest(){
-        KRProgressHUD.show()
-        print(storeId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
-        guard let apiURL = URL(string: apiURLInString) else{   return }
-        Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .response {[weak self] result in
-                let jsonConverter = JSONDecoder()
-                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                    return}
-                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data?.data?.image ?? "")")
-                self?.storeNameLbl.text = apiResponseModel.data?.data?.name
-                self?.DescribeLabel.text = apiResponseModel.data?.data?.arabicDescription
-                self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
-                self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
-                self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
-                KRProgressHUD.dismiss()
-                
-            }
-    }
-    func saveStore(){
-        KRProgressHUD.show()
-        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-        let headers = ["Authorization":"Bearer \(token)"]
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/save_store/\(storeId)"
-        guard let apiURL = URL(string: apiURLInString) else{ return }
-        Alamofire
-            .request(apiURL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
-            .response {[weak self] result in
-                print("Response Code : \(result.response?.statusCode)")
-                if result.response?.statusCode == 200{
-                    KRProgressHUD.showSuccess(withMessage:"تم حفظ المحل ")
-                }else{
-                    return
-                }
-                
-            }
-    }
-    func userProfileRequest(){
-        KRProgressHUD.show()
-        let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
-        let jsonConverter = JSONDecoder()
-        guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{return}
-        print(apiResponseModel.data)
-        self.userNameLabel.text = apiResponseModel.data.name ?? ""
-        let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
-        self.userImageView.sd_setImage(with: imageUrl, completed: nil)
-        KRProgressHUD.dismiss()
+    @IBAction func onAddVideoBtnTapped(_ sender: Any) {
+        chooseImage()
         
     }
     func addStoreReview(){
@@ -250,18 +204,20 @@ class SingleStoreDetailsVC: UIViewController {
             }
     }
     
+   
     
-    
-    
+   
 }
 // slider and product collection view
-extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource{
+extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == sliderCollectionView {
             return imagesArray.count
             
-        }else{
+        }else if collectionView == productCollectionView{
             return productArray.count
+        }else{
+            return 6
         }
     }
     
@@ -271,19 +227,43 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
             cell.backgroundImage.sd_setImage(with: URL(string: imageUrl))
             return cell
-        }else{
+        }else if collectionView == productCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
             let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(productArray[indexPath.row].image ?? "")")
             cell.productImage.sd_setImage(with: imageUrl, completed: nil)
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
             return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
+            if indexPath.row == 0{
+                cell.photo.isHidden = true
+                cell.deleteBtn.isUserInteractionEnabled = false
+                cell.deleteBtn.isHidden = true
+                cell.uploadBtn.tag = 0
+                cell.uploadBtn.addTarget(self, action: #selector (chooseImage), for: .touchUpInside)
+
+                
+            }else{
+                cell.uploadBtn.isUserInteractionEnabled = false
+                cell.uploadBtn.isHidden = true
+//            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(productArray[indexPath.row].image ?? "")")
+               
+//            cell.photo.sd_setImage(with: imageUrl, completed: nil)
+              cell.photo.sd_setImage(with: URL(string: "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg") , completed: nil)
+          
+
+            }
+            return cell
         }
     }
+
+ 
+
     
     
 }
-extension SingleStoreDetailsVC: UICollectionViewDelegateFlowLayout {
+extension OwnerStoreDetailsVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -319,7 +299,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegateFlowLayout {
     }
 }
 // reviews
-extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
+extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviewArray.count
     }
@@ -341,4 +321,5 @@ extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
 }
+
 

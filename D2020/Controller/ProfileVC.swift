@@ -29,6 +29,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
     var iconClick = true
     var newUserImage: UIImage?
     var fileURL: URL?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

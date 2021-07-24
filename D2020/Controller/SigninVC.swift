@@ -129,7 +129,8 @@ class SigninVC: BaseController {
                             KRProgressHUD.dismiss()
                             //Navigating to home
                             let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                            let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+                            let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                            scene.type = self!.type
                             self?.navigationController?.pushViewController(scene, animated: true)
                             
                         }else{
@@ -143,7 +144,7 @@ class SigninVC: BaseController {
     
     @IBAction func withoutSigningButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         navigationController?.pushViewController(scene, animated: true)
     }
     @IBAction func onShowBtnTapped(_ sender: Any) {
@@ -160,7 +161,7 @@ class SigninVC: BaseController {
 
     @IBAction func onNewAccountBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+        let scene = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! CreateAccountVC
         navigationController?.pushViewController(scene, animated: true)
     }
     

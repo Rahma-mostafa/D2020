@@ -13,16 +13,14 @@ class RegisterVC: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var phoneTextField: UITextField!
-    
     @IBOutlet weak var mailTextField: UITextField!
-    
     @IBOutlet weak var addressTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     
     var iconClick = true
+    var type = ""
+    var apiURLInString = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +39,16 @@ class RegisterVC: UIViewController {
         let password = passwordTextField.text
         
         let requestParameters = ["name": name ?? "","mobile": phone ?? "","address": address ?? "","email": mail ?? "","password": password ?? ""]
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/register"
+        if self.type == "user"{
+             apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/register"
+
+        }else if self.type == "owner"{
+            apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/register"
+
+        }else if self.type == "delegate"{
+            apiURLInString = "\(APIConstant.BASE_URL.rawValue)rep/register"
+        }
+        
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: nil)
@@ -67,7 +74,9 @@ class RegisterVC: UIViewController {
     func navToHome(){
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "HomeVC") as? HomeVC
+        scene.type = self.type
         navigationController?.pushViewController(scene!, animated: true)
+        
     }
     
                 

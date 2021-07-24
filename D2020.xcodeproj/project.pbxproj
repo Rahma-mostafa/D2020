@@ -17,7 +17,7 @@
 		D9CF8555269E346E0016992B /* UpdateProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF8554269E346E0016992B /* UpdateProfileResponse.swift */; };
 		FA084068269B6C3800B6363C /* SavedStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA084067269B6C3800B6363C /* SavedStores.swift */; };
 		FA0840A7269B81E200B6363C /* SelectMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0840A6269B81E200B6363C /* SelectMapVC.swift */; };
-		FA09B15F266332A20078DCC0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09B15E266332A20078DCC0 /* loginViewController.swift */; };
+		FA09B15F266332A20078DCC0 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09B15E266332A20078DCC0 /* CreateAccountVC.swift */; };
 		FA0AAF2326646963005E9E35 /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AAF2226646963005E9E35 /* Store.storyboard */; };
 		FA0AAF2F26646BDE005E9E35 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AAF2E26646BDE005E9E35 /* Localization.swift */; };
 		FA0AAF3426655436005E9E35 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AAF3326655435005E9E35 /* Home.storyboard */; };
@@ -151,7 +151,7 @@
 		FA084067269B6C3800B6363C /* SavedStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStores.swift; sourceTree = "<group>"; };
 		FA0840A6269B81E200B6363C /* SelectMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMapVC.swift; sourceTree = "<group>"; };
 		FA09B15A26632A800078DCC0 /* ArbFONTS-Sukar Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArbFONTS-Sukar Bold.ttf"; sourceTree = "<group>"; };
-		FA09B15E266332A20078DCC0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		FA09B15E266332A20078DCC0 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FA0AAF2226646963005E9E35 /* Store.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
 		FA0AAF2E26646BDE005E9E35 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		FA0AAF3326655435005E9E35 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 				FA5963B42661930000A8C119 /* SecondSplashController.swift */,
 				FAA776A726619A2600D65636 /* MainViewController.swift */,
 				FA21A57126628D150085CA25 /* LanguageController.swift */,
-				FA09B15E266332A20078DCC0 /* loginViewController.swift */,
+				FA09B15E266332A20078DCC0 /* CreateAccountVC.swift */,
 				FA771347269B2BFB00D8B09E /* RegisterVC.swift */,
 				FA0AAF3826655BA3005E9E35 /* UploadForStoreVC.swift */,
 				FA0AAF3D26655BEA005E9E35 /* UploadForMandoopVC.swift */,
@@ -835,7 +835,7 @@
 				FAA7771026619FF600D65636 /* PageViewController.swift in Sources */,
 				FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */,
 				FAC780972672F8E7008E73D8 /* CategoriesCell.swift in Sources */,
-				FA09B15F266332A20078DCC0 /* loginViewController.swift in Sources */,
+				FA09B15F266332A20078DCC0 /* CreateAccountVC.swift in Sources */,
 				FA5963912661493400A8C119 /* AppDelegate.swift in Sources */,
 				FA5963A226616F1700A8C119 /* SplashController.swift in Sources */,
 				FA611DFB267A802700A3AD3B /* PremiumVC.swift in Sources */,

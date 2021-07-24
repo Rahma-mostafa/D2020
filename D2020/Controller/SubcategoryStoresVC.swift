@@ -23,7 +23,6 @@ class SubcategoryStoresVC: UIViewController {
     var subcategoryId = 0
     var SubCategoryStoresArray = [SubCategoryStoresData]()
     var index = 3
-    var filteredStore = "\(APIConstant.BASE_STORE_URL.rawValue)"
     var storeId = 0
     var cityId = 0
     var iconClick = true

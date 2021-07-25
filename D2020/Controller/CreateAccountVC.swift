@@ -36,9 +36,9 @@ class CreateAccountVC: UIViewController {
     }
     func navToRegisteration(){
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "RegisterVC") as? RegisterVC
+        let scene = storyboard.instantiateViewController(identifier: "RegisterVC") as! RegisterVC
         scene.type = self.type
-        navigationController?.pushViewController(scene!, animated: true)
+        navigationController?.pushViewController(scene, animated: true)
     }
     
 }

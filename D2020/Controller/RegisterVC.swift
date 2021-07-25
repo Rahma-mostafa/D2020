@@ -73,9 +73,9 @@ class RegisterVC: UIViewController {
     }
     func navToHome(){
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "HomeVC") as? HomeVC
-        scene.type = self.type
-        navigationController?.pushViewController(scene!, animated: true)
+        let scene = storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+//        scene.type = self.type
+        navigationController?.pushViewController(scene, animated: true)
         
     }
     

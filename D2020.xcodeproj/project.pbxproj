@@ -66,8 +66,7 @@
 		FA611DFB267A802700A3AD3B /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA611DFA267A802700A3AD3B /* PremiumVC.swift */; };
 		FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA611E02267AE79C00A3AD3B /* ProductVC.swift */; };
 		FA72970926A195C3007BF985 /* Owner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA72970826A195C3007BF985 /* Owner.storyboard */; };
-		FA72971D26A19B6C007BF985 /* MenuForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72971C26A19B6C007BF985 /* MenuForOwner.swift */; };
-		FA72972526A1A75A007BF985 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72972426A1A75A007BF985 /* RegistrationVC.swift */; };
+		FA72972526A1A75A007BF985 /* AddStoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72972426A1A75A007BF985 /* AddStoreVC.swift */; };
 		FA72972A26A1B0F2007BF985 /* OwnerStoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */; };
 		FA72973826A1B9D7007BF985 /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */; };
 		FA72973926A1B9D7007BF985 /* AddPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */; };
@@ -83,6 +82,10 @@
 		FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA2852679734800A8238C /* NotificationVC.swift */; };
 		FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */; };
 		FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */; };
+		FA9CF0F826AC3487002261D9 /* UserTypeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */; };
+		FA9CF16026ACCC21002261D9 /* CategoryForOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */; };
+		FA9CF16526ACDF28002261D9 /* CategoriesForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */; };
+		FA9CF18826ADB6FE002261D9 /* OwnerStoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF18726ADB6FE002261D9 /* OwnerStoreDetails.swift */; };
 		FA9F102D269C6D6C000C42B3 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F102C269C6D6C000C42B3 /* Splash.swift */; };
 		FA9F1038269C7BEA000C42B3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F1037269C7BEA000C42B3 /* SearchVC.swift */; };
 		FAA776A826619A2600D65636 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA776A726619A2600D65636 /* MainViewController.swift */; };
@@ -208,8 +211,7 @@
 		FA611DFA267A802700A3AD3B /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
 		FA611E02267AE79C00A3AD3B /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		FA72970826A195C3007BF985 /* Owner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Owner.storyboard; sourceTree = "<group>"; };
-		FA72971C26A19B6C007BF985 /* MenuForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuForOwner.swift; sourceTree = "<group>"; };
-		FA72972426A1A75A007BF985 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		FA72972426A1A75A007BF985 /* AddStoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreVC.swift; sourceTree = "<group>"; };
 		FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoreDetailsVC.swift; sourceTree = "<group>"; };
 		FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
 		FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCell.xib; sourceTree = "<group>"; };
@@ -225,6 +227,10 @@
 		FA7CA2852679734800A8238C /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStoreDetailsVC.swift; sourceTree = "<group>"; };
 		FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFilterVC.swift; sourceTree = "<group>"; };
+		FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeKeys.swift; sourceTree = "<group>"; };
+		FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForOwnerCell.swift; sourceTree = "<group>"; };
+		FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesForOwner.swift; sourceTree = "<group>"; };
+		FA9CF18726ADB6FE002261D9 /* OwnerStoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoreDetails.swift; sourceTree = "<group>"; };
 		FA9F102C269C6D6C000C42B3 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		FA9F1037269C7BEA000C42B3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		FAA776A726619A2600D65636 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +323,8 @@
 				FAB69A12269BECB70030E1F6 /* About.swift */,
 				FA9F102C269C6D6C000C42B3 /* Splash.swift */,
 				D9CF8554269E346E0016992B /* UpdateProfileResponse.swift */,
+				FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */,
+				FA9CF18726ADB6FE002261D9 /* OwnerStoreDetails.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -445,8 +453,7 @@
 				FAB69A0D269BE9100030E1F6 /* AboutVC.swift */,
 				FAB69A35269BF3290030E1F6 /* ContactUsVC.swift */,
 				FA9F1037269C7BEA000C42B3 /* SearchVC.swift */,
-				FA72971C26A19B6C007BF985 /* MenuForOwner.swift */,
-				FA72972426A1A75A007BF985 /* RegistrationVC.swift */,
+				FA72972426A1A75A007BF985 /* AddStoreVC.swift */,
 				FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */,
 			);
 			path = Controller;
@@ -505,6 +512,7 @@
 				FAB699F9269BCEAA0030E1F6 /* CitiesCell.swift */,
 				FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */,
 				FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */,
+				FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -516,6 +524,7 @@
 				D957646826824DBE00CD748F /* APIConstant.swift */,
 				D957646D268256B800CD748F /* UserDefaultKeys.swift */,
 				D9901E0A269C94B000F631CA /* LanguageHandler.swift */,
+				FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -803,6 +812,7 @@
 				FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */,
 				D9CF8555269E346E0016992B /* UpdateProfileResponse.swift in Sources */,
 				FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */,
+				FA9CF0F826AC3487002261D9 /* UserTypeKeys.swift in Sources */,
 				FA0AAF3926655BA3005E9E35 /* UploadForStoreVC.swift in Sources */,
 				FA273C7B267B20AA0060A32D /* ServiceCell.swift in Sources */,
 				FA72972A26A1B0F2007BF985 /* OwnerStoreDetailsVC.swift in Sources */,
@@ -811,6 +821,7 @@
 				FA17AB67267DB4B700F02F03 /* WorkTimeVC.swift in Sources */,
 				FA7CA2682677FA7900A8238C /* CheckOrderVC.swift in Sources */,
 				FA0AAF3E26655BEA005E9E35 /* UploadForMandoopVC.swift in Sources */,
+				FA9CF16026ACCC21002261D9 /* CategoryForOwnerCell.swift in Sources */,
 				FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */,
 				FA7CA26D2677FD9E00A8238C /* DelegateRateVC.swift in Sources */,
 				FA122C75268AEAC3008BCA3C /* Stores.swift in Sources */,
@@ -821,6 +832,7 @@
 				FA21A57226628D150085CA25 /* LanguageController.swift in Sources */,
 				FA122C44268AC000008BCA3C /* Categories.swift in Sources */,
 				FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */,
+				FA9CF16526ACDF28002261D9 /* CategoriesForOwner.swift in Sources */,
 				FA0840A7269B81E200B6363C /* SelectMapVC.swift in Sources */,
 				FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */,
 				FA502B582683ED64005A61DD /* Cities.swift in Sources */,
@@ -850,18 +862,18 @@
 				FA7CA280267928DA00A8238C /* NotificationCell.swift in Sources */,
 				FA2DC2BC267F674E004FBF9E /* ContactVC.swift in Sources */,
 				FA0AAF4326655D31005E9E35 /* SigninVC.swift in Sources */,
+				FA9CF18826ADB6FE002261D9 /* OwnerStoreDetails.swift in Sources */,
 				FA7A6410267B2E0000DAE9FF /* RateCell.swift in Sources */,
 				FACB1EA5268D9F2600299506 /* ConversationVC.swift in Sources */,
 				FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */,
 				D957646926824DBE00CD748F /* APIConstant.swift in Sources */,
-				FA72971D26A19B6C007BF985 /* MenuForOwner.swift in Sources */,
 				FAF5CDC42666E2A80002E1CB /* PlacesCell.swift in Sources */,
 				FAFDB063266AEA1E00CD08A1 /* MenuVC.swift in Sources */,
 				FAB69A36269BF3290030E1F6 /* ContactUsVC.swift in Sources */,
 				FAFDB03A266AAEAA00CD08A1 /* MoreCategoriesVC.swift in Sources */,
 				FA0AAF5426657BF0005E9E35 /* SliderCell.swift in Sources */,
 				FAB69A0E269BE9100030E1F6 /* AboutVC.swift in Sources */,
-				FA72972526A1A75A007BF985 /* RegistrationVC.swift in Sources */,
+				FA72972526A1A75A007BF985 /* AddStoreVC.swift in Sources */,
 				FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */,
 				D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */,
 				FACB1EAA268D9F5D00299506 /* ChatViewController.swift in Sources */,

@@ -61,6 +61,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         //        KRProgressHUD.dismiss()
         
     }
+    // api requests
     func editUserProfile(){
         KRProgressHUD.show()
         let name = userNameTextField.text ?? ""

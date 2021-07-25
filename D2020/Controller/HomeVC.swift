@@ -21,9 +21,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var storesCollectionView: UICollectionView!
-    
     @IBOutlet weak var menuContainerView: UIView!
-    
+    @IBOutlet weak var menuForOwnerContainerView: UIView!
     // variables
     var slider = [Slider(image: "header_login"),Slider(image: "b1"),Slider(image: "b2")]
     var categoryArray = [categoriesDataClass]()
@@ -32,6 +31,8 @@ class HomeVC: UIViewController {
     var counter = 0
     var iconClick = true
     var storeId = 0
+//    var type = ""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +44,6 @@ class HomeVC: UIViewController {
         }
         self.blurView.isHidden = true
         self.menuContainerView.isHidden = true
-
-        
-        
     }
     
     @objc func changeImage() {
@@ -95,10 +93,10 @@ class HomeVC: UIViewController {
         if(iconClick == true){
 //            setBlur()
             self.menuContainerView.isHidden = false
-            }else{
-                self.menuContainerView.isHidden = true
-                 }
-              iconClick = !iconClick
+        }else{
+            self.menuContainerView.isHidden = true
+        }
+        iconClick = !iconClick
     }
     
     
@@ -112,7 +110,6 @@ class HomeVC: UIViewController {
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
-                print("Categories Response Model : \(apiResponseModel)")
                 self?.categoryArray = apiResponseModel.data
                 self?.categoryCollectionView.reloadData()
                 KRProgressHUD.dismiss()
@@ -129,7 +126,6 @@ class HomeVC: UIViewController {
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(Stores.self, from: result.data!) else{return}
-                print("Stores Response Model : \(apiResponseModel)")
                 self?.storesArray = apiResponseModel.data?.data ?? [StoesDataClass]()
                 self?.storesCollectionView.reloadData()
                 KRProgressHUD.dismiss()

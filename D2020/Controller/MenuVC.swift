@@ -21,22 +21,42 @@ class MenuVC: UIViewController {
     @IBOutlet weak var techinicalSportImageView: UIImageView!
     @IBOutlet weak var shareStackView: UIStackView!
     @IBOutlet weak var logoutStackView: UIStackView!
-    @IBOutlet weak var cityStackView: UIStackView!
     @IBOutlet weak var storesStackView: UIStackView!
     @IBOutlet weak var delegateStckView: UIStackView!
     @IBOutlet weak var profileStackView: UIStackView!
     @IBOutlet weak var contactStackView: UIStackView!
     @IBOutlet weak var aboutStackView: UIStackView!
+    @IBOutlet weak var myStoresStackView: UIStackView!
+    @IBOutlet weak var addStoreStackView: UIStackView!
+    //variables
+    var type = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideOwnerStore()
+        showOwnerStore()
         profileGesture()
         aboutGesture()
         contactGesture()
         shareGesture()
+        ownerStoresGesture()
+        addStoreGesture()
         logoutGesture()
 //        languageGesture()
         
 
+    }
+    func hideOwnerStore(){
+        self.myStoresStackView.isHidden = true
+        self.addStoreStackView.isHidden = true
+    }
+    func showOwnerStore(){
+        guard let userType = UserDefaults.standard.string(forKey: UserTypeKeys.OWNER.rawValue) else { return }
+        print("User type is :"+userType)
+        if userType == "owner"{
+            self.myStoresStackView.isHidden = false
+            self.addStoreStackView.isHidden = false
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +97,18 @@ class MenuVC: UIViewController {
         contactStackView.isUserInteractionEnabled = true
         contactStackView.addGestureRecognizer(tapGesture)
     }
+    func ownerStoresGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.showOwnerStoreTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        myStoresStackView.isUserInteractionEnabled = true
+        myStoresStackView.addGestureRecognizer(tapGesture)
+    }
+    func addStoreGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.addStoreTapped(recognizer:)))
+        tapGesture.numberOfTapsRequired = 1
+        addStoreStackView.isUserInteractionEnabled = true
+        addStoreStackView.addGestureRecognizer(tapGesture)
+    }
     func logoutGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.logoutTapped(recognizer:)))
         tapGesture.numberOfTapsRequired = 1
@@ -90,7 +122,7 @@ class MenuVC: UIViewController {
 //        languageStackView.isUserInteractionEnabled = true
 //        languageStackView.addGestureRecognizer(tapGesture)
 //    }
-    
+
 
     @objc func imageTapped(recognizer: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
@@ -112,6 +144,17 @@ class MenuVC: UIViewController {
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    @objc func showOwnerStoreTapped(recognizer: UITapGestureRecognizer){
+        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "AddStoreVC") as? AddStoreVC
+        navigationController?.pushViewController(scene!, animated: true)
+    }
+    @objc func addStoreTapped(recognizer: UITapGestureRecognizer){
+        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "AddStoreVC") as? AddStoreVC
+        navigationController?.pushViewController(scene!, animated: true)
+    }
+    
     @objc func logoutTapped(recognizer: UITapGestureRecognizer){
         callingLogoutAPI()
     }
@@ -158,7 +201,6 @@ class MenuVC: UIViewController {
             let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
-            print(apiResponseModel.data)
             self.userNameLabel.text = apiResponseModel.data.name ?? ""
             self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
             let imageUrl = "\(apiResponseModel.data.photo ?? "")"

@@ -19,33 +19,35 @@ class SigninVC: BaseController {
     @IBOutlet weak var showBtn: UIButton!
     // variables
     var iconClick = true
-    var type = ""
+
     var apiURLInString = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hiddenNav = true
+
         
     }
     @IBAction func onUserBttonTapped(_ sender: Any) {
         self.userBtn.backgroundColor = .orange
         self.delegateBtton.backgroundColor = #colorLiteral(red: 0.4195685685, green: 0.4196329117, blue: 0.4195545018, alpha: 1)
         self.ownerBtn.backgroundColor = #colorLiteral(red: 0.4195685685, green: 0.4196329117, blue: 0.4195545018, alpha: 1)
-        self.type = "user"
+        UserDefaults.standard.setValue("user", forKey: UserTypeKeys.OWNER.rawValue)
     }
     
     @IBAction func onOwnerBtnTapped(_ sender: Any) {
         self.userBtn.backgroundColor = #colorLiteral(red: 0.4195685685, green: 0.4196329117, blue: 0.4195545018, alpha: 1)
         self.delegateBtton.backgroundColor = #colorLiteral(red: 0.4195685685, green: 0.4196329117, blue: 0.4195545018, alpha: 1)
         self.ownerBtn.backgroundColor = .orange
-        self.type = "owner"
+        UserDefaults.standard.setValue("owner", forKey: UserTypeKeys.OWNER.rawValue)
     }
     
     @IBAction func onDelegateBtnTapped(_ sender: Any) {
         self.userBtn.backgroundColor = #colorLiteral(red: 0.4195685685, green: 0.4196329117, blue: 0.4195545018, alpha: 1)
         self.delegateBtton.backgroundColor = .orange
         self.ownerBtn.backgroundColor = #colorLiteral(red: 0.4195685685, green: 0.4196329117, blue: 0.4195545018, alpha: 1)
-        self.type = "delegate"
+        UserDefaults.standard.setValue("rep", forKey: UserTypeKeys.OWNER.rawValue)
     }
     
     @IBAction func onSigninButtonTapped(_ sender: Any) {
@@ -55,8 +57,6 @@ class SigninVC: BaseController {
             // red placeholders
             mailTextField.attributedPlaceholder = NSAttributedString(string: "email".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
             passTextField.attributedPlaceholder = NSAttributedString(string: "password".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
-        }else if self.type == "" {
-            KRProgressHUD.showError(withMessage: "من فضلك حدد اذا كنت مستخدم عادي او صاحب محل او مندوب")
         }else{
             
             //Show Loading Indicator
@@ -70,13 +70,13 @@ class SigninVC: BaseController {
              we create it once as a constant instead of typing it many times in each API URL.
              */
             //Construct API URL In string variable
-            if self.type == "user"{
-                 apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/login"
-
-            }else if self.type == "owner"{
+            guard let userType = UserDefaults.standard.string(forKey: UserTypeKeys.OWNER.rawValue) else { return }
+            if userType == "user"{
+                apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/login"
+            }else if userType == "owner"{
                 apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/login"
 
-            }else if self.type == "delegate"{
+            }else if userType == "delegate"{
                 apiURLInString = "\(APIConstant.BASE_URL.rawValue)rep/login"
             }else{
                 KRProgressHUD.showError(withMessage: "من فضلك حدد اذا كنت مستخدم عادي او صاحب محل او مندوب")
@@ -130,7 +130,7 @@ class SigninVC: BaseController {
                             //Navigating to home
                             let storyboard = UIStoryboard(name: "Home", bundle: nil)
                             let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                            scene.type = self!.type
+//                            scene.type = self!.type!
                             self?.navigationController?.pushViewController(scene, animated: true)
                             
                         }else{
@@ -161,7 +161,7 @@ class SigninVC: BaseController {
 
     @IBAction func onNewAccountBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! CreateAccountVC
+        let scene = storyboard.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
         navigationController?.pushViewController(scene, animated: true)
     }
     

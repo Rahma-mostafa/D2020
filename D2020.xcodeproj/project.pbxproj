@@ -48,6 +48,7 @@
 		FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC39A268054E2004FBF9E /* MapVC.swift */; };
 		FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA30256726799C09000E0DC8 /* ProductCell.swift */; };
 		FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30256826799C09000E0DC8 /* ProductCell.xib */; };
+		FA33235B26AF075E006545D2 /* OwnerStoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */; };
 		FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49EFFC266B49E300215EFE /* Category.storyboard */; };
 		FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */; };
 		FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */; };
@@ -85,7 +86,6 @@
 		FA9CF0F826AC3487002261D9 /* UserTypeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */; };
 		FA9CF16026ACCC21002261D9 /* CategoryForOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */; };
 		FA9CF16526ACDF28002261D9 /* CategoriesForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */; };
-		FA9CF18826ADB6FE002261D9 /* OwnerStoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF18726ADB6FE002261D9 /* OwnerStoreDetails.swift */; };
 		FA9CF1A526ADC928002261D9 /* OwnerStoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF1A426ADC928002261D9 /* OwnerStoresVC.swift */; };
 		FA9CF1AD26ADCBED002261D9 /* OwnerStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF1AC26ADCBED002261D9 /* OwnerStores.swift */; };
 		FA9CF20026AE5813002261D9 /* SubcategoryForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF1FF26AE5813002261D9 /* SubcategoryForOwner.swift */; };
@@ -189,6 +189,7 @@
 		FA2DC39A268054E2004FBF9E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FA30256726799C09000E0DC8 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA30256826799C09000E0DC8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoreDetails.swift; sourceTree = "<group>"; };
 		FA49EFFC266B49E300215EFE /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
@@ -234,7 +235,6 @@
 		FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeKeys.swift; sourceTree = "<group>"; };
 		FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForOwnerCell.swift; sourceTree = "<group>"; };
 		FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesForOwner.swift; sourceTree = "<group>"; };
-		FA9CF18726ADB6FE002261D9 /* OwnerStoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoreDetails.swift; sourceTree = "<group>"; };
 		FA9CF1A426ADC928002261D9 /* OwnerStoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoresVC.swift; sourceTree = "<group>"; };
 		FA9CF1AC26ADCBED002261D9 /* OwnerStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStores.swift; sourceTree = "<group>"; };
 		FA9CF1FF26AE5813002261D9 /* SubcategoryForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryForOwner.swift; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 				FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */,
 				FA9CF1FF26AE5813002261D9 /* SubcategoryForOwner.swift */,
 				FA9CF20426AE5F3D002261D9 /* CitiesForOwner.swift */,
-				FA9CF18726ADB6FE002261D9 /* OwnerStoreDetails.swift */,
+				FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -874,9 +874,9 @@
 				FAB699FA269BCEAA0030E1F6 /* CitiesCell.swift in Sources */,
 				FA502B502683AF2A005A61DD /* ProfileVC.swift in Sources */,
 				FA7CA280267928DA00A8238C /* NotificationCell.swift in Sources */,
+				FA33235B26AF075E006545D2 /* OwnerStoreDetails.swift in Sources */,
 				FA2DC2BC267F674E004FBF9E /* ContactVC.swift in Sources */,
 				FA0AAF4326655D31005E9E35 /* SigninVC.swift in Sources */,
-				FA9CF18826ADB6FE002261D9 /* OwnerStoreDetails.swift in Sources */,
 				FA7A6410267B2E0000DAE9FF /* RateCell.swift in Sources */,
 				FACB1EA5268D9F2600299506 /* ConversationVC.swift in Sources */,
 				FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */,

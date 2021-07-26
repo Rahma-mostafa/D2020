@@ -15,6 +15,7 @@ class OwnerStoresVC: UIViewController {
 
     @IBOutlet weak var OwnerStoresTableView: UITableView!
     var savedStoresArray = [StoreData]()
+    var storeId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -93,6 +94,13 @@ extension OwnerStoresVC: UITableViewDelegate, UITableViewDataSource{
         cell.editButton.tag = indexPath.row
         cell.editButton.addTarget(self, action: #selector(editStore), for: .touchUpInside)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.storeId = savedStoresArray[indexPath.row].id
+        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "OwnerStoreDetailsVC") as? OwnerStoreDetailsVC
+        scene?.storeId = self.storeId
+        navigationController?.pushViewController(scene!, animated: true)
     }
    
     

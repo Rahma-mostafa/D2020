@@ -274,6 +274,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         chooseImage()
     }
     @IBAction func onChooseVideoBtnTapped(_ sender: Any) {
+        chooseImage()
     }
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
@@ -322,15 +323,7 @@ extension AddStoreVC : UITableViewDelegate,UITableViewDataSource{
 }
     
 
-//extension Data {
-//    var prettyPrintedJSONString: NSString? { /// NSString gives us a nice sanitized debugDescription
-//        guard let object = try? JSONSerialization.jsonObject(with: self, options: []),
-//              let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
-//              let prettyPrintedString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else { return nil }
-//
-//        return prettyPrintedString
-//    }
-//}
+
 extension AddStoreVC{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)

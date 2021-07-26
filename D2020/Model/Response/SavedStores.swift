@@ -32,3 +32,5 @@ struct SavedStoresData: Codable {
         case updatedAt = "updated_at"
     }
 }
+
+

@@ -1,48 +1,42 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let ownerStoreDetails = try? newJSONDecoder().decode(OwnerStoreDetails.self, from: jsonData)
+//   let subcategoryForOwner = try? newJSONDecoder().decode(SubcategoryForOwner.self, from: jsonData)
 
 import Foundation
 
-// MARK: - OwnerStoreDetails
-struct OwnerStoreDetails: Codable {
+// MARK: - SubcategoryForOwner
+struct SubcategoryForOwner: Codable {
     let status: Bool
     let message: String
-    let data: StoreDataClass
+    let data: [SubcategoryStoreClass]
 }
 
-// MARK: - DataClass
-struct StoreDataClass: Codable {
-    let id, subscriberID: Int
-    let code: JSONNull?
-    let email, phone: String
-    let mobile: JSONNull?
-    let name: String
-    let photo: String
-    let cityID: Int
-    let address: String
-    let status: Int
-    let notiCode: JSONNull?
-    let type: String
-    let longi, lati: JSONNull?
+// MARK: - Datum
+struct SubcategoryStoreClass: Codable {
+    let id: Int
+    let arabicName: String
+    let name, arabicDescription, datumDescription: JSONNull?
+    let parent: Int
+    let image: String
+    let imageBack: JSONNull?
     let createdAt, updatedAt: String
 
     enum CodingKeys: String, CodingKey {
         case id
-        case subscriberID = "subscriber_id"
-        case code, email, phone, mobile, name, photo
-        case cityID = "city_id"
-        case address, status
-        case notiCode = "noti_code"
-        case type, longi, lati
+        case arabicName = "arabic_name"
+        case name
+        case arabicDescription = "arabic_description"
+        case datumDescription = "description"
+        case parent, image
+        case imageBack = "image_back"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
 }
 
 // MARK: - Encode/decode helpers
-//
+
 //class JSONNull: Codable, Hashable {
 //
 //    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
@@ -58,7 +52,6 @@ struct StoreDataClass: Codable {
 //    public required init(from decoder: Decoder) throws {
 //        let container = try decoder.singleValueContainer()
 //        if !container.decodeNil() {
-//
 //            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
 //        }
 //    }

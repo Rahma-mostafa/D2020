@@ -146,7 +146,7 @@ class MenuVC: UIViewController {
     }
     @objc func showOwnerStoreTapped(recognizer: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Owner", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "AddStoreVC") as? AddStoreVC
+        let scene = storyboard.instantiateViewController(identifier: "OwnerStoresVC") as? OwnerStoresVC
         navigationController?.pushViewController(scene!, animated: true)
     }
     @objc func addStoreTapped(recognizer: UITapGestureRecognizer){

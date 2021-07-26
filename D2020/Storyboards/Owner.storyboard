@@ -14,7 +14,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
         <array key="Cairo.ttf">
@@ -599,20 +599,52 @@
                                                     <constraint firstItem="OTA-bd-1qM" firstAttribute="top" secondItem="kbo-aq-xzS" secondAttribute="top" id="iSw-LU-FAN"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Luy-LG-EbA">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lU4-hP-YL0">
                                                 <rect key="frame" x="0.0" y="512" width="374" height="48"/>
-                                                <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D84-bv-27C">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                                        <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="18"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="subcategory"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="subcategory"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="2p2-VB-2YS">
+                                                        <rect key="frame" x="336" y="0.0" width="30" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="51d-7E-nyP"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbV-rP-r4a">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                                        <connections>
+                                                            <action selector="onCategoryBtnTapped:" destination="WBU-lD-X4a" eventType="touchUpInside" id="BjW-wr-N5P"/>
+                                                            <action selector="onSubcategoryBtnTapped:" destination="WBU-lD-X4a" eventType="touchUpInside" id="7Jw-hr-RtO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="bl7-gN-OXI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="D84-bv-27C" secondAttribute="trailing" id="0Qs-YF-TvT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="tbV-rP-r4a" secondAttribute="bottom" id="2Sd-oN-lnw"/>
+                                                    <constraint firstItem="2p2-VB-2YS" firstAttribute="top" secondItem="lU4-hP-YL0" secondAttribute="top" id="78t-LW-RWi"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2p2-VB-2YS" secondAttribute="bottom" id="9D2-KY-4rk"/>
+                                                    <constraint firstItem="2p2-VB-2YS" firstAttribute="trailing" secondItem="D84-bv-27C" secondAttribute="trailing" constant="-8" id="Jre-Bb-9Ku"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tbV-rP-r4a" secondAttribute="trailing" id="KkU-G4-o57"/>
+                                                    <constraint firstItem="D84-bv-27C" firstAttribute="top" secondItem="lU4-hP-YL0" secondAttribute="top" id="Lcv-H6-MP9"/>
+                                                    <constraint firstAttribute="height" constant="48" id="YG3-2J-D6r"/>
+                                                    <constraint firstItem="D84-bv-27C" firstAttribute="leading" secondItem="lU4-hP-YL0" secondAttribute="leading" id="d30-ow-4cm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="D84-bv-27C" secondAttribute="bottom" id="hjY-Ny-Viu"/>
+                                                    <constraint firstItem="tbV-rP-r4a" firstAttribute="top" secondItem="lU4-hP-YL0" secondAttribute="top" id="ivT-tH-pRB"/>
+                                                    <constraint firstItem="tbV-rP-r4a" firstAttribute="leading" secondItem="lU4-hP-YL0" secondAttribute="leading" id="zen-QA-vhU"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="18"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCl-PW-O9O">
                                                 <rect key="frame" x="0.0" y="576" width="374" height="48"/>
                                                 <subviews>
@@ -899,11 +931,11 @@
                         <outlet property="contantView" destination="RVy-jU-pE9" id="3QF-U5-CsZ"/>
                         <outlet property="dateTextField" destination="uo8-xt-U5N" id="tKX-Mh-z8G"/>
                         <outlet property="discTextField" destination="36f-rm-H7L" id="wwO-sN-Wa3"/>
-                        <outlet property="emtyTextField" destination="Luy-LG-EbA" id="Bki-qP-PDU"/>
                         <outlet property="mailTextField" destination="MCL-b1-Nwh" id="YJ2-ed-KL3"/>
                         <outlet property="nameTextField" destination="dst-vS-ZEJ" id="vzc-FC-Pyp"/>
                         <outlet property="phoneTextField" destination="bZl-8S-pZr" id="thb-Ay-fNX"/>
                         <outlet property="scrollView" destination="5tw-i5-HdE" id="Jms-VM-uOk"/>
+                        <outlet property="subcategoryTextField" destination="D84-bv-27C" id="egO-17-swa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKB-DD-ube" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1895,6 +1927,37 @@
             </objects>
             <point key="canvasLocation" x="9639.1304347826099" y="416.51785714285711"/>
         </scene>
+        <!--Owner StoresVC-->
+        <scene sceneID="TTO-Qf-Y2F">
+            <objects>
+                <viewController storyboardIdentifier="OwnerStoresVC" id="88C-Ix-yvL" customClass="OwnerStoresVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jYO-9a-UMa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aGM-cY-Yt4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rFT-54-4Fp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aGM-cY-Yt4" firstAttribute="trailing" secondItem="rFT-54-4Fp" secondAttribute="trailing" id="5cQ-2Y-wva"/>
+                            <constraint firstItem="aGM-cY-Yt4" firstAttribute="top" secondItem="rFT-54-4Fp" secondAttribute="top" id="TYK-6E-wYS"/>
+                            <constraint firstItem="aGM-cY-Yt4" firstAttribute="leading" secondItem="rFT-54-4Fp" secondAttribute="leading" id="ZRd-tw-6ct"/>
+                            <constraint firstAttribute="bottom" secondItem="aGM-cY-Yt4" secondAttribute="bottom" id="xWh-Ti-6nP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ceV-8S-ivN"/>
+                    <connections>
+                        <outlet property="OwnerStoresTableView" destination="aGM-cY-Yt4" id="0Lz-AU-Fs7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5vw-gs-VL7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11481.159420289856" y="411.83035714285711"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="5pC-iP-B2E">
             <objects>
@@ -1950,6 +2013,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HG3-qI-3TL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8728.9855072463779" y="416.51785714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VRm-JI-3Gv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HvL-FO-jmf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w0q-TF-VCZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="OrangeColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="88C-Ix-yvL" kind="relationship" relationship="rootViewController" id="IJB-iV-cPr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECb-2a-bgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10571.014492753624" y="411.83035714285711"/>
         </scene>
     </scenes>
     <designables>

@@ -13,6 +13,9 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
+            <string>Cairo-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -51,19 +54,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94s-IR-Zeh">
-                                <rect key="frame" x="20" y="35" width="30" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="VWx-d6-G6F"/>
-                                    <constraint firstAttribute="height" constant="24" id="ald-8X-8Y9"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleColor" name="OrangeColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSaveBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xXk-rI-lxn"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" restorationIdentifier="CosmosView" translatesAutoresizingMaskIntoConstraints="NO" id="5MW-NG-G0l" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="95" y="56.5" width="77" height="13"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,19 +75,53 @@
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="star (notSelected)"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YXL-Cr-pDB">
+                                <rect key="frame" x="4" y="0.0" width="30" height="94"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gak-mk-vnR">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="28"/>
+                                        <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="17"/>
+                                        <state key="normal">
+                                            <color key="titleColor" name="OrangeColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94s-IR-Zeh">
+                                        <rect key="frame" x="0.0" y="33" width="30" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="VWx-d6-G6F"/>
+                                            <constraint firstAttribute="height" constant="24" id="ald-8X-8Y9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <state key="normal">
+                                            <color key="titleColor" name="OrangeColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSaveBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xXk-rI-lxn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxj-n1-Jud">
+                                        <rect key="frame" x="0.0" y="62" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="17"/>
+                                        <state key="normal">
+                                            <color key="titleColor" name="OrangeColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LEv-SR-fsa" secondAttribute="trailing" id="2aw-aK-1UV"/>
                             <constraint firstItem="kcS-gN-xSm" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" constant="20" id="3id-ty-L9F"/>
-                            <constraint firstItem="94s-IR-Zeh" firstAttribute="centerY" secondItem="aYb-S2-MfK" secondAttribute="centerY" id="4M8-F7-0Er"/>
                             <constraint firstItem="5MW-NG-G0l" firstAttribute="top" secondItem="kcS-gN-xSm" secondAttribute="bottom" constant="20" id="Ls9-Js-v08"/>
                             <constraint firstItem="LEv-SR-fsa" firstAttribute="leading" secondItem="kcS-gN-xSm" secondAttribute="trailing" constant="14" id="Wy0-xW-QNW"/>
+                            <constraint firstAttribute="bottom" secondItem="YXL-Cr-pDB" secondAttribute="bottom" id="dl2-ku-CoB"/>
+                            <constraint firstItem="YXL-Cr-pDB" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" id="g4Z-Io-Abf"/>
                             <constraint firstAttribute="height" constant="94" id="g6c-Fx-ylq"/>
                             <constraint firstAttribute="bottom" secondItem="LEv-SR-fsa" secondAttribute="bottom" id="iB9-ZT-fhC"/>
                             <constraint firstItem="LEv-SR-fsa" firstAttribute="leading" secondItem="5MW-NG-G0l" secondAttribute="trailing" constant="14" id="lcT-jz-gVd"/>
+                            <constraint firstItem="YXL-Cr-pDB" firstAttribute="leading" secondItem="aYb-S2-MfK" secondAttribute="leading" constant="4" id="mvl-Jz-3fe"/>
                             <constraint firstItem="LEv-SR-fsa" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" id="nQY-mb-zS5"/>
-                            <constraint firstItem="94s-IR-Zeh" firstAttribute="leading" secondItem="aYb-S2-MfK" secondAttribute="leading" constant="20" id="ykO-K4-Jyt"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -120,6 +144,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="categoryImageView" destination="LEv-SR-fsa" id="0Do-TE-Hkp"/>
+                <outlet property="deleteBtn" destination="gak-mk-vnR" id="ux5-SG-E4D"/>
+                <outlet property="editButton" destination="Sxj-n1-Jud" id="19P-qc-CFX"/>
                 <outlet property="nameLabel" destination="kcS-gN-xSm" id="3rY-x3-m0V"/>
                 <outlet property="rateView" destination="5MW-NG-G0l" id="fmP-ss-a1g"/>
                 <outlet property="saveBtn" destination="94s-IR-Zeh" id="Csc-Yt-Fi4"/>

@@ -43,7 +43,7 @@ class OwnerStoreDetailsVC: UIViewController {
     var counter = 0
     var storeId = 0
     var reviewArray = [Review]()
-    var imagesArray = [Image]()
+    var imagesArray = [OwnerStoreImage]()
     var dataDetials = [DataData]()
     var productArray = [Offer]()
     var reviewsAvarage  = 0.0
@@ -61,6 +61,7 @@ class OwnerStoreDetailsVC: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         self.reviewsAvarageView.isUserInteractionEnabled = false
+        getRestStoreDetialsRequest()
 
        
     }
@@ -136,6 +137,76 @@ class OwnerStoreDetailsVC: UIViewController {
         imagePicker.modalPresentationStyle = .overFullScreen
         self.present(imagePicker, animated: true, completion: nil)
     }
+    //MARK:- API requests
+    func storeDetailsRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/store_details/16"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(OwnerStoreDetails.self, from: result.data!) else{
+                    return}
+//                self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
+//                self?.commentTableView.reloadData()
+//                self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
+//                self?.productCollectionView.reloadData()
+//                self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
+                self?.sliderCollectionView.reloadData()
+//                self?.storeId = apiResponseModel.data?.data?.id ?? 0
+//                self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
+                KRProgressHUD.dismiss()
+                
+            }
+    }
+    func getRestStoreDetialsRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/store_details/16"
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(OwnerStoreDetails.self, from: result.data!) else{
+                    return}
+                let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(apiResponseModel.data.photo )")
+                self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
+                self?.storeNameLbl.text = apiResponseModel.data.name
+//                self?.DescribeLabel.text = apiResponseModel.data.
+//                self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
+//                self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                KRProgressHUD.dismiss()
+                
+            }
+    }
+    func addStoreReview(){
+        KRProgressHUD.show()
+        let userReview = reviewTextField.text
+        let userRating = self.userRatingView.rating
+        let requestParameters = ["rating": userRating ,"review": userReview ?? ""] as [String : Any]
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/add_store_review/\(storeId)"
+        print("URL : \(apiURLInString)")
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم")
+                }else{
+                    KRProgressHUD.showError(withMessage: "لم يتم نشر التعليق")
+                }
+                
+            }
+    }
+    
     //MARK:- Buttons Action
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
@@ -181,28 +252,7 @@ class OwnerStoreDetailsVC: UIViewController {
         chooseImage()
         
     }
-    func addStoreReview(){
-        KRProgressHUD.show()
-        let userReview = reviewTextField.text
-        let userRating = self.userRatingView.rating
-        let requestParameters = ["rating": userRating ,"review": userReview ?? ""] as [String : Any]
-        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-        let headers = ["Authorization":"Bearer \(token)"]
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/add_store_review/\(storeId)"
-        print("URL : \(apiURLInString)")
-        guard let apiURL = URL(string: apiURLInString) else{ return }
-        Alamofire
-            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
-            .response {[weak self] result in
-                print("Response Code : \(result.response?.statusCode)")
-                if result.response?.statusCode == 200{
-                    KRProgressHUD.showSuccess(withMessage: "تم")
-                }else{
-                    KRProgressHUD.showError(withMessage: "لم يتم نشر التعليق")
-                }
-                
-            }
-    }
+   
     
    
     

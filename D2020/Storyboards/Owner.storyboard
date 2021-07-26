@@ -1259,12 +1259,12 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bME-y5-1nZ">
-                                                                <rect key="frame" x="16" y="59" width="382" height="128"/>
+                                                                <rect key="frame" x="108" y="59" width="290" height="128"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="krH-UD-pVi"/>
                                                                 </constraints>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Vj-qj-9xG">
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Vj-qj-9xG">
                                                                     <size key="itemSize" width="128" height="128"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1272,6 +1272,23 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Vf-A7-bN7">
+                                                                <rect key="frame" x="16" y="69" width="84" height="84"/>
+                                                                <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="84" id="5TS-pz-7VQ"/>
+                                                                    <constraint firstAttribute="height" constant="84" id="vP9-f8-9eZ"/>
+                                                                </constraints>
+                                                                <state key="normal" image="upload-button"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="onAddPhotoBtnTapped:" destination="IcL-6v-x4F" eventType="touchUpInside" id="Pzu-fU-I7D"/>
+                                                                </connections>
+                                                            </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlr-4n-1xe" userLabel="SeparatorView">
                                                                 <rect key="frame" x="0.0" y="195" width="414" height="8"/>
                                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
@@ -1336,6 +1353,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="P4K-Ld-Y5n" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" constant="20" id="3E8-Jw-Hzl"/>
+                                                            <constraint firstItem="bME-y5-1nZ" firstAttribute="leading" secondItem="8Vf-A7-bN7" secondAttribute="trailing" constant="8" id="4Pd-Oc-zVK"/>
                                                             <constraint firstItem="j9l-Ym-ipe" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" constant="16" id="4rX-MB-M21"/>
                                                             <constraint firstAttribute="bottom" secondItem="jYj-j5-yBb" secondAttribute="bottom" constant="20" id="7BR-SZ-Rhc"/>
                                                             <constraint firstAttribute="trailing" secondItem="wfZ-hd-k9e" secondAttribute="trailing" id="8n3-OI-Nld"/>
@@ -1348,7 +1366,9 @@
                                                             <constraint firstAttribute="trailing" secondItem="sfE-os-Ivn" secondAttribute="trailing" constant="20" id="Iyw-B8-0AM"/>
                                                             <constraint firstItem="wfZ-hd-k9e" firstAttribute="top" secondItem="P4K-Ld-Y5n" secondAttribute="bottom" constant="8" id="P1M-hP-Gfv"/>
                                                             <constraint firstAttribute="trailing" secondItem="Hhn-YO-dY6" secondAttribute="trailing" constant="20" id="SVB-B0-okl"/>
+                                                            <constraint firstItem="8Vf-A7-bN7" firstAttribute="top" secondItem="sfE-os-Ivn" secondAttribute="bottom" constant="30" id="WXi-9k-Zry"/>
                                                             <constraint firstItem="Hhn-YO-dY6" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" constant="20" id="Xpa-lB-OnI"/>
+                                                            <constraint firstItem="8Vf-A7-bN7" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" constant="16" id="YPe-O6-m4T"/>
                                                             <constraint firstItem="zlr-4n-1xe" firstAttribute="top" secondItem="bME-y5-1nZ" secondAttribute="bottom" constant="8" id="erW-ch-HZ3"/>
                                                             <constraint firstAttribute="trailing" secondItem="zlr-4n-1xe" secondAttribute="trailing" id="flu-Jp-13H"/>
                                                             <constraint firstItem="zlr-4n-1xe" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" id="heM-fZ-5dD"/>
@@ -1359,7 +1379,6 @@
                                                             <constraint firstAttribute="trailing" secondItem="bME-y5-1nZ" secondAttribute="trailing" constant="16" id="rZ4-ep-ha0"/>
                                                             <constraint firstItem="bME-y5-1nZ" firstAttribute="top" secondItem="sfE-os-Ivn" secondAttribute="bottom" constant="20" id="rdx-TI-PpL"/>
                                                             <constraint firstItem="sfE-os-Ivn" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" constant="20" id="tKU-Om-FLW"/>
-                                                            <constraint firstItem="bME-y5-1nZ" firstAttribute="leading" secondItem="YfW-VU-BHg" secondAttribute="leading" constant="16" id="xCv-CR-1ku"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEX-SL-zwQ" userLabel="SeparatorView">
@@ -1665,7 +1684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDv-5z-PbO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6410" y="297"/>
+            <point key="canvasLocation" x="6408.6956521739139" y="296.65178571428572"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UDx-Dd-Txk">
@@ -2062,6 +2081,7 @@
         <image name="star (-1" width="13" height="12.5"/>
         <image name="star (-9" width="13" height="12.5"/>
         <image name="translate (1)" width="20" height="20"/>
+        <image name="upload-button" width="48" height="58"/>
         <image name="user" width="64" height="64.5"/>
         <namedColor name="OrangeColor">
             <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

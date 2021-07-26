@@ -11,8 +11,9 @@ class ProductCell: UICollectionViewCell {
 
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var offerLabel: UILabel!
+    @IBOutlet weak var offerText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

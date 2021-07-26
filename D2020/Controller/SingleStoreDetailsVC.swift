@@ -15,18 +15,14 @@ class SingleStoreDetailsVC: UIViewController {
     
     @IBOutlet weak var storeimageView: UIImageView!
     @IBOutlet weak var storeNameLabel: UILabel!
-    
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var DescribeLabel: UILabel!
-    
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var productLabel: UILabel!
-    
     @IBOutlet weak var reviewsNumLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var commentLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageView: UIPageControl!
     @IBOutlet weak var storeImageView: UIImageView!
@@ -35,11 +31,8 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var reviewsAvarageView: CosmosView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var userRatingView: CosmosView!
-    
     @IBOutlet weak var reviewTextField: UITextField!
-    
     @IBOutlet weak var postBtn: UIButton!
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
@@ -193,6 +186,7 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                 self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
                 self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                self?.rateLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
                 KRProgressHUD.dismiss()
                 
             }
@@ -261,7 +255,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             return imagesArray.count
             
         }else{
-            return productArray.count
+            return 5
         }
     }
     
@@ -277,6 +271,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             cell.productImage.sd_setImage(with: imageUrl, completed: nil)
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
+            cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
             return cell
         }
     }

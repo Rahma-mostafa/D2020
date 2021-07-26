@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold-1.ttf">
             <string>Cairo-Bold</string>
         </array>
     </customFonts>
@@ -17,14 +17,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="gTV-IL-0wX" customClass="ProductCell" customModule="D2020" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="112" height="152"/>
+            <rect key="frame" x="0.0" y="0.0" width="112" height="180"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="112" height="152"/>
+                <rect key="frame" x="0.0" y="0.0" width="112" height="180"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbC-t5-H6u">
-                        <rect key="frame" x="0.0" y="0.0" width="112" height="152"/>
+                        <rect key="frame" x="0.0" y="0.0" width="112" height="180"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3R2-Pb-gd1">
                                 <rect key="frame" x="0.0" y="0.0" width="112" height="84"/>
@@ -55,18 +55,50 @@
                                 <color key="textColor" name="OrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWW-3z-JBc">
+                                <rect key="frame" x="8" y="138" width="96" height="26"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzm-IZ-nBx">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="26" id="kur-b9-yCq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="offer"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbJ-BW-rIj">
+                                        <rect key="frame" x="48" y="0.0" width="48" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="pi3-kF-JBn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
+                                        <color key="textColor" name="RedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PbJ-BW-rIj" firstAttribute="width" secondItem="Yzm-IZ-nBx" secondAttribute="width" id="Sae-UY-pKW"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="RoundedBigView Color"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UWW-3z-JBc" secondAttribute="trailing" constant="8" id="6ln-82-SSC"/>
                             <constraint firstItem="hh4-i5-lRB" firstAttribute="leading" secondItem="cbC-t5-H6u" secondAttribute="leading" constant="11" id="Ayu-qi-lEP"/>
                             <constraint firstItem="hh4-i5-lRB" firstAttribute="top" secondItem="3R2-Pb-gd1" secondAttribute="bottom" constant="5" id="Kr3-Jg-aGk"/>
                             <constraint firstItem="3R2-Pb-gd1" firstAttribute="leading" secondItem="cbC-t5-H6u" secondAttribute="leading" id="QFQ-Nz-10G"/>
                             <constraint firstAttribute="trailing" secondItem="hh4-i5-lRB" secondAttribute="trailing" constant="11" id="Woj-j6-IPc"/>
+                            <constraint firstItem="UWW-3z-JBc" firstAttribute="top" secondItem="Cia-uX-2Zz" secondAttribute="bottom" constant="2.5" id="XZg-O2-JFf"/>
                             <constraint firstAttribute="trailing" secondItem="3R2-Pb-gd1" secondAttribute="trailing" id="cbC-Yg-23L"/>
                             <constraint firstItem="3R2-Pb-gd1" firstAttribute="top" secondItem="cbC-t5-H6u" secondAttribute="top" id="fWB-YO-oY5"/>
-                            <constraint firstAttribute="height" constant="152" id="mA5-ea-g0d"/>
+                            <constraint firstAttribute="height" constant="180" id="mA5-ea-g0d"/>
                             <constraint firstItem="Cia-uX-2Zz" firstAttribute="centerX" secondItem="cbC-t5-H6u" secondAttribute="centerX" id="nXm-hC-H5o"/>
                             <constraint firstItem="Cia-uX-2Zz" firstAttribute="top" secondItem="hh4-i5-lRB" secondAttribute="bottom" constant="4" id="oRL-hO-VYL"/>
+                            <constraint firstItem="UWW-3z-JBc" firstAttribute="leading" secondItem="cbC-t5-H6u" secondAttribute="leading" constant="8" id="rCx-Hj-mYl"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -115,6 +147,8 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="nameLabel" destination="hh4-i5-lRB" id="QUn-as-beh"/>
+                <outlet property="offerLabel" destination="PbJ-BW-rIj" id="pkD-qo-blP"/>
+                <outlet property="offerText" destination="Yzm-IZ-nBx" id="EFx-fZ-5oV"/>
                 <outlet property="priceLabel" destination="Cia-uX-2Zz" id="mKW-7a-DsR"/>
                 <outlet property="productImage" destination="3R2-Pb-gd1" id="nKt-Tt-ZMV"/>
             </connections>
@@ -124,6 +158,9 @@
     <resources>
         <namedColor name="OrangeColor">
             <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedColor">
+            <color red="0.88200002908706665" green="0.23899999260902405" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="RoundedBigView Color">
             <color red="0.93699997663497925" green="0.93699997663497925" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

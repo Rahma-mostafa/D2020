@@ -14,18 +14,14 @@ import SDWebImage
 class OwnerStoreDetailsVC: UIViewController {
     @IBOutlet weak var storeimageView: UIImageView!
     @IBOutlet weak var storeNameLabel: UILabel!
-    
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var DescribeLabel: UILabel!
-    
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var productLabel: UILabel!
-    
     @IBOutlet weak var reviewsNumLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var commentLabel: UILabel!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageView: UIPageControl!
     @IBOutlet weak var storeImageView: UIImageView!
@@ -61,7 +57,9 @@ class OwnerStoreDetailsVC: UIViewController {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         self.reviewsAvarageView.isUserInteractionEnabled = false
+        storeDetailsRequest()
         getRestStoreDetialsRequest()
+        photoRequest()
 
        
     }
@@ -154,9 +152,27 @@ class OwnerStoreDetailsVC: UIViewController {
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
                 self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
+                self?.sliderCollectionView.reloadData()
+                self?.photoCollectionView.reloadData()
                 self?.storeId = apiResponseModel.data?.data?.id ?? 0
                 self?.phoneNumber = apiResponseModel.data?.data?.phone ?? ""
-                self?.sliderCollectionView.reloadData()
+                KRProgressHUD.dismiss()
+                
+            }
+    }
+    func photoRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                    return}
+                self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
+                self?.photoCollectionView.reloadData()
                 KRProgressHUD.dismiss()
                 
             }
@@ -179,10 +195,12 @@ class OwnerStoreDetailsVC: UIViewController {
                 self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                 self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
                 self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                self?.rateLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
                 KRProgressHUD.dismiss()
                 
             }
     }
+
     func addStoreReview(){
         KRProgressHUD.show()
         let userReview = reviewTextField.text
@@ -248,6 +266,9 @@ class OwnerStoreDetailsVC: UIViewController {
         storeDetailsRequest()
         self.commentTableView.reloadData()
     }
+    @IBAction func onAddPhotoBtnTapped(_ sender: Any) {
+        chooseImage()
+    }
     @IBAction func onAddVideoBtnTapped(_ sender: Any) {
         chooseImage()
         
@@ -267,7 +288,7 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         }else if collectionView == productCollectionView{
             return productArray.count
         }else{
-            return 6
+            return imagesArray.count
         }
     }
     
@@ -283,27 +304,13 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             cell.productImage.sd_setImage(with: imageUrl, completed: nil)
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
+            cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
+
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
-            if indexPath.row == 0{
-                cell.photo.isHidden = true
-                cell.deleteBtn.isUserInteractionEnabled = false
-                cell.deleteBtn.isHidden = true
-                cell.uploadBtn.tag = 0
-                cell.uploadBtn.addTarget(self, action: #selector (chooseImage), for: .touchUpInside)
-
-                
-            }else{
-                cell.uploadBtn.isUserInteractionEnabled = false
-                cell.uploadBtn.isHidden = true
-//            let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(productArray[indexPath.row].image ?? "")")
-               
-//            cell.photo.sd_setImage(with: imageUrl, completed: nil)
-              cell.photo.sd_setImage(with: URL(string: "https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg") , completed: nil)
-          
-
-            }
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
+            cell.photo.sd_setImage(with: URL(string: imageUrl))
             return cell
         }
     }
@@ -325,7 +332,8 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegateFlowLayout {
             return CGSize(width: size.width, height: size.height)
         }else{
             let width = (view.frame.width ) / 3
-            return CGSize(width: width , height: 152)
+            return CGSize(width: width , height: 180
+            )
         }
         
     }

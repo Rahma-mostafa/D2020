@@ -330,9 +330,13 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegateFlowLayout {
         if collectionView == sliderCollectionView{
             let size = sliderCollectionView.frame.size
             return CGSize(width: size.width, height: size.height)
-        }else{
+        }else if collectionView == productCollectionView{
             let width = (view.frame.width ) / 3
             return CGSize(width: width , height: 180
+            )
+        }else{
+            let width = (view.frame.width ) / 3
+            return CGSize(width: width , height: 116
             )
         }
         

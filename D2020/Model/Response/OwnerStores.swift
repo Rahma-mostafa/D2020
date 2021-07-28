@@ -23,23 +23,23 @@ struct OwnerStoreDataClass: Codable {
     }
 }
 
-// MARK: - Store
+// MARK: - StoreData
 struct StoreData: Codable {
-    let id: Int
-    let image: String
-    let rating: Int
-    let address, lati, longi: String
-    let cityID, categoryID, subscriberID: Int
-    let end, name, arabicName: String
+    let id: Int?
+    let image: String?
+    let rating: Int?
+    let address, lati, longi: String?
+    let cityID, categoryID, subscriberID: Int?
+    let end, name, arabicName: String?
     let code: JSONNull?
-    let phone, email, storeDescription, arabicDescription: String
-    let subCategoryID: Int
-    let video, begin: String
+    let phone, email, storeDataDescription, arabicDescription: String?
+    let subCategoryID: Int?
+    let video, begin: String?
     let best: JSONNull?
-    let status: String
+    let status: String?
     let views: JSONNull?
-    let createdAt, updatedAt: String
-    let images: [OwnerStoreImage]
+    let createdAt, updatedAt: String?
+    let images: [OwnerStoreImage]?
 
     enum CodingKeys: String, CodingKey {
         case id, image, rating, address, lati, longi
@@ -49,7 +49,7 @@ struct StoreData: Codable {
         case end, name
         case arabicName = "arabic_name"
         case code, phone, email
-        case storeDescription = "description"
+        case storeDataDescription = "description"
         case arabicDescription = "arabic_description"
         case subCategoryID = "sub_category_id"
         case video, begin, best, status, views
@@ -61,8 +61,8 @@ struct StoreData: Codable {
 
 // MARK: - Image
 struct OwnerStoreImage: Codable {
-    let id, stageID: Int
-    let image, createdAt, updatedAt: String
+    let id, stageID: Int?
+    let image, createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -72,6 +72,7 @@ struct OwnerStoreImage: Codable {
         case updatedAt = "updated_at"
     }
 }
+
 
 // MARK: - Encode/decode helpers
 //

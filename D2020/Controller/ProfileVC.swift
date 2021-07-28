@@ -130,44 +130,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
                 KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
             }
         }
-//        Alamofire
-//            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
-//            .response {[weak self] result in
-//                print("Response Code : \(result.response?.statusCode)")
-//                print("Response : \(result.data?.prettyPrintedJSONString)")
-//
-//
-//                if result.response?.statusCode == 200{
-//                    let jsonDecoder = JSONDecoder()
-//                    guard let reponseModel = try? jsonDecoder.decode(UpdateProfileResponse.self, from: result.data ?? Data())else{
-//                        KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-//                        return
-//                    }
-//                    let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
-//                    let jsonConverter = JSONDecoder()
-//                    guard let profileLocalModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{
-//                        KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-//                        return
-//                    }
-//                    var profileLocal = profileLocalModel
-//                    profileLocal.data.photo = reponseModel.data?.photo ?? ""
-//                    profileLocal.data.mobile = reponseModel.data?.mobile ?? ""
-//                    profileLocal.data.mobile = reponseModel.data?.mobile ?? ""
-//                    profileLocal.data.name = reponseModel.data?.name ?? ""
-//                    profileLocal.data.email = reponseModel.data?.email ?? ""
-//                    let jsonEncoder = JSONEncoder()
-//                    guard let apiResponseModel = try? jsonEncoder.encode(profileLocal) else{
-//                        KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-//                        return
-//                    }
-//                    UserDefaults.standard.setValue(result.data, forKey: UserDefaultKey.USER_PROFILE.rawValue)
-//                    KRProgressHUD.showSuccess(withMessage: "تم حفظ التغيرات")
-//
-//                }else{
-//                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-//                }
-//
-//            }
     }
     func profileGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(ProfileVC.userImageTapped(recognizer:)))

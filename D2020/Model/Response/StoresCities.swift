@@ -1,24 +1,24 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let citiesForOwner = try? newJSONDecoder().decode(CitiesForOwner.self, from: jsonData)
+//   let storesCities = try? newJSONDecoder().decode(StoresCities.self, from: jsonData)
 
 import Foundation
 
-// MARK: - CitiesForOwner
-struct CitiesForOwner: Codable {
-    let status: Bool
-    let message: String
-    let data: [CitiesData]
+// MARK: - StoresCities
+struct StoresCities: Codable {
+    let status: Bool?
+    let message: String?
+    let data: [CityData]?
 }
 
 // MARK: - Datum
-struct CitiesData: Codable {
-    let name: String
-    let id: Int
-    let imageBack: ImageBack
-    let createdAt: CreatedAt
-    let updatedAt: UpdatedAt
+struct CityData: Codable {
+    let name: String?
+    let id: Int?
+    let imageBack: ImageBack?
+    let createdAt: CreatedAt?
+    let updatedAt: UpdatedAt?
 
     enum CodingKeys: String, CodingKey {
         case name, id
@@ -31,6 +31,7 @@ struct CitiesData: Codable {
 enum CreatedAt: String, Codable {
     case the20210701194802 = "2021-07-01 19:48:02"
     case the20210724155925 = "2021-07-24 15:59:25"
+    case the20210726053346 = "2021-07-26 05:33:46"
 }
 
 enum ImageBack: String, Codable {
@@ -40,4 +41,5 @@ enum ImageBack: String, Codable {
 enum UpdatedAt: String, Codable {
     case the20210701194802 = "2021-07-01 19:48:02"
     case the20210724160002 = "2021-07-24 16:00:02"
+    case the20210726053346 = "2021-07-26 05:33:46"
 }

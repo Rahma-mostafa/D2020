@@ -60,6 +60,7 @@ class OwnerStoreDetailsVC: UIViewController {
         storeDetailsRequest()
         getRestStoreDetialsRequest()
         photoRequest()
+        userProfileRequest()
 
        
     }
@@ -223,11 +224,60 @@ class OwnerStoreDetailsVC: UIViewController {
                 
             }
     }
-    
+    func userProfileRequest(){
+        KRProgressHUD.show()
+        let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
+        let jsonConverter = JSONDecoder()
+        guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
+        self.userNameLabel.text = apiResponseModel.data.name ?? ""
+        let imageUrl = "\(apiResponseModel.data.photo ?? "")"
+        self.userImageView.sd_setImage(with: URL(string: imageUrl))
+        KRProgressHUD.dismiss()
+
+    }
+    func saveStore(){
+        KRProgressHUD.show()
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/save_store/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage:"تم حفظ المحل ")
+                }else{
+                    return
+                }
+                
+            }
+    }
+//    @objc func deleteStore(sender:UIButton){
+//        KRProgressHUD.show()
+//        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/destroy/\(savedStoresArray[sender.tag].id)"
+//        guard let apiURL = URL(string: apiURLInString) else{   return }
+//        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+//        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json"]
+//        Alamofire
+//            .request(apiURL, method: .delete , parameters: nil, encoding: URLEncoding.default, headers: headers)
+//            .response {[weak self] result in
+//                print("Response Code : \(result.response?.statusCode)")
+//                if result.response?.statusCode == 200{
+//                    KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
+//                    self?.savedStoresArray.remove(at: sender.tag)
+//                    self?.photoCollectionView.reloadData()
+//                }else{
+//
+//                    KRProgressHUD.showError(withMessage: "عطل بالسيرفر")
+//                }
+//            }
+//
+//    }
     //MARK:- Buttons Action
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
-//        saveStore()
+        saveStore()
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "FavouriteVC") as!  FavouriteVC
         scene.storeId = self.storeId
@@ -269,11 +319,20 @@ class OwnerStoreDetailsVC: UIViewController {
     @IBAction func onAddPhotoBtnTapped(_ sender: Any) {
         chooseImage()
     }
+    
     @IBAction func onAddVideoBtnTapped(_ sender: Any) {
         chooseImage()
         
     }
    
+    @IBAction func onAddProductBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "AddProductVC") as!  AddProductVC
+        scene.storeId = self.storeId
+        navigationController?.pushViewController(scene, animated: true)
+        
+    }
+    
     
    
     
@@ -311,6 +370,8 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
             let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
             cell.photo.sd_setImage(with: URL(string: imageUrl))
+            cell.deleteBtn.tag = indexPath.item
+//            cell.deleteBtn.addTarget(self, action: #selector(deleteStore), for: .touchUpInside)
             return cell
         }
     }
@@ -369,7 +430,6 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
         cell.userImage.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(reviewArray[indexPath.row].image ?? "")"), completed: nil)
-        cell.nameLabel.text = reviewArray[indexPath.row].username
         cell.commentLAbel.text = reviewArray[indexPath.row].review
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)
         cell.rateView.isUserInteractionEnabled = false

@@ -86,5 +86,11 @@
 "delegate_lan" = "مندوب";
 "my_stores" = "متاجري";
 "add_store" = "اضافة محل";
-"offer" = "السعر بعد الخصم";
+"offer_lan" = "السعر بعد الخصم";
+"photo_lan" = "الصور";
+"video_lan" = "فيديو";
+"products_offers" = "المنتجات والعروض";
+"price_lan" = "السعر";
+
+
 

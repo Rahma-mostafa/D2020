@@ -96,7 +96,7 @@ extension OwnerStoresVC: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.storeId = savedStoresArray[indexPath.row].id
+        self.storeId = savedStoresArray[indexPath.row].id ?? 0
         let storyboard = UIStoryboard(name: "Owner", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "OwnerStoreDetailsVC") as? OwnerStoreDetailsVC
         scene?.storeId = self.storeId

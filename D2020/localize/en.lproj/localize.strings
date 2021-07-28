@@ -73,7 +73,11 @@
 "delegate_lan" = "Delegate";
 "my_stores" = "My Stores";
 "add_store" = "Add store";
-"offer" = "offer";
+"offer_lan" = "offer";
+"photo_lan" = "photos";
+"video_lan" = "video";
+"products_offers" = "Product & offers";
+"price_lan" = "price";
 
 
 

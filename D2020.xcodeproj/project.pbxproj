@@ -41,6 +41,7 @@
 		FA273C7B267B20AA0060A32D /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA273C79267B20AA0060A32D /* ServiceCell.swift */; };
 		FA273C7C267B20AA0060A32D /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA273C7A267B20AA0060A32D /* ServiceCell.xib */; };
 		FA27C83F267A7DF400EFC09B /* Premium.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA27C83E267A7DF400EFC09B /* Premium.storyboard */; };
+		FA2DB40326B0168C002DBA13 /* AddProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DB40226B0168C002DBA13 /* AddProductVC.swift */; };
 		FA2DC2BC267F674E004FBF9E /* ContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC2BB267F674E004FBF9E /* ContactVC.swift */; };
 		FA2DC2C2267F6E14004FBF9E /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC2C0267F6E14004FBF9E /* ContactCell.swift */; };
 		FA2DC2C3267F6E14004FBF9E /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2DC2C1267F6E14004FBF9E /* ContactCell.xib */; };
@@ -90,7 +91,7 @@
 		FA9CF1A526ADC928002261D9 /* OwnerStoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF1A426ADC928002261D9 /* OwnerStoresVC.swift */; };
 		FA9CF1AD26ADCBED002261D9 /* OwnerStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF1AC26ADCBED002261D9 /* OwnerStores.swift */; };
 		FA9CF20026AE5813002261D9 /* SubcategoryForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF1FF26AE5813002261D9 /* SubcategoryForOwner.swift */; };
-		FA9CF20526AE5F3D002261D9 /* CitiesForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF20426AE5F3D002261D9 /* CitiesForOwner.swift */; };
+		FA9CF20526AE5F3D002261D9 /* StoresCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF20426AE5F3D002261D9 /* StoresCities.swift */; };
 		FA9F102D269C6D6C000C42B3 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F102C269C6D6C000C42B3 /* Splash.swift */; };
 		FA9F1038269C7BEA000C42B3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F1037269C7BEA000C42B3 /* SearchVC.swift */; };
 		FAA776A826619A2600D65636 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA776A726619A2600D65636 /* MainViewController.swift */; };
@@ -183,6 +184,7 @@
 		FA273C79267B20AA0060A32D /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
 		FA273C7A267B20AA0060A32D /* ServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
 		FA27C83E267A7DF400EFC09B /* Premium.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Premium.storyboard; sourceTree = "<group>"; };
+		FA2DB40226B0168C002DBA13 /* AddProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVC.swift; sourceTree = "<group>"; };
 		FA2DC2BB267F674E004FBF9E /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
 		FA2DC2C0267F6E14004FBF9E /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		FA2DC2C1267F6E14004FBF9E /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
@@ -240,7 +242,7 @@
 		FA9CF1A426ADC928002261D9 /* OwnerStoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoresVC.swift; sourceTree = "<group>"; };
 		FA9CF1AC26ADCBED002261D9 /* OwnerStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStores.swift; sourceTree = "<group>"; };
 		FA9CF1FF26AE5813002261D9 /* SubcategoryForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryForOwner.swift; sourceTree = "<group>"; };
-		FA9CF20426AE5F3D002261D9 /* CitiesForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesForOwner.swift; sourceTree = "<group>"; };
+		FA9CF20426AE5F3D002261D9 /* StoresCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresCities.swift; sourceTree = "<group>"; };
 		FA9F102C269C6D6C000C42B3 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		FA9F1037269C7BEA000C42B3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		FAA776A726619A2600D65636 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -336,7 +338,7 @@
 				FA9CF1AC26ADCBED002261D9 /* OwnerStores.swift */,
 				FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */,
 				FA9CF1FF26AE5813002261D9 /* SubcategoryForOwner.swift */,
-				FA9CF20426AE5F3D002261D9 /* CitiesForOwner.swift */,
+				FA9CF20426AE5F3D002261D9 /* StoresCities.swift */,
 				FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */,
 				FA33235F26AF2D1E006545D2 /* StoreProducts.swift */,
 			);
@@ -470,6 +472,7 @@
 				FA72972426A1A75A007BF985 /* AddStoreVC.swift */,
 				FA9CF1A426ADC928002261D9 /* OwnerStoresVC.swift */,
 				FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */,
+				FA2DB40226B0168C002DBA13 /* AddProductVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -865,7 +868,7 @@
 				FAC780972672F8E7008E73D8 /* CategoriesCell.swift in Sources */,
 				FA09B15F266332A20078DCC0 /* CreateAccountVC.swift in Sources */,
 				FA5963912661493400A8C119 /* AppDelegate.swift in Sources */,
-				FA9CF20526AE5F3D002261D9 /* CitiesForOwner.swift in Sources */,
+				FA9CF20526AE5F3D002261D9 /* StoresCities.swift in Sources */,
 				FA5963A226616F1700A8C119 /* SplashController.swift in Sources */,
 				FA611DFB267A802700A3AD3B /* PremiumVC.swift in Sources */,
 				FA2DC2C2267F6E14004FBF9E /* ContactCell.swift in Sources */,
@@ -874,6 +877,7 @@
 				FA59635C26612D0A00A8C119 /* BaseController.swift in Sources */,
 				FA5963B52661930000A8C119 /* SecondSplashController.swift in Sources */,
 				FAF56A54266FFDAD009C6A3C /* UpgradeAccountVC.swift in Sources */,
+				FA2DB40326B0168C002DBA13 /* AddProductVC.swift in Sources */,
 				FAB699FA269BCEAA0030E1F6 /* CitiesCell.swift in Sources */,
 				FA502B502683AF2A005A61DD /* ProfileVC.swift in Sources */,
 				FA7CA280267928DA00A8238C /* NotificationCell.swift in Sources */,

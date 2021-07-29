@@ -93,6 +93,15 @@
 "price_lan" = "السعر";
 "chat_users" = "رسائل مع المستخرمين";
 "contact_admin" = "تواصل مع الادمن";
+"user_lan" = "User";
+"owner_lan" = "Owner";
+"delegate_lan" = "delegate";
+"user_lan" = "مستخدم عادي";
+"owner_lan" = "صاحب محل";
+"delegate_lan" = "مندوب";
+
+
+
 
 
 

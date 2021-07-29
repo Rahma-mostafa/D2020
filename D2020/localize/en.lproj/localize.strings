@@ -76,10 +76,15 @@
 "offer_lan" = "offer";
 "photo_lan" = "photos";
 "video_lan" = "video";
+"add_video" = "Add video";
 "products_offers" = "Product & offers";
 "price_lan" = "price";
 "chat_users" = "Chat with users";
 "contact_admin" = "Contact with Admin";
+"user_lan" = "User";
+"owner_lan" = "Owner";
+"delegate_lan" = "delegate";
+
 
 
 

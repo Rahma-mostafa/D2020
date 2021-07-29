@@ -39,6 +39,7 @@ class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         // show messages
         let vc = SingleChatViewController()
         vc.title = "chat"
+        vc.stageId = chatsArray[indexPath.row].stageID
         navigationController?.pushViewController(vc, animated: true)
     }
     func showOwnerChatsWithUsers(){

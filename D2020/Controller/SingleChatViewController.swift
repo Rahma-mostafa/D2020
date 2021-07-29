@@ -39,6 +39,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
     var otherUser = Sender(senderId: "other", displayName: " ")
     let dateFormatter = DateFormatter()
 
+    var stageId: Int?
     var messages = [Message]()
     var messagesArray = [MessagesData]()
 

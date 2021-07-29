@@ -35,8 +35,9 @@ struct Media: MediaItem {
 }
 
 class SingleChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate  {
-    let currentUser = Sender(senderId: "self", displayName: "Rahma")
-    let otherUser = Sender(senderId: "other", displayName: "Rahma")
+    let currentUser = Sender(senderId: "self", displayName: " ")
+    var otherUser = Sender(senderId: "other", displayName: " ")
+    let dateFormatter = DateFormatter()
 
     var messages = [Message]()
     var messagesArray = [MessagesData]()
@@ -48,14 +49,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
 //
-        messages.append(Message(sender: currentUser
-                                , messageId: "1",
-                                sentDate: Date().addingTimeInterval(-2000),
-                                kind: .text("hi")))
-        messages.append(Message(sender: otherUser
-                                , messageId: "2",
-                                sentDate: Date().addingTimeInterval(-1000),
-                                kind: .text("hello")))
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
         messageInputBar.delegate = self
         getSingleMessage()
     }
@@ -84,9 +78,11 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
             .response {[weak self] result in
+                guard let weakSelf = self else{ return }
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(SingleMessage.self, from: result.data!) else{return}
                 self?.messagesArray = apiResponseModel.data ?? [MessagesData]()
+                self?.messages = self?.messagesArray.map{ Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: .text($0.message ?? "")) } ?? [Message]()
                 self?.messagesCollectionView.reloadData()
                 KRProgressHUD.dismiss()
             }

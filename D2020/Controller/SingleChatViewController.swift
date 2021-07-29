@@ -40,6 +40,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
     let dateFormatter = DateFormatter()
     let stageId = 0
 
+    var stageId: Int?
     var messages = [Message]()
     var messagesArray = [MessagesData]()
 

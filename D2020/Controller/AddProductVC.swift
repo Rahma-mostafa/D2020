@@ -35,7 +35,7 @@ class AddProductVC: UIViewController {
         let price = priceTextField.text
         let offer = offerTextField.text
         choosePhotoTextField.isUserInteractionEnabled = false
-        let requestParameters = ["name": name ?? "","arabic_name": arabicName ?? "",
+        let requestParameters = ["name": name ,"arabic_name": arabicName ?? "",
                                  "description": desc ?? "" , "arabic_description": arabicDesc ?? "",
                                  "price": price ?? "", "offer": offer ?? "" ]
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""

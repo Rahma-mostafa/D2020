@@ -43,7 +43,7 @@ class ChangePasswordVC: UIViewController {
          
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
-            .request("https://4rents.net/dashboard/api/user/profile/update_password", method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
+            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
             .response {[weak self] result in
                 print("Response Code : \(result.response?.statusCode)")
                 if result.response?.statusCode == 200{

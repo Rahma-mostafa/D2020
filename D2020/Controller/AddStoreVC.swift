@@ -266,7 +266,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(StoresCities.self, from: result.data!) else{return}
-                self?.citiesArray = apiResponseModel.data
+                self?.citiesArray = apiResponseModel.data ?? [CityData]()
                 self?.categoryTableView.reloadData()
                 KRProgressHUD.dismiss()
                 
@@ -357,7 +357,7 @@ extension AddStoreVC : UITableViewDelegate,UITableViewDataSource{
             
         }else{
             self.cityTextField.text = citiesArray[indexPath.row].name
-            self.cityId = citiesArray[indexPath.row].id
+            self.cityId = citiesArray[indexPath.row].id ?? 0 
         }
         self.contantView.isHidden = true
         

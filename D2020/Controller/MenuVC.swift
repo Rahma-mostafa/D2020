@@ -197,7 +197,7 @@ class MenuVC: UIViewController {
     
     // user data
         func userProfileRequest(){
-            KRProgressHUD.show()
+//            KRProgressHUD.show()
             let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
@@ -205,7 +205,7 @@ class MenuVC: UIViewController {
             self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
             let imageUrl = "\(apiResponseModel.data.photo ?? "")"
             self.userImageView.sd_setImage(with: URL(string: imageUrl))
-            KRProgressHUD.dismiss()
+//            KRProgressHUD.dismiss()
 
         }
 

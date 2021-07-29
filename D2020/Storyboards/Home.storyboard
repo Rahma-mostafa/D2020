@@ -265,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="496" y="1035"/>
         </scene>
-        <!--View Controller-->
+        <!--ConversationVC-->
         <scene sceneID="dGV-vl-0yO">
             <objects>
-                <viewController id="xkh-7p-jaN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConversationVC" id="xkh-7p-jaN" customClass="ConversationVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ld-rF-u8d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -288,6 +288,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bWF-6h-wz4"/>
+                    <connections>
+                        <outlet property="tableView" destination="jES-tG-oVC" id="Ars-R5-dUm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOD-qx-iUU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

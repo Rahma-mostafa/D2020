@@ -6,52 +6,58 @@
 //
 
 import UIKit
+import KRProgressHUD
+import Alamofire
+
 
 class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
     
 
     @IBOutlet weak var tableView: UITableView!
+    var chatsArray = [MessageDetails]()
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
-//        setContacts()
-
+        showOwnerChatsWithUsers()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return chatsArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "rahma"
+        cell.textLabel?.text = chatsArray[indexPath.row].subject
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // show messages
-        let vc = ChatViewController()
+        let vc = SingleChatViewController()
         vc.title = "chat"
         navigationController?.pushViewController(vc, animated: true)
     }
-//    func setContacts(){
-//        let db = Firestore.firestore()
-//        db.collection("Chat").getDocuments() { (querySnapshot, err) in
-//            print("connected")
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                    print("ok")
-//                }
-//
-//            }
-//        }
-//    }
+    func showOwnerChatsWithUsers(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages_with_users"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(OwnerMessagesWithUsers.self, from: result.data!) else{return}
+                self?.chatsArray = apiResponseModel.messages ?? [MessageDetails]()
+                self?.tableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
   
 
     

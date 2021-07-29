@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold.ttf">
+        <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-1.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
         <array key="Cairo.ttf">
@@ -657,6 +657,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="18"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="city"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="qIa-5p-Rfe">
@@ -788,15 +789,8 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="chooseVideo"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="vPS-dc-TR5">
-                                                        <rect key="frame" x="336" y="0.0" width="30" height="48"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="W5S-gi-GiT"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-4M-1Eu">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="onChooseVideoBtnTapped:" destination="WBU-lD-X4a" eventType="touchUpInside" id="tJt-M1-Oqb"/>
                                                         </connections>
@@ -806,13 +800,10 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="lv8-4M-1Eu" secondAttribute="trailing" id="3c0-Nc-Xt6"/>
                                                     <constraint firstAttribute="bottom" secondItem="lv8-4M-1Eu" secondAttribute="bottom" id="DWe-gt-HlZ"/>
-                                                    <constraint firstAttribute="bottom" secondItem="vPS-dc-TR5" secondAttribute="bottom" id="Q5X-xg-lIt"/>
                                                     <constraint firstItem="Mh7-gx-DfU" firstAttribute="leading" secondItem="cH6-aQ-7nQ" secondAttribute="leading" id="QSW-Gy-jGp"/>
-                                                    <constraint firstItem="vPS-dc-TR5" firstAttribute="trailing" secondItem="Mh7-gx-DfU" secondAttribute="trailing" constant="-8" id="WIr-SO-Vzf"/>
                                                     <constraint firstAttribute="trailing" secondItem="Mh7-gx-DfU" secondAttribute="trailing" id="Z6M-Mo-vcR"/>
                                                     <constraint firstItem="lv8-4M-1Eu" firstAttribute="leading" secondItem="cH6-aQ-7nQ" secondAttribute="leading" id="bKM-6z-j8X"/>
                                                     <constraint firstAttribute="bottom" secondItem="Mh7-gx-DfU" secondAttribute="bottom" id="bbb-DV-YNU"/>
-                                                    <constraint firstItem="vPS-dc-TR5" firstAttribute="top" secondItem="cH6-aQ-7nQ" secondAttribute="top" id="f47-8j-9FQ"/>
                                                     <constraint firstItem="lv8-4M-1Eu" firstAttribute="top" secondItem="cH6-aQ-7nQ" secondAttribute="top" id="otD-RB-QGT"/>
                                                     <constraint firstAttribute="height" constant="48" id="qUd-md-hxJ"/>
                                                     <constraint firstItem="Mh7-gx-DfU" firstAttribute="top" secondItem="cH6-aQ-7nQ" secondAttribute="top" id="sy0-2g-hi5"/>
@@ -1706,6 +1697,77 @@
             </objects>
             <point key="canvasLocation" x="6408.6956521739139" y="296.65178571428572"/>
         </scene>
+        <!--Choose Chat WithVC-->
+        <scene sceneID="Fme-ZD-zkg">
+            <objects>
+                <viewController storyboardIdentifier="ChooseChatWithVC" id="CCH-kS-Hhp" customClass="ChooseChatWithVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Z9-x7-QiX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Y2y-iD-mdP">
+                                <rect key="frame" x="40" y="138" width="334" height="124"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYy-9r-gee">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="52"/>
+                                        <color key="backgroundColor" name="OrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="dSw-mS-GXL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <state key="normal" title="contact with admin">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="contact_admin"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onAdminBtnTapped:" destination="CCH-kS-Hhp" eventType="touchUpInside" id="ZN4-Hr-ebV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-h0-Naj">
+                                        <rect key="frame" x="0.0" y="72" width="334" height="52"/>
+                                        <color key="backgroundColor" name="OrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="q05-9o-EDI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <state key="normal" title="chat with users">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="chat_users"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onUserBtnTapped:" destination="CCH-kS-Hhp" eventType="touchUpInside" id="jfm-eU-fnv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hVj-h0-Naj" firstAttribute="height" secondItem="dYy-9r-gee" secondAttribute="height" id="pQJ-EQ-ZVV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NHy-1f-95V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NHy-1f-95V" firstAttribute="trailing" secondItem="Y2y-iD-mdP" secondAttribute="trailing" constant="40" id="G8D-Tg-CbH"/>
+                            <constraint firstItem="Y2y-iD-mdP" firstAttribute="leading" secondItem="NHy-1f-95V" secondAttribute="leading" constant="40" id="ZL7-nf-xQl"/>
+                            <constraint firstItem="Y2y-iD-mdP" firstAttribute="top" secondItem="NHy-1f-95V" secondAttribute="top" constant="50" id="rdf-hv-bwi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Dj-PM-4hl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ull-uf-knb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8260.8695652173919" y="342.85714285714283"/>
+        </scene>
         <!--Add ProductVC-->
         <scene sceneID="BNF-dB-uoe">
             <objects>
@@ -1944,7 +2006,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aC7-Ld-B97" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9639.1304347826099" y="416.51785714285711"/>
+            <point key="canvasLocation" x="10549.275362318842" y="416.51785714285711"/>
         </scene>
         <!--Owner StoresVC-->
         <scene sceneID="TTO-Qf-Y2F">
@@ -1975,7 +2037,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vw-gs-VL7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11481.159420289856" y="411.83035714285711"/>
+            <point key="canvasLocation" x="12391.304347826088" y="411.83035714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5pC-iP-B2E">
@@ -2012,7 +2074,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HG3-qI-3TL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8728.9855072463779" y="416.51785714285711"/>
+            <point key="canvasLocation" x="9639.1304347826099" y="416.51785714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VRm-JI-3Gv">
@@ -2031,17 +2093,28 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECb-2a-bgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10571.014492753624" y="411.83035714285711"/>
+            <point key="canvasLocation" x="11481.159420289856" y="411.83035714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Zt-yZ-5gJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kkO-93-m2c" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qbw-6o-svZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="OrangeColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CCH-kS-Hhp" kind="relationship" relationship="rootViewController" id="md4-a4-YXU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0PU-ig-KEK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7350.7246376811599" y="342.85714285714283"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="MGk-Mo-eis">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-        <designable name="u2E-ez-Ama">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Group 43" width="17.5" height="16"/>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>

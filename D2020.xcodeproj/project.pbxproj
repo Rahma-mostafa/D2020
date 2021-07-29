@@ -85,6 +85,9 @@
 		FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA2852679734800A8238C /* NotificationVC.swift */; };
 		FA7CA29E2679820200A8238C /* SingleStoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */; };
 		FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */; };
+		FA97381126B1FA310063C66A /* OwnerMessagesWithUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97381026B1FA310063C66A /* OwnerMessagesWithUsers.swift */; };
+		FA97381626B1FB580063C66A /* SingleMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97381526B1FB580063C66A /* SingleMessage.swift */; };
+		FA9738C926B2BE620063C66A /* ChooseChatWithVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9738C826B2BE620063C66A /* ChooseChatWithVC.swift */; };
 		FA9CF0F826AC3487002261D9 /* UserTypeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */; };
 		FA9CF16026ACCC21002261D9 /* CategoryForOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */; };
 		FA9CF16526ACDF28002261D9 /* CategoriesForOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */; };
@@ -108,7 +111,7 @@
 		FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA9E832671E3890014B9DA /* SectionsCell.swift */; };
 		FACA9E862671E3890014B9DA /* SectionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACA9E842671E3890014B9DA /* SectionsCell.xib */; };
 		FACB1EA5268D9F2600299506 /* ConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EA4268D9F2600299506 /* ConversationVC.swift */; };
-		FACB1EAA268D9F5D00299506 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EA9268D9F5D00299506 /* ChatViewController.swift */; };
+		FACB1EAA268D9F5D00299506 /* SingleChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EA9268D9F5D00299506 /* SingleChatViewController.swift */; };
 		FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EF3268DB04D00299506 /* StoreDetails.swift */; };
 		FAD2889C26769A1A009A4C30 /* SubcategoryStoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */; };
 		FAD288AE26772126009A4C30 /* Delegate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD288AD26772126009A4C30 /* Delegate.storyboard */; };
@@ -236,6 +239,9 @@
 		FA7CA2852679734800A8238C /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		FA7CA29D2679820200A8238C /* SingleStoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStoreDetailsVC.swift; sourceTree = "<group>"; };
 		FA849B81268D4F0E0071CA3A /* OrderFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFilterVC.swift; sourceTree = "<group>"; };
+		FA97381026B1FA310063C66A /* OwnerMessagesWithUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerMessagesWithUsers.swift; sourceTree = "<group>"; };
+		FA97381526B1FB580063C66A /* SingleMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMessage.swift; sourceTree = "<group>"; };
+		FA9738C826B2BE620063C66A /* ChooseChatWithVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseChatWithVC.swift; sourceTree = "<group>"; };
 		FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeKeys.swift; sourceTree = "<group>"; };
 		FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForOwnerCell.swift; sourceTree = "<group>"; };
 		FA9CF16426ACDF28002261D9 /* CategoriesForOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesForOwner.swift; sourceTree = "<group>"; };
@@ -259,7 +265,7 @@
 		FACA9E832671E3890014B9DA /* SectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsCell.swift; sourceTree = "<group>"; };
 		FACA9E842671E3890014B9DA /* SectionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionsCell.xib; sourceTree = "<group>"; };
 		FACB1EA4268D9F2600299506 /* ConversationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationVC.swift; sourceTree = "<group>"; };
-		FACB1EA9268D9F5D00299506 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		FACB1EA9268D9F5D00299506 /* SingleChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleChatViewController.swift; sourceTree = "<group>"; };
 		FACB1EF3268DB04D00299506 /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryStoresVC.swift; sourceTree = "<group>"; };
 		FAD288AD26772126009A4C30 /* Delegate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Delegate.storyboard; sourceTree = "<group>"; };
@@ -341,6 +347,8 @@
 				FA9CF20426AE5F3D002261D9 /* StoresCities.swift */,
 				FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */,
 				FA33235F26AF2D1E006545D2 /* StoreProducts.swift */,
+				FA97381026B1FA310063C66A /* OwnerMessagesWithUsers.swift */,
+				FA97381526B1FB580063C66A /* SingleMessage.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -421,9 +429,9 @@
 				FA0AAF3326655435005E9E35 /* Home.storyboard */,
 				FAFDB034266AAB9A00CD08A1 /* Menu.storyboard */,
 				FA49EFFC266B49E300215EFE /* Category.storyboard */,
+				FA72970826A195C3007BF985 /* Owner.storyboard */,
 				FA27C83E267A7DF400EFC09B /* Premium.storyboard */,
 				FAD288AD26772126009A4C30 /* Delegate.storyboard */,
-				FA72970826A195C3007BF985 /* Owner.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -464,8 +472,9 @@
 				FA2DC2BB267F674E004FBF9E /* ContactVC.swift */,
 				FA0840A6269B81E200B6363C /* SelectMapVC.swift */,
 				FA2DC39A268054E2004FBF9E /* MapVC.swift */,
+				FA9738C826B2BE620063C66A /* ChooseChatWithVC.swift */,
 				FACB1EA4268D9F2600299506 /* ConversationVC.swift */,
-				FACB1EA9268D9F5D00299506 /* ChatViewController.swift */,
+				FACB1EA9268D9F5D00299506 /* SingleChatViewController.swift */,
 				FAB69A0D269BE9100030E1F6 /* AboutVC.swift */,
 				FAB69A35269BF3290030E1F6 /* ContactUsVC.swift */,
 				FA9F1037269C7BEA000C42B3 /* SearchVC.swift */,
@@ -835,6 +844,7 @@
 				FA273C7B267B20AA0060A32D /* ServiceCell.swift in Sources */,
 				FA72972A26A1B0F2007BF985 /* OwnerStoreDetailsVC.swift in Sources */,
 				FA72973826A1B9D7007BF985 /* AddPhotoCell.swift in Sources */,
+				FA97381126B1FA310063C66A /* OwnerMessagesWithUsers.swift in Sources */,
 				FA7C0D73268D9AB8008D7A9A /* FavouriteVC.swift in Sources */,
 				FA17AB67267DB4B700F02F03 /* WorkTimeVC.swift in Sources */,
 				FA7CA2682677FA7900A8238C /* CheckOrderVC.swift in Sources */,
@@ -851,6 +861,7 @@
 				FA21A57226628D150085CA25 /* LanguageController.swift in Sources */,
 				FA122C44268AC000008BCA3C /* Categories.swift in Sources */,
 				FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */,
+				FA9738C926B2BE620063C66A /* ChooseChatWithVC.swift in Sources */,
 				FA9CF16526ACDF28002261D9 /* CategoriesForOwner.swift in Sources */,
 				FA0840A7269B81E200B6363C /* SelectMapVC.swift in Sources */,
 				FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */,
@@ -881,6 +892,7 @@
 				FAB699FA269BCEAA0030E1F6 /* CitiesCell.swift in Sources */,
 				FA502B502683AF2A005A61DD /* ProfileVC.swift in Sources */,
 				FA7CA280267928DA00A8238C /* NotificationCell.swift in Sources */,
+				FA97381626B1FB580063C66A /* SingleMessage.swift in Sources */,
 				FA33235B26AF075E006545D2 /* OwnerStoreDetails.swift in Sources */,
 				FA2DC2BC267F674E004FBF9E /* ContactVC.swift in Sources */,
 				FA0AAF4326655D31005E9E35 /* SigninVC.swift in Sources */,
@@ -897,7 +909,7 @@
 				FA72972526A1A75A007BF985 /* AddStoreVC.swift in Sources */,
 				FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */,
 				D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */,
-				FACB1EAA268D9F5D00299506 /* ChatViewController.swift in Sources */,
+				FACB1EAA268D9F5D00299506 /* SingleChatViewController.swift in Sources */,
 				FA9CF1A526ADC928002261D9 /* OwnerStoresVC.swift in Sources */,
 				FA33236026AF2D1E006545D2 /* StoreProducts.swift in Sources */,
 				FA9CF20026AE5813002261D9 /* SubcategoryForOwner.swift in Sources */,

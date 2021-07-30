@@ -60,7 +60,7 @@ class OwnerStoreDetailsVC: UIViewController {
         self.reviewsAvarageView.isUserInteractionEnabled = false
         storeDetailsRequest()
         getRestStoreDetialsRequest()
-        photoRequest()
+//        photoRequest()
         userProfileRequest()
 
        
@@ -155,6 +155,8 @@ class OwnerStoreDetailsVC: UIViewController {
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
                 self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
+                //Fix by add the primary image to the array
+                self?.imagesArray.append(Image(id: -1, stageID: -1, image: apiResponseModel.data?.data?.image, createdAt: "", updatedAt: ""))
                 self?.sliderCollectionView.reloadData()
                 self?.photoCollectionView.reloadData()
                 self?.storeId = apiResponseModel.data?.data?.id ?? 0

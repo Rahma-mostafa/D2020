@@ -132,11 +132,21 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(SingleMessage.self, from: result.data!) else{return}
                 self?.messagesArray = apiResponseModel.data ?? [MessagesData]()
-                self?.messages = self?.messagesArray.map{ Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: .text($0.message ?? "")) } ?? [Message]()
+                self?.messages = self?.messagesArray.map{[weak self] in Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: $0.type == "image" ? .photo(MessageImage(image: self!.downloadImage(with: APIConstant.BASE_IMAGE_URL.rawValue + ($0.file ?? "")))) : .text($0.message ?? "")) } ?? [Message]()
                 self?.messagesCollectionView.reloadData()
                 KRProgressHUD.dismiss()
             }
     }
+    
+    private func downloadImage(with urlImage: String?)->UIImage{
+        guard let urlImage = urlImage else{ return UIImage() }
+        guard let url = URL(string: urlImage) else{ return UIImage() }
+        guard let data = try? Data(contentsOf: url) else{ return UIImage() }
+        guard let image = UIImage(data: data) else{ return UIImage() }
+        return image
+        
+    }
+    
     func getAdminMessages(){
        KRProgressHUD.show()
        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/messages"
@@ -150,7 +160,8 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SingleAdminMessage.self, from: result.data!) else{return}
 //            self?.AdminMessagesArray = apiResponseModel
-               self?.messages = self?.AdminMessagesArray.map{ Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: .text($0.message ?? "")) } ?? [Message]()
+            self?.messages = self?.AdminMessagesArray.map{[weak self] in Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: $0.type == "image" ? .photo(MessageImage(image: self!.downloadImage(with: $0.file))) : .text($0.message ?? "")) } ?? [Message]()
+            
                self?.messagesCollectionView.reloadData()
                KRProgressHUD.dismiss()
            }
@@ -217,7 +228,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 formData.append((self?.fileURL!)!, withName: "image")
             }
 
-        }, to: apiURL,method: .post,headers: headers) { result in
+        }, to: apiURL,method: .post,headers: headers) {[weak self] result in
             switch result{
             case .success(let request, _, _):
                 print(request.debugDescription)
@@ -227,6 +238,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                         print("Response : \(data.debugDescription)")
                         if data.response?.statusCode == 200{
                             KRProgressHUD.showSuccess(withMessage: "تم الارسال")
+                            self?.getSingleMessageForUser()
                         }else{
                             KRProgressHUD.showError(withMessage: "فشل العملية")
                         }
@@ -317,6 +329,7 @@ extension SingleChatViewController{
             try! imageData?.write(to: imagePath!)
             self.fileURL = imagePath
         }
+        addImageToUsers()
         
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -325,3 +338,20 @@ extension SingleChatViewController{
     
 }
 
+
+class MessageImage: MediaItem{
+    var url: URL?
+    
+    var image: UIImage?
+    
+    var placeholderImage: UIImage
+    
+    var size: CGSize
+    
+    init(image: UIImage) {
+        self.image = image
+        self.size = CGSize(width: 240, height: 240)
+        self.placeholderImage = UIImage()
+    }
+    
+}

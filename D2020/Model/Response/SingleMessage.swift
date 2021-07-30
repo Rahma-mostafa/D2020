@@ -15,6 +15,6 @@ struct SingleMessage: Codable {
 // MARK: - Datum
 struct MessagesData: Codable {
     let status, type, message: String?
-    let file: JSONNull?
+    let file: String?
     let date: String?
 }

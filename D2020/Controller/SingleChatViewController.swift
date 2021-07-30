@@ -11,6 +11,28 @@ import InputBarAccessoryView
 import Alamofire
 import KRProgressHUD
 
+struct Sender: SenderType{
+    var senderId: String
+    var displayName: String
+
+
+}
+struct Message: MessageType{
+    var sender: SenderType
+    var messageId: String
+    var sentDate: Date
+    var kind: MessageKind
+
+
+}
+struct Media: MediaItem {
+    var url: URL?
+    var image: UIImage?
+    var placeholderImage: UIImage
+    var size: CGSize
+
+
+}
 
 class SingleChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     let currentUser = Sender(senderId: "self", displayName: " ")

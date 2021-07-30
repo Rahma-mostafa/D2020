@@ -45,6 +45,7 @@ class OwnerStoreDetailsVC: UIViewController {
     var reviewsAvarage  = 0.0
     var phoneNumber = ""
     var avarage: Double? = nil
+    var selectedImageId = 0
     var imagePicker = UIImagePickerController()
 
 
@@ -253,27 +254,49 @@ class OwnerStoreDetailsVC: UIViewController {
                 
             }
     }
-//    @objc func deleteStore(sender:UIButton){
-//        KRProgressHUD.show()
-//        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/destroy/\(savedStoresArray[sender.tag].id)"
-//        guard let apiURL = URL(string: apiURLInString) else{   return }
-//        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-//        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json"]
-//        Alamofire
-//            .request(apiURL, method: .delete , parameters: nil, encoding: URLEncoding.default, headers: headers)
-//            .response {[weak self] result in
-//                print("Response Code : \(result.response?.statusCode)")
-//                if result.response?.statusCode == 200{
-//                    KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
-//                    self?.savedStoresArray.remove(at: sender.tag)
-//                    self?.photoCollectionView.reloadData()
-//                }else{
-//
-//                    KRProgressHUD.showError(withMessage: "عطل بالسيرفر")
-//                }
-//            }
-//
-//    }
+    @objc func deletePhoto(sender:UIButton){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/products/destroy_image/\(imagesArray[sender.tag].id ?? 0)"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json"]
+        Alamofire
+            .request(apiURL, method: .delete , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
+                    self?.imagesArray.remove(at: sender.tag)
+                    self?.photoCollectionView.reloadData()
+                }else{
+
+                    KRProgressHUD.showError(withMessage: "عطل بالسيرفر")
+                }
+            }
+
+    }
+    @objc func deleteProduct(sender:UIButton){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/products/products/destroy/\(productArray[sender.tag].id ?? 0)"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json"]
+        Alamofire
+            .request(apiURL, method: .delete , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم الحذف ")
+                    self?.imagesArray.remove(at: sender.tag)
+                    self?.photoCollectionView.reloadData()
+                }else{
+
+                    KRProgressHUD.showError(withMessage: "عطل بالسيرفر")
+                }
+            }
+
+    }
+    
     //MARK:- Buttons Action
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
@@ -367,14 +390,17 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
             cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
+            cell.deleteBtn.tag = indexPath.item
+            cell.deleteBtn.addTarget(self, action: #selector(deleteProduct), for: .touchUpInside)
 
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
             let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
+            self.selectedImageId = imagesArray[indexPath.row].id ?? 0
             cell.photo.sd_setImage(with: URL(string: imageUrl))
             cell.deleteBtn.tag = indexPath.item
-//            cell.deleteBtn.addTarget(self, action: #selector(deleteStore), for: .touchUpInside)
+            cell.deleteBtn.addTarget(self, action: #selector(deletePhoto), for: .touchUpInside)
             return cell
         }
     }

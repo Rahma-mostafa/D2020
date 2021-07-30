@@ -99,6 +99,19 @@
 "user_lan" = "مستخدم عادي";
 "owner_lan" = "صاحب محل";
 "delegate_lan" = "مندوب";
+"registration" = "اضافة محل";
+"english_name" = "الاسم باللغة الانجليزية";
+"arabic_name" = "الاسم باللغة العربية";
+"english_desc" = "الوصف بالانجليزية";
+"arabic_desc" = "الوصف بالعربية";
+"choose_Location" = "اختر الموقع";
+"code" = "كود";
+"address" = "العنوان";
+"category" = "التصنيف";
+"subcategory" = "التصنيف الفرعي";
+"date_lan" = "تاريخ انتهاء الاشتراك yyyy-mm--dd";
+"choosePhoto_lan" = "اختر صورة";
+"chooseVideo" = "اختر فيديو";
 
 
 

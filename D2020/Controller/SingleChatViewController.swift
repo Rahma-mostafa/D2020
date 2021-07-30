@@ -34,15 +34,17 @@ struct Media: MediaItem {
 
 }
 
-class SingleChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate  {
+class SingleChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     let currentUser = Sender(senderId: "self", displayName: " ")
     var otherUser = Sender(senderId: "other", displayName: " ")
     let dateFormatter = DateFormatter()
-    var stageId: Int?
+    var stageId: String?
     var messages = [Message]()
     var messagesArray = [MessagesData]()
     var timer = Timer()
     var imagePicker = UIImagePickerController()
+    var fileURL: URL?
+
 
 
     override func viewDidLoad() {
@@ -55,6 +57,9 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         messageInputBar.delegate = self
 //        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getSingleMessage), userInfo: nil, repeats: true)
         getSingleMessage()
+        imagePicker.delegate = self
+        addImage()
+
         
     }
     
@@ -78,16 +83,21 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         button.addTarget(self, action: #selector(chooseImage), for: .touchUpInside)
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
+
     }
     @objc func chooseImage(){
         let imageSelectionAlert = UIAlertController(title: "اختار مصدر الصورة", message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "الكاميرا", style: .default){
             UIAlertAction in
             self.openCamera()
+//            self.addImage()
+            
         }
         let galleryAction = UIAlertAction(title: "معرض الصور", style: .default){
             UIAlertAction in
             self.openGallery()
+//            self.addImage()
+
         }
         let cancelAction = UIAlertAction(title: "الغاء", style: .cancel)
         imageSelectionAlert.addAction(cameraAction)
@@ -126,29 +136,6 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 KRProgressHUD.dismiss()
             }
     }
-    
-    
-    
-      
-
-}
-
-extension SingleChatViewController: InputBarAccessoryViewDelegate{
-    @objc
-       func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String){
-            addMessage(msg: text)
-       }
-      func configure() {
-         let button = InputBarButtonItem()
-         button.setSize(CGSize(width: 36, height: 36), animated: false)
-         button.setImage(#imageLiteral(resourceName: "ic_up").withRenderingMode(.alwaysTemplate), for: .normal)
-         button.imageView?.contentMode = .scaleAspectFit
-         button.tintColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
-//         sendButton.setSize(CGSize(width: 52, height: 36), animated: false)
-     }
-  
-
-    
     func addMessage(msg:String){
         KRProgressHUD.show()
         let requestParameters = ["subject": msg ,"message": msg , "stage_id": stageId ?? ""] as [String : Any]
@@ -168,31 +155,84 @@ extension SingleChatViewController: InputBarAccessoryViewDelegate{
                 }
             }
     }
-    func addImage(msg:String){
+    func addImage(){
         KRProgressHUD.show()
-        let requestParameters = ["image": msg , "stage_id": stageId ?? ""] as [String : Any]
+        let requestParameters = ["stage_id": stageId ?? ""] as [String : String]
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-        let headers = ["Authorization":"Bearer \(token)"]
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages/send_image_to/1"
         print("URL : \(apiURLInString)")
         guard let apiURL = URL(string: apiURLInString) else{ return }
-        Alamofire
-            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
-            .response {[weak self] result in
-                print("Response Code : \(result.response?.statusCode)")
-                if result.response?.statusCode == 200{
-                    KRProgressHUD.showSuccess(withMessage: "تم الارسال")
+        Alamofire.upload(multipartFormData: {[weak self] formData in
+            for (key,value) in requestParameters{
+                formData.append(value.data(using: .utf8) ?? Data(), withName: key)
+            }
+            if self?.fileURL != nil{
+
+                formData.append((self?.fileURL!)!, withName: "image")
+            }
+
+        }, to: apiURL,method: .post,headers: headers) { result in
+            switch result{
+            case .success(let request, _, _):
+                print(request.debugDescription)
+                print(request.request?.debugDescription)
+                if true{
+                    request.responseData { data in
+                        print("Response : \(data.debugDescription)")
+                        if data.response?.statusCode == 200{
+                            KRProgressHUD.showSuccess(withMessage: "تم الارسال")
+                        }else{
+                            KRProgressHUD.showError(withMessage: "فشل العملية")
+                        }
+                    }
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
                 }
+            case .failure(_):
+                KRProgressHUD.showError(withMessage: "فشل العملية")
             }
+        }
+
     }
     
     
     
- 
     
- 
-    
+      
 
 }
+
+extension SingleChatViewController: InputBarAccessoryViewDelegate{
+    @objc
+       func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String){
+            addMessage(msg: text)
+       }
+
+}
+extension SingleChatViewController{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        let fileManager = FileManager.default
+        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        let imagePath = documentsPath?.appendingPathComponent("image.jpg")
+        
+        // extract image from the picker and save it
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            let imageData = pickedImage.jpegData(compressionQuality: 0.4)
+            try! imageData?.write(to: imagePath!)
+            self.fileURL = imagePath
+        }
+        
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker.dismiss(animated: true)
+    }
+    
+}
+

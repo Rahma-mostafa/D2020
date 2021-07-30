@@ -84,6 +84,21 @@
 "user_lan" = "User";
 "owner_lan" = "Owner";
 "delegate_lan" = "delegate";
+"registration" = "Add Store";
+"english_name" = "English name";
+"arabic_name" = "Arabic name";
+"english_desc" = "English description";
+"arabic_desc" = "Arabic description";
+"choose_Location" = "Choose location";
+"code" = "code";
+"address" = "address";
+"category" = "category";
+"subcategory" = "subcategory";
+"date_lan" = "Expiration date yyyy-mm--dd";
+"choosePhoto_lan" = "choose photo";
+"chooseVideo" = "choose video";
+
+
 
 
 

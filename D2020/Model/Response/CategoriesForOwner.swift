@@ -7,20 +7,20 @@ import Foundation
 
 // MARK: - CategoriesForOwner
 struct CategoriesForOwner: Codable {
-    let status: Bool
-    let message: String
-    let data: [CategoryDataClass]
+    let status: Bool?
+    let message: String?
+    let data: [CategoryDataClass]?
 }
 
 // MARK: - Datum
 struct CategoryDataClass: Codable {
-    let id: Int
-    let arabicName: String
+    let id: Int?
+    let arabicName: String?
     let name: String?
     let arabicDescription, datumDescription, parent: JSONNull?
-    let image: String
+    let image: String?
     let imageBack: String?
-    let createdAt, updatedAt: AtedAt
+    let createdAt, updatedAt: CategoryAtedAt?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,7 +35,7 @@ struct CategoryDataClass: Codable {
     }
 }
 
-enum AtedAt: String, Codable {
+enum CategoryAtedAt: String, Codable {
     case the20210702093616 = "2021-07-02 09:36:16"
     case the20210717101052 = "2021-07-17 10:10:52"
     case the20210717104713 = "2021-07-17 10:47:13"
@@ -44,29 +44,3 @@ enum AtedAt: String, Codable {
     case the20210724121856 = "2021-07-24 12:18:56"
 }
 
-// MARK: - Encode/decode helpers
-
-//class JSONNull: Codable, Hashable {
-//
-//    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-//        return true
-//    }
-//
-//    public var hashValue: Int {
-//        return 0
-//    }
-//
-//    public init() {}
-//
-//    public required init(from decoder: Decoder) throws {
-//        let container = try decoder.singleValueContainer()
-//        if !container.decodeNil() {
-//            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-//        }
-//    }
-//
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.singleValueContainer()
-//        try container.encodeNil()
-//    }
-//}

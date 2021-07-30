@@ -91,75 +91,6 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func editUserProfile(){
-        //        KRProgressHUD.show()
-        //        let name = userNameTextField.text ?? ""
-        //        let mobile = userPhoneTextField.text ?? ""
-        //        let email = userMailTextField.text ?? ""
-        //        let address = addressTextBox.text ?? ""
-        //        let imgString = newUserImage?.jpegData(compressionQuality: 0.1)?.base64EncodedString()
-        //        let requestParameters = ["name": name ?? "","mobile": mobile ?? "", "address": address ?? "", "email": email ?? "","image": imgString ?? ""]
-        //        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-        //        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
-        //        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/profile/update"
-        //        guard let apiURL = URL(string: apiURLInString) else{ return }
-        //        Alamofire.upload(multipartFormData: {[weak self] formData in
-        //            formData.append(name.data(using: .utf8) ?? Data(), withName: "name")
-        //            formData.append(mobile.data(using: .utf8) ?? Data(), withName: "mobile")
-        //            formData.append(address.data(using: .utf8) ?? Data(), withName: "address")
-        //            formData.append(email.data(using: .utf8) ?? Data(), withName: "email")
-        //
-        //            if self?.fileURL != nil{
-        //
-        //                formData.append((self?.fileURL!)!, withName: "image")
-        //            }
-        //
-        //        }, to: apiURL,method: .post,headers: headers) { result in
-        //            switch result{
-        //            case .success(let request, _, _):
-        //                print(request.debugDescription)
-        //                print(request.request?.debugDescription)
-        //                if true{
-        //                    request.responseData { data in
-        //                        guard let responseData = data.data else{
-        //                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-        //                            return }
-        //                        let jsonDecoder = JSONDecoder()
-        //                        guard let reponseModel = try? jsonDecoder.decode(UpdateProfileResponse.self, from: responseData)else{
-        //                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-        //                            return
-        //                        }
-        //                        let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
-        //                        let jsonConverter = JSONDecoder()
-        //                        guard let profileLocalModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{
-        //                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-        //                            return
-        //                        }
-        //                        print(responseData.prettyPrintedJSONString)
-        //                        var profileLocal = profileLocalModel
-        //                        profileLocal.data.photo = reponseModel.data?.photo ?? ""
-        //                        profileLocal.data.mobile = reponseModel.data?.mobile ?? ""
-        //                        profileLocal.data.mobile = reponseModel.data?.mobile ?? ""
-        //                        profileLocal.data.name = reponseModel.data?.name ?? ""
-        //                        profileLocal.data.email = reponseModel.data?.email ?? ""
-        //                        let jsonEncoder = JSONEncoder()
-        //                        guard let apiResponseModel = try? jsonEncoder.encode(profileLocal) else{
-        //                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-        //                            return
-        //                        }
-        //                        UserDefaults.standard.setValue(apiResponseModel, forKey: UserDefaultKey.USER_PROFILE.rawValue)
-        //                        KRProgressHUD.showSuccess(withMessage: "تم حفظ التغيرات")
-        //
-        //                    }
-        //
-        //                }else{
-        //                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-        //                }
-        //            case .failure(_):
-        //                KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
-        //            }
-        //        }
-    }
     
     // API request
     func registerNewStore(){
@@ -213,9 +144,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                         }else{
                             KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
                         }
-                        
                     }
-                    
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
                 }
@@ -236,7 +165,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(CategoriesForOwner.self, from: result.data!) else{return}
-                self?.categoryArray = apiResponseModel.data
+                self?.categoryArray = apiResponseModel.data ?? [CategoryDataClass]()
                 self?.categoryTableView.reloadData()
                 KRProgressHUD.dismiss()
                 
@@ -244,7 +173,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     }
     func subcategoriesRequest(){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/sub_categories/12"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/sub_categories/\(categoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
@@ -350,7 +279,7 @@ extension AddStoreVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if index == 1{
             self.categoryTextFiled.text = categoryArray[indexPath.row].arabicName
-            self.categoryId = categoryArray[indexPath.row].id
+            self.categoryId = categoryArray[indexPath.row].id ?? 0
         }else if index == 2 {
             self.subcategoryTextField.text = subcategoryArray[indexPath.row].arabicName
             self.subcategoryId = subcategoryArray[indexPath.row].id

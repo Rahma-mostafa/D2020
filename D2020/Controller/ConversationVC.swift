@@ -17,7 +17,7 @@ class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var chatsArray = [MessageDetails]()
     var userName: String? = ""
-    var stageId: Int? = 0
+    var stageId: String? = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -41,9 +41,11 @@ class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         // show messages
         let vc = SingleChatViewController()
         vc.title = "chat"
-        vc.stageId = chatsArray[indexPath.row].stageID
+        vc.stageId = String(chatsArray[indexPath.row].stageID ?? 0)
         navigationController?.pushViewController(vc, animated: true)
     }
+  
+   
     func showOwnerChatsWithUsers(){
         KRProgressHUD.show()
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages_with_users"
@@ -62,7 +64,6 @@ class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 
             }
     }
-  
 
     
 

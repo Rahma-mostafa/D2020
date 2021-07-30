@@ -533,7 +533,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zq-Rc-QRQ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ASk-T4-dxB">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ASk-T4-dxB">
                                         <rect key="frame" x="20" y="20" width="374" height="768"/>
                                         <color key="backgroundColor" name="RoundedBigView Color"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSo-cs-8KC">
@@ -588,7 +588,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9b-7s-Eza">
                                 <rect key="frame" x="0.0" y="89" width="414" height="807"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gHc-G5-YWS">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gHc-G5-YWS">
                                         <rect key="frame" x="20" y="20" width="374" height="767"/>
                                         <color key="backgroundColor" name="RoundedBigView Color"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Kjv-re-iLd">
@@ -1022,7 +1022,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Q32-co-4Me">
                                                 <rect key="frame" x="0.0" y="230" width="254" height="26"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfinder_add_-1" translatesAutoresizingMaskIntoConstraints="NO" id="bxC-be-t05">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="bxC-be-t05">
                                                         <rect key="frame" x="0.0" y="0.0" width="16" height="26"/>
                                                         <color key="tintColor" name="OrangeColor"/>
                                                         <constraints>
@@ -1148,11 +1148,11 @@
         <image name="building@3x" width="19" height="23"/>
         <image name="friends@3x" width="18" height="15"/>
         <image name="home-icon" width="25" height="25"/>
-        <image name="iconfinder_add_-1" width="18" height="18"/>
         <image name="iconfinder_user_3325167" width="18" height="20"/>
         <image name="information" width="20" height="20"/>
         <image name="logout (1)" width="20" height="20"/>
         <image name="map" width="19.5" height="24"/>
+        <image name="plus" width="32" height="32"/>
         <image name="share (3)" width="20" height="20"/>
         <image name="speech-bubble22" width="24" height="24"/>
         <image name="translate (1)" width="20" height="20"/>

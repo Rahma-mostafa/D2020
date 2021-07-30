@@ -36,7 +36,7 @@ class MoreCategoriesVC: UIViewController {
             .response {[weak self] result in
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
-                self?.categoryArray = apiResponseModel.data
+                self?.categoryArray = apiResponseModel.data ?? [categoriesDataClass]()
                 self?.categoryCollectionView.reloadData()
                 KRProgressHUD.dismiss()
                 

@@ -7,24 +7,29 @@ import Foundation
 
 // MARK: - SubCategories
 struct SubCategories: Codable {
-    let status: Bool
-    let message: String
-    let data: [SubCategoriesData]
+    let status: Bool?
+    let message: String?
+    let data: [SubCategoriesData]?
 }
 
 // MARK: - Datum
 struct SubCategoriesData: Codable {
-    let id, parent: Int
-    let name, arabicName: String
-    let datumDescription, arabicDescription: String?
-    let image, createdAt, updatedAt: String
+    let id: Int?
+    let arabicName: String?
+    let name, arabicDescription, datumDescription: JSONNull?
+    let parent: Int?
+    let image: String?
+    let imageBack: JSONNull?
+    let createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, parent, name
+        case id
         case arabicName = "arabic_name"
-        case datumDescription = "description"
+        case name
         case arabicDescription = "arabic_description"
-        case image
+        case datumDescription = "description"
+        case parent, image
+        case imageBack = "image_back"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

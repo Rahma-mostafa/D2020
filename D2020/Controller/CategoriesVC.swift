@@ -33,13 +33,13 @@ class CategoriesVC: UIViewController {
     var categoryArray = [categoriesDataClass]()
     var subcategoryArray = [SubCategoriesData]()
     var categoryId = 0
-    var subcategoryId = 0
+    var subcategoryId = 12
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         categoriesRequest()
-//        subCategoriesRequest()
+        subCategoriesRequest()
 
     }
     func setup(){
@@ -65,7 +65,7 @@ class CategoriesVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(Categories.self, from: result.data!) else{return}
-                self?.categoryArray = apiResponseModel.data
+                self?.categoryArray = apiResponseModel.data ?? [categoriesDataClass]()
                 self?.categoryCollectionView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -85,7 +85,7 @@ class CategoriesVC: UIViewController {
                 print("nil")
 
                 return}
-                self?.subcategoryArray = apiResponseModel.data
+                self?.subcategoryArray = apiResponseModel.data ?? [SubCategoriesData]()
                 self?.SubCategoryTableView.reloadData()
                 print("\(self!.subcategoryArray)")
                 KRProgressHUD.dismiss()
@@ -159,7 +159,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.categoryId = categoryArray[indexPath.row].id
+        self.categoryId = categoryArray[indexPath.row].id ?? 0
         print("categoryId = " +  " \(categoryId)")
         subCategoriesRequest()
     }
@@ -176,12 +176,12 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
         let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
         let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(subcategoryArray[indexPath.row].image ?? "")"
         cell.categoryImageView.sd_setImage(with: URL(string: imageUrl ))
-        cell.nameLabel.text = subcategoryArray[indexPath.row].name
+        cell.nameLabel.text = subcategoryArray[indexPath.row].arabicName
         cell.rateView.isHidden = true
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.subcategoryId = subcategoryArray[indexPath.row].id
+        self.subcategoryId = subcategoryArray[indexPath.row].id ?? 0
         let storyboard = UIStoryboard(name: "Category", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "SubcategoryStoresVC") as!  SubcategoryStoresVC
         scene.subcategoryId = self.subcategoryId

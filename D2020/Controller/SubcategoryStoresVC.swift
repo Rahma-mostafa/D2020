@@ -15,7 +15,6 @@ class SubcategoryStoresVC: UIViewController {
     @IBOutlet weak var textBox: UITextField!
     @IBOutlet weak var StoresTableView: UITableView!
     @IBOutlet weak var cityView: UIView!
-    
     @IBOutlet weak var filterContainerView: UIView!
     @IBOutlet weak var citiesTableView: UITableView!
     //variables
@@ -69,7 +68,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -85,7 +84,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -101,7 +100,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -117,7 +116,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -151,8 +150,7 @@ class SubcategoryStoresVC: UIViewController {
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{
                 return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
-                print(apiResponseModel.data)
+                self?.SubCategoryStoresArray = apiResponseModel.data
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 

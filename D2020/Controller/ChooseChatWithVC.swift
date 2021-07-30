@@ -16,10 +16,10 @@ class ChooseChatWithVC: UIViewController {
     }
     
     @IBAction func onAdminBtnTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "ConversationVC") as!  ConversationVC
-//        scene.type = "ownerWithAdmin"
-        navigationController?.pushViewController(scene, animated: true)
+        let vc = SingleChatViewController()
+        vc.title = "chat"
+        vc.contact = "ownerChatWithAdmin"
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     

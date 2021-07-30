@@ -138,6 +138,7 @@ class OwnerStoreDetailsVC: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
     //MARK:- API requests
+
     func storeDetailsRequest(){
         KRProgressHUD.show()
         print(storeId)
@@ -460,6 +461,7 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
         cell.userImage.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(reviewArray[indexPath.row].image ?? "")"), completed: nil)
         cell.commentLAbel.text = reviewArray[indexPath.row].review
+        cell.nameLabel.text = reviewArray[indexPath.row].username
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)
         cell.rateView.isUserInteractionEnabled = false
         if indexPath.row == 0{

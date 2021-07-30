@@ -11,28 +11,6 @@ import InputBarAccessoryView
 import Alamofire
 import KRProgressHUD
 
-struct Sender: SenderType{
-    var senderId: String
-    var displayName: String
-
-
-}
-struct Message: MessageType{
-    var sender: SenderType
-    var messageId: String
-    var sentDate: Date
-    var kind: MessageKind
-
-
-}
-struct Media: MediaItem {
-    var url: URL?
-    var image: UIImage?
-    var placeholderImage: UIImage
-    var size: CGSize
-
-
-}
 
 class SingleChatViewController: MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate  {
     let currentUser = Sender(senderId: "self", displayName: " ")
@@ -41,9 +19,11 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
     var stageId: String?
     var messages = [Message]()
     var messagesArray = [MessagesData]()
+    var AdminMessagesArray = [AdminMessage]()
     var timer = Timer()
     var imagePicker = UIImagePickerController()
     var fileURL: URL?
+    var contact = ""
 
 
 
@@ -56,9 +36,8 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
         messageInputBar.delegate = self
 //        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getSingleMessage), userInfo: nil, repeats: true)
-        getSingleMessage()
         imagePicker.delegate = self
-        addImage()
+        getDifferentChats()
 
         
     }
@@ -118,7 +97,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         imagePicker.modalPresentationStyle = .overFullScreen
         self.present(imagePicker, animated: true, completion: nil)
     }
-     func getSingleMessage(){
+     func getSingleMessageForUser(){
         KRProgressHUD.show()
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages/1"
         guard let apiURL = URL(string: apiURLInString) else{ return }
@@ -136,7 +115,32 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 KRProgressHUD.dismiss()
             }
     }
-    func addMessage(msg:String){
+    func getAdminMessages(){
+       KRProgressHUD.show()
+       let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/messages"
+       guard let apiURL = URL(string: apiURLInString) else{ return }
+       let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+       let headers = ["Authorization":"Bearer \(token)"]
+       Alamofire
+           .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
+           .response {[weak self] result in
+               guard let weakSelf = self else{ return }
+               let jsonConverter = JSONDecoder()
+            guard let apiResponseModel = try? jsonConverter.decode(SingleAdminMessage.self, from: result.data!) else{return}
+//            self?.AdminMessagesArray = apiResponseModel
+               self?.messages = self?.AdminMessagesArray.map{ Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: .text($0.message ?? "")) } ?? [Message]()
+               self?.messagesCollectionView.reloadData()
+               KRProgressHUD.dismiss()
+           }
+   }
+    func getDifferentChats(){
+        if contact == "ownerChatWithAdmin"{
+            getAdminMessages()
+        }else{
+            getSingleMessageForUser()
+        }
+    }
+    func addMessageToUser(msg:String){
         KRProgressHUD.show()
         let requestParameters = ["subject": msg ,"message": msg , "stage_id": stageId ?? ""] as [String : Any]
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
@@ -155,12 +159,71 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 }
             }
     }
-    func addImage(){
+    func addMessageToAdmin(msg:String){
+        KRProgressHUD.show()
+        let requestParameters = ["subject": msg ,"message": msg , "stage_id": stageId ?? ""] as [String : Any]
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages/send"
+        print("URL : \(apiURLInString)")
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                print("Response Code : \(result.response?.statusCode)")
+                if result.response?.statusCode == 200{
+                    KRProgressHUD.showSuccess(withMessage: "تم الارسال")
+                }else{
+                    KRProgressHUD.showError(withMessage: "فشل العملية")
+                }
+            }
+    }
+    func addImageToUsers(){
         KRProgressHUD.show()
         let requestParameters = ["stage_id": stageId ?? ""] as [String : String]
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages/send_image_to/1"
+        print("URL : \(apiURLInString)")
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire.upload(multipartFormData: {[weak self] formData in
+            for (key,value) in requestParameters{
+                formData.append(value.data(using: .utf8) ?? Data(), withName: key)
+            }
+            if self?.fileURL != nil{
+
+                formData.append((self?.fileURL!)!, withName: "image")
+            }
+
+        }, to: apiURL,method: .post,headers: headers) { result in
+            switch result{
+            case .success(let request, _, _):
+                print(request.debugDescription)
+                print(request.request?.debugDescription)
+                if true{
+                    request.responseData { data in
+                        print("Response : \(data.debugDescription)")
+                        if data.response?.statusCode == 200{
+                            KRProgressHUD.showSuccess(withMessage: "تم الارسال")
+                        }else{
+                            KRProgressHUD.showError(withMessage: "فشل العملية")
+                        }
+                    }
+                }else{
+                    KRProgressHUD.showError(withMessage: "فشل العملية")
+                }
+            case .failure(_):
+                KRProgressHUD.showError(withMessage: "فشل العملية")
+            }
+        }
+
+    }
+    func addImageToAdmin(){
+        KRProgressHUD.show()
+        let requestParameters = ["stage_id": stageId ?? ""] as [String : String]
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/messages/send_image"
         print("URL : \(apiURLInString)")
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire.upload(multipartFormData: {[weak self] formData in
@@ -206,7 +269,11 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
 extension SingleChatViewController: InputBarAccessoryViewDelegate{
     @objc
        func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String){
-            addMessage(msg: text)
+        if contact == "ownerChatWithAdmin"{
+            addMessageToAdmin(msg: text)
+        }else{
+            addMessageToUser(msg: text)
+        }
        }
 
 }

@@ -51,6 +51,8 @@
 		FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA30256826799C09000E0DC8 /* ProductCell.xib */; };
 		FA33235B26AF075E006545D2 /* OwnerStoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */; };
 		FA33236026AF2D1E006545D2 /* StoreProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33235F26AF2D1E006545D2 /* StoreProducts.swift */; };
+		FA35557E26B487DC00F2C501 /* SingleAdminMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35557D26B487DC00F2C501 /* SingleAdminMessage.swift */; };
+		FA3555A126B48D6D00F2C501 /* ChatKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3555A026B48D6D00F2C501 /* ChatKitModels.swift */; };
 		FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49EFFC266B49E300215EFE /* Category.storyboard */; };
 		FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */; };
 		FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */; };
@@ -197,6 +199,8 @@
 		FA30256826799C09000E0DC8 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoreDetails.swift; sourceTree = "<group>"; };
 		FA33235F26AF2D1E006545D2 /* StoreProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProducts.swift; sourceTree = "<group>"; };
+		FA35557D26B487DC00F2C501 /* SingleAdminMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleAdminMessage.swift; sourceTree = "<group>"; };
+		FA3555A026B48D6D00F2C501 /* ChatKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatKitModels.swift; sourceTree = "<group>"; };
 		FA49EFFC266B49E300215EFE /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
@@ -347,8 +351,10 @@
 				FA9CF20426AE5F3D002261D9 /* StoresCities.swift */,
 				FA33235A26AF075E006545D2 /* OwnerStoreDetails.swift */,
 				FA33235F26AF2D1E006545D2 /* StoreProducts.swift */,
+				FA3555A026B48D6D00F2C501 /* ChatKitModels.swift */,
 				FA97381026B1FA310063C66A /* OwnerMessagesWithUsers.swift */,
 				FA97381526B1FB580063C66A /* SingleMessage.swift */,
+				FA35557D26B487DC00F2C501 /* SingleAdminMessage.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -838,6 +844,7 @@
 				FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */,
 				FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */,
 				D9CF8555269E346E0016992B /* UpdateProfileResponse.swift in Sources */,
+				FA35557E26B487DC00F2C501 /* SingleAdminMessage.swift in Sources */,
 				FA2DC39B268054E2004FBF9E /* MapVC.swift in Sources */,
 				FA9CF0F826AC3487002261D9 /* UserTypeKeys.swift in Sources */,
 				FA0AAF3926655BA3005E9E35 /* UploadForStoreVC.swift in Sources */,
@@ -877,6 +884,7 @@
 				FAA7771026619FF600D65636 /* PageViewController.swift in Sources */,
 				FA611E03267AE79C00A3AD3B /* ProductVC.swift in Sources */,
 				FAC780972672F8E7008E73D8 /* CategoriesCell.swift in Sources */,
+				FA3555A126B48D6D00F2C501 /* ChatKitModels.swift in Sources */,
 				FA09B15F266332A20078DCC0 /* CreateAccountVC.swift in Sources */,
 				FA5963912661493400A8C119 /* AppDelegate.swift in Sources */,
 				FA9CF20526AE5F3D002261D9 /* StoresCities.swift in Sources */,

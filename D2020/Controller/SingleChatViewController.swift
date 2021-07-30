@@ -190,6 +190,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
                 }
+                self?.getSingleMessageForUser()
             }
     }
     func addMessageToAdmin(msg:String){
@@ -209,6 +210,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
                 }
+                self?.getAdminMessages()
             }
     }
     func addImageToUsers(){
@@ -242,6 +244,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                         }else{
                             KRProgressHUD.showError(withMessage: "فشل العملية")
                         }
+                        self?.getSingleMessageForUser()
                     }
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
@@ -269,7 +272,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 formData.append((self?.fileURL!)!, withName: "image")
             }
 
-        }, to: apiURL,method: .post,headers: headers) { result in
+        }, to: apiURL,method: .post,headers: headers) {[weak self] result in
             switch result{
             case .success(let request, _, _):
                 print(request.debugDescription)
@@ -282,6 +285,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                         }else{
                             KRProgressHUD.showError(withMessage: "فشل العملية")
                         }
+                        self?.getAdminMessages()
                     }
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
@@ -329,8 +333,11 @@ extension SingleChatViewController{
             try! imageData?.write(to: imagePath!)
             self.fileURL = imagePath
         }
-        addImageToUsers()
-        addImageToAdmin()
+        if contact == "ownerChatWithAdmin"{
+            addImageToAdmin()
+        }else{
+            addImageToUsers()
+        }
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker.dismiss(animated: true)

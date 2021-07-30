@@ -190,6 +190,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
                 }
+                self?.getSingleMessageForUser()
             }
     }
     func addMessageToAdmin(msg:String){
@@ -209,6 +210,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
                 }
+                self?.getAdminMessages()
             }
     }
     func addImageToUsers(){

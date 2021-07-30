@@ -330,7 +330,7 @@ extension SingleChatViewController{
             self.fileURL = imagePath
         }
         addImageToUsers()
-        
+        addImageToAdmin()
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker.dismiss(animated: true)

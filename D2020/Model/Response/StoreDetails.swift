@@ -66,16 +66,15 @@ struct DataData: Codable {
 // MARK: - Delegate
 struct Delegate: Codable {
     let id: Int?
-    let name, email, mobile: String?
+    let name, email: String?
     let  phone: String?
-    let idNumber: String?
     let cityID: Int?
     let address: String?
     let nationality: String?
     let photo: String?
     let birthDate: String?
     let lastLogin: String?
-    let status: String?
+    let status: Int?
     let type: String?
     let longi, lati: String?
     let emailVerifiedAt, randomPassword: String?

@@ -16,6 +16,6 @@ struct SingleAdminMessage: Codable {
 // MARK: - Message
 struct AdminMessage: Codable {
     let status, type, message: String?
-    let file: JSONNull?
+    let file: String?
     let date: String?
 }

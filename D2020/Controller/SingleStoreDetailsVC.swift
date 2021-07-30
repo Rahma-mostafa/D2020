@@ -34,6 +34,8 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var userRatingView: CosmosView!
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet weak var photoCollectionView: UICollectionView!
+
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
@@ -57,6 +59,7 @@ class SingleStoreDetailsVC: UIViewController {
         storeDetailsRequest()
         getRestStoreDetialsRequest()
         self.reviewsAvarageView.isUserInteractionEnabled = false
+        photoRequest()
         
         
         
@@ -71,6 +74,9 @@ class SingleStoreDetailsVC: UIViewController {
         commentTableView.dataSource = self
         commentTableView.delegate = self
         userRatingView.settings.updateOnTouch = true
+        photoCollectionView.dataSource = self
+        photoCollectionView.delegate = self
+        self.photoCollectionView.register(UINib(nibName: "AddPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AddPhotoCell")
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -243,6 +249,24 @@ class SingleStoreDetailsVC: UIViewController {
                 
             }
     }
+    func photoRequest(){
+        KRProgressHUD.show()
+        print(storeId)
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{   return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
+                    return}
+                self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
+                self?.photoCollectionView.reloadData()
+                KRProgressHUD.dismiss()
+                
+            }
+    }
+
     
     
     
@@ -254,8 +278,10 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
         if collectionView == sliderCollectionView {
             return imagesArray.count
             
+        }else if collectionView == productCollectionView{
+            return productArray.count
         }else{
-            return 5
+            return imagesArray.count
         }
     }
     
@@ -265,13 +291,20 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
             cell.backgroundImage.sd_setImage(with: URL(string: imageUrl))
             return cell
-        }else{
+        }else if collectionView == productCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
             let imageUrl = URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(productArray[indexPath.row].image ?? "")")
             cell.productImage.sd_setImage(with: imageUrl, completed: nil)
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
             cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
+            cell.photo.sd_setImage(with: URL(string: imageUrl))
+            cell.deleteBtn.isHidden = true
+            cell.deleteBtn.isUserInteractionEnabled = false
             return cell
         }
     }

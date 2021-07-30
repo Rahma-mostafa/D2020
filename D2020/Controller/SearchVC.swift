@@ -17,6 +17,7 @@ class SearchVC: UIViewController {
     @IBOutlet weak var storeTableView: UITableView!
     var storesArray = [StoesDataClass]()
     var currentStoresArray = [StoesDataClass]()
+    var filteredData = [StoesDataClass]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,13 +73,29 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
 extension SearchVC : UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        
+
         currentStoresArray = searchText.isEmpty ? storesArray : storesArray.filter({StoesDataClass -> Bool in
             return currentStoresArray.contains { _ in searchText == StoesDataClass.name }
 
         })
         self.storeTableView.reloadData()
     }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        filteredData = []
+//        if searchText == ""{
+//            filteredData = storesArray
+//        }else{
+//            for name in storesArray{
+//
+//
+//            }
+//        }
+//
+//
+//
+//
+//        self.storeTableView.reloadData()
+//    }
 
 
     

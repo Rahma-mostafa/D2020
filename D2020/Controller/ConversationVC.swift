@@ -16,6 +16,7 @@ class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     var chatsArray = [MessageDetails]()
+    var userName: String? = ""
     var stageId: Int? = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,7 @@ class ConversationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let jsonConverter = JSONDecoder()
                 guard let apiResponseModel = try? jsonConverter.decode(OwnerMessagesWithUsers.self, from: result.data!) else{return}
                 self?.chatsArray = apiResponseModel.messages ?? [MessageDetails]()
-                print(apiResponseModel.messages)
+                self?.userName = apiResponseModel.username
                 self?.tableView.reloadData()
                 KRProgressHUD.dismiss()
 

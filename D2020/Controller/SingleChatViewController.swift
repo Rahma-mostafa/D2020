@@ -57,7 +57,6 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
         messagesCollectionView.messagesDisplayDelegate = self
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
         messageInputBar.delegate = self
-//        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getSingleMessage), userInfo: nil, repeats: true)
         imagePicker.delegate = self
         getDifferentChats()
 
@@ -148,23 +147,22 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
     }
     
     func getAdminMessages(){
-       KRProgressHUD.show()
-       let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/messages"
-       guard let apiURL = URL(string: apiURLInString) else{ return }
-       let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
-       let headers = ["Authorization":"Bearer \(token)"]
-       Alamofire
-           .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
-           .response {[weak self] result in
-               guard let weakSelf = self else{ return }
-               let jsonConverter = JSONDecoder()
-            guard let apiResponseModel = try? jsonConverter.decode(SingleAdminMessage.self, from: result.data!) else{return}
-//            self?.AdminMessagesArray = apiResponseModel
-            self?.messages = self?.AdminMessagesArray.map{[weak self] in Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: $0.type == "image" ? .photo(MessageImage(image: self!.downloadImage(with: $0.file))) : .text($0.message ?? "")) } ?? [Message]()
-            
-               self?.messagesCollectionView.reloadData()
-               KRProgressHUD.dismiss()
-           }
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/messages"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)"]
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .response {[weak self] result in
+                guard let weakSelf = self else{ return }
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(SingleMessage.self, from: result.data!) else{return}
+                self?.messagesArray = apiResponseModel.data ?? [MessagesData]()
+                self?.messages = self?.messagesArray.map{[weak self] in Message(sender: $0.status == "send" ? weakSelf.currentUser : weakSelf.otherUser, messageId: UUID().uuidString, sentDate: weakSelf.dateFormatter.date(from: $0.date ?? "") ?? Date(), kind: $0.type == "image" ? .photo(MessageImage(image: self!.downloadImage(with: APIConstant.BASE_IMAGE_URL.rawValue + ($0.file ?? "")))) : .text($0.message ?? "")) } ?? [Message]()
+                self?.messagesCollectionView.reloadData()
+                KRProgressHUD.dismiss()
+            }
    }
     func getDifferentChats(){
         if contact == "ownerChatWithAdmin"{
@@ -210,7 +208,7 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
                 }
-                self?.getAdminMessages()
+                self?.getSingleMessageForUser()
             }
     }
     func addImageToUsers(){
@@ -282,10 +280,11 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                         print("Response : \(data.debugDescription)")
                         if data.response?.statusCode == 200{
                             KRProgressHUD.showSuccess(withMessage: "تم الارسال")
+                            self?.getSingleMessageForUser()
                         }else{
                             KRProgressHUD.showError(withMessage: "فشل العملية")
                         }
-                        self?.getAdminMessages()
+                        self?.getSingleMessageForUser()
                     }
                 }else{
                     KRProgressHUD.showError(withMessage: "فشل العملية")
@@ -294,7 +293,6 @@ class SingleChatViewController: MessagesViewController, MessagesDataSource, Mess
                 KRProgressHUD.showError(withMessage: "فشل العملية")
             }
         }
-
     }
     
     

@@ -68,8 +68,8 @@ class OwnerStoresVC: UIViewController {
     }
     @objc func editStore(sender:UIButton){
         let storyboard = UIStoryboard(name: "Owner", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "AddProductVC") as? AddProductVC
-        scene?.action = "edit"
+        let scene = storyboard.instantiateViewController(identifier: "AddStoreVC") as? AddStoreVC
+        scene?.action = "editStore"
         scene?.storeId = savedStoresArray[sender.tag].id ?? 0
         navigationController?.pushViewController(scene!, animated: true)
     }

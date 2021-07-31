@@ -40,6 +40,8 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     var imagePicker = UIImagePickerController()
     var newStoreImage: UIImage?
     var fileURL: URL?
+    var action = ""
+    var storeId = 0
     
     
     
@@ -119,6 +121,68 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         ]
         
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/store"
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire.upload(multipartFormData: {[weak self] formData in
+            for (key,value) in requestParameters{
+                formData.append(value.data(using: .utf8) ?? Data(), withName: key)
+            }
+            if self?.fileURL != nil{
+                
+                formData.append((self?.fileURL!)!, withName: "image")
+            }
+            
+        }, to: apiURL,method: .post,headers: headers) { result in
+            switch result{
+            case .success(let request, _, _):
+                print(request.debugDescription)
+                print(request.request?.debugDescription)
+                if true{
+                    request.responseData { data in
+                        print("Response : \(data.debugDescription)")
+                        if data.response?.statusCode == 200{
+                            KRProgressHUD.showSuccess(withMessage: "تم الحفظ بنجاح")
+                        }else{
+                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                        }
+                    }
+                }else{
+                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                }
+            case .failure(_):
+                KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+            }
+        }
+        
+        
+        
+    }
+    func editStore(){
+        KRProgressHUD.show()
+        let name = "\(nameTextField.text ?? "")"
+        let arabicName = arabicNameTextField.text ?? ""
+        let phone = phoneTextField.text ?? ""
+        let mail = mailTextField.text ?? ""
+        let address = addressTextField.text ?? ""
+        let desc = discTextField.text ?? ""
+        let arabicDesc = arabicDescTextField.text ?? ""
+        self.categoryTextFiled.isUserInteractionEnabled = false
+        let code = codeTextField.text ?? ""
+        let date = dateTextField.text ?? ""
+        let longi = ""
+        let lati = ""
+        let video = ""
+        
+        let requestParameters = ["name": name ,"phone": phone,
+                                 "address": address,"email": mail,"code": code,"arabic_name": arabicName,
+                                 "description": desc , "arabic_description": arabicDesc,
+                                 "city_id" : "\(cityId)" , "category_id": "\(categoryId)",
+                                 "sub_category_id": "\(subcategoryId)", "longi": longi , "lati": lati,
+                                 "end": date , "video": video
+        ]
+        
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/update/\(storeId)"
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
         guard let apiURL = URL(string: apiURLInString) else{ return }
@@ -250,7 +314,11 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     }
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
-        registerNewStore()
+        if action == "editStore"{
+            editStore()
+        }else{
+            registerNewStore()
+        }
     }
 }
 extension AddStoreVC : UITableViewDelegate,UITableViewDataSource{

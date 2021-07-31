@@ -74,6 +74,7 @@
 		FA72972A26A1B0F2007BF985 /* OwnerStoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */; };
 		FA72973826A1B9D7007BF985 /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */; };
 		FA72973926A1B9D7007BF985 /* AddPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */; };
+		FA743E9C26B4C82900296327 /* CityStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743E9B26B4C82900296327 /* CityStores.swift */; };
 		FA771348269B2BFB00D8B09E /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA771347269B2BFB00D8B09E /* RegisterVC.swift */; };
 		FA7A6410267B2E0000DAE9FF /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A640E267B2E0000DAE9FF /* RateCell.swift */; };
 		FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7A640F267B2E0000DAE9FF /* RateCell.xib */; };
@@ -229,6 +230,7 @@
 		FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerStoreDetailsVC.swift; sourceTree = "<group>"; };
 		FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
 		FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCell.xib; sourceTree = "<group>"; };
+		FA743E9B26B4C82900296327 /* CityStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStores.swift; sourceTree = "<group>"; };
 		FA771347269B2BFB00D8B09E /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FA7A640E267B2E0000DAE9FF /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		FA7A640F267B2E0000DAE9FF /* RateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				FA97381026B1FA310063C66A /* OwnerMessagesWithUsers.swift */,
 				FA97381526B1FB580063C66A /* SingleMessage.swift */,
 				FA35557D26B487DC00F2C501 /* SingleAdminMessage.swift */,
+				FA743E9B26B4C82900296327 /* CityStores.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				FAF5CDC42666E2A80002E1CB /* PlacesCell.swift in Sources */,
 				FAFDB063266AEA1E00CD08A1 /* MenuVC.swift in Sources */,
 				FAB69A36269BF3290030E1F6 /* ContactUsVC.swift in Sources */,
+				FA743E9C26B4C82900296327 /* CityStores.swift in Sources */,
 				FAFDB03A266AAEAA00CD08A1 /* MoreCategoriesVC.swift in Sources */,
 				FA0AAF5426657BF0005E9E35 /* SliderCell.swift in Sources */,
 				FAB69A0E269BE9100030E1F6 /* AboutVC.swift in Sources */,

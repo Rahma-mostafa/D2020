@@ -13,7 +13,6 @@ import SDWebImage
 
 class SearchVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var storeTableView: UITableView!
     var storesArray = [StoesDataClass]()
     var currentStoresArray = [StoesDataClass]()

@@ -68,7 +68,8 @@ class OwnerStoresVC: UIViewController {
     }
     @objc func editStore(sender:UIButton){
         let storyboard = UIStoryboard(name: "Owner", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "OwnerStoreDetailsVC") as? OwnerStoreDetailsVC
+        let scene = storyboard.instantiateViewController(identifier: "AddProductVC") as? AddProductVC
+        scene.action = "edit"
         navigationController?.pushViewController(scene!, animated: true)
     }
     
@@ -93,6 +94,7 @@ extension OwnerStoresVC: UITableViewDelegate, UITableViewDataSource{
         cell.deleteBtn.addTarget(self, action: #selector(deleteStore), for: .touchUpInside)
         cell.editButton.tag = indexPath.row
         cell.editButton.addTarget(self, action: #selector(editStore), for: .touchUpInside)
+        cell.rateView.isUserInteractionEnabled = false
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

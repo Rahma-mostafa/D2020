@@ -21,6 +21,7 @@ class AddProductVC: UIViewController {
     var storeId = 0
     var fileURL: URL?
     var imagePicker = UIImagePickerController()
+    var action = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,55 @@ class AddProductVC: UIViewController {
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/products/store/\(storeId)"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire.upload(multipartFormData: {[weak self] formData in
+            for (key,value) in requestParameters{
+                formData.append(value.data(using: .utf8) ?? Data(), withName: key)
+            }
+            if self?.fileURL != nil{
+                
+                formData.append((self?.fileURL!)!, withName: "image")
+            }
+            
+        }, to: apiURL,method: .post,headers: headers) { result in
+            switch result{
+            case .success(let request, _, _):
+                print(request.debugDescription)
+                print(request.request?.debugDescription)
+                if true{
+                    request.responseData { data in
+                        print("Response : \(data.debugDescription)")
+                        if data.response?.statusCode == 200{
+                            KRProgressHUD.showSuccess(withMessage: "تم الحفظ بنجاح")
+                        }else{
+                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                        }
+                        
+                    }
+                    
+                }else{
+                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                }
+            case .failure(_):
+                KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+            }
+        }
+    }
+    func editProduct(){
+        KRProgressHUD.show()
+        let name = "\(nameTextField.text ?? "")"
+        let arabicName = arabicNameTextField.text
+        let desc = discTextField.text
+        let arabicDesc = arabicDescTextField.text
+        let price = priceTextField.text
+        let offer = offerTextField.text
+        choosePhotoTextField.isUserInteractionEnabled = false
+        let requestParameters = ["name": name ,"arabic_name": arabicName ?? "",
+                                 "description": desc ?? "" , "arabic_description": arabicDesc ?? "",
+                                 "price": price ?? "", "offer": offer ?? "" ]
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/update/\(storeId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire.upload(multipartFormData: {[weak self] formData in
             for (key,value) in requestParameters{
@@ -111,7 +161,11 @@ class AddProductVC: UIViewController {
     }
     
     @IBAction func onSaveBtnTapped(_ sender: Any) {
-        addProduct()
+        if action == "edit"{
+            editProduct()
+        }else{
+            addProduct()
+        }
     }
     
 

@@ -18,11 +18,9 @@ struct CityStoresData: Codable {
     let data: [CityStoresDetails]?
     let firstPageURL: String?
     let from, lastPage: Int?
-    let lastPageURL: String?
     let nextPageURL: JSONNull?
     let path: String?
     let perPage: Int?
-    let prevPageURL: JSONNull?
     let to, total: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -31,11 +29,9 @@ struct CityStoresData: Codable {
         case firstPageURL = "first_page_url"
         case from
         case lastPage = "last_page"
-        case lastPageURL = "last_page_url"
         case nextPageURL = "next_page_url"
         case path
         case perPage = "per_page"
-        case prevPageURL = "prev_page_url"
         case to, total
     }
 }
@@ -46,17 +42,16 @@ struct CityStoresDetails: Codable {
     let image: String?
     let rating: Int?
     let address: String?
-    let lati, longi: JSONNull?
+    let lati, longi: String?
     let cityID, categoryID, subscriberID: Int?
     let end, name, arabicName: String?
-    let code: JSONNull?
+    let code: String?
     let phone, email, datumDescription, arabicDescription: String?
     let subCategoryID: Int?
-    let video: JSONNull?
+    let video: String?
     let begin: String?
-    let best: JSONNull?
     let status: String?
-    let views: JSONNull?
+    let views: Int?
     let createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
@@ -70,7 +65,7 @@ struct CityStoresDetails: Codable {
         case datumDescription = "description"
         case arabicDescription = "arabic_description"
         case subCategoryID = "sub_category_id"
-        case video, begin, best, status, views
+        case video, begin, status, views
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

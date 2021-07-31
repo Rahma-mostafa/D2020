@@ -81,6 +81,11 @@ class CategoriesVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
+//                do{
+//                    try jsonConverter.decode(SubCategories.self, from: result.data!)
+//                }catch let error {
+//                    print("\(error)")
+//                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategories.self, from: result.data!) else{
                 print("nil")
 

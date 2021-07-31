@@ -198,9 +198,9 @@ class MenuVC: UIViewController {
     // user data
         func userProfileRequest(){
 //            KRProgressHUD.show()
-            let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
+            guard let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue) else{ return }
             let jsonConverter = JSONDecoder()
-            guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!) else{return}
+            guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson) else{return}
             self.userNameLabel.text = apiResponseModel.data.name ?? ""
             self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
             let imageUrl = "\(apiResponseModel.data.photo ?? "")"

@@ -37,6 +37,11 @@ class OwnerStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: headers)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
+                do{
+                    try jsonConverter.decode(OwnerStores.self, from: result.data!)
+                }catch let error{
+                    print("\(error)")
+                }
                 guard let apiResponseModel = try? jsonConverter.decode(OwnerStores.self, from: result.data!) else{
                 return}
                 self?.savedStoresArray.append(contentsOf: apiResponseModel.data.stores)

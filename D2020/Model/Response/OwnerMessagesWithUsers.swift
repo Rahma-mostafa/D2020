@@ -17,7 +17,7 @@ struct OwnerMessagesWithUsers: Codable {
 struct MessageDetails: Codable {
     let id: Int?
     let subject, message, type: String?
-    let file: JSONNull?
+    let file: String?
     let senderID, userType, receiverID, subscriberID: Int?
     let stageID: Int?
     let chat: String?

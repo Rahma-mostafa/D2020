@@ -16,10 +16,10 @@ struct SubCategories: Codable {
 struct SubCategoriesData: Codable {
     let id: Int?
     let arabicName: String?
-    let name, arabicDescription, datumDescription: JSONNull?
+    let name: String?
+    let arabicDescription, datumDescription: String?
     let parent: Int?
     let image: String?
-    let imageBack: JSONNull?
     let createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
@@ -29,7 +29,6 @@ struct SubCategoriesData: Codable {
         case arabicDescription = "arabic_description"
         case datumDescription = "description"
         case parent, image
-        case imageBack = "image_back"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

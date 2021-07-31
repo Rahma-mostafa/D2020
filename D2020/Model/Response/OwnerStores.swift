@@ -31,13 +31,11 @@ struct StoreData: Codable {
     let address, lati, longi: String?
     let cityID, categoryID, subscriberID: Int?
     let end, name, arabicName: String?
-    let code: JSONNull?
+    let code: String?
     let phone, email, storeDataDescription, arabicDescription: String?
     let subCategoryID: Int?
     let video, begin: String?
-    let best: JSONNull?
     let status: String?
-    let views: JSONNull?
     let createdAt, updatedAt: String?
     let images: [OwnerStoreImage]?
 
@@ -52,7 +50,7 @@ struct StoreData: Codable {
         case storeDataDescription = "description"
         case arabicDescription = "arabic_description"
         case subCategoryID = "sub_category_id"
-        case video, begin, best, status, views
+        case video, begin, status
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case images

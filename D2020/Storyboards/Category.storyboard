@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8sK-fV-U6X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4CP-hO-qMx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -14,7 +14,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
     </customFonts>
@@ -1194,6 +1194,7 @@
                         <outlet property="commentLabel" destination="Mta-81-Wji" id="pPX-Om-0RY"/>
                         <outlet property="commentTableView" destination="YpD-TC-aeX" id="Ybe-hb-St5"/>
                         <outlet property="pageView" destination="M4s-Vm-WSA" id="OKe-Vj-OBM"/>
+                        <outlet property="photoCollectionView" destination="Luq-sv-jf0" id="uqB-Qu-SAw"/>
                         <outlet property="postBtn" destination="O04-qH-04D" id="pSM-cW-W3b"/>
                         <outlet property="productCollectionView" destination="Mwp-jJ-Mvf" id="CmF-Wx-vKr"/>
                         <outlet property="productLabel" destination="alh-BR-IXv" id="KY3-ED-Km2"/>
@@ -1381,6 +1382,165 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2n-oZ-iMs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7119" y="46"/>
+        </scene>
+        <!--All User ChatsVC-->
+        <scene sceneID="TIV-UY-BY6">
+            <objects>
+                <viewController storyboardIdentifier="AllUserChatsVC" id="2LS-Vb-tHt" customClass="AllUserChatsVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jdi-2g-MNA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9bw-Wo-eY4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jUS-jC-i0V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9bw-Wo-eY4" firstAttribute="leading" secondItem="jUS-jC-i0V" secondAttribute="leading" id="491-iB-psO"/>
+                            <constraint firstItem="9bw-Wo-eY4" firstAttribute="bottom" secondItem="jUS-jC-i0V" secondAttribute="bottom" id="az3-8Y-ofa"/>
+                            <constraint firstItem="9bw-Wo-eY4" firstAttribute="trailing" secondItem="jUS-jC-i0V" secondAttribute="trailing" id="oEk-eN-6b8"/>
+                            <constraint firstItem="9bw-Wo-eY4" firstAttribute="top" secondItem="jUS-jC-i0V" secondAttribute="top" id="tUr-E8-9xg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XEl-SW-oNP"/>
+                    <connections>
+                        <outlet property="tableView" destination="9bw-Wo-eY4" id="LrG-Ib-Bzq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ie8-Hj-pEA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10891" y="46"/>
+        </scene>
+        <!--Choose Chat View Controller-->
+        <scene sceneID="ejc-lH-Iju">
+            <objects>
+                <viewController storyboardIdentifier="ChooseChatViewController" id="DpQ-h5-kBU" customClass="ChooseChatViewController" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="npb-as-lDc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w5t-YY-FvD">
+                                <rect key="frame" x="40" y="138" width="334" height="196"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-xA-VgG">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="52"/>
+                                        <color key="backgroundColor" name="OrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="KaQ-ZA-AnJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <state key="normal" title="contact with admin">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="contact with Admin"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onAdmin:" destination="DpQ-h5-kBU" eventType="touchUpInside" id="AmM-bM-RDP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1g-eH-3gg">
+                                        <rect key="frame" x="0.0" y="72" width="334" height="52"/>
+                                        <color key="backgroundColor" name="OrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="RV7-0q-IV8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <state key="normal" title="chat with users">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="contact with owners"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onUserBtnTapped:" destination="DpQ-h5-kBU" eventType="touchUpInside" id="M9t-PS-u08"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1G-gI-I2r">
+                                        <rect key="frame" x="0.0" y="144" width="334" height="52"/>
+                                        <color key="backgroundColor" name="OrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="7oz-84-UF8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <state key="normal" title="chat with users">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="11"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="contact with delegate"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onDelegateBtn:" destination="DpQ-h5-kBU" eventType="touchUpInside" id="CD8-7k-GbG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="d1g-eH-3gg" firstAttribute="height" secondItem="lAk-xA-VgG" secondAttribute="height" id="oZO-sp-Hh4"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5sL-aI-InC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w5t-YY-FvD" firstAttribute="top" secondItem="5sL-aI-InC" secondAttribute="top" constant="50" id="aul-ZC-CMn"/>
+                            <constraint firstItem="5sL-aI-InC" firstAttribute="trailing" secondItem="w5t-YY-FvD" secondAttribute="trailing" constant="40" id="jhP-rn-Olu"/>
+                            <constraint firstItem="w5t-YY-FvD" firstAttribute="leading" secondItem="5sL-aI-InC" secondAttribute="leading" constant="40" id="rYq-ed-2uL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="NWM-4q-iEs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aj4-8T-0gn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10925" y="-595"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cms-Rs-Mch">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oCY-tX-Rz6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fkI-p8-1p7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2LS-Vb-tHt" kind="relationship" relationship="rootViewController" id="787-Hh-Nle"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-rh-L9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9911.5942028985519" y="45.535714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Kv-2H-kCi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4CP-hO-qMx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9zV-yy-ovF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="OrangeColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DpQ-h5-kBU" kind="relationship" relationship="rootViewController" id="JTe-tu-fwB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GwI-kS-vXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9912" y="-595"/>
         </scene>
     </scenes>
     <designables>

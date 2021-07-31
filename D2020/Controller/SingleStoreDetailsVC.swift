@@ -137,6 +137,10 @@ class SingleStoreDetailsVC: UIViewController {
     }
     
     @IBAction func onMsgBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "ChooseChatViewController") as!          ChooseChatViewController
+        navigationController?.pushViewController(scene, animated: true)
+        
     }
     @IBAction func onMapBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)

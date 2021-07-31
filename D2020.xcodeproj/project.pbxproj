@@ -75,6 +75,9 @@
 		FA72973826A1B9D7007BF985 /* AddPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */; };
 		FA72973926A1B9D7007BF985 /* AddPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */; };
 		FA743E9C26B4C82900296327 /* CityStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743E9B26B4C82900296327 /* CityStores.swift */; };
+		FA743EDD26B4DE5400296327 /* AllUserChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743EDC26B4DE5400296327 /* AllUserChatsVC.swift */; };
+		FA743EE226B4E83400296327 /* ChooseChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743EE126B4E83400296327 /* ChooseChatViewController.swift */; };
+		FA743EE726B4EBC800296327 /* singleUserMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA743EE626B4EBC800296327 /* singleUserMessageVC.swift */; };
 		FA771348269B2BFB00D8B09E /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA771347269B2BFB00D8B09E /* RegisterVC.swift */; };
 		FA7A6410267B2E0000DAE9FF /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A640E267B2E0000DAE9FF /* RateCell.swift */; };
 		FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7A640F267B2E0000DAE9FF /* RateCell.xib */; };
@@ -231,6 +234,9 @@
 		FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoCell.swift; sourceTree = "<group>"; };
 		FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoCell.xib; sourceTree = "<group>"; };
 		FA743E9B26B4C82900296327 /* CityStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStores.swift; sourceTree = "<group>"; };
+		FA743EDC26B4DE5400296327 /* AllUserChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserChatsVC.swift; sourceTree = "<group>"; };
+		FA743EE126B4E83400296327 /* ChooseChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseChatViewController.swift; sourceTree = "<group>"; };
+		FA743EE626B4EBC800296327 /* singleUserMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleUserMessageVC.swift; sourceTree = "<group>"; };
 		FA771347269B2BFB00D8B09E /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		FA7A640E267B2E0000DAE9FF /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		FA7A640F267B2E0000DAE9FF /* RateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
@@ -488,6 +494,9 @@
 				FA9CF1A426ADC928002261D9 /* OwnerStoresVC.swift */,
 				FA72972926A1B0F2007BF985 /* OwnerStoreDetailsVC.swift */,
 				FA2DB40226B0168C002DBA13 /* AddProductVC.swift */,
+				FA743EE126B4E83400296327 /* ChooseChatViewController.swift */,
+				FA743EDC26B4DE5400296327 /* AllUserChatsVC.swift */,
+				FA743EE626B4EBC800296327 /* singleUserMessageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -858,6 +867,7 @@
 				FA0AAF3E26655BEA005E9E35 /* UploadForMandoopVC.swift in Sources */,
 				FA9CF16026ACCC21002261D9 /* CategoryForOwnerCell.swift in Sources */,
 				FACA9E852671E3890014B9DA /* SectionsCell.swift in Sources */,
+				FA743EE726B4EBC800296327 /* singleUserMessageVC.swift in Sources */,
 				FA9CF1AD26ADCBED002261D9 /* OwnerStores.swift in Sources */,
 				FA7CA26D2677FD9E00A8238C /* DelegateRateVC.swift in Sources */,
 				FA122C75268AEAC3008BCA3C /* Stores.swift in Sources */,
@@ -915,9 +925,11 @@
 				FA0AAF5426657BF0005E9E35 /* SliderCell.swift in Sources */,
 				FAB69A0E269BE9100030E1F6 /* AboutVC.swift in Sources */,
 				FA72972526A1A75A007BF985 /* AddStoreVC.swift in Sources */,
+				FA743EDD26B4DE5400296327 /* AllUserChatsVC.swift in Sources */,
 				FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */,
 				D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */,
 				FACB1EAA268D9F5D00299506 /* SingleChatViewController.swift in Sources */,
+				FA743EE226B4E83400296327 /* ChooseChatViewController.swift in Sources */,
 				FA9CF1A526ADC928002261D9 /* OwnerStoresVC.swift in Sources */,
 				FA33236026AF2D1E006545D2 /* StoreProducts.swift in Sources */,
 				FA9CF20026AE5813002261D9 /* SubcategoryForOwner.swift in Sources */,

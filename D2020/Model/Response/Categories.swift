@@ -23,10 +23,10 @@ struct categoriesDataClass: Codable {
     let id: Int?
     let arabicName: String?
     let name: String?
-    let arabicDescription, datumDescription, parent: JSONNull?
+    let arabicDescription, datumDescription, parent: String?
     let image: String?
     let imageBack: String?
-    let createdAt, updatedAt: CategoriesAtedAt?
+    let createdAt, updatedAt: String?
     let subCatCount: Int?
 
     enum CodingKeys: String, CodingKey {

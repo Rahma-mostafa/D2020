@@ -29,7 +29,6 @@ class CategoriesVC: UIViewController {
     @IBOutlet weak var dropDown: UIPickerView!
 
     //variables
-    var list = ["جدة", "الرياض", "مكة","جدة", "الرياض", "مكة","جدة", "الرياض", "مكة"]
     var categoryArray = [categoriesDataClass]()
     var subcategoryArray = [SubCategoriesData]()
     var categoryId = 0
@@ -103,53 +102,8 @@ class CategoriesVC: UIViewController {
     
     
 }
-extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    
-       func numberOfComponents(in pickerView: UIPickerView) -> Int {
-           return 1
-       }
-       
-       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-           return list.count
-       }
-       
-       func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource {
 
-           self.view.endEditing(true)
-           return list[row]
-       }
-
-       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-           self.textBox.text = self.list[row]
-           self.dropDown.isHidden = true
-       }
-
-       func textFieldDidBeginEditing(_ textField: UITextField) {
-
-           if textField == self.textBox {
-               self.dropDown.isHidden = false
-               //if you don't want the users to se the keyboard type:
-
-               textField.endEditing(true)
-           }
-       }
-       func textFieldDidEndEditing(_ textField: UITextField) {
-           if textField == self.textBox {
-               self.dropDown.isHidden = true
-               //if you don't want the users to se the keyboard type:
-
-               textField.endEditing(true)
-           }
-       }
-    @IBAction func onDropButtonTapped(_ sender: Any) {
-        if self.dropDown.isHidden == true{
-            self.dropDown.isHidden = false
-        }else{
-            self.dropDown.isHidden = true
-        }
-    }
-    
     // categories
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

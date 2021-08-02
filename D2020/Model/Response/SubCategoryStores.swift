@@ -10,7 +10,11 @@ import Foundation
 struct SubCategoryStores: Codable {
     let status: Bool?
     let message: String?
-    let data: [SubCategoryStoresData]?
+    let data: SubCategoryPage?
+}
+
+struct SubCategoryPage: Codable{
+    var data: [SubCategoryStoresData]?
 }
 
 // MARK: - Datum
@@ -26,7 +30,7 @@ struct SubCategoryStoresData: Codable {
     let image: String
     let video: String?
     let begin, end: String?
-    let status: Int?
+    let status: String?
     let longi, lati: String?
     let best, rating, views: Int?
     let createdAt, updatedAt: String?

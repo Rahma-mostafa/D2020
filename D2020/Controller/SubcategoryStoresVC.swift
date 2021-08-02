@@ -68,9 +68,13 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-               
+                do{
+                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
+                }catch let error{
+                    print("\(error)")
+                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -86,7 +90,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -102,7 +106,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -118,7 +122,7 @@ class SubcategoryStoresVC: UIViewController {
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
-                self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
+                self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 

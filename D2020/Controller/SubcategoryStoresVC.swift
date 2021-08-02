@@ -68,6 +68,11 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
+                do{
+                    
+                }let catch error{
+                    
+                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()

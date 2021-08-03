@@ -21,7 +21,7 @@ class SubcategoryStoresVC: UIViewController {
     var citiesArray = [CitiesDataClass]()
     var subcategoryId = 0
     var SubCategoryStoresArray = [SubCategoryStoresData]()
-    var cityStoresArray = [CityStoresDetails]()
+    var cityStoresArray = [SubCategoryStoresData]()
     var index = 3
     var storeId = 0
     var cityId = 0
@@ -80,15 +80,41 @@ class SubcategoryStoresVC: UIViewController {
 
             }
     }
+    func cityStoresRequest(){
+        KRProgressHUD.show()
+        print("subcategoryId = \(subcategoryId)")
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/city_stores/\(cityId)"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+                do{
+                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
+                }catch let error{
+                    print("\(error)")
+                }
+            guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
+                self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.StoresTableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
     func descStoresRequest(){
         KRProgressHUD.show()
-        print(subcategoryId)
+        print("subcategoryId = \(subcategoryId)")
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/desc_stores/\(subcategoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
+                do{
+                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
+                }catch let error{
+                    print("\(error)")
+                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
@@ -98,13 +124,18 @@ class SubcategoryStoresVC: UIViewController {
     }
     func ascStoresRequest(){
         KRProgressHUD.show()
-        print(subcategoryId)
+        print("subcategoryId = \(subcategoryId)")
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/asc_stores/\(subcategoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
+                do{
+                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
+                }catch let error{
+                    print("\(error)")
+                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
@@ -114,13 +145,18 @@ class SubcategoryStoresVC: UIViewController {
     }
     func mostViewsStoresRequest(){
         KRProgressHUD.show()
-        print(subcategoryId)
+        print("subcategoryId = \(subcategoryId)")
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/most_views_stores/\(subcategoryId)"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
+                do{
+                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
+                }catch let error{
+                    print("\(error)")
+                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
                 self?.StoresTableView.reloadData()
@@ -140,24 +176,6 @@ class SubcategoryStoresVC: UIViewController {
                 self?.citiesArray = apiResponseModel.data
                 self?.citiesTableView.reloadData()
                 print("\(self!.citiesArray)")
-                KRProgressHUD.dismiss()
-
-            }
-    }
-    func cityStores(){
-        KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/city_stores/\(cityId)"
-        print("citiyId = \(cityId)")
-
-        guard let apiURL = URL(string: apiURLInString) else{ return }
-        Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .response {[weak self] result in
-            let jsonConverter = JSONDecoder()
-            guard let apiResponseModel = try? jsonConverter.decode(CityStores.self, from: result.data!) else{
-                return}
-                self?.cityStoresArray = apiResponseModel.data?.data ?? [CityStoresDetails]()
-                self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
             }
@@ -246,7 +264,7 @@ extension SubcategoryStoresVC:  UITextFieldDelegate ,UITableViewDelegate,UITable
         }else{
             self.cityId = citiesArray[indexPath.row].id
             self.textBox.text = citiesArray[indexPath.row].name
-            cityStores()
+            cityStoresRequest()
             self.cityView.isHidden = true
         }
        

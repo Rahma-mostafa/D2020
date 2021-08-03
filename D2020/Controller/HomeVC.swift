@@ -13,7 +13,7 @@ struct Slider {
     let image: String
 }
 
-class HomeVC: UIViewController {
+class HomeVC: BaseController {
     
     @IBOutlet weak var pageView: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -36,6 +36,7 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hiddenNav = true
         setup()
         storesRequest()
         categoriesRequest()

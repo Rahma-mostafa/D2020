@@ -30,6 +30,8 @@
 	<string>Please open store and delegate Locations</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>please open app adminstration location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app uses ypur locatio to personalize ypur app experience</string>
 	<key>NSLocationWhenInUseUsageDescription - 2</key>
 	<string>نحتاج الاذن لعرض موقعك علي الخريطة</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -38,10 +40,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>calibri-bold.ttf</string>
-		<string>Cairo.ttf</string>
-		<string>cairo-a93e41191f</string>
-		<string>ArbFONTS-Sukar Bold.ttf</string>
+		<string>Tajawal</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

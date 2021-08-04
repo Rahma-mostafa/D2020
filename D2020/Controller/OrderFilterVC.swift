@@ -6,37 +6,71 @@
 //
 
 import UIKit
+import CoreLocation
 
-class OrderFilterVC: BaseController {
+
+class OrderFilterVC: BaseController, CLLocationManagerDelegate {
     @IBOutlet weak var orderBtn: UIButton!
     @IBOutlet weak var newBtn: UIButton!
     @IBOutlet weak var mostVisitBtn: UIButton!
     var index = 0
     var subcategoryId = 0
+    let locationManager = CLLocationManager()
+    var latitude: CLLocationDegrees = 0.0
+    var longitude: CLLocationDegrees = 0.0
+
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hiddenNav = true
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+
 
     }
+    func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        let mylocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        print(location.coordinate.latitude, location.coordinate.longitude)
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
+        print(mylocation)
+        locationManager.stopUpdatingLocation()
+        
+//        if let location = locations.first {
+//            self.latitude = location.coordinate.latitude
+//            self.longitude = location.coordinate.longitude
+//            print(latitude,longitude)
+//        locationManager.stopUpdatingLocation()
+//        }
+    }
+   
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     func setNav(){
         let storyboard = UIStoryboard(name: "Category", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "SubcategoryStoresVC") as! SubcategoryStoresVC
         scene.index = self.index
         scene.subcategoryId = self.subcategoryId
+        scene.latitude = self.latitude
+        scene.longitude = self.longitude
         navigationController?.pushViewController(scene, animated: true)
-
-        
     }
+    
+   
+   
+    
     @IBAction func onOlderBtnTapped(_ sender: Any) {
         self.index = 0
         orderBtn.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
         newBtn.backgroundColor = .white
         mostVisitBtn.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.937254902, alpha: 1)
         setNav()
-        
-
-        
     }
     
     @IBAction func onNewBtnTapped(_ sender: Any) {
@@ -56,6 +90,13 @@ class OrderFilterVC: BaseController {
         setNav()
     
     }
+    
+    @IBAction func onNearByBtnTapped(_ sender: Any) {
+        self.index = 3
+        setNav()
+
+    }
+    
     
     @IBAction func onCancelBtnTapped(_ sender: Any) {
         self.dismiss(animated: true)

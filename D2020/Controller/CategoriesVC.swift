@@ -10,24 +10,14 @@ import Alamofire
 import KRProgressHUD
 import SDWebImage
 
-struct Category{
-    var image: String
-    var name: String
-}
-struct Subcategory{
-    var image: String
-    var name: String
-    var rate: String
-}
 
 class CategoriesVC: UIViewController {
     
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var SubCategoryTableView: UITableView!
-    @IBOutlet weak var textBox: UITextField!
-    @IBOutlet weak var dropDown: UIPickerView!
 
+    @IBOutlet weak var noFieldLabel: UILabel!
     //variables
     var categoryArray = [categoriesDataClass]()
     var subcategoryArray = [SubCategoriesData]()
@@ -39,6 +29,7 @@ class CategoriesVC: UIViewController {
         setup()
         categoriesRequest()
         subCategoriesRequest()
+        showNoData()
 
     }
     func setup(){
@@ -49,6 +40,14 @@ class CategoriesVC: UIViewController {
         SubCategoryTableView.dataSource = self
 
         
+    }
+    func showNoData(){
+        if subcategoryArray.isEmpty == true {
+            self.noFieldLabel.text = "This category has no subcategory".localized()
+        }else{
+            self.noFieldLabel.text = ""
+
+        }
     }
   
     
@@ -87,11 +86,10 @@ class CategoriesVC: UIViewController {
 //                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategories.self, from: result.data!) else{
                 print("nil")
-
                 return}
                 self?.subcategoryArray = apiResponseModel.data ?? [SubCategoriesData]()
+                self?.showNoData()
                 self?.SubCategoryTableView.reloadData()
-                print("\(self!.subcategoryArray)")
                 KRProgressHUD.dismiss()
 
             }
@@ -144,6 +142,7 @@ extension CategoriesVC: UICollectionViewDelegate, UICollectionViewDataSource,UIT
         let storyboard = UIStoryboard(name: "Category", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "SubcategoryStoresVC") as!  SubcategoryStoresVC
         scene.subcategoryId = self.subcategoryId
+        scene.categoryId = self.categoryId
         navigationController?.pushViewController(scene, animated: true)
         
     }

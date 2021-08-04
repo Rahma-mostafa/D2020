@@ -103,22 +103,57 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="arabic_name"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A2b-b3-f6Y">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMD-c1-jVE">
                                                 <rect key="frame" x="0.0" y="128" width="374" height="48"/>
-                                                <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mc4-Ju-A6q">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                                        <color key="backgroundColor" name="RoundedBigView Color"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="Fz6-h7-2xz"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="18"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="choose_Location"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="choose_Location"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="X91-KG-CiR">
+                                                        <rect key="frame" x="336" y="0.0" width="30" height="48"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="0rf-H0-i90"/>
+                                                            <constraint firstAttribute="width" constant="30" id="KVw-P8-2sw"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcN-CK-FZD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                                        <connections>
+                                                            <action selector="onChooseLocationBtnTapped:" destination="WBU-lD-X4a" eventType="touchUpInside" id="Bwc-o9-9lP"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="PSg-0y-mfL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Mc4-Ju-A6q" secondAttribute="trailing" id="1mz-td-iFN"/>
+                                                    <constraint firstItem="Mc4-Ju-A6q" firstAttribute="leading" secondItem="FMD-c1-jVE" secondAttribute="leading" id="8OP-HB-trF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="X91-KG-CiR" secondAttribute="bottom" id="Cqx-ce-oGT"/>
+                                                    <constraint firstItem="X91-KG-CiR" firstAttribute="top" secondItem="FMD-c1-jVE" secondAttribute="top" id="EcC-V0-LIb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="WcN-CK-FZD" secondAttribute="bottom" id="GeH-BE-vNS"/>
+                                                    <constraint firstItem="WcN-CK-FZD" firstAttribute="leading" secondItem="FMD-c1-jVE" secondAttribute="leading" id="Oa9-Md-zea"/>
+                                                    <constraint firstItem="X91-KG-CiR" firstAttribute="top" secondItem="FMD-c1-jVE" secondAttribute="top" id="Oij-8u-l61"/>
+                                                    <constraint firstItem="Mc4-Ju-A6q" firstAttribute="top" secondItem="FMD-c1-jVE" secondAttribute="top" id="Qwt-bj-qLd"/>
+                                                    <constraint firstAttribute="bottom" secondItem="X91-KG-CiR" secondAttribute="bottom" id="ZRd-JA-7n4"/>
+                                                    <constraint firstAttribute="height" constant="48" id="eON-ED-lFP"/>
+                                                    <constraint firstItem="WcN-CK-FZD" firstAttribute="top" secondItem="FMD-c1-jVE" secondAttribute="top" id="fca-Im-7Hm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Mc4-Ju-A6q" secondAttribute="bottom" id="gqE-Zl-psx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="X91-KG-CiR" secondAttribute="trailing" constant="8" id="tjD-Um-a7D"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WcN-CK-FZD" secondAttribute="trailing" id="wcU-MF-nkF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="18"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="choose_Location"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="choose_Location"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmI-fU-4qW">
                                                 <rect key="frame" x="0.0" y="192" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
@@ -543,7 +578,6 @@
                         <outlet property="arabicNameTextField" destination="bN1-N9-4ol" id="kZa-h7-cBh"/>
                         <outlet property="categoryTableView" destination="bhn-Ig-5jc" id="lfH-oA-34e"/>
                         <outlet property="categoryTextFiled" destination="OTA-bd-1qM" id="3k6-8V-iVC"/>
-                        <outlet property="chooseLocationTextField" destination="A2b-b3-f6Y" id="mlT-qo-JpX"/>
                         <outlet property="choosePhotoTextField" destination="9ri-oC-4do" id="9hm-r3-7PB"/>
                         <outlet property="chooseVideoTextField" destination="Mh7-gx-DfU" id="v56-dH-DZQ"/>
                         <outlet property="cityTextField" destination="PB9-4X-Pdo" id="3u3-ey-sNm"/>
@@ -561,6 +595,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKB-DD-ube" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4704.347826086957" y="276.5625"/>
+        </scene>
+        <!--Store LocationVC-->
+        <scene sceneID="qrL-DJ-KHj">
+            <objects>
+                <viewController storyboardIdentifier="StoreLocationVC" id="TMK-NJ-ca1" customClass="StoreLocationVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pk3-AF-2cl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UlB-lh-8tB">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xMe-a6-LUG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UlB-lh-8tB" firstAttribute="top" secondItem="xMe-a6-LUG" secondAttribute="top" id="23d-PR-q7n"/>
+                            <constraint firstItem="UlB-lh-8tB" firstAttribute="trailing" secondItem="xMe-a6-LUG" secondAttribute="trailing" id="Awn-i0-mkJ"/>
+                            <constraint firstAttribute="bottom" secondItem="UlB-lh-8tB" secondAttribute="bottom" id="aWE-UN-ikg"/>
+                            <constraint firstItem="UlB-lh-8tB" firstAttribute="leading" secondItem="xMe-a6-LUG" secondAttribute="leading" id="l4p-Fm-qBY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z8a-PK-VmE"/>
+                    <connections>
+                        <outlet property="mapView" destination="UlB-lh-8tB" id="MXv-YG-GAL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dzl-s3-yBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5497.1014492753629" y="1246.875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aA3-fa-9kg">
@@ -1724,15 +1788,25 @@
             </objects>
             <point key="canvasLocation" x="7350.7246376811599" y="342.85714285714283"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WGc-fN-gfd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sm1-v8-k8N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mjN-4k-rpN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TMK-NJ-ca1" kind="relationship" relationship="rootViewController" id="2Hf-jW-QrX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="raa-nz-fgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4586.9565217391309" y="1246.875"/>
+        </scene>
     </scenes>
-    <designables>
-        <designable name="MGk-Mo-eis">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-        <designable name="u2E-ez-Ama">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>
         <image name="avatar" width="16" height="16"/>

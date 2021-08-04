@@ -93,9 +93,6 @@
 "price_lan" = "السعر";
 "chat_users" = "رسائل مع المستخرمين";
 "contact_admin" = "تواصل مع الادمن";
-"user_lan" = "User";
-"owner_lan" = "Owner";
-"delegate_lan" = "delegate";
 "user_lan" = "مستخدم عادي";
 "owner_lan" = "صاحب محل";
 "delegate_lan" = "مندوب";
@@ -112,6 +109,11 @@
 "date_lan" = "تاريخ انتهاء الاشتراك yyyy-mm--dd";
 "choosePhoto_lan" = "اختر صورة";
 "chooseVideo" = "اختر فيديو";
+"This category has no subcategory" = "هذا التصنيف لا يحتوي علي تصنيفات فرعية";
+"near by" = "الاقرب لموقعك";
+"There is no stores yet" = "لا يوجد محلات حتي الان";
+
+
 
 
 

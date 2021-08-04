@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import KRProgressHUD
 import SDWebImage
+import CoreLocation
 
 
 class SubcategoryStoresVC: UIViewController {
@@ -17,15 +18,23 @@ class SubcategoryStoresVC: UIViewController {
     @IBOutlet weak var cityView: UIView!
     @IBOutlet weak var filterContainerView: UIView!
     @IBOutlet weak var citiesTableView: UITableView!
+    
+    @IBOutlet weak var noStoreLabel: UILabel!
     //variables
     var citiesArray = [CitiesDataClass]()
     var subcategoryId = 0
+    var categoryId = 0
     var SubCategoryStoresArray = [SubCategoryStoresData]()
     var cityStoresArray = [SubCategoryStoresData]()
-    var index = 3
+    var index = 4
     var storeId = 0
     var cityId = 0
     var iconClick = true
+    var latitude: CLLocationDegrees = 0
+    var longitude: CLLocationDegrees = 0
+    
+
+    
 
     
     override func viewDidLoad() {
@@ -36,8 +45,17 @@ class SubcategoryStoresVC: UIViewController {
         print("orderIndex = \(index)")
         citiesRequest()
         self.filterContainerView.isHidden = true
+        showNoStore()
+
 
        
+    }
+    func showNoStore(){
+        if self.SubCategoryStoresArray.isEmpty == true{
+            self.noStoreLabel.text = "There is no stores yet".localized()
+        }else{
+            self.noStoreLabel.text = ""
+        }
     }
     func setup(){
         StoresTableView.delegate = self
@@ -54,6 +72,8 @@ class SubcategoryStoresVC: UIViewController {
             ascStoresRequest()
         }else if index == 2{
             mostViewsStoresRequest()
+        }else if index == 3{
+            nearStoresRequest()
         }else{
             subcategoriesStoresRequest()
         }
@@ -68,13 +88,14 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-                do{
-                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
-                }catch let error{
-                    print("\(error)")
-                }
+//                do{
+//                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
+//                }catch let error{
+//                    print("\(error)")
+//                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.showNoStore()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -89,13 +110,9 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-                do{
-                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
-                }catch let error{
-                    print("\(error)")
-                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.showNoStore()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -110,13 +127,9 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-                do{
-                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
-                }catch let error{
-                    print("\(error)")
-                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.showNoStore()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -131,13 +144,9 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-                do{
-                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
-                }catch let error{
-                    print("\(error)")
-                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.showNoStore()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -152,13 +161,27 @@ class SubcategoryStoresVC: UIViewController {
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-                do{
-                    try jsonConverter.decode(SubCategoryStores.self, from: result.data!)
-                }catch let error{
-                    print("\(error)")
-                }
             guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
                 self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.showNoStore()
+                self?.StoresTableView.reloadData()
+                KRProgressHUD.dismiss()
+
+            }
+    }
+    func nearStoresRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/nearby_stores"
+        let requestParameters = ["longi": longitude ,"lati": latitude , "category_id": categoryId ] as [String : Any]
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: requestParameters, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+            let jsonConverter = JSONDecoder()
+                print(self?.latitude,self?.longitude)
+            guard let apiResponseModel = try? jsonConverter.decode(SubCategoryStores.self, from: result.data!) else{return}
+                self?.SubCategoryStoresArray = apiResponseModel.data?.data ?? [SubCategoryStoresData]()
+                self?.showNoStore()
                 self?.StoresTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -175,7 +198,6 @@ class SubcategoryStoresVC: UIViewController {
             guard let apiResponseModel = try? jsonConverter.decode(Cities.self, from: result.data!) else{return}
                 self?.citiesArray = apiResponseModel.data
                 self?.citiesTableView.reloadData()
-                print("\(self!.citiesArray)")
                 KRProgressHUD.dismiss()
 
             }

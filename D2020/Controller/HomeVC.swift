@@ -36,7 +36,7 @@ class HomeVC: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hiddenNav = true
+//        self.hiddenNav = true
         setup()
         storesRequest()
         categoriesRequest()

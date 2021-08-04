@@ -305,6 +305,11 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         
         iconClick = !iconClick
     }
+    @IBAction func onChooseLocationBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "StoreLocationVC") as! StoreLocationVC
+        navigationController?.pushViewController(scene, animated: true)
+    }
     
     @IBAction func onChoosePhotoTextField(_ sender: Any) {
         chooseImage()

@@ -34,7 +34,6 @@
 		FA17AB67267DB4B700F02F03 /* WorkTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */; };
 		FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */; };
 		FA17AB6E267DC3CD00F02F03 /* WorkTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */; };
-		FA21A56326628A710085CA25 /* cairo-a93e41191f in Resources */ = {isa = PBXBuildFile; fileRef = FA21A56226628A710085CA25 /* cairo-a93e41191f */; };
 		FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21A56A26628BCF0085CA25 /* CountryCell.swift */; };
 		FA21A56D26628BCF0085CA25 /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA21A56B26628BCF0085CA25 /* CountryCell.xib */; };
 		FA21A57226628D150085CA25 /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21A57126628D150085CA25 /* LanguageController.swift */; };
@@ -120,6 +119,7 @@
 		FACB1EF4268DB04D00299506 /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB1EF3268DB04D00299506 /* StoreDetails.swift */; };
 		FAD2889C26769A1A009A4C30 /* SubcategoryStoresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */; };
 		FAD288AE26772126009A4C30 /* Delegate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD288AD26772126009A4C30 /* Delegate.storyboard */; };
+		FAEBB98426B9949D000B5CD3 /* StoreLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEBB98326B9949D000B5CD3 /* StoreLocationVC.swift */; };
 		FAF56A54266FFDAD009C6A3C /* UpgradeAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */; };
 		FAF5CDB026669A7E0002E1CB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5CDAE26669A7E0002E1CB /* CategoryCell.swift */; };
 		FAF5CDB126669A7E0002E1CB /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF5CDAF26669A7E0002E1CB /* CategoryCell.xib */; };
@@ -167,7 +167,6 @@
 		EA0C41DCE1722708DF0B920F /* Pods_D2020_D2020UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_D2020_D2020UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA084067269B6C3800B6363C /* SavedStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStores.swift; sourceTree = "<group>"; };
 		FA0840A6269B81E200B6363C /* SelectMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMapVC.swift; sourceTree = "<group>"; };
-		FA09B15A26632A800078DCC0 /* ArbFONTS-Sukar Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArbFONTS-Sukar Bold.ttf"; sourceTree = "<group>"; };
 		FA09B15E266332A20078DCC0 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FA0AAF2226646963005E9E35 /* Store.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
 		FA0AAF2E26646BDE005E9E35 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
@@ -185,7 +184,6 @@
 		FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeVC.swift; sourceTree = "<group>"; };
 		FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeCell.swift; sourceTree = "<group>"; };
 		FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkTimeCell.xib; sourceTree = "<group>"; };
-		FA21A56226628A710085CA25 /* cairo-a93e41191f */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "cairo-a93e41191f"; sourceTree = "<group>"; };
 		FA21A56A26628BCF0085CA25 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		FA21A56B26628BCF0085CA25 /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
 		FA21A57126628D150085CA25 /* LanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
@@ -220,10 +218,8 @@
 		FA59633E26611FD300A8C119 /* D2020UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = D2020UITests.swift; sourceTree = "<group>"; };
 		FA59634026611FD300A8C119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA59635B26612D0A00A8C119 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
-		FA59637D2661300200A8C119 /* calibri-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "calibri-bold.ttf"; sourceTree = "<group>"; };
 		FA5963902661493400A8C119 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA596395266155D700A8C119 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
-		FA59639D266157D700A8C119 /* Cairo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cairo.ttf; sourceTree = "<group>"; };
 		FA5963A126616F1700A8C119 /* SplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashController.swift; sourceTree = "<group>"; };
 		FA5963B42661930000A8C119 /* SecondSplashController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSplashController.swift; sourceTree = "<group>"; };
 		FA611DFA267A802700A3AD3B /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
@@ -261,6 +257,14 @@
 		FA9CF20426AE5F3D002261D9 /* StoresCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresCities.swift; sourceTree = "<group>"; };
 		FA9F102C269C6D6C000C42B3 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		FA9F1037269C7BEA000C42B3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		FAA1B78F26B952F200AD02DB /* Tajawal-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-ExtraBold.ttf"; sourceTree = "<group>"; };
+		FAA1B79026B952F200AD02DB /* Tajawal-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Light.ttf"; sourceTree = "<group>"; };
+		FAA1B79126B952F200AD02DB /* Tajawal-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Bold.ttf"; sourceTree = "<group>"; };
+		FAA1B79226B952F200AD02DB /* Tajawal-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Regular.ttf"; sourceTree = "<group>"; };
+		FAA1B79426B952F200AD02DB /* Tajawal-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Medium.ttf"; sourceTree = "<group>"; };
+		FAA1B79526B952F200AD02DB /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		FAA1B79626B952F200AD02DB /* Tajawal-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tajawal-Black.ttf"; sourceTree = "<group>"; };
 		FAA776A726619A2600D65636 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FAA7770F26619FF600D65636 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		FAB699F9269BCEAA0030E1F6 /* CitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCell.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 		FACB1EF3268DB04D00299506 /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		FAD2889B26769A1A009A4C30 /* SubcategoryStoresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryStoresVC.swift; sourceTree = "<group>"; };
 		FAD288AD26772126009A4C30 /* Delegate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Delegate.storyboard; sourceTree = "<group>"; };
+		FAEBB98326B9949D000B5CD3 /* StoreLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationVC.swift; sourceTree = "<group>"; };
 		FAF56A53266FFDAD009C6A3C /* UpgradeAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeAccountVC.swift; sourceTree = "<group>"; };
 		FAF5CDAE26669A7E0002E1CB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		FAF5CDAF26669A7E0002E1CB /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
@@ -497,6 +502,7 @@
 				FA743EE126B4E83400296327 /* ChooseChatViewController.swift */,
 				FA743EDC26B4DE5400296327 /* AllUserChatsVC.swift */,
 				FA743EE626B4EBC800296327 /* singleUserMessageVC.swift */,
+				FAEBB98326B9949D000B5CD3 /* StoreLocationVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -514,10 +520,7 @@
 		FA59637C26612FF300A8C119 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				FA21A56226628A710085CA25 /* cairo-a93e41191f */,
-				FA59637D2661300200A8C119 /* calibri-bold.ttf */,
-				FA09B15A26632A800078DCC0 /* ArbFONTS-Sukar Bold.ttf */,
-				FA59639D266157D700A8C119 /* Cairo.ttf */,
+				FAA1B78E26B952F200AD02DB /* Tajawal */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -569,6 +572,21 @@
 				FA9CF0F726AC3487002261D9 /* UserTypeKeys.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FAA1B78E26B952F200AD02DB /* Tajawal */ = {
+			isa = PBXGroup;
+			children = (
+				FAA1B78F26B952F200AD02DB /* Tajawal-ExtraBold.ttf */,
+				FAA1B79026B952F200AD02DB /* Tajawal-Light.ttf */,
+				FAA1B79126B952F200AD02DB /* Tajawal-Bold.ttf */,
+				FAA1B79226B952F200AD02DB /* Tajawal-ExtraLight.ttf */,
+				FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */,
+				FAA1B79426B952F200AD02DB /* Tajawal-Medium.ttf */,
+				FAA1B79526B952F200AD02DB /* OFL.txt */,
+				FAA1B79626B952F200AD02DB /* Tajawal-Black.ttf */,
+			);
+			path = Tajawal;
 			sourceTree = "<group>";
 		};
 		FAFDB03E266AB13E00CD08A1 /* localize */ = {
@@ -714,7 +732,6 @@
 				FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */,
 				FA0AAF2326646963005E9E35 /* Store.storyboard in Resources */,
 				FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */,
-				FA21A56326628A710085CA25 /* cairo-a93e41191f in Resources */,
 				FA27C83F267A7DF400EFC09B /* Premium.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -918,6 +935,7 @@
 				FA849B82268D4F0E0071CA3A /* OrderFilterVC.swift in Sources */,
 				D957646926824DBE00CD748F /* APIConstant.swift in Sources */,
 				FAF5CDC42666E2A80002E1CB /* PlacesCell.swift in Sources */,
+				FAEBB98426B9949D000B5CD3 /* StoreLocationVC.swift in Sources */,
 				FAFDB063266AEA1E00CD08A1 /* MenuVC.swift in Sources */,
 				FAB69A36269BF3290030E1F6 /* ContactUsVC.swift in Sources */,
 				FA743E9C26B4C82900296327 /* CityStores.swift in Sources */,

@@ -13,7 +13,7 @@
         <array key="ArbFONTS-Cairo-Bold-2.ttf">
             <string>Cairo-Bold</string>
         </array>
-        <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
+        <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
             <string>Cairo-SemiBold</string>
         </array>
     </customFonts>
@@ -130,6 +130,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="RoundedBigView Color"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="C36-cQ-zXC" secondAttribute="bottom" id="8oJ-rk-aWl"/>
                     <constraint firstItem="aYb-S2-MfK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Bma-qj-Gar"/>
@@ -153,11 +154,6 @@
             <point key="canvasLocation" x="140.57971014492756" y="51.5625"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="5MW-NG-G0l">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-    </designables>
     <resources>
         <image name="star (3)" width="13" height="12"/>
         <image name="star (notSelected)" width="13" height="12"/>

@@ -54,6 +54,8 @@
 		FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA49EFFC266B49E300215EFE /* Category.storyboard */; };
 		FA4AF3BB26992C7C00DC8296 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */; };
 		FA4AF3C826992DB300DC8296 /* UpdatePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */; };
+		FA4D5FEC26BAE5450006D78C /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D5FEB26BAE5450006D78C /* LocationSearchTable.swift */; };
+		FA4D601E26BB23E70006D78C /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D601D26BB23E70006D78C /* SearchCell.swift */; };
 		FA502B502683AF2A005A61DD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA502B4F2683AF2A005A61DD /* ProfileVC.swift */; };
 		FA502B582683ED64005A61DD /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA502B572683ED64005A61DD /* Cities.swift */; };
 		FA59631F26611FCF00A8C119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59631E26611FCF00A8C119 /* SceneDelegate.swift */; };
@@ -204,6 +206,8 @@
 		FA49EFFC266B49E300215EFE /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		FA4AF3BA26992C7C00DC8296 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		FA4AF3C726992DB300DC8296 /* UpdatePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePassword.swift; sourceTree = "<group>"; };
+		FA4D5FEB26BAE5450006D78C /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		FA4D601D26BB23E70006D78C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		FA502B4F2683AF2A005A61DD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		FA502B572683ED64005A61DD /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		FA59631926611FCF00A8C119 /* D2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = D2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,6 +507,7 @@
 				FA743EDC26B4DE5400296327 /* AllUserChatsVC.swift */,
 				FA743EE626B4EBC800296327 /* singleUserMessageVC.swift */,
 				FAEBB98326B9949D000B5CD3 /* StoreLocationVC.swift */,
+				FA4D5FEB26BAE5450006D78C /* LocationSearchTable.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -558,6 +563,7 @@
 				FA72973626A1B9D7007BF985 /* AddPhotoCell.swift */,
 				FA72973726A1B9D7007BF985 /* AddPhotoCell.xib */,
 				FA9CF15F26ACCC21002261D9 /* CategoryForOwnerCell.swift */,
+				FA4D601D26BB23E70006D78C /* SearchCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -949,7 +955,9 @@
 				FACB1EAA268D9F5D00299506 /* SingleChatViewController.swift in Sources */,
 				FA743EE226B4E83400296327 /* ChooseChatViewController.swift in Sources */,
 				FA9CF1A526ADC928002261D9 /* OwnerStoresVC.swift in Sources */,
+				FA4D601E26BB23E70006D78C /* SearchCell.swift in Sources */,
 				FA33236026AF2D1E006545D2 /* StoreProducts.swift in Sources */,
+				FA4D5FEC26BAE5450006D78C /* LocationSearchTable.swift in Sources */,
 				FA9CF20026AE5813002261D9 /* SubcategoryForOwner.swift in Sources */,
 				FA59631F26611FCF00A8C119 /* SceneDelegate.swift in Sources */,
 			);

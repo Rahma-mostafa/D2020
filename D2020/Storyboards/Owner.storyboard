@@ -17,6 +17,12 @@
         <array key="ArbFONTS-Cairo-SemiBold-3.ttf">
             <string>Cairo-SemiBold</string>
         </array>
+        <array key="Tajawal-Bold.ttf">
+            <string>Tajawal-Bold</string>
+        </array>
+        <array key="Tajawal-Regular.ttf">
+            <string>Tajawal-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Add StoreVC-->
@@ -625,6 +631,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzl-s3-yBf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5497.1014492753629" y="1246.875"/>
+        </scene>
+        <!--Location Search Table-->
+        <scene sceneID="bnI-SS-sYF">
+            <objects>
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="0rg-Ai-imx" customClass="LocationSearchTable" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z39-VF-2np">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SearchCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="mZc-D9-pzh" customClass="SearchCell" customModule="D2020" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="52.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZc-D9-pzh" id="UYB-Dp-wTE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="52.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jre-zd-wBW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-Bi-VPh">
+                                                    <rect key="frame" x="30" y="8" width="354" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJc-nc-Vlt">
+                                                    <rect key="frame" x="30" y="33" width="354" height="17"/>
+                                                    <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gJc-nc-Vlt" secondAttribute="trailing" constant="30" id="3eI-lZ-48w"/>
+                                                <constraint firstItem="gJc-nc-Vlt" firstAttribute="leading" secondItem="Jre-zd-wBW" secondAttribute="leading" constant="30" id="D1E-HS-N5a"/>
+                                                <constraint firstAttribute="bottom" secondItem="gJc-nc-Vlt" secondAttribute="bottom" constant="2.5" id="Epd-Y9-0ND"/>
+                                                <constraint firstAttribute="height" constant="52" id="MuW-j6-lAT"/>
+                                                <constraint firstItem="xoV-Bi-VPh" firstAttribute="leading" secondItem="Jre-zd-wBW" secondAttribute="leading" constant="30" id="b5T-5Z-Zuw"/>
+                                                <constraint firstItem="gJc-nc-Vlt" firstAttribute="top" secondItem="xoV-Bi-VPh" secondAttribute="bottom" constant="8" id="pTK-de-vlz"/>
+                                                <constraint firstItem="xoV-Bi-VPh" firstAttribute="top" secondItem="Jre-zd-wBW" secondAttribute="top" constant="8" id="x0K-MF-O4d"/>
+                                                <constraint firstAttribute="trailing" secondItem="xoV-Bi-VPh" secondAttribute="trailing" constant="30" id="zlu-1V-JmA"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Jre-zd-wBW" firstAttribute="top" secondItem="UYB-Dp-wTE" secondAttribute="top" id="ASb-qy-LdC"/>
+                                        <constraint firstAttribute="trailing" secondItem="Jre-zd-wBW" secondAttribute="trailing" id="Nfl-cK-j6q"/>
+                                        <constraint firstAttribute="bottom" secondItem="Jre-zd-wBW" secondAttribute="bottom" id="kEb-EZ-Mbe"/>
+                                        <constraint firstItem="Jre-zd-wBW" firstAttribute="leading" secondItem="UYB-Dp-wTE" secondAttribute="leading" id="w62-Yp-DUp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailLabel" destination="gJc-nc-Vlt" id="UDc-qk-IcM"/>
+                                    <outlet property="storeLabel" destination="xoV-Bi-VPh" id="dVE-Kg-mIU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0rg-Ai-imx" id="3ke-RW-f6X"/>
+                            <outlet property="delegate" destination="0rg-Ai-imx" id="DNK-w0-tP7"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OS3-16-Ls9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6176.811594202899" y="1246.875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aA3-fa-9kg">

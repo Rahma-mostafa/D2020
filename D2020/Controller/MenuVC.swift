@@ -51,7 +51,7 @@ class MenuVC: UIViewController {
         self.addStoreStackView.isHidden = true
     }
     func showOwnerStore(){
-        guard let userType = UserDefaults.standard.string(forKey: UserTypeKeys.OWNER.rawValue) else { return }
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
         print("User type is :"+userType)
         if userType == "owner"{
             self.myStoresStackView.isHidden = false
@@ -193,6 +193,7 @@ class MenuVC: UIViewController {
     func callingLogoutAPI(){
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_PROFILE.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.TYPE.rawValue)
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
         let navigationController = UINavigationController(rootViewController: scene!)
@@ -210,6 +211,11 @@ class MenuVC: UIViewController {
             self.nickNameLabel.text = apiResponseModel.data.typ ?? ""
             let imageUrl = "\(apiResponseModel.data.photo ?? "")"
             self.userImageView.sd_setImage(with: URL(string: imageUrl))
+            if imageUrl == ""{
+                self.userImageView.image = UIImage(named: "user")
+            }
+                
+            
 //            KRProgressHUD.dismiss()
 
         }

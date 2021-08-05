@@ -54,10 +54,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         let imageUrl = "\(apiResponseModel.data.photo ?? "")"
         self.userImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
         self.addressTextBox.text = apiResponseModel.data.address ?? ""
-        //        self.passwordTextField.text = apiResponseModel.data
-        
-        
-        
         //        KRProgressHUD.dismiss()
         
     }

@@ -148,9 +148,7 @@ class SigninVC: BaseController {
     }
     
     @IBAction func withoutSigningButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        navigationController?.pushViewController(scene, animated: true)
+        navToHomeWithoutSigning()
     }
     @IBAction func onShowBtnTapped(_ sender: Any) {
         if(iconClick == true) {
@@ -167,6 +165,12 @@ class SigninVC: BaseController {
     @IBAction func onNewAccountBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "CreateAccountVC") as! CreateAccountVC
+        navigationController?.pushViewController(scene, animated: true)
+    }
+    func navToHomeWithoutSigning(){
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         navigationController?.pushViewController(scene, animated: true)
     }
     

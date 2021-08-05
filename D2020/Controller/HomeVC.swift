@@ -21,9 +21,10 @@ class HomeVC: BaseController {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var storesCollectionView: UICollectionView!
+    @IBOutlet weak var countainerViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var menuContainerView: UIView!
-    @IBOutlet weak var menuForOwnerContainerView: UIView!
     // variables
+    var isSideMenuHidden = true
     var slider = [Slider(image: "header_login"),Slider(image: "b1"),Slider(image: "b2")]
     var categoryArray = [categoriesDataClass]()
     var storesArray = [StoesDataClass]()
@@ -45,6 +46,8 @@ class HomeVC: BaseController {
         }
         self.blurView.isHidden = true
         self.menuContainerView.isHidden = true
+//        countainerViewConstraint.constant = -450
+
     }
     
     @objc func changeImage() {
@@ -92,7 +95,6 @@ class HomeVC: BaseController {
     }
     @IBAction func menuBtnTapped(_ sender: Any) {
         if(iconClick == true){
-//            setBlur()
             self.menuContainerView.isHidden = false
         }else{
             self.menuContainerView.isHidden = true

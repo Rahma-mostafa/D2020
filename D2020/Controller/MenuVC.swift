@@ -41,6 +41,7 @@ class MenuVC: UIViewController {
         ownerStoresGesture()
         addStoreGesture()
         logoutGesture()
+        userProfileRequest()
 //        languageGesture()
         
 
@@ -55,6 +56,9 @@ class MenuVC: UIViewController {
         if userType == "owner"{
             self.myStoresStackView.isHidden = false
             self.addStoreStackView.isHidden = false
+        }else{
+            self.myStoresStackView.isHidden = true
+            self.addStoreStackView.isHidden = true
         }
         
     }

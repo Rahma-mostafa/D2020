@@ -17,13 +17,21 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var cityTableView: UITableView!
     var iconClick = true
     var type = ""
     var apiURLInString = ""
+    var citiesArray = [CityData]()
+    var cityId = ""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityView.isHidden = true
+        cityTableView.delegate = self
+        cityTableView.dataSource = self
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +46,7 @@ class RegisterVC: UIViewController {
         let address = addressTextField.text
         let password = passwordTextField.text
         
-        let requestParameters = ["name": name ?? "","mobile": phone ?? "","address": address ?? "","email": mail ?? "","password": password ?? ""]
+        let requestParameters = ["name": name ?? "","mobile": phone ?? "","address": address ?? "","email": mail ?? "","password": password ?? "", "city_id": cityId ?? ""]
         if self.type == "user"{
              apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/register"
 
@@ -61,6 +69,31 @@ class RegisterVC: UIViewController {
                 }
                 
             }
+    }
+    func citiesRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/cities"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(StoresCities.self, from: result.data!) else{return}
+                self?.citiesArray = apiResponseModel.data ?? [CityData]()
+                self?.cityTableView.reloadData()
+                KRProgressHUD.dismiss()
+                
+            }
+    }
+    @IBAction func onCityBtnTapped(_ sender: Any) {
+        if(iconClick == true) {
+            cityView.isHidden = false
+            citiesRequest()
+        } else {
+            cityView.isHidden = true
+        }
+        
+        iconClick = !iconClick
     }
     @IBAction func onShowPassBtn(_ sender: Any) {
         if(iconClick == true) {
@@ -101,4 +134,28 @@ class RegisterVC: UIViewController {
     
     
 
+}
+extension RegisterVC: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return citiesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryForOwnerCell", for: indexPath) as! CategoryForOwnerCell
+        cell.categoryLabel.text = citiesArray[indexPath.row].name
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        self.cityTextField.text = citiesArray[indexPath.row].name
+        self.cityId = String(citiesArray[indexPath.row].id ?? 0)
+        self.cityView.isHidden = true
+    }
+        
+        
+    
+
+
+    
+    
 }

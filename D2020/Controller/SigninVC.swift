@@ -169,6 +169,7 @@ class SigninVC: BaseController {
     }
     func navToHomeWithoutSigning(){
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_PROFILE.rawValue)
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         navigationController?.pushViewController(scene, animated: true)

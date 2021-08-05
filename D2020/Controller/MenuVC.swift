@@ -192,6 +192,7 @@ class MenuVC: UIViewController {
 //    }
     func callingLogoutAPI(){
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
+        UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_PROFILE.rawValue)
         let storyboard = UIStoryboard(name: "Auth", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
         let navigationController = UINavigationController(rootViewController: scene!)

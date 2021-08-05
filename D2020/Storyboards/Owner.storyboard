@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -771,13 +770,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كافيه الغروب" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9Q-rM-Kqd">
-                                                        <rect key="frame" x="12" y="40" width="276" height="19"/>
+                                                        <rect key="frame" x="12" y="40" width="244" height="19"/>
                                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B39-5p-m6E">
-                                                        <rect key="frame" x="308" y="29.5" width="88" height="40"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B39-5p-m6E">
+                                                        <rect key="frame" x="276" y="29.5" width="120" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-D2-aCK">
                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -785,13 +784,24 @@
                                                                     <constraint firstAttribute="width" constant="40" id="JsF-os-qar"/>
                                                                     <constraint firstAttribute="height" constant="40" id="Lm0-zg-PWh"/>
                                                                 </constraints>
+                                                                <state key="normal" image="qr_code"/>
+                                                                <connections>
+                                                                    <action selector="onQRCodeBtnTapped:" destination="IcL-6v-x4F" eventType="touchUpInside" id="Anl-v0-Aax"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spW-a3-H61">
+                                                                <rect key="frame" x="40" y="0.0" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="40" id="Z2T-iV-qmz"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="Z4O-ol-Mqd"/>
+                                                                </constraints>
                                                                 <state key="normal" image="save@2x"/>
                                                                 <connections>
-                                                                    <action selector="onSaveBtnTapped:" destination="IcL-6v-x4F" eventType="touchUpInside" id="gFe-8h-Wol"/>
+                                                                    <action selector="onSaveBtnTapped:" destination="IcL-6v-x4F" eventType="touchUpInside" id="4rX-73-sEF"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZz-bz-Kug">
-                                                                <rect key="frame" x="48" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="80" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Shv-2w-d9s"/>
                                                                     <constraint firstAttribute="width" constant="40" id="qJb-KK-OOA"/>
@@ -1888,6 +1898,7 @@
         <image name="down_arrow" width="16" height="16"/>
         <image name="map@-1" width="14.5" height="18"/>
         <image name="msg" width="18" height="18"/>
+        <image name="qr_code" width="42" height="42"/>
         <image name="save@2x" width="49" height="49"/>
         <image name="share" width="42" height="42"/>
         <image name="star (-1" width="13" height="12.5"/>

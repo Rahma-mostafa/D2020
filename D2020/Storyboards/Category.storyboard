@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -669,14 +668,14 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كافيه الغروب" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiM-FB-XZe">
-                                                        <rect key="frame" x="12" y="40" width="68.5" height="19"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كافيه الغروب" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiM-FB-XZe">
+                                                        <rect key="frame" x="12" y="40" width="244" height="19"/>
                                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sKc-tR-089">
-                                                        <rect key="frame" x="308" y="29.5" width="88" height="40"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKc-tR-089">
+                                                        <rect key="frame" x="276" y="29.5" width="120" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NC-5k-hSy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -684,13 +683,24 @@
                                                                     <constraint firstAttribute="height" constant="40" id="Ivp-FQ-oEj"/>
                                                                     <constraint firstAttribute="width" constant="40" id="T0d-UU-boM"/>
                                                                 </constraints>
+                                                                <state key="normal" image="qr_code"/>
+                                                                <connections>
+                                                                    <action selector="onQRCodeBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="mKR-Kf-EoC"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrW-cV-Of9">
+                                                                <rect key="frame" x="40" y="0.0" width="40" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="Ebe-ck-aIj"/>
+                                                                    <constraint firstAttribute="width" constant="40" id="TxJ-tq-J1d"/>
+                                                                </constraints>
                                                                 <state key="normal" image="save@2x"/>
                                                                 <connections>
-                                                                    <action selector="onSaveBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="WA6-zr-Pbx"/>
+                                                                    <action selector="onSaveBtnTapped:" destination="c9Y-mi-8xF" eventType="touchUpInside" id="Jrz-A9-ZrZ"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-RJ-JrP">
-                                                                <rect key="frame" x="48" y="0.0" width="40" height="40"/>
+                                                                <rect key="frame" x="80" y="0.0" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="5xc-gA-37E"/>
                                                                     <constraint firstAttribute="height" constant="40" id="aC5-hA-D62"/>
@@ -1163,6 +1173,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="8P7-wo-v0L" secondAttribute="trailing" id="mL5-0T-AH3"/>
                                                     <constraint firstAttribute="trailing" secondItem="iG1-O2-Ey6" secondAttribute="trailing" id="mk8-oh-U5S"/>
                                                     <constraint firstItem="0Yk-wX-z3L" firstAttribute="leading" secondItem="4zO-a3-NrB" secondAttribute="leading" id="n2h-hc-HIq"/>
+                                                    <constraint firstItem="sKc-tR-089" firstAttribute="leading" secondItem="KiM-FB-XZe" secondAttribute="trailing" constant="20" id="o04-Ez-ohL"/>
                                                     <constraint firstAttribute="trailing" secondItem="YpD-TC-aeX" secondAttribute="trailing" id="rI9-GH-EB0"/>
                                                     <constraint firstItem="Rb0-ge-4pc" firstAttribute="leading" secondItem="4zO-a3-NrB" secondAttribute="leading" constant="16" id="s2m-Rv-hBe"/>
                                                     <constraint firstAttribute="trailing" secondItem="0Yk-wX-z3L" secondAttribute="trailing" id="tbn-H7-F5y"/>
@@ -1241,7 +1252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQ9-sW-jbo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9002.898550724638" y="8.7053571428571423"/>
+            <point key="canvasLocation" x="7788" y="9"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lhx-bC-aST">
@@ -1586,14 +1597,6 @@
             <point key="canvasLocation" x="9912" y="-595"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="myE-X7-4jo">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-        <designable name="vqy-nc-5s5">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>
         <image name="Polygon -1" width="13" height="6"/>
@@ -1605,6 +1608,7 @@
         <image name="map@-1" width="14.5" height="18"/>
         <image name="msg" width="18" height="18"/>
         <image name="online-store (1)" width="13.666666984558105" height="11.333333015441895"/>
+        <image name="qr_code" width="42" height="42"/>
         <image name="save@2x" width="49" height="49"/>
         <image name="share" width="42" height="42"/>
         <image name="star (-1" width="13" height="12.5"/>

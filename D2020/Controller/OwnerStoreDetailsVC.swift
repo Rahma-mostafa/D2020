@@ -299,9 +299,23 @@ class OwnerStoreDetailsVC: UIViewController {
             }
 
     }
+    func didTapWatch(url: String){
+        guard let url = URL(string: url) else {
+            return
+          }
+
+          if #available(iOS 10.0, *) {
+              UIApplication.shared.open(url, options: [:], completionHandler: nil)
+          } else {
+              UIApplication.shared.openURL(url)
+          }
+     }
     
     //MARK:- Buttons Action
     
+    @IBAction func onQRCodeBtnTapped(_ sender: Any) {
+        didTapWatch(url: "")
+    }
     @IBAction func onSaveBtnTapped(_ sender: Any) {
         saveStore()
         let storyboard = UIStoryboard(name: "Home", bundle: nil)

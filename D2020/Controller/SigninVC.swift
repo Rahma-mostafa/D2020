@@ -47,7 +47,6 @@ class SigninVC: BaseController {
     
     @IBAction func onSigninButtonTapped(_ sender: Any) {
         if mailTextField.text!.isEmpty || passTextField.text!.isEmpty {
-
             // red placeholders
             mailTextField.attributedPlaceholder = NSAttributedString(string: "Phone number".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
             passTextField.attributedPlaceholder = NSAttributedString(string: "password".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
@@ -92,7 +91,6 @@ class SigninVC: BaseController {
             apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/login"
         }else if userType == "owner"{
             apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/login"
-
         }else if userType == "delegate"{
             apiURLInString = "\(APIConstant.BASE_URL.rawValue)rep/login"
         }else{
@@ -160,9 +158,9 @@ class SigninVC: BaseController {
     func navToHomeWithoutSigning(){
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_PROFILE.rawValue)
-        UserDefaults.standard.setValue("gust", forKey: UserDefaultKey.TYPE.rawValue)
+        UserDefaults.standard.setValue("guest", forKey: UserDefaultKey.TYPE.rawValue)
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        let scene = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         navigationController?.pushViewController(scene, animated: true)
     }
     

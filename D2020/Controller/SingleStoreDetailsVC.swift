@@ -111,24 +111,38 @@ class SingleStoreDetailsVC: UIViewController {
         guard let url = URL(string: url) else {
             return
           }
-
           if #available(iOS 10.0, *) {
               UIApplication.shared.open(url, options: [:], completionHandler: nil)
           } else {
               UIApplication.shared.openURL(url)
           }
      }
+   
     //MARK:- Buttons Action
     
     @IBAction func onQRCodeBtnTapped(_ sender: Any) {
-        didTapWatch(url: "")
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+//            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+//            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+         didTapWatch(url: "")
+        }
     }
     @IBAction func onSaveBtnTapped(_ sender: Any) {
-        saveStore()
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "FavouriteVC") as!  FavouriteVC
-        scene.storeId = self.storeId
-        navigationController?.pushViewController(scene, animated: true)
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+            saveStore()
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let scene = storyboard.instantiateViewController(withIdentifier: "FavouriteVC") as!  FavouriteVC
+            scene.storeId = self.storeId
+            navigationController?.pushViewController(scene, animated: true)
+        }
         
     }
     
@@ -140,20 +154,34 @@ class SingleStoreDetailsVC: UIViewController {
    
     
     @IBAction func onCallBtnTapped(_ sender: Any) {
-        let appURL = URL(string: "tel://\( phoneNumber )")!
-        if UIApplication.shared.canOpenURL(appURL) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(appURL)
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+            let appURL = URL(string: "tel://\( phoneNumber )")!
+            if UIApplication.shared.canOpenURL(appURL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(appURL)
+                }
             }
         }
     }
     
     @IBAction func onMsgBtnTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "ChooseChatViewController") as!          ChooseChatViewController
-        navigationController?.pushViewController(scene, animated: true)
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let scene = storyboard.instantiateViewController(withIdentifier: "ChooseChatViewController") as!          ChooseChatViewController
+            navigationController?.pushViewController(scene, animated: true)
+        }
         
     }
     @IBAction func onMapBtnTapped(_ sender: Any) {
@@ -163,8 +191,15 @@ class SingleStoreDetailsVC: UIViewController {
         navigationController?.pushViewController(scene, animated: true)
     }
     @IBAction func onPostBtnTapped(_ sender: Any) {
-        addStoreReview()
-        self.commentTableView.reloadData()
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+            addStoreReview()
+            self.commentTableView.reloadData()
+        }
     }
     
     
@@ -234,16 +269,23 @@ class SingleStoreDetailsVC: UIViewController {
             }
     }
     func userProfileRequest(){
-        KRProgressHUD.show()
-        let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
-        let jsonConverter = JSONDecoder()
-        guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{return}
-        print(apiResponseModel.data)
-        self.userNameLabel.text = apiResponseModel.data.name ?? ""
-        let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
-        self.userImageView.sd_setImage(with: imageUrl, completed: nil)
-        KRProgressHUD.dismiss()
-        
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+//            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+//            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+            KRProgressHUD.show()
+            let jsonConverter = JSONDecoder()
+            guard let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue) else{ return }
+            guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson) else{return}
+            print(apiResponseModel.data)
+            self.userNameLabel.text = apiResponseModel.data.name ?? ""
+            let imageUrl = URL(string: "\(apiResponseModel.data.photo ?? "")")
+            self.userImageView.sd_setImage(with: imageUrl, completed: nil)
+            KRProgressHUD.dismiss()
+        }
+            
     }
     func addStoreReview(){
         KRProgressHUD.show()

@@ -46,6 +46,8 @@ class MenuVC: UIViewController {
         
 
     }
+   
+   
     func hideOwnerStore(){
         self.myStoresStackView.isHidden = true
         self.addStoreStackView.isHidden = true
@@ -74,7 +76,7 @@ class MenuVC: UIViewController {
     }
  
     func profileGesture(){
-        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.imageTapped(recognizer:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.navToProfile(recognizer:)))
         tapGesture.numberOfTapsRequired = 1
         profileStackView.isUserInteractionEnabled = true
         profileStackView.addGestureRecognizer(tapGesture)
@@ -128,10 +130,17 @@ class MenuVC: UIViewController {
 //    }
 
 
-    @objc func imageTapped(recognizer: UITapGestureRecognizer){
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC
-        navigationController?.pushViewController(scene!, animated: true)
+    @objc func navToProfile(recognizer: UITapGestureRecognizer){
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }else{
+            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "ProfileVC") as? ProfileVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }
     }
     @objc func aboutImageTapped(recognizer: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
@@ -203,6 +212,10 @@ class MenuVC: UIViewController {
     
     // user data
         func userProfileRequest(){
+            guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+            if userType == "guest"{
+                self.userImageView.image = UIImage(named: "user")
+            }else{
 //            KRProgressHUD.show()
             guard let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue) else{ return }
             let jsonConverter = JSONDecoder()
@@ -217,8 +230,10 @@ class MenuVC: UIViewController {
                 
             
 //            KRProgressHUD.dismiss()
+            }
 
         }
+        
 
     
 

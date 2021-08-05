@@ -38,14 +38,19 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         changePasswordView.isHidden = true
     }
     
-    
-    
+   
+    // api requests
     func userProfileData(){
+        guard let userType = UserDefaults.standard.string(forKey: UserDefaultKey.TYPE.rawValue) else { return }
+        if userType == "guest"{
+            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+            let scene = storyboard.instantiateViewController(identifier: "SigninVC") as? SigninVC
+            navigationController?.pushViewController(scene!, animated: true)
+        }else{
         //        KRProgressHUD.show()
-        let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue)
         let jsonConverter = JSONDecoder()
-        guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson!)else{return}
-        print(apiResponseModel.data)
+        guard let userProfileInJson = UserDefaults.standard.data(forKey: UserDefaultKey.USER_PROFILE.rawValue) else{ return }
+        guard let apiResponseModel = try? jsonConverter.decode(LoginResponse.self, from: userProfileInJson) else{return}
         self.userNameLabel.text = apiResponseModel.data.name ?? ""
         self.userNameTextField.text = apiResponseModel.data.name ?? ""
         self.userNickNameLabel.text = apiResponseModel.data.typ ?? ""
@@ -55,9 +60,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate & UINavigatio
         self.userImage.sd_setImage(with: URL(string: imageUrl), completed: nil)
         self.addressTextBox.text = apiResponseModel.data.address ?? ""
         //        KRProgressHUD.dismiss()
+        }
         
     }
-    // api requests
     func editUserProfile(){
         KRProgressHUD.show()
         let name = userNameTextField.text ?? ""

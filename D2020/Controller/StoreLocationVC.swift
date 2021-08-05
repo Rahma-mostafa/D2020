@@ -146,7 +146,7 @@ class StoreLocationVC: UIViewController{
             pinView?.canShowCallout = true
             let smallSquare = CGSize(width: 30, height: 30)
             let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-            button.setBackgroundImage(UIImage(named: "car"), for: .normal)
+            button.setBackgroundImage(UIImage(named: "marker_store"), for: .normal)
             button.addTarget(self, action: #selector(getDirections), for: .touchUpInside)
             pinView?.leftCalloutAccessoryView = button
             return pinView

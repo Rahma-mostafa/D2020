@@ -22,7 +22,7 @@
 "Email or phone number" = "Email or phone number";
 "Password" = "Password";
 "New account" = "New account";
-"without Sign in" = "without Sign in";
+"without Sign in" = "Login as a guest";
 "Sign as" = "Sign as";
 "New user" = "New user";
 "New delegate" = "New delegate";
@@ -101,6 +101,8 @@
 "near by" = "near By your location";
 "There is no stores yet" = "There is no stores yet";
 "choose city" = "Choose city";
+"name" = "Name";
+"guest" = "guest";
 
 
 

@@ -519,7 +519,7 @@
                                                                     <color key="titleColor" name="OrangeColor"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="without Sign in "/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="Login as a guest"/>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="without Sign in "/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
@@ -714,8 +714,8 @@
                                                                         <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Email or phone number"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Email or phone number"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="Phone number"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="Phone number"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>

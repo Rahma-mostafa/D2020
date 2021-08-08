@@ -63,7 +63,9 @@ class RegisterVC: UIViewController {
             .response {[weak self] result in
                 print("Response Code : \(result.response?.statusCode)")
                 if result.response?.statusCode == 200{
-                    KRProgressHUD.showSuccess(withMessage:"تم التسجيل")
+                    KRProgressHUD.showSuccess(withMessage: "تم التسجيل")
+                }else if result.response?.statusCode == 400 {
+                    KRProgressHUD.showSuccess(withMessage: "قيمة الجوال تم استخدامها مسبقاً")
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم تسجيل الدخول")
                 }

@@ -61,6 +61,8 @@ class StoreLocationVC: UIViewController{
     var selectedPin:MKPlacemark? = nil
     var resultSearchController:UISearchController? = nil
     let locationManager = CLLocationManager()
+    var location: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -105,6 +107,7 @@ class StoreLocationVC: UIViewController{
             let region:MKCoordinateRegion = MKCoordinateRegion(center: mylocation, span: span)
             mapView.setRegion(region, animated: true)
             self.mapView.showsUserLocation = true
+            self.location = location
             print(location.coordinate.latitude, location.coordinate.longitude)
         }
         

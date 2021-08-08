@@ -16,8 +16,8 @@ struct StoresCities: Codable {
 struct CityData: Codable {
     let name: String?
     let id: Int?
-    let imageBack: ImageBack?
-    let createdAt, updatedAt: AtedAt?
+    let imageBack: String?
+    let createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case name, id

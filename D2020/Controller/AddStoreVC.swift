@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import KRProgressHUD
+import CoreLocation
 
 class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
@@ -42,7 +43,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     var fileURL: URL?
     var action = ""
     var storeId = 0
-    
+    var storeLocation: CLLocationCoordinate2D?
     
     
     override func viewDidLoad() {
@@ -108,8 +109,14 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         let code = codeTextField.text ?? ""
         let date = dateTextField.text ?? ""
         //        let imgString = newStoreImage?.jpegData(compressionQuality: 0.1)?.base64EncodedString()
-        let longi = ""
-        let lati = ""
+        var longi = ""
+        if let long = storeLocation?.longitude{
+            longi = "\(long)"
+        }
+        var lati = ""
+        if let lat = storeLocation?.latitude{
+            lati = "\(lat)"
+        }
         let video = ""
         
         let requestParameters = ["name": name ,"phone": phone,
@@ -318,6 +325,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     @IBAction func onChooseLocationBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Owner", bundle: nil)
         let scene = storyboard.instantiateViewController(identifier: "StoreLocationVC") as! StoreLocationVC
+        scene.onLocationSelected = {[weak self] location in self?.storeLocation = location}
         navigationController?.pushViewController(scene, animated: true)
     }
     

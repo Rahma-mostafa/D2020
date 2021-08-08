@@ -39,6 +39,7 @@ class HomeVC: BaseController {
         super.viewDidLoad()
 //        self.hiddenNav = true
         setup()
+        loadMenuScreen()
         storesRequest()
         categoriesRequest()
         DispatchQueue.main.async {
@@ -48,6 +49,16 @@ class HomeVC: BaseController {
         self.menuContainerView.isHidden = true
 //        countainerViewConstraint.constant = -450
 
+    }
+    
+    private func loadMenuScreen(){
+        let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        let menuVC = homeStoryboard.instantiateViewController(identifier: "MenuVC")
+        menuVC.willMove(toParent: self)
+        menuVC.view.frame = menuContainerView.bounds
+        menuContainerView.addSubview(menuVC.view)
+        addChild(menuVC)
+        menuVC.didMove(toParent: self)
     }
     
     @objc func changeImage() {

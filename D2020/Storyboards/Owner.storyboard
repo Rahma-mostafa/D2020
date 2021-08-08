@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beN-Z9-Rt3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beN-Z9-Rt3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -491,7 +491,7 @@
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoryForOwnerCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryForOwnerCell" id="1zf-f3-2IP" customClass="CategoryForOwnerCell" customModule="D2020" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                                        <rect key="frame" x="0.0" y="24.5" width="240" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zf-f3-2IP" id="2rn-2s-jlA">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
@@ -571,11 +571,7 @@
                             <constraint firstItem="5tw-i5-HdE" firstAttribute="top" secondItem="XD7-BA-4IE" secondAttribute="top" id="hG0-fe-0gR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ykm-fP-Hrs">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="add_Store"/>
-                        </userDefinedRuntimeAttributes>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ykm-fP-Hrs"/>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="addressTextField" destination="8bD-cq-WM3" id="jpy-U7-Edj"/>
@@ -610,16 +606,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UlB-lh-8tB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="702"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6M-BX-xev">
+                                <rect key="frame" x="12" y="802" width="390" height="48"/>
+                                <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Uh7-bc-pnP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="16"/>
+                                <state key="normal" title="حفظ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedContent" value="save"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="save"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSaveButtonTapped:" destination="TMK-NJ-ca1" eventType="touchUpInside" id="9Yn-bW-Un0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xMe-a6-LUG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UlB-lh-8tB" firstAttribute="top" secondItem="xMe-a6-LUG" secondAttribute="top" id="23d-PR-q7n"/>
                             <constraint firstItem="UlB-lh-8tB" firstAttribute="trailing" secondItem="xMe-a6-LUG" secondAttribute="trailing" id="Awn-i0-mkJ"/>
-                            <constraint firstAttribute="bottom" secondItem="UlB-lh-8tB" secondAttribute="bottom" id="aWE-UN-ikg"/>
+                            <constraint firstItem="w6M-BX-xev" firstAttribute="leading" secondItem="xMe-a6-LUG" secondAttribute="leading" constant="12" id="JDn-1o-bPs"/>
+                            <constraint firstItem="xMe-a6-LUG" firstAttribute="trailing" secondItem="w6M-BX-xev" secondAttribute="trailing" constant="12" id="MMY-G8-MhA"/>
+                            <constraint firstItem="w6M-BX-xev" firstAttribute="top" secondItem="UlB-lh-8tB" secondAttribute="bottom" constant="12" id="aWE-UN-ikg"/>
                             <constraint firstItem="UlB-lh-8tB" firstAttribute="leading" secondItem="xMe-a6-LUG" secondAttribute="leading" id="l4p-Fm-qBY"/>
+                            <constraint firstItem="xMe-a6-LUG" firstAttribute="bottom" secondItem="w6M-BX-xev" secondAttribute="bottom" constant="12" id="nbK-8j-7xh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Z8a-PK-VmE"/>
@@ -641,7 +661,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SearchCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="mZc-D9-pzh" customClass="SearchCell" customModule="D2020" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="52.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="52.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZc-D9-pzh" id="UYB-Dp-wTE">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="52.5"/>
@@ -650,13 +670,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jre-zd-wBW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="52.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-Bi-VPh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-Bi-VPh">
                                                     <rect key="frame" x="30" y="8" width="354" height="17"/>
                                                     <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJc-nc-Vlt">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJc-nc-Vlt">
                                                     <rect key="frame" x="30" y="33" width="354" height="17"/>
                                                     <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1891,14 +1911,6 @@
             <point key="canvasLocation" x="4586.9565217391309" y="1246.875"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="MGk-Mo-eis">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-        <designable name="u2E-ez-Ama">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>
         <image name="avatar" width="16" height="16"/>

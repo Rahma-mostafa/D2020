@@ -77,6 +77,8 @@ class SingleStoreDetailsVC: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         self.photoCollectionView.register(UINib(nibName: "AddPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AddPhotoCell")
+        self.photoCollectionView.register(UINib(nibName: "NotfoundedCollectionCell", bundle: nil), forCellWithReuseIdentifier: "NotfoundedCollectionCell")
+
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -365,6 +367,11 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             cell.photo.sd_setImage(with: URL(string: imageUrl))
             cell.deleteBtn.isHidden = true
             cell.deleteBtn.isUserInteractionEnabled = false
+            if imagesArray.isEmpty == true{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotfoundedCollectionCell", for: indexPath) as! NotfoundedCollectionCell
+                cell.notFoundedLabel.text = "not_found".localized()
+
+            }
             return cell
         }
     }

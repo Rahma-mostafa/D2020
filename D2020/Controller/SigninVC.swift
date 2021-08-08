@@ -160,7 +160,7 @@ class SigninVC: BaseController {
         UserDefaults.standard.removeObject(forKey: UserDefaultKey.USER_PROFILE.rawValue)
         UserDefaults.standard.setValue("guest", forKey: UserDefaultKey.TYPE.rawValue)
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        let scene = storyboard.instantiateViewController(withIdentifier: "HomeVC٦ ") as! HomeVC
         navigationController?.pushViewController(scene, animated: true)
     }
     

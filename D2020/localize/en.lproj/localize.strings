@@ -103,7 +103,8 @@
 "choose city" = "Choose city";
 "name" = "Name";
 "guest" = "guest";
-
+"nofound_video" = "No video founded";
+"not_found" = "Not found";
 
 
 

@@ -36,6 +36,8 @@ class SingleStoreDetailsVC: UIViewController {
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var photoCollectionView: UICollectionView!
 
+    @IBOutlet weak var noPhotoLabel: UILabel!
+    @IBOutlet weak var noProductLabel: UILabel!
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
@@ -60,6 +62,7 @@ class SingleStoreDetailsVC: UIViewController {
         getRestStoreDetialsRequest()
         self.reviewsAvarageView.isUserInteractionEnabled = false
         photoRequest()
+
         
         
         
@@ -77,9 +80,6 @@ class SingleStoreDetailsVC: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         self.photoCollectionView.register(UINib(nibName: "AddPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AddPhotoCell")
-        self.photoCollectionView.register(UINib(nibName: "NotfoundedCollectionCell", bundle: nil), forCellWithReuseIdentifier: "NotfoundedCollectionCell")
-
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1000)
@@ -246,7 +246,7 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.DescribeLabel.text = apiResponseModel.data?.data?.arabicDescription
                 self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                 self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
-                self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                self?.reviewsNumLabel.text = "reviews Number".localized() + " " + String(apiResponseModel.data?.data?.views ?? 0 )
                 self?.rateLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
                 KRProgressHUD.dismiss()
                 
@@ -360,6 +360,9 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
             cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
+            if productArray.isEmpty == true{
+                self.noProductLabel.text = "there is no products".localized()
+            }
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
@@ -368,9 +371,7 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             cell.deleteBtn.isHidden = true
             cell.deleteBtn.isUserInteractionEnabled = false
             if imagesArray.isEmpty == true{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotfoundedCollectionCell", for: indexPath) as! NotfoundedCollectionCell
-                cell.notFoundedLabel.text = "not_found".localized()
-
+                self.noPhotoLabel.text = "there is no photos".localized()
             }
             return cell
         }

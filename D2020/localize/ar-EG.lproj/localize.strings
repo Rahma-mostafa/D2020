@@ -117,7 +117,9 @@
 "guest" = "زائر";
 "nofound_video" = "لا يوجد فيديو";
 "not_found" = "لا يوجد بيانات";
-
+"there is no photos" = "لا يوجد صور";
+"there is no products" = "لا يوجد منتجات";
+"reviews Number" = "شخص قيمه";
 
 
 

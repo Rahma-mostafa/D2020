@@ -49,14 +49,11 @@ class RegisterVC: UIViewController {
         let requestParameters = ["name": name ?? "","mobile": phone ?? "","address": address ?? "","email": mail ?? "","password": password ?? "", "city_id": cityId ?? ""]
         if self.type == "user"{
              apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/register"
-
         }else if self.type == "owner"{
             apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/register"
-
         }else if self.type == "delegate"{
             apiURLInString = "\(APIConstant.BASE_URL.rawValue)rep/register"
         }
-        
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .post, parameters: requestParameters, encoding: URLEncoding.default, headers: nil)
@@ -64,8 +61,11 @@ class RegisterVC: UIViewController {
                 print("Response Code : \(result.response?.statusCode)")
                 if result.response?.statusCode == 200{
                     KRProgressHUD.showSuccess(withMessage: "تم التسجيل")
+                    self?.navToSignIn()
                 }else if result.response?.statusCode == 400 {
-                    KRProgressHUD.showSuccess(withMessage: "قيمة الجوال تم استخدامها مسبقاً")
+                    KRProgressHUD.showError(withMessage: "قيمة الجوال تم استخدامها مسبقاً")
+                    self?.phoneTextField.attributedPlaceholder = NSAttributedString(string: "enter your mobile".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
+                    
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم تسجيل الدخول")
                 }
@@ -106,9 +106,9 @@ class RegisterVC: UIViewController {
 
               iconClick = !iconClick
     }
-    func navToHome(){
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let scene = storyboard.instantiateViewController(identifier: "HomeVC") as! HomeVC
+    func navToSignIn(){
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let scene = storyboard.instantiateViewController(identifier: "SigninVC") as! SigninVC
 //        scene.type = self.type
         navigationController?.pushViewController(scene, animated: true)
         
@@ -129,8 +129,6 @@ class RegisterVC: UIViewController {
             
         }else{
             registerNewUser()
-            navToHome()
-            
         }
     }
     

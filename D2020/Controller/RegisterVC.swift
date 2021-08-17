@@ -8,6 +8,10 @@
 import UIKit
 import Alamofire
 import KRProgressHUD
+struct RegisterError: Codable{
+    var status: Bool?
+    var message: String?
+}
 
 class RegisterVC: UIViewController {
 
@@ -64,8 +68,12 @@ class RegisterVC: UIViewController {
                     self?.navToSignIn()
                 }else if result.response?.statusCode == 400 {
                     KRProgressHUD.showError(withMessage: "قيمة الجوال تم استخدامها مسبقاً")
-                    self?.phoneTextField.attributedPlaceholder = NSAttributedString(string: "enter your mobile".localized(), attributes: [NSAttributedString.Key.foregroundColor:UIColor.red])
-                    
+                    self?.phoneTextField.textColor = .red
+                    guard let apiError = try? JSONDecoder().decode(RegisterError.self, from: result.data!) else{
+                                KRProgressHUD.showError(withMessage: "عطل بالسيرفر")
+                                return
+                            }
+                            KRProgressHUD.showError(withMessage: apiError.message ?? "")
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم تسجيل الدخول")
                 }

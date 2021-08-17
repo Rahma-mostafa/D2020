@@ -25,6 +25,7 @@ class AddProductVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("storeId = \(storeId)")
 
     }
     func addProduct(){

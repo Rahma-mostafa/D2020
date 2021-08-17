@@ -107,7 +107,9 @@
 "not_found" = "Not found";
 "there is no photos" = "there is no photos";
 "there is no products" = "there is no products";
-"reviews Number" = "reviews Number";
+"reviews Number" = "reviews avarage";
+"press to add photos" = "press on upload button to add photos";
+"press to add product" = "press on upload button to add product";
 
 
 

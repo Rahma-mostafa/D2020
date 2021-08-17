@@ -33,6 +33,9 @@ class OwnerStoreDetailsVC: UIViewController {
     @IBOutlet weak var userRatingView: CosmosView!
     @IBOutlet weak var reviewTextField: UITextField!
     @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var emptyImageView: UIImageView!
+    @IBOutlet weak var noProductLabel: UILabel!
+    @IBOutlet weak var emptyPhoto: UILabel!
     @IBOutlet weak var postBtn: UIButton!
     var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
@@ -62,6 +65,7 @@ class OwnerStoreDetailsVC: UIViewController {
         getRestStoreDetialsRequest()
 //        photoRequest()
         userProfileRequest()
+        showPlaceholderImage()
 
        
     }
@@ -89,6 +93,13 @@ class OwnerStoreDetailsVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func showPlaceholderImage(){
+        if imagesArray.isEmpty == true{
+            emptyImageView.isHidden = false
+        }else{
+            emptyImageView.isHidden = true
+        }
     }
     @objc func changeImage() {
         if imagesArray.count == 0{
@@ -199,7 +210,7 @@ class OwnerStoreDetailsVC: UIViewController {
                 self?.DescribeLabel.text = apiResponseModel.data?.data?.arabicDescription
                 self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                 self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
-                self?.reviewsNumLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                self?.reviewsNumLabel.text = "reviews Number".localized() + " " + String(apiResponseModel.data?.data?.views ?? 0 )
                 self?.rateLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
                 KRProgressHUD.dismiss()
                 
@@ -361,6 +372,7 @@ class OwnerStoreDetailsVC: UIViewController {
     }
     @IBAction func onAddPhotoBtnTapped(_ sender: Any) {
         chooseImage()
+        showPlaceholderImage()
     }
     
     @IBAction func onAddVideoBtnTapped(_ sender: Any) {
@@ -409,6 +421,9 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
             cell.deleteBtn.tag = indexPath.item
             cell.deleteBtn.addTarget(self, action: #selector(deleteProduct), for: .touchUpInside)
+            if productArray.isEmpty == true{
+                self.noProductLabel.text = "press to add product".localized()
+            }
 
             return cell
         }else{
@@ -418,6 +433,9 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             cell.photo.sd_setImage(with: URL(string: imageUrl))
             cell.deleteBtn.tag = indexPath.item
             cell.deleteBtn.addTarget(self, action: #selector(deletePhoto), for: .touchUpInside)
+            if imagesArray.isEmpty == true{
+                self.emptyPhoto.text = "press to add photos".localized()
+            }
             return cell
         }
     }

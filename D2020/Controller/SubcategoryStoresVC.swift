@@ -21,7 +21,7 @@ class SubcategoryStoresVC: UIViewController {
     
     @IBOutlet weak var noStoreLabel: UILabel!
     //variables
-    var citiesArray = [CitiesDataClass]()
+    var citiesArray = [CityData]()
     var subcategoryId = 0
     var categoryId = 0
     var SubCategoryStoresArray = [SubCategoryStoresData]()
@@ -189,14 +189,14 @@ class SubcategoryStoresVC: UIViewController {
     }
     func citiesRequest(){
         KRProgressHUD.show()
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/cities"
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/cities"
         guard let apiURL = URL(string: apiURLInString) else{ return }
         Alamofire
             .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
             .response {[weak self] result in
             let jsonConverter = JSONDecoder()
-            guard let apiResponseModel = try? jsonConverter.decode(Cities.self, from: result.data!) else{return}
-                self?.citiesArray = apiResponseModel.data
+            guard let apiResponseModel = try? jsonConverter.decode(StoresCities.self, from: result.data!) else{return}
+                self?.citiesArray = apiResponseModel.data ?? [CityData]()
                 self?.citiesTableView.reloadData()
                 KRProgressHUD.dismiss()
 
@@ -284,7 +284,7 @@ extension SubcategoryStoresVC:  UITextFieldDelegate ,UITableViewDelegate,UITable
             scene.storeId = self.storeId
             navigationController?.pushViewController(scene, animated: true)
         }else{
-            self.cityId = citiesArray[indexPath.row].id
+            self.cityId = citiesArray[indexPath.row].id ?? 0
             self.textBox.text = citiesArray[indexPath.row].name
             cityStoresRequest()
             self.cityView.isHidden = true

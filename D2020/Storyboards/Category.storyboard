@@ -1537,7 +1537,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="KaQ-ZA-AnJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                         <state key="normal" title="contact with admin">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1557,7 +1557,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="RV7-0q-IV8"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                         <state key="normal" title="chat with users">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1577,7 +1577,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="7oz-84-UF8"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                         <state key="normal" title="chat with users">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>

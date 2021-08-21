@@ -50,6 +50,8 @@ class OwnerStoreDetailsVC: UIViewController {
     var avarage: Double? = nil
     var selectedImageId = 0
     var imagePicker = UIImagePickerController()
+    var fileURL: URL?
+
 
 
     override func viewDidLoad() {
@@ -508,5 +510,3 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
 }
-
-

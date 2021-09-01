@@ -15,7 +15,6 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var arabicNameTextField: UITextField!
-    @IBOutlet weak var chooseLocationTextField: UITextField!
     @IBOutlet weak var discTextField: UITextField!
     @IBOutlet weak var arabicDescTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -43,7 +42,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     var action = ""
     var storeId = 0
     var storeLocation: CLLocationCoordinate2D?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,6 +122,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                                  "sub_category_id": "\(subcategoryId)", "longi": longi , "lati": lati,
                                  "end": date , "video": video
         ]
+        
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/store"
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
@@ -148,18 +148,18 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                             KRProgressHUD.showSuccess(withMessage: "تم الحفظ بنجاح")
                         }else{
                             KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                            print(data.response?.statusCode)
                         }
                     }
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
                 }
             case .failure(_):
-                KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                KRProgressHUD.showError(withMessage: "فشل العملية")
             }
         }
         
-        
-        
+    
         
     }
     func editStore(){
@@ -173,8 +173,14 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         let arabicDesc = arabicDescTextField.text ?? ""
         self.categoryTextFiled.isUserInteractionEnabled = false
         let date = dateTextField.text ?? ""
-        let longi = ""
-        let lati = ""
+        var longi = ""
+        if let long = storeLocation?.longitude{
+            longi = "\(long)"
+        }
+        var lati = ""
+        if let lat = storeLocation?.latitude{
+            lati = "\(lat)"
+        }
         let video = ""
         
         let requestParameters = ["name": name ,"phone": phone,
@@ -207,16 +213,16 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                     request.responseData { data in
                         print("Response : \(data.debugDescription)")
                         if data.response?.statusCode == 200{
-                            KRProgressHUD.showSuccess(withMessage: "تم الحفظ بنجاح")
+                            KRProgressHUD.showSuccess(withMessage: "تم التعديل بنجاح")
                         }else{
-                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                            KRProgressHUD.showError(withMessage: "لم يتم التعديل")
                         }
                     }
                 }else{
-                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                    KRProgressHUD.showError(withMessage: "لم يتم التعديل")
                 }
             case .failure(_):
-                KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                KRProgressHUD.showError(withMessage: "فشل العملية")
             }
         }
         

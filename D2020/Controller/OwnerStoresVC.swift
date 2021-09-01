@@ -102,6 +102,7 @@ extension OwnerStoresVC: UITableViewDelegate, UITableViewDataSource{
         cell.editButton.tag = indexPath.row
         cell.editButton.addTarget(self, action: #selector(editStore), for: .touchUpInside)
         cell.rateView.isUserInteractionEnabled = false
+        cell.rateView.rating = Double(savedStoresArray[indexPath.row].rating ?? 0)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

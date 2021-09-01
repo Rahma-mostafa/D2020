@@ -91,11 +91,12 @@ extension OwnerStoresVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
-        cell.categoryImageView.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(savedStoresArray[indexPath.row].image)"))
+        cell.categoryImageView.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(savedStoresArray[indexPath.row].image ?? "")"))
         cell.nameLabel.text = savedStoresArray[indexPath.row].name
-        cell.saveBtn.isUserInteractionEnabled = false
-        cell.deleteBtn.setTitle("حذف", for: .normal)
-        cell.editButton.setTitle("تعديل", for: .normal)
+        let deleteImage = UIImage(named: "red_trash")
+        cell.deleteBtn.setImage(deleteImage, for: .normal)
+        let editImage = UIImage(named: "pen")
+        cell.editButton.setImage(editImage, for: .normal)
         cell.deleteBtn.tag = indexPath.row
         cell.deleteBtn.addTarget(self, action: #selector(deleteStore), for: .touchUpInside)
         cell.editButton.tag = indexPath.row

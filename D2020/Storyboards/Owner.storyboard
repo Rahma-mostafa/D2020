@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold-2.ttf">
+        <array key="ArbFONTS-Cairo-Bold.ttf">
             <string>Cairo-Bold</string>
         </array>
         <array key="Tajawal-Bold.ttf">
@@ -40,7 +40,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H1-A0-1wK">
-                                        <rect key="frame" x="80" y="1034" width="254" height="48"/>
+                                        <rect key="frame" x="80" y="970" width="254" height="48"/>
                                         <color key="backgroundColor" name="OrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="bfZ-LS-3w7"/>
@@ -72,7 +72,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-db-0H8">
-                                        <rect key="frame" x="20" y="70" width="374" height="944"/>
+                                        <rect key="frame" x="20" y="70" width="374" height="880"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dst-vS-ZEJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -157,24 +157,8 @@
                                                     <constraint firstAttribute="trailing" secondItem="WcN-CK-FZD" secondAttribute="trailing" id="wcU-MF-nkF"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmI-fU-4qW">
-                                                <rect key="frame" x="0.0" y="192" width="374" height="48"/>
-                                                <color key="backgroundColor" name="RoundedBigView Color"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="S5P-jt-zsk"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="18"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="code"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="code"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36f-rm-H7L">
-                                                <rect key="frame" x="0.0" y="256" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="192" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="r47-51-IOM"/>
@@ -190,7 +174,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G09-3V-IHy">
-                                                <rect key="frame" x="0.0" y="320" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="256" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Fj2-Ub-Nyd"/>
@@ -206,7 +190,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8bD-cq-WM3">
-                                                <rect key="frame" x="0.0" y="384" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="320" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="0Pa-AH-khG"/>
@@ -222,7 +206,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbo-aq-xzS">
-                                                <rect key="frame" x="0.0" y="448" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="384" width="374" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTA-bd-1qM">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -267,7 +251,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lU4-hP-YL0">
-                                                <rect key="frame" x="0.0" y="512" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="448" width="374" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D84-bv-27C">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -313,7 +297,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCl-PW-O9O">
-                                                <rect key="frame" x="0.0" y="576" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="512" width="374" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-4X-Pdo">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -357,7 +341,7 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bZl-8S-pZr">
-                                                <rect key="frame" x="0.0" y="640" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="576" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="99q-bb-D4I"/>
@@ -373,7 +357,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MCL-b1-Nwh">
-                                                <rect key="frame" x="0.0" y="704" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="640" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="EIj-aP-hyg"/>
@@ -389,7 +373,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uo8-xt-U5N">
-                                                <rect key="frame" x="0.0" y="768" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="704" width="374" height="48"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Ujp-v8-iM1"/>
@@ -405,7 +389,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfj-ew-VaO">
-                                                <rect key="frame" x="0.0" y="832" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="768" width="374" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ri-oC-4do">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -441,7 +425,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH6-aQ-7nQ">
-                                                <rect key="frame" x="0.0" y="896" width="374" height="48"/>
+                                                <rect key="frame" x="0.0" y="832" width="374" height="48"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mh7-gx-DfU">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -479,7 +463,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVy-jU-pE9">
-                                        <rect key="frame" x="20" y="566" width="374" height="448"/>
+                                        <rect key="frame" x="20" y="502" width="374" height="448"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bhn-Ig-5jc">
                                                 <rect key="frame" x="67" y="0.0" width="240" height="448"/>
@@ -580,7 +564,6 @@
                         <outlet property="choosePhotoTextField" destination="9ri-oC-4do" id="9hm-r3-7PB"/>
                         <outlet property="chooseVideoTextField" destination="Mh7-gx-DfU" id="v56-dH-DZQ"/>
                         <outlet property="cityTextField" destination="PB9-4X-Pdo" id="3u3-ey-sNm"/>
-                        <outlet property="codeTextField" destination="hmI-fU-4qW" id="EUe-KH-GDf"/>
                         <outlet property="contantView" destination="RVy-jU-pE9" id="3QF-U5-CsZ"/>
                         <outlet property="dateTextField" destination="uo8-xt-U5N" id="tKX-Mh-z8G"/>
                         <outlet property="discTextField" destination="36f-rm-H7L" id="wwO-sN-Wa3"/>
@@ -1840,13 +1823,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aGM-cY-Yt4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aGM-cY-Yt4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="RoundedBigView Color"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rFT-54-4Fp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="RoundedBigView Color"/>
                         <constraints>
                             <constraint firstItem="aGM-cY-Yt4" firstAttribute="trailing" secondItem="rFT-54-4Fp" secondAttribute="trailing" id="5cQ-2Y-wva"/>
                             <constraint firstItem="aGM-cY-Yt4" firstAttribute="top" secondItem="rFT-54-4Fp" secondAttribute="top" id="TYK-6E-wYS"/>

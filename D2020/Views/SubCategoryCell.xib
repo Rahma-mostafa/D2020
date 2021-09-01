@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="ArbFONTS-Cairo-Bold.ttf">
-            <string>Cairo-Bold</string>
-        </array>
         <array key="ArbFONTS-Cairo-SemiBold-2.ttf">
             <string>Cairo-SemiBold</string>
         </array>
@@ -26,7 +23,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubCategoryCell" id="KGk-i7-Jjw" customClass="SubCategoryCell" customModule="D2020" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -38,7 +35,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-S2-MfK">
-                        <rect key="frame" x="20" y="8" width="280" height="94"/>
+                        <rect key="frame" x="20" y="10" width="280" height="94"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LEv-SR-fsa">
                                 <rect key="frame" x="186" y="0.0" width="94" height="94"/>
@@ -79,37 +76,35 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YXL-Cr-pDB">
-                                <rect key="frame" x="4" y="0.0" width="30" height="94"/>
+                                <rect key="frame" x="20" y="15" width="30" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gak-mk-vnR">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                         <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="17"/>
+                                        <color key="tintColor" name="FadedRed"/>
                                         <state key="normal">
                                             <color key="titleColor" name="OrangeColor"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94s-IR-Zeh">
-                                        <rect key="frame" x="0.0" y="33" width="30" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxj-n1-Jud">
+                                        <rect key="frame" x="0.0" y="34" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="VWx-d6-G6F"/>
-                                            <constraint firstAttribute="height" constant="24" id="ald-8X-8Y9"/>
+                                            <constraint firstAttribute="height" constant="30" id="Vho-sb-hiV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="17"/>
-                                        <state key="normal">
-                                            <color key="titleColor" name="OrangeColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onSaveBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xXk-rI-lxn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxj-n1-Jud">
-                                        <rect key="frame" x="0.0" y="62" width="30" height="32"/>
-                                        <fontDescription key="fontDescription" name="Cairo-SemiBold" family="Cairo" pointSize="17"/>
                                         <state key="normal">
                                             <color key="titleColor" name="OrangeColor"/>
                                         </state>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Sxj-n1-Jud" secondAttribute="trailing" id="5Jh-RV-zVv"/>
+                                    <constraint firstItem="gak-mk-vnR" firstAttribute="leading" secondItem="YXL-Cr-pDB" secondAttribute="leading" id="6FW-kD-Gu0"/>
+                                    <constraint firstAttribute="trailing" secondItem="gak-mk-vnR" secondAttribute="trailing" id="AJ0-iU-EMB"/>
+                                    <constraint firstItem="Sxj-n1-Jud" firstAttribute="height" secondItem="gak-mk-vnR" secondAttribute="height" id="BIa-mm-ynz"/>
+                                    <constraint firstItem="gak-mk-vnR" firstAttribute="top" secondItem="YXL-Cr-pDB" secondAttribute="top" id="aHl-ua-Xbk"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sxj-n1-Jud" secondAttribute="bottom" id="ua0-Z4-nqH"/>
+                                    <constraint firstItem="Sxj-n1-Jud" firstAttribute="leading" secondItem="YXL-Cr-pDB" secondAttribute="leading" id="ywR-aj-Ymj"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -118,12 +113,12 @@
                             <constraint firstItem="kcS-gN-xSm" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" constant="20" id="3id-ty-L9F"/>
                             <constraint firstItem="5MW-NG-G0l" firstAttribute="top" secondItem="kcS-gN-xSm" secondAttribute="bottom" constant="20" id="Ls9-Js-v08"/>
                             <constraint firstItem="LEv-SR-fsa" firstAttribute="leading" secondItem="kcS-gN-xSm" secondAttribute="trailing" constant="14" id="Wy0-xW-QNW"/>
-                            <constraint firstAttribute="bottom" secondItem="YXL-Cr-pDB" secondAttribute="bottom" id="dl2-ku-CoB"/>
-                            <constraint firstItem="YXL-Cr-pDB" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" id="g4Z-Io-Abf"/>
+                            <constraint firstAttribute="bottom" secondItem="YXL-Cr-pDB" secondAttribute="bottom" constant="15" id="dl2-ku-CoB"/>
+                            <constraint firstItem="YXL-Cr-pDB" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" constant="15" id="g4Z-Io-Abf"/>
                             <constraint firstAttribute="height" constant="94" id="g6c-Fx-ylq"/>
                             <constraint firstAttribute="bottom" secondItem="LEv-SR-fsa" secondAttribute="bottom" id="iB9-ZT-fhC"/>
                             <constraint firstItem="LEv-SR-fsa" firstAttribute="leading" secondItem="5MW-NG-G0l" secondAttribute="trailing" constant="14" id="lcT-jz-gVd"/>
-                            <constraint firstItem="YXL-Cr-pDB" firstAttribute="leading" secondItem="aYb-S2-MfK" secondAttribute="leading" constant="4" id="mvl-Jz-3fe"/>
+                            <constraint firstItem="YXL-Cr-pDB" firstAttribute="leading" secondItem="aYb-S2-MfK" secondAttribute="leading" constant="20" id="mvl-Jz-3fe"/>
                             <constraint firstItem="LEv-SR-fsa" firstAttribute="top" secondItem="aYb-S2-MfK" secondAttribute="top" id="nQY-mb-zS5"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -136,7 +131,7 @@
                 <color key="backgroundColor" name="RoundedBigView Color"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="C36-cQ-zXC" secondAttribute="bottom" id="8oJ-rk-aWl"/>
-                    <constraint firstItem="aYb-S2-MfK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Bma-qj-Gar"/>
+                    <constraint firstItem="aYb-S2-MfK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Bma-qj-Gar"/>
                     <constraint firstItem="C36-cQ-zXC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="OCd-8d-Aty"/>
                     <constraint firstAttribute="bottom" secondItem="aYb-S2-MfK" secondAttribute="bottom" constant="8" id="Qyj-y8-BCi"/>
                     <constraint firstAttribute="trailing" secondItem="aYb-S2-MfK" secondAttribute="trailing" constant="20" id="e3I-xm-aF4"/>
@@ -152,7 +147,6 @@
                 <outlet property="editButton" destination="Sxj-n1-Jud" id="19P-qc-CFX"/>
                 <outlet property="nameLabel" destination="kcS-gN-xSm" id="3rY-x3-m0V"/>
                 <outlet property="rateView" destination="5MW-NG-G0l" id="fmP-ss-a1g"/>
-                <outlet property="saveBtn" destination="94s-IR-Zeh" id="Csc-Yt-Fi4"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="51.5625"/>
         </tableViewCell>
@@ -165,6 +159,9 @@
     <resources>
         <image name="star (3)" width="13" height="12"/>
         <image name="star (notSelected)" width="13" height="12"/>
+        <namedColor name="FadedRed">
+            <color red="0.88200002908706665" green="0.23899999260902405" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="OrangeColor">
             <color red="0.99599999189376831" green="0.62400001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

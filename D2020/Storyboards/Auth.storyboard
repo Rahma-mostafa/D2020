@@ -16,9 +16,6 @@
         <array key="ArbFONTS-Sukar Bold.ttf">
             <string>Sukar-Bold</string>
         </array>
-        <array key="Cairo.ttf">
-            <string>Cairo</string>
-        </array>
         <array key="Tajawal-Bold.ttf">
             <string>Tajawal-Bold</string>
         </array>
@@ -59,7 +56,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان قصير من ٤ كلمات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVh-Hv-lRI">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="22"/>
+                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -74,7 +71,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="Mo0-FX-mr3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="19"/>
                                 <state key="normal" title="تسجيل الدخول">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -90,8 +87,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IT2-vP-Xki">
-                                <rect key="frame" x="338" y="88" width="56" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="337" y="88" width="57" height="32"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="17"/>
                                 <state key="normal" title="skip &gt;&gt;">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -107,7 +104,7 @@
                                 <rect key="frame" x="20" y="471.5" width="374" height="59.5"/>
                                 <string key="text">وصف بسيط للعنوان او الميزة الي موجودة بالطبيق يرجى ان تكون جملتين او ثلاث كحد أقصى حتى لا يشعر القارئ بالملل
 </string>
-                                <fontDescription key="fontDescription" name="Cairo" family="Cairo" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -164,7 +161,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="Z7Z-4K-leQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                 <state key="normal" title="تسجيل الدخول">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -194,18 +191,18 @@
                                 <string key="text">وصف بسيط للعنوان او الميزة الي موجودة بالطبيق يرجى ان تكون جملتين او ثلاث كحد أقصى حتى لا يشعر القارئ بالملل
 </string>
                                 <color key="textColor" name="textColor"/>
-                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عنوان قصير من 4 كلمات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Den-sE-7Tm">
                                 <rect key="frame" x="17" y="459" width="382" height="26"/>
-                                <fontDescription key="fontDescription" name="Sukar-Bold" family="Sukar" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TJ-LI-0th">
-                                <rect key="frame" x="338" y="88" width="56" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="337" y="88" width="57" height="32"/>
+                                <fontDescription key="fontDescription" name="Tajawal-Regular" family="Tajawal" pointSize="17"/>
                                 <state key="normal" title="skip &gt;&gt;">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

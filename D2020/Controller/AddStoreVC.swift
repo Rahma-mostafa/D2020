@@ -16,7 +16,6 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var arabicNameTextField: UITextField!
     @IBOutlet weak var chooseLocationTextField: UITextField!
-    @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var discTextField: UITextField!
     @IBOutlet weak var arabicDescTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
@@ -106,9 +105,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         let desc = discTextField.text ?? ""
         let arabicDesc = arabicDescTextField.text ?? ""
         self.categoryTextFiled.isUserInteractionEnabled = false
-        let code = codeTextField.text ?? ""
         let date = dateTextField.text ?? ""
-        //        let imgString = newStoreImage?.jpegData(compressionQuality: 0.1)?.base64EncodedString()
         var longi = ""
         if let long = storeLocation?.longitude{
             longi = "\(long)"
@@ -120,13 +117,12 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         let video = ""
         
         let requestParameters = ["name": name ,"phone": phone,
-                                 "address": address,"email": mail,"code": code,"arabic_name": arabicName,
+                                 "address": address,"email": mail,"arabic_name": arabicName,
                                  "description": desc , "arabic_description": arabicDesc,
                                  "city_id" : "\(cityId)" , "category_id": "\(categoryId)",
                                  "sub_category_id": "\(subcategoryId)", "longi": longi , "lati": lati,
                                  "end": date , "video": video
         ]
-        
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/store"
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
@@ -164,6 +160,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         
         
         
+        
     }
     func editStore(){
         KRProgressHUD.show()
@@ -175,14 +172,13 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         let desc = discTextField.text ?? ""
         let arabicDesc = arabicDescTextField.text ?? ""
         self.categoryTextFiled.isUserInteractionEnabled = false
-        let code = codeTextField.text ?? ""
         let date = dateTextField.text ?? ""
         let longi = ""
         let lati = ""
         let video = ""
         
         let requestParameters = ["name": name ,"phone": phone,
-                                 "address": address,"email": mail,"code": code,"arabic_name": arabicName,
+                                 "address": address,"email": mail,"arabic_name": arabicName,
                                  "description": desc , "arabic_description": arabicDesc,
                                  "city_id" : "\(cityId)" , "category_id": "\(categoryId)",
                                  "sub_category_id": "\(subcategoryId)", "longi": longi , "lati": lati,

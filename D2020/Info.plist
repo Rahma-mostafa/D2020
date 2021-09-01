@@ -40,7 +40,8 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Tajawal</string>
+		<string>Tajawal-Bold.ttf</string>
+		<string>Tajawal-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

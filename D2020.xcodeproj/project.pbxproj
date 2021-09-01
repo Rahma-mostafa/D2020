@@ -34,6 +34,13 @@
 		FA17AB67267DB4B700F02F03 /* WorkTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */; };
 		FA17AB6D267DC3CD00F02F03 /* WorkTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */; };
 		FA17AB6E267DC3CD00F02F03 /* WorkTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */; };
+		FA187D7826E022B3001FE342 /* FullImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA187D7726E022B2001FE342 /* FullImageVC.swift */; };
+		FA187DA926E02F0C001FE342 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79126B952F200AD02DB /* Tajawal-Bold.ttf */; };
+		FA187DAA26E02F0D001FE342 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79126B952F200AD02DB /* Tajawal-Bold.ttf */; };
+		FA187DAB26E02F0E001FE342 /* Tajawal-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79126B952F200AD02DB /* Tajawal-Bold.ttf */; };
+		FA187DAF26E02F12001FE342 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */; };
+		FA187DB026E02F13001FE342 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */; };
+		FA187DB126E02F14001FE342 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */; };
 		FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21A56A26628BCF0085CA25 /* CountryCell.swift */; };
 		FA21A56D26628BCF0085CA25 /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA21A56B26628BCF0085CA25 /* CountryCell.xib */; };
 		FA21A57226628D150085CA25 /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21A57126628D150085CA25 /* LanguageController.swift */; };
@@ -187,6 +194,7 @@
 		FA17AB66267DB4B700F02F03 /* WorkTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeVC.swift; sourceTree = "<group>"; };
 		FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeCell.swift; sourceTree = "<group>"; };
 		FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkTimeCell.xib; sourceTree = "<group>"; };
+		FA187D7726E022B2001FE342 /* FullImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageVC.swift; sourceTree = "<group>"; };
 		FA21A56A26628BCF0085CA25 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		FA21A56B26628BCF0085CA25 /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
 		FA21A57126628D150085CA25 /* LanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
@@ -510,6 +518,7 @@
 				FA743EE626B4EBC800296327 /* singleUserMessageVC.swift */,
 				FAEBB98326B9949D000B5CD3 /* StoreLocationVC.swift */,
 				FA4D5FEB26BAE5450006D78C /* LocationSearchTable.swift */,
+				FA187D7726E022B2001FE342 /* FullImageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -734,6 +743,7 @@
 				FAD288AE26772126009A4C30 /* Delegate.storyboard in Resources */,
 				FA49EFFD266B49E300215EFE /* Category.storyboard in Resources */,
 				FAC780982672F8E7008E73D8 /* CategoriesCell.xib in Resources */,
+				FA187DA926E02F0C001FE342 /* Tajawal-Bold.ttf in Resources */,
 				FAF5CDC52666E2A80002E1CB /* PlacesCell.xib in Resources */,
 				FAFDB048266AB23400CD08A1 /* localize.strings in Resources */,
 				FA72970926A195C3007BF985 /* Owner.storyboard in Resources */,
@@ -741,6 +751,7 @@
 				FA59632626611FD200A8C119 /* Assets.xcassets in Resources */,
 				FA30256A26799C09000E0DC8 /* ProductCell.xib in Resources */,
 				FA0AAF2326646963005E9E35 /* Store.storyboard in Resources */,
+				FA187DAF26E02F12001FE342 /* Tajawal-Regular.ttf in Resources */,
 				FA7A6411267B2E0000DAE9FF /* RateCell.xib in Resources */,
 				FA27C83F267A7DF400EFC09B /* Premium.storyboard in Resources */,
 			);
@@ -750,6 +761,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA187DB026E02F13001FE342 /* Tajawal-Regular.ttf in Resources */,
+				FA187DAA26E02F0D001FE342 /* Tajawal-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +770,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA187DB126E02F14001FE342 /* Tajawal-Regular.ttf in Resources */,
+				FA187DAB26E02F0E001FE342 /* Tajawal-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,6 +970,7 @@
 				FA743EDD26B4DE5400296327 /* AllUserChatsVC.swift in Sources */,
 				FAC780A526747968008E73D8 /* SubCategoryCell.swift in Sources */,
 				D9901E0B269C94B000F631CA /* LanguageHandler.swift in Sources */,
+				FA187D7826E022B3001FE342 /* FullImageVC.swift in Sources */,
 				FACB1EAA268D9F5D00299506 /* SingleChatViewController.swift in Sources */,
 				FA743EE226B4E83400296327 /* ChooseChatViewController.swift in Sources */,
 				FAEDFAB426BE763A00E6C18B /* NotfoundedCollectionCell.swift in Sources */,

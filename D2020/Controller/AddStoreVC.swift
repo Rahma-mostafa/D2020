@@ -132,7 +132,6 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                 formData.append(value.data(using: .utf8) ?? Data(), withName: key)
             }
             if self?.fileURL != nil{
-                
                 formData.append((self?.fileURL!)!, withName: "image")
             }
             

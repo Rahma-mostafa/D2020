@@ -18,7 +18,8 @@ class RateCell: UITableViewCell {
     @IBOutlet weak var commentLAbel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.userImage.layer.borderWidth = 1
+        self.userImage.layer.borderColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

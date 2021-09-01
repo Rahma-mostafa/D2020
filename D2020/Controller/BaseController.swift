@@ -79,7 +79,6 @@ extension UIView {
         layer.shadowColor = color.cgColor
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
-
         let backgroundCGColor = backgroundColor?.cgColor
         backgroundColor = nil
         layer.backgroundColor =  backgroundCGColor
@@ -87,16 +86,17 @@ extension UIView {
 }
 extension UIImageView {
 
-    func addShadowImage(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float) {
+    func addShadowImage(offset: CGSize, color: UIColor, radius: CGFloat, opacity: Float, width: CGFloat ,gcColor: CGColor) {
         layer.masksToBounds = false
         layer.shadowOffset = offset
         layer.shadowColor = color.cgColor
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
-
         let backgroundCGColor = backgroundColor?.cgColor
         backgroundColor = nil
         layer.backgroundColor =  backgroundCGColor
+        layer.borderWidth = width
+        layer.borderColor = gcColor
     }
 }
 extension UIButton {

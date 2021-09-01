@@ -11,7 +11,7 @@ import Alamofire
 import KRProgressHUD
 import SDWebImage
 
-class OwnerStoreDetailsVC: UIViewController {
+class OwnerStoreDetailsVC: BaseController {
     @IBOutlet weak var storeimageView: UIImageView!
     @IBOutlet weak var storeNameLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
@@ -45,6 +45,7 @@ class OwnerStoreDetailsVC: UIViewController {
     var dataDetials = [DataData]()
     var productArray = [Offer]()
     var imagesArray = [Image]()
+    var imageUrl = ""
     var reviewsAvarage  = 0.0
     var phoneNumber = ""
     var avarage: Double? = nil
@@ -62,12 +63,10 @@ class OwnerStoreDetailsVC: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
-        self.reviewsAvarageView.isUserInteractionEnabled = false
         storeDetailsRequest()
         getRestStoreDetialsRequest()
-//        photoRequest()
         userProfileRequest()
-        showPlaceholderImage()
+//        showPlaceholderImage()
 
        
     }
@@ -84,8 +83,9 @@ class OwnerStoreDetailsVC: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         self.photoCollectionView.register(UINib(nibName: "AddPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AddPhotoCell")
-        
-        
+        self.reviewsAvarageView.isUserInteractionEnabled = false
+        self.storeimageView.layer.borderWidth = 1
+        self.storeimageView.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1000)
@@ -430,7 +430,7 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
-            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
+            self.imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(imagesArray[indexPath.row].image ?? "")"
             self.selectedImageId = imagesArray[indexPath.row].id ?? 0
             cell.photo.sd_setImage(with: URL(string: imageUrl))
             cell.deleteBtn.tag = indexPath.item
@@ -439,6 +439,14 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
                 self.emptyPhoto.text = "press to add photos".localized()
             }
             return cell
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == photoCollectionView{
+            let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+            let scene = storyboard.instantiateViewController(withIdentifier: "FullImageVC") as!  FullImageVC
+            scene.imageUrl = self.imageUrl
+            navigationController?.pushViewController(scene, animated: true)
         }
     }
 
@@ -509,4 +517,5 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         }
         return cell
     }
+   
 }

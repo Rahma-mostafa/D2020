@@ -41,6 +41,11 @@
 		FA187DAF26E02F12001FE342 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */; };
 		FA187DB026E02F13001FE342 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */; };
 		FA187DB126E02F14001FE342 /* Tajawal-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA1B79326B952F200AD02DB /* Tajawal-Regular.ttf */; };
+		FA187DB626E03A7E001FE342 /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA187DB526E03A7E001FE342 /* Border.swift */; };
+		FA187DC926E064E6001FE342 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAFDB04A266AB23400CD08A1 /* localize.strings */; };
+		FA187DCD26E064E7001FE342 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAFDB04A266AB23400CD08A1 /* localize.strings */; };
+		FA187DD126E06973001FE342 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AAF2E26646BDE005E9E35 /* Localization.swift */; };
+		FA187DD526E06974001FE342 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AAF2E26646BDE005E9E35 /* Localization.swift */; };
 		FA21A56C26628BCF0085CA25 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21A56A26628BCF0085CA25 /* CountryCell.swift */; };
 		FA21A56D26628BCF0085CA25 /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA21A56B26628BCF0085CA25 /* CountryCell.xib */; };
 		FA21A57226628D150085CA25 /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21A57126628D150085CA25 /* LanguageController.swift */; };
@@ -195,6 +200,7 @@
 		FA17AB6B267DC3CD00F02F03 /* WorkTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimeCell.swift; sourceTree = "<group>"; };
 		FA17AB6C267DC3CD00F02F03 /* WorkTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkTimeCell.xib; sourceTree = "<group>"; };
 		FA187D7726E022B2001FE342 /* FullImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageVC.swift; sourceTree = "<group>"; };
+		FA187DB526E03A7E001FE342 /* Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
 		FA21A56A26628BCF0085CA25 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		FA21A56B26628BCF0085CA25 /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
 		FA21A57126628D150085CA25 /* LanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
@@ -529,6 +535,7 @@
 				FA5963902661493400A8C119 /* AppDelegate.swift */,
 				FA59631E26611FCF00A8C119 /* SceneDelegate.swift */,
 				FA59632526611FD200A8C119 /* Assets.xcassets */,
+				FA187DB526E03A7E001FE342 /* Border.swift */,
 			);
 			path = "Referances ";
 			sourceTree = "<group>";
@@ -761,6 +768,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA187DC926E064E6001FE342 /* localize.strings in Resources */,
 				FA187DB026E02F13001FE342 /* Tajawal-Regular.ttf in Resources */,
 				FA187DAA26E02F0D001FE342 /* Tajawal-Bold.ttf in Resources */,
 			);
@@ -770,6 +778,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA187DCD26E064E7001FE342 /* localize.strings in Resources */,
 				FA187DB126E02F14001FE342 /* Tajawal-Regular.ttf in Resources */,
 				FA187DAB26E02F0E001FE342 /* Tajawal-Bold.ttf in Resources */,
 			);
@@ -922,6 +931,7 @@
 				FA9738C926B2BE620063C66A /* ChooseChatWithVC.swift in Sources */,
 				FA9CF16526ACDF28002261D9 /* CategoriesForOwner.swift in Sources */,
 				FA0840A7269B81E200B6363C /* SelectMapVC.swift in Sources */,
+				FA187DB626E03A7E001FE342 /* Border.swift in Sources */,
 				FA7CA2862679734800A8238C /* NotificationVC.swift in Sources */,
 				FA502B582683ED64005A61DD /* Cities.swift in Sources */,
 				FA30256926799C09000E0DC8 /* ProductCell.swift in Sources */,
@@ -987,6 +997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA187DD126E06973001FE342 /* Localization.swift in Sources */,
 				FA59633426611FD300A8C119 /* D2020Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -995,6 +1006,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA187DD526E06974001FE342 /* Localization.swift in Sources */,
 				FA59633F26611FD300A8C119 /* D2020UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

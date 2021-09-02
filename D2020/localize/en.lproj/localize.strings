@@ -110,7 +110,9 @@
 "reviews Number" = "reviews avarage";
 "press to add photos" = "press on upload button to add photos";
 "press to add product" = "press on upload button to add product";
-
+"views" = "views";
+"location_selected" = "store location has been selected";
+"photo_Selected" = "photo has been selected";
 
 
 

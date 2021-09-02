@@ -52,10 +52,10 @@ class StoreLocationVC: UIViewController{
         guard let onLocationSelected = onLocationSelected else{ return }
         guard let storeLocation = storeLocation else{ return }
         onLocationSelected(storeLocation)
-//        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
-//        let scene = storyboard.instantiateViewController(withIdentifier: "AddStoreVC") as!  AddStoreVC
-//        scene.onLocationSelected = self.onLocationSelected
-        self.navigationController?.popViewController(animated: true)
+        let storyboard = UIStoryboard(name: "Owner", bundle: nil)
+        let scene = storyboard.instantiateViewController(withIdentifier: "AddStoreVC") as!  AddStoreVC
+        scene.isSelected = true
+        self.navigationController?.pushViewController(scene, animated: true)
     }
     
     

@@ -10,6 +10,7 @@ import Alamofire
 import KRProgressHUD
 import CoreLocation
 
+
 class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -24,8 +25,10 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var choosePhotoTextField: UITextField!
     @IBOutlet weak var chooseVideoTextField: UITextField!
+    @IBOutlet weak var chooseLocationTextField: UITextField!
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var contantView: UIView!
     var categoryArray = [CategoryDataClass]()
@@ -42,11 +45,16 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     var action = ""
     var storeId = 0
     var storeLocation: CLLocationCoordinate2D?
+    var isSelected = false
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        if isSelected == true {
+            chooseLocationTextField.text = "location_selected".localized()
+        }
+        chooseDate()
         
         
         
@@ -91,6 +99,26 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
         imagePicker.modalPresentationStyle = .overFullScreen
         self.present(imagePicker, animated: true, completion: nil)
     }
+    func chooseDate(){
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
+
+    }
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            print("\(day) \(month) \(year)")
+        }
+        donedatePicker()
+    }
+    func donedatePicker(){
+      //For date formate
+       let formatter = DateFormatter()
+       formatter.dateFormat = "dd-MM-yyyy"
+       dateTextField.text = formatter.string(from: datePicker.date)
+       //dismiss date picker dialog
+       self.view.endEditing(true)
+        }
+
     
     
     // API request
@@ -122,7 +150,7 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                                  "sub_category_id": "\(subcategoryId)", "longi": longi , "lati": lati,
                                  "end": date , "video": video
         ]
-        
+
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/store"
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
         let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
@@ -157,7 +185,6 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                 KRProgressHUD.showError(withMessage: "فشل العملية")
             }
         }
-        
     
         
     }
@@ -378,7 +405,7 @@ extension AddStoreVC : UITableViewDelegate,UITableViewDataSource{
             
         }else{
             self.cityTextField.text = citiesArray[indexPath.row].name
-            self.cityId = citiesArray[indexPath.row].id ?? 0 
+            self.cityId = citiesArray[indexPath.row].id ?? 0
         }
         self.contantView.isHidden = true
         
@@ -406,6 +433,7 @@ extension AddStoreVC{
             let imageData = pickedImage.jpegData(compressionQuality: 0.4)
             try! imageData?.write(to: imagePath!)
             self.fileURL = imagePath
+            self.choosePhotoTextField.text = "photo_Selected".localized()
         }
         
     }

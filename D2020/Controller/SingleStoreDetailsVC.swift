@@ -218,6 +218,7 @@ class SingleStoreDetailsVC: UIViewController {
                 guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
                     return}
                 self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
+                self?.reviewsNumLabel.text = "reviews Number".localized() + " " + String(self?.reviewArray.count ?? 0)
                 self?.commentTableView.reloadData()
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
@@ -247,7 +248,7 @@ class SingleStoreDetailsVC: UIViewController {
                 self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                 self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
                 self?.reviewsNumLabel.text = "reviews Number".localized() + " " + String(apiResponseModel.data?.data?.views ?? 0 )
-                self?.rateLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                self?.rateLabel.text = "views".localized() + " " + String(apiResponseModel.data?.data?.views ?? 0 )
                 KRProgressHUD.dismiss()
                 
             }
@@ -428,9 +429,9 @@ extension SingleStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)
         cell.rateView.isUserInteractionEnabled = false
         if indexPath.row == 0{
-            cell.titleLabel.text = "تقيمك"
+            cell.titleLabel.text = ""
         }else if indexPath.row == 1{
-            cell.titleLabel.text = "كل التقيمات"
+            cell.titleLabel.text = ""
         }else{
             cell.titleLabel.text = ""
         }

@@ -67,8 +67,6 @@ class OwnerStoreDetailsVC: BaseController {
         getRestStoreDetialsRequest()
         userProfileRequest()
 //        showPlaceholderImage()
-
-       
     }
     func setup(){
         sliderCollectionView.dataSource = self
@@ -164,6 +162,7 @@ class OwnerStoreDetailsVC: BaseController {
                 guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
                     return}
                 self?.reviewArray = apiResponseModel.data?.reviews ?? [Review]()
+                self?.reviewsNumLabel.text = "reviews Number".localized() + " " + String(self?.reviewArray.count ?? 0)
                 self?.commentTableView.reloadData()
                 self?.productArray = apiResponseModel.data?.offers ?? [Offer]()
                 self?.productCollectionView.reloadData()
@@ -178,24 +177,6 @@ class OwnerStoreDetailsVC: BaseController {
                 
             }
     }
-    func photoRequest(){
-        KRProgressHUD.show()
-        print(storeId)
-        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/store_details/\(storeId)"
-        guard let apiURL = URL(string: apiURLInString) else{   return }
-        Alamofire
-            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
-            .response {[weak self] result in
-                let jsonConverter = JSONDecoder()
-                guard let apiResponseModel = try? jsonConverter.decode(StoreDetails.self, from: result.data!) else{
-                    return}
-                self?.imagesArray = apiResponseModel.data?.images ?? [Image]()
-                self?.photoCollectionView.reloadData()
-                KRProgressHUD.dismiss()
-                
-            }
-    }
-
     func getRestStoreDetialsRequest(){
         KRProgressHUD.show()
         print(" Owner store id + \(storeId)")
@@ -212,8 +193,7 @@ class OwnerStoreDetailsVC: BaseController {
                 self?.DescribeLabel.text = apiResponseModel.data?.data?.arabicDescription
                 self?.storeimageView.sd_setImage(with: imageUrl, completed: nil)
                 self?.reviewsAvarageView.rating = Double(apiResponseModel.data?.data?.rating ?? 0 )
-                self?.reviewsNumLabel.text = "reviews Number".localized() + " " + String(apiResponseModel.data?.data?.views ?? 0 )
-                self?.rateLabel.text = String(apiResponseModel.data?.data?.views ?? 0 )
+                self?.rateLabel.text = "views".localized() + " " + String(apiResponseModel.data?.data?.views ?? 0 )
                 KRProgressHUD.dismiss()
                 
             }
@@ -423,10 +403,11 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
             cell.deleteBtn.tag = indexPath.item
             cell.deleteBtn.addTarget(self, action: #selector(deleteProduct), for: .touchUpInside)
-            if productArray.isEmpty == true{
+            if productArray.count == 0{
                 self.noProductLabel.text = "press to add product".localized()
+            }else{
+                self.noProductLabel.text = ""
             }
-
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddPhotoCell", for: indexPath) as! AddPhotoCell
@@ -435,7 +416,7 @@ extension OwnerStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
             cell.photo.sd_setImage(with: URL(string: imageUrl))
             cell.deleteBtn.tag = indexPath.item
             cell.deleteBtn.addTarget(self, action: #selector(deletePhoto), for: .touchUpInside)
-            if imagesArray.isEmpty == true{
+            if imagesArray.count == 0{
                 self.emptyPhoto.text = "press to add photos".localized()
             }
             return cell
@@ -509,9 +490,9 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)
         cell.rateView.isUserInteractionEnabled = false
         if indexPath.row == 0{
-            cell.titleLabel.text = "تقيمك"
+            cell.titleLabel.text = ""
         }else if indexPath.row == 1{
-            cell.titleLabel.text = "كل التقيمات"
+            cell.titleLabel.text = ""
         }else{
             cell.titleLabel.text = ""
         }

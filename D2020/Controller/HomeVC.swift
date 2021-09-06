@@ -65,7 +65,7 @@ class HomeVC: BaseController {
         if counter < slider.count - 1 {
             counter += 1
             let index = IndexPath.init(item: counter, section: 0)
-            self.sliderCollectionView.scrollToNextItem()
+            self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
             pageView.currentPage = counter
         } else {
             counter = 0

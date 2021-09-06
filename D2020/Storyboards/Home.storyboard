@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xGb-tL-5JD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xGb-tL-5JD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -80,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yjt-1y-37U">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bAx-Yw-k0I">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -90,7 +90,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vip-OR-7ZN">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="681"/>
+                                        <rect key="frame" x="0.0" y="44" width="414" height="730"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
@@ -432,17 +432,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqU-bW-Xs3">
-                                                <rect key="frame" x="114" y="0.0" width="300" height="817"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="mDb-cV-hcN"/>
-                                                </constraints>
-                                            </containerView>
                                         </subviews>
                                         <color key="backgroundColor" name="RoundedBigView Color"/>
                                         <constraints>
                                             <constraint firstItem="1TZ-Qo-o3K" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="2rM-iM-RNE"/>
-                                            <constraint firstItem="qqU-bW-Xs3" firstAttribute="top" secondItem="boN-an-gxy" secondAttribute="top" id="5CK-1e-I6o"/>
                                             <constraint firstItem="i7O-fJ-I45" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="7n1-Og-7aI"/>
                                             <constraint firstItem="jcC-NB-i5M" firstAttribute="top" secondItem="FAV-hM-311" secondAttribute="bottom" constant="20" id="AXO-6v-u29"/>
                                             <constraint firstAttribute="bottom" secondItem="SQD-8E-aM3" secondAttribute="bottom" id="AdZ-KP-qXS"/>
@@ -452,7 +445,6 @@
                                             <constraint firstAttribute="trailing" secondItem="jcC-NB-i5M" secondAttribute="trailing" constant="20" id="L1z-Ri-uag"/>
                                             <constraint firstItem="jcC-NB-i5M" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="P9k-b4-kVt"/>
                                             <constraint firstItem="xcX-vz-Q2a" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" constant="20" id="SuW-9V-lDr"/>
-                                            <constraint firstAttribute="trailing" secondItem="qqU-bW-Xs3" secondAttribute="trailing" id="T4O-jd-V3T"/>
                                             <constraint firstItem="i7O-fJ-I45" firstAttribute="top" secondItem="jcC-NB-i5M" secondAttribute="bottom" constant="20" id="Tm3-Fb-Bui"/>
                                             <constraint firstAttribute="trailing" secondItem="xcX-vz-Q2a" secondAttribute="trailing" constant="20" id="VKS-57-NmH"/>
                                             <constraint firstItem="zdm-1S-PAj" firstAttribute="top" secondItem="xcX-vz-Q2a" secondAttribute="bottom" constant="20" id="YLf-uz-kmB"/>
@@ -465,7 +457,6 @@
                                             <constraint firstItem="SQD-8E-aM3" firstAttribute="top" secondItem="boN-an-gxy" secondAttribute="top" id="j2q-nI-ECz"/>
                                             <constraint firstItem="SQD-8E-aM3" firstAttribute="leading" secondItem="boN-an-gxy" secondAttribute="leading" id="ok6-V9-xSE"/>
                                             <constraint firstItem="1TZ-Qo-o3K" firstAttribute="bottom" secondItem="FAV-hM-311" secondAttribute="bottom" constant="-5" id="wxm-Rs-BBD"/>
-                                            <constraint firstAttribute="bottom" secondItem="qqU-bW-Xs3" secondAttribute="bottom" id="xYv-Kz-M1M"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -478,13 +469,22 @@
                                     <constraint firstItem="boN-an-gxy" firstAttribute="height" secondItem="bFD-oz-0sp" secondAttribute="height" id="s7b-YH-MEK"/>
                                 </constraints>
                             </scrollView>
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqU-bW-Xs3">
+                                <rect key="frame" x="114" y="88" width="300" height="812"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="mDb-cV-hcN"/>
+                                </constraints>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mv4-Ks-hTh"/>
                         <color key="backgroundColor" name="RoundedBigView Color"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qqU-bW-Xs3" secondAttribute="bottom" id="9Ih-5y-rbx"/>
                             <constraint firstItem="bFD-oz-0sp" firstAttribute="top" secondItem="0RW-OS-64c" secondAttribute="top" id="RdN-FW-CR2"/>
                             <constraint firstItem="bFD-oz-0sp" firstAttribute="leading" secondItem="mv4-Ks-hTh" secondAttribute="leading" id="TjQ-vt-eyH"/>
+                            <constraint firstItem="qqU-bW-Xs3" firstAttribute="top" secondItem="mv4-Ks-hTh" secondAttribute="top" id="neH-yP-eZG"/>
                             <constraint firstItem="bFD-oz-0sp" firstAttribute="trailing" secondItem="mv4-Ks-hTh" secondAttribute="trailing" id="pTh-nX-LyP"/>
+                            <constraint firstItem="mv4-Ks-hTh" firstAttribute="trailing" secondItem="qqU-bW-Xs3" secondAttribute="trailing" id="xY1-QG-OSu"/>
                             <constraint firstItem="bFD-oz-0sp" firstAttribute="bottom" secondItem="mv4-Ks-hTh" secondAttribute="bottom" id="zpA-p8-wj0"/>
                         </constraints>
                     </view>
@@ -507,7 +507,6 @@
                     <connections>
                         <outlet property="blurView" destination="SQD-8E-aM3" id="o9t-h0-Bqb"/>
                         <outlet property="categoryCollectionView" destination="i7O-fJ-I45" id="7UR-I1-gXH"/>
-                        <outlet property="countainerViewConstraint" destination="T4O-jd-V3T" id="tWp-pr-05Z"/>
                         <outlet property="menuContainerView" destination="qqU-bW-Xs3" id="nWp-gi-tJq"/>
                         <outlet property="pageView" destination="1TZ-Qo-o3K" id="Oep-mM-BZa"/>
                         <outlet property="scrollView" destination="bFD-oz-0sp" id="qV9-iW-LAZ"/>
@@ -1148,7 +1147,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mBi-Jk-B8V"/>
+        <segue reference="LzS-kV-Zib"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Group 3" width="24" height="24"/>

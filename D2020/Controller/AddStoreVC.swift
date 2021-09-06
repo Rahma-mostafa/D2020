@@ -142,14 +142,15 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
             lati = "\(lat)"
         }
         let video = ""
-        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateFormatted = dateFormatter.string(from: Date())
         let requestParameters = ["name": name ,"phone": phone,
                                  "address": address,"email": mail,"arabic_name": arabicName,
                                  "description": desc , "arabic_description": arabicDesc,
                                  "city_id" : "\(cityId)" , "category_id": "\(categoryId)",
                                  "sub_category_id": "\(subcategoryId)", "longi": longi , "lati": lati,
-                                 "end": date , "video": video
-        ]
+                                 "end": dateFormatted , "video": video]
 
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/store"
         let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
@@ -160,7 +161,15 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                 formData.append(value.data(using: .utf8) ?? Data(), withName: key)
             }
             if self?.fileURL != nil{
-                formData.append((self?.fileURL!)!, withName: "image")
+                if let image = Helper.load(fileURL: self!.fileURL!) {
+                    if let pngImage = image.pngData(){
+                        let fileName = "storeي.png"
+                        var documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                        let newFileURL = documentsUrl.appendingPathComponent(fileName)
+                        try? pngImage.write(to: newFileURL, options: .atomic)
+                        formData.append(newFileURL, withName: "image")
+                    }
+                }
             }
             
         }, to: apiURL,method: .post,headers: headers) { result in
@@ -181,7 +190,8 @@ class AddStoreVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
                 }else{
                     KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
                 }
-            case .failure(_):
+            case .failure(let error):
+                print("Error : \(error)")
                 KRProgressHUD.showError(withMessage: "فشل العملية")
             }
         }

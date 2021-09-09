@@ -1839,10 +1839,10 @@
                     <connections>
                         <outlet property="arabicDescTextField" destination="h5V-zp-91r" id="E8K-uy-Rma"/>
                         <outlet property="arabicNameTextField" destination="dwx-Vg-rAS" id="WFw-Jc-Yd5"/>
-                        <outlet property="choosePhotoTextField" destination="elM-5R-XeV" id="YMh-Xz-qqz"/>
+                        <outlet property="choosePhotoTextField" destination="hyz-27-jCZ" id="ZKh-hD-fNT"/>
                         <outlet property="discTextField" destination="xG5-77-aRw" id="8Jd-YT-Dze"/>
                         <outlet property="nameTextField" destination="eyK-jF-A2K" id="4Dd-ie-ych"/>
-                        <outlet property="offerTextField" destination="elM-5R-XeV" id="Gef-OI-GjQ"/>
+                        <outlet property="offerTextField" destination="elM-5R-XeV" id="uJz-NS-v0Q"/>
                         <outlet property="priceTextField" destination="jlJ-6R-of4" id="RU4-Dy-hXG"/>
                     </connections>
                 </viewController>

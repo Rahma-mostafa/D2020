@@ -51,7 +51,9 @@ class OwnerStoreDetailsVC: BaseController {
     var avarage: Double? = nil
     var selectedImageId = 0
     var imagePicker = UIImagePickerController()
+    var newStoreImage: UIImage?
     var fileURL: URL?
+    var productAdded = false
 
 
 
@@ -66,6 +68,7 @@ class OwnerStoreDetailsVC: BaseController {
         storeDetailsRequest()
         getRestStoreDetialsRequest()
         userProfileRequest()
+        reloadProductCollection()
 //        showPlaceholderImage()
     }
     func setup(){
@@ -84,6 +87,11 @@ class OwnerStoreDetailsVC: BaseController {
         self.reviewsAvarageView.isUserInteractionEnabled = false
         self.storeimageView.layer.borderWidth = 1
         self.storeimageView.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    func reloadProductCollection(){
+        if productAdded == true{
+            productCollectionView.reloadData()
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 1000)
@@ -250,6 +258,54 @@ class OwnerStoreDetailsVC: BaseController {
                 
             }
     }
+    func addPhoto(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/stores/store_images/\(storeId)"
+        let token = UserDefaults.standard.string(forKey: UserDefaultKey.USER_AUTHENTICATION_TOKEN.rawValue) ?? ""
+        let headers = ["Authorization":"Bearer \(token)","Accept": "application/json","Content-Type" : "multipart/form-data"]
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire.upload(multipartFormData: {[weak self] formData in
+//            for (key,value) in requestParameters{
+//                formData.append(value.data(using: .utf8) ?? Data(), withName: key)
+//            }
+            if self?.fileURL != nil{
+                if let image = Helper.load(fileURL: self!.fileURL!) {
+                    if let pngImage = image.pngData(){
+                        let fileName = "storeي.png"
+                        var documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                        let newFileURL = documentsUrl.appendingPathComponent(fileName)
+                        try? pngImage.write(to: newFileURL, options: .atomic)
+                        formData.append(newFileURL, withName: "image")
+                    }
+                }
+            }
+            
+        }, to: apiURL,method: .post,headers: headers) { result in
+            switch result{
+            case .success(let request, _, _):
+                print(request.debugDescription)
+                print(request.request?.debugDescription)
+                if true{
+                    request.responseData { data in
+                        print("Response : \(data.debugDescription)")
+                        if data.response?.statusCode == 200{
+                            KRProgressHUD.showSuccess(withMessage: "تم الحفظ بنجاح")
+                        }else{
+                            KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                            print(data.response?.statusCode)
+                        }
+                    }
+                }else{
+                    KRProgressHUD.showError(withMessage: "لم يتم الحفظ")
+                }
+            case .failure(let error):
+                print("Error : \(error)")
+                KRProgressHUD.showError(withMessage: "فشل العملية")
+            }
+        }
+    
+        
+    }
     @objc func deletePhoto(sender:UIButton){
         KRProgressHUD.show()
         let apiURLInString = "\(APIConstant.BASE_URL.rawValue)owner/products/destroy_image/\(imagesArray[sender.tag].id ?? 0)"
@@ -355,6 +411,7 @@ class OwnerStoreDetailsVC: BaseController {
     @IBAction func onAddPhotoBtnTapped(_ sender: Any) {
         chooseImage()
         showPlaceholderImage()
+        addPhoto()
     }
     
     @IBAction func onAddVideoBtnTapped(_ sender: Any) {
@@ -499,4 +556,29 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
    
+}
+extension OwnerStoreDetailsVC{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        self.newStoreImage = image
+        let fileManager = FileManager.default
+        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        let imagePath = documentsPath?.appendingPathComponent("image.jpg")
+        
+        // extract image from the picker and save it
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            let imageData = pickedImage.jpegData(compressionQuality: 0.4)
+            try! imageData?.write(to: imagePath!)
+            self.fileURL = imagePath
+        }
+        
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker.dismiss(animated: true)
+    }
+    
 }

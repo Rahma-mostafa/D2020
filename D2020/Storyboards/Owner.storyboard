@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beN-Z9-Rt3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="beN-Z9-Rt3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8H1-A0-1wK">
-                                        <rect key="frame" x="80" y="970" width="254" height="48"/>
+                                        <rect key="frame" x="80" y="906" width="254" height="48"/>
                                         <color key="backgroundColor" name="OrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="bfZ-LS-3w7"/>
@@ -72,7 +72,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-db-0H8">
-                                        <rect key="frame" x="20" y="70" width="374" height="880"/>
+                                        <rect key="frame" x="20" y="70" width="374" height="816"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dst-vS-ZEJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -451,56 +451,20 @@
                                                     <constraint firstAttribute="bottom" secondItem="9ri-oC-4do" secondAttribute="bottom" id="yQd-bh-Ig7"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cH6-aQ-7nQ">
-                                                <rect key="frame" x="0.0" y="832" width="374" height="48"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mh7-gx-DfU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
-                                                        <color key="backgroundColor" name="RoundedBigView Color"/>
-                                                        <fontDescription key="fontDescription" name="Tajawal-Bold" family="Tajawal" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="18"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedPlaceholder" value="choose Video"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizeKey" value="chooseVideo"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-4M-1Eu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
-                                                        <connections>
-                                                            <action selector="onChooseVideoBtnTapped:" destination="WBU-lD-X4a" eventType="touchUpInside" id="tJt-M1-Oqb"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="lv8-4M-1Eu" secondAttribute="trailing" id="3c0-Nc-Xt6"/>
-                                                    <constraint firstAttribute="bottom" secondItem="lv8-4M-1Eu" secondAttribute="bottom" id="DWe-gt-HlZ"/>
-                                                    <constraint firstItem="Mh7-gx-DfU" firstAttribute="leading" secondItem="cH6-aQ-7nQ" secondAttribute="leading" id="QSW-Gy-jGp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Mh7-gx-DfU" secondAttribute="trailing" id="Z6M-Mo-vcR"/>
-                                                    <constraint firstItem="lv8-4M-1Eu" firstAttribute="leading" secondItem="cH6-aQ-7nQ" secondAttribute="leading" id="bKM-6z-j8X"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Mh7-gx-DfU" secondAttribute="bottom" id="bbb-DV-YNU"/>
-                                                    <constraint firstItem="lv8-4M-1Eu" firstAttribute="top" secondItem="cH6-aQ-7nQ" secondAttribute="top" id="otD-RB-QGT"/>
-                                                    <constraint firstAttribute="height" constant="48" id="qUd-md-hxJ"/>
-                                                    <constraint firstItem="Mh7-gx-DfU" firstAttribute="top" secondItem="cH6-aQ-7nQ" secondAttribute="top" id="sy0-2g-hi5"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVy-jU-pE9">
-                                        <rect key="frame" x="20" y="502" width="374" height="448"/>
+                                        <rect key="frame" x="20" y="502" width="374" height="384"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bhn-Ig-5jc">
-                                                <rect key="frame" x="67" y="0.0" width="240" height="448"/>
+                                                <rect key="frame" x="67" y="0.0" width="240" height="384"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="fux-6e-Ney"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CategoryForOwnerCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryForOwnerCell" id="1zf-f3-2IP" customClass="CategoryForOwnerCell" customModule="D2020" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="240" height="44"/>
+                                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zf-f3-2IP" id="2rn-2s-jlA">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
@@ -590,7 +554,6 @@
                         <outlet property="categoryTextFiled" destination="OTA-bd-1qM" id="3k6-8V-iVC"/>
                         <outlet property="chooseLocationTextField" destination="Mc4-Ju-A6q" id="4r7-bH-qMY"/>
                         <outlet property="choosePhotoTextField" destination="9ri-oC-4do" id="9hm-r3-7PB"/>
-                        <outlet property="chooseVideoTextField" destination="Mh7-gx-DfU" id="v56-dH-DZQ"/>
                         <outlet property="cityTextField" destination="PB9-4X-Pdo" id="3u3-ey-sNm"/>
                         <outlet property="contantView" destination="RVy-jU-pE9" id="3QF-U5-CsZ"/>
                         <outlet property="datePicker" destination="7GB-OV-pDn" id="JSD-Dl-cTT"/>
@@ -671,7 +634,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SearchCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="mZc-D9-pzh" customClass="SearchCell" customModule="D2020" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="52.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="52.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZc-D9-pzh" id="UYB-Dp-wTE">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="52.5"/>
@@ -2030,14 +1993,6 @@
             <point key="canvasLocation" x="7373.913043478261" y="1041.9642857142858"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="MGk-Mo-eis">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-        <designable name="u2E-ez-Ama">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>
         <image name="avatar" width="16" height="16"/>

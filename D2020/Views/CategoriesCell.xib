@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-Vg-ZCj">
                         <rect key="frame" x="0.0" y="0.0" width="84" height="140"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-g2-zu4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-g2-zu4">
                                 <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="gW4-21-gvJ"/>

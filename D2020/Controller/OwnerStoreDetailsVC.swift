@@ -65,6 +65,7 @@ class OwnerStoreDetailsVC: BaseController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
+        reloadProductCollection()
         storeDetailsRequest()
         getRestStoreDetialsRequest()
         userProfileRequest()
@@ -541,7 +542,8 @@ extension OwnerStoreDetailsVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("RateCell", owner: self, options: nil)?.first as! RateCell
-        cell.userImage.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(reviewArray[indexPath.row].image ?? "")"), completed: nil)
+        let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(reviewArray[indexPath.row].image ?? "")"
+        cell.userImage.sd_setImage(with: URL(string: imageUrl ))
         cell.commentLAbel.text = reviewArray[indexPath.row].review
         cell.nameLabel.text = reviewArray[indexPath.row].username
         cell.rateView.rating = Double(reviewArray[indexPath.row].rating ?? 0)

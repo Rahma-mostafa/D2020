@@ -1649,14 +1649,6 @@
             <point key="canvasLocation" x="9912" y="-595"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="myE-X7-4jo">
-            <size key="intrinsicContentSize" width="85" height="13"/>
-        </designable>
-        <designable name="vqy-nc-5s5">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Pearl_Valley_Swiss_Slices_36762caf-0757-45d2-91f0-424bcacc9892_large@3x" width="64" height="64"/>
         <image name="Polygon -1" width="13" height="6"/>

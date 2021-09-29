@@ -37,7 +37,6 @@ class OwnerStoreDetailsVC: BaseController {
     @IBOutlet weak var noProductLabel: UILabel!
     @IBOutlet weak var emptyPhoto: UILabel!
     @IBOutlet weak var postBtn: UIButton!
-    var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
     var storeId = 0

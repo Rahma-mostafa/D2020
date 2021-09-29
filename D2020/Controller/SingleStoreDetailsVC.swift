@@ -38,7 +38,6 @@ class SingleStoreDetailsVC: UIViewController {
 
     @IBOutlet weak var noPhotoLabel: UILabel!
     @IBOutlet weak var noProductLabel: UILabel!
-    var slider = [Slider(image: "slideShow"),Slider(image: "slideShow"),Slider(image: "slideShow")]
     var timer = Timer()
     var counter = 0
     var storeId = 0

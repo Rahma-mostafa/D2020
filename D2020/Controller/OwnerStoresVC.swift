@@ -93,7 +93,7 @@ extension OwnerStoresVC: UITableViewDelegate, UITableViewDataSource{
         let cell = Bundle.main.loadNibNamed("SubCategoryCell", owner: self, options: nil)?.first as! SubCategoryCell
         cell.categoryImageView.sd_setImage(with: URL(string: "\(APIConstant.BASE_IMAGE_URL.rawValue)\(savedStoresArray[indexPath.row].image ?? "")"))
         cell.nameLabel.text = savedStoresArray[indexPath.row].name
-        let deleteImage = UIImage(named: "red_trash")
+        let deleteImage = UIImage(named: "delete")
         cell.deleteBtn.setImage(deleteImage, for: .normal)
         let editImage = UIImage(named: "pen")
         cell.editButton.setImage(editImage, for: .normal)

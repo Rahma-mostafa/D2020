@@ -9,9 +9,6 @@ import UIKit
 import Alamofire
 import SDWebImage
 import KRProgressHUD
-struct Slider {
-    let image: String
-}
 
 class HomeVC: BaseController {
     
@@ -25,8 +22,8 @@ class HomeVC: BaseController {
     @IBOutlet weak var menuContainerView: UIView!
     // variables
     var isSideMenuHidden = true
-    var slider = [Slider(image: "header_login"),Slider(image: "b1"),Slider(image: "b2")]
     var categoryArray = [categoriesDataClass]()
+    var sliderImages = [SliderImagesData]()
     var storesArray = [StoesDataClass]()
     var timer = Timer()
     var counter = 0
@@ -42,6 +39,7 @@ class HomeVC: BaseController {
         loadMenuScreen()
         storesRequest()
         categoriesRequest()
+        SliderImagesRequest()
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
@@ -62,7 +60,7 @@ class HomeVC: BaseController {
     }
     
     @objc func changeImage() {
-        if counter < slider.count - 1 {
+        if counter < sliderImages.count - 1 {
             counter += 1
             let index = IndexPath.init(item: counter, section: 0)
             self.sliderCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: false)
@@ -86,7 +84,7 @@ class HomeVC: BaseController {
         self.storesCollectionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: "PlacesCell")
         storesCollectionView.delegate = self
         storesCollectionView.dataSource = self
-        pageView.numberOfPages = slider.count
+        pageView.numberOfPages = sliderImages.count
         pageView.currentPage = 0
         
     }
@@ -130,6 +128,21 @@ class HomeVC: BaseController {
                 
             }
     }
+    func SliderImagesRequest(){
+        KRProgressHUD.show()
+        let apiURLInString = "\(APIConstant.BASE_URL.rawValue)user/slider"
+        guard let apiURL = URL(string: apiURLInString) else{ return }
+        Alamofire
+            .request(apiURL, method: .get , parameters: nil, encoding: URLEncoding.default, headers: nil)
+            .response {[weak self] result in
+                let jsonConverter = JSONDecoder()
+                guard let apiResponseModel = try? jsonConverter.decode(SliderImages.self, from: result.data!) else{return}
+                self?.sliderImages = apiResponseModel.data ?? [SliderImagesData]()
+                self?.sliderCollectionView.reloadData()
+                KRProgressHUD.dismiss()
+                
+            }
+    }
     
     func storesRequest(){
         KRProgressHUD.show()
@@ -153,7 +166,7 @@ class HomeVC: BaseController {
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == sliderCollectionView {
-            return slider.count
+            return sliderImages.count
         }else if collectionView == categoryCollectionView{
             return categoryArray.count
         }else{
@@ -164,7 +177,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == sliderCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
-            cell.backgroundImage.image = UIImage(named: slider[indexPath.row].image)
+            let imageUrl = "\(APIConstant.BASE_IMAGE_URL.rawValue)\(sliderImages[indexPath.row].image ?? "" )"
+            cell.backgroundImage.sd_setImage(with: URL(string: imageUrl))
             return cell
         }else if collectionView == categoryCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCell", for: indexPath) as! CategoriesCell
@@ -196,15 +210,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
         }
     }
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if collectionView == sliderCollectionView{
-//            self.pageView.currentPage = indexPath.item
-//        }
-    }
-    
-    
-    
-    
     
 }
 

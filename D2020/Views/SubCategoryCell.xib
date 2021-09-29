@@ -158,6 +158,11 @@
             <point key="canvasLocation" x="140.57971014492756" y="51.5625"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="5MW-NG-G0l">
+            <size key="intrinsicContentSize" width="85" height="13"/>
+        </designable>
+    </designables>
     <resources>
         <image name="star (3)" width="13" height="12"/>
         <image name="star (notSelected)" width="13" height="12"/>

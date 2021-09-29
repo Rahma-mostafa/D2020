@@ -310,7 +310,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="160" id="QvC-fJ-RNg"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nfB-zc-504">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nfB-zc-504">
                                                     <size key="itemSize" width="128" height="160"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -323,6 +323,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="iLe-X1-s5e"/>
                                                 </constraints>
+                                                <color key="pageIndicatorTintColor" name="textColor"/>
+                                                <color key="currentPageIndicatorTintColor" name="OrangeColor"/>
                                             </pageControl>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jcC-NB-i5M">
                                                 <rect key="frame" x="20" y="200" width="374" height="30"/>
@@ -363,10 +365,10 @@
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-fJ-I45">
-                                                <rect key="frame" x="20" y="250" width="374" height="280"/>
+                                                <rect key="frame" x="20" y="250" width="374" height="300"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="280" id="DLX-gU-qFI"/>
+                                                    <constraint firstAttribute="height" constant="300" id="DLX-gU-qFI"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gEa-Jb-aby">
                                                     <size key="itemSize" width="97" height="140"/>
@@ -377,7 +379,7 @@
                                                 <cells/>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xcX-vz-Q2a">
-                                                <rect key="frame" x="20" y="550" width="374" height="30"/>
+                                                <rect key="frame" x="20" y="570" width="374" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVF-0V-8lz">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="30"/>
@@ -415,7 +417,7 @@
                                                 </constraints>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zdm-1S-PAj">
-                                                <rect key="frame" x="20" y="600" width="374" height="257"/>
+                                                <rect key="frame" x="20" y="620" width="374" height="257"/>
                                                 <color key="backgroundColor" name="RoundedBigView Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="257" id="XCa-CZ-2BY"/>
@@ -773,7 +775,7 @@
         <scene sceneID="Rik-Qt-euU">
             <objects>
                 <viewController storyboardIdentifier="MenuVC" id="tMP-ss-ees" customClass="MenuVC" customModule="D2020" customModuleProvider="target" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Fyc-0j-9DN">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" id="Fyc-0j-9DN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>

@@ -40,6 +40,8 @@ class HomeVC: BaseController {
         storesRequest()
         categoriesRequest()
         SliderImagesRequest()
+        pageView.numberOfPages = sliderImages.count
+        pageView.currentPage = 0
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
@@ -74,6 +76,7 @@ class HomeVC: BaseController {
         
     }
     
+    
     func setup(){
         sliderCollectionView.dataSource = self
         sliderCollectionView.delegate = self
@@ -84,8 +87,7 @@ class HomeVC: BaseController {
         self.storesCollectionView.register(UINib(nibName: "PlacesCell", bundle: nil), forCellWithReuseIdentifier: "PlacesCell")
         storesCollectionView.delegate = self
         storesCollectionView.dataSource = self
-        pageView.numberOfPages = sliderImages.count
-        pageView.currentPage = 0
+       
         
     }
     func setBlur(){
@@ -210,7 +212,24 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
         }
     }
+}
+extension HomeVC: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == sliderCollectionView{
+            let size = sliderCollectionView.frame.size
+            return CGSize(width: size.width, height: size.height)
+        }else{
+//            let size = categoryCollectionView.frame.size
+//            let width = (size.width ) / 3
+//            let height = (size.height) / 2
+            return CGSize(width: 84 , height: 140)
+        }
+
+    }
+ 
+
+
 }
 
 extension UICollectionView {

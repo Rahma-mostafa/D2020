@@ -360,8 +360,10 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             cell.nameLabel.text = productArray[indexPath.row].name
             cell.priceLabel.text = productArray[indexPath.row].price
             cell.offerLabel.text = productArray[indexPath.row].offer ?? ""
-            if productArray.isEmpty == true{
-                self.noProductLabel.text = "there is no products".localized()
+            if productArray.count == 0{
+                self.noProductLabel.text = "press to add product".localized()
+            }else{
+                self.noProductLabel.text = ""
             }
             return cell
         }else{
@@ -370,8 +372,8 @@ extension SingleStoreDetailsVC: UICollectionViewDelegate, UICollectionViewDataSo
             cell.photo.sd_setImage(with: URL(string: imageUrl))
             cell.deleteBtn.isHidden = true
             cell.deleteBtn.isUserInteractionEnabled = false
-            if imagesArray.isEmpty == true{
-                self.noPhotoLabel.text = "there is no photos".localized()
+            if imagesArray.count == 0{
+                self.noPhotoLabel.text = "press to add photos".localized()
             }
             return cell
         }

@@ -2,7 +2,7 @@
 // To parse the JSON, add this file to your project and do:
 //
 //   let stores = try? newJSONDecoder().decode(Stores.self, from: jsonData)
-
+//
 import Foundation
 
 // MARK: - Stores

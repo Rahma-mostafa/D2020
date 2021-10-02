@@ -43,11 +43,20 @@ class MenuVC: UIViewController {
         logoutGesture()
         userProfileRequest()
 //        languageGesture()
+
         
 
     }
-   
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        userProfileRequest()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 300 )
+        
+    }
+
     func hideOwnerStore(){
         self.myStoresStackView.isHidden = true
         self.addStoreStackView.isHidden = true
@@ -65,16 +74,7 @@ class MenuVC: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        userProfileRequest()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height )
-        
-    }
- 
+
     func profileGesture(){
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(MenuVC.navToProfile(recognizer:)))
         tapGesture.numberOfTapsRequired = 1
